@@ -1,3 +1,6 @@
 *-backups
 _autosave-*
 /KM217-WiFi/fp-info-cache
+/KM217-WiFi/*.zip
+/KM217-WiFi/Export
+/KM217-WiFi/KM217-WiFi.pdf
