@@ -2850,7 +2850,7 @@
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp cdb53c3d-bea5-4973-87a2-bfa678cc86b9)
     )
-    (fp_text value "NP" (at 0 -1.43) (layer "B.Fab")
+    (fp_text value "1M" (at 0 -1.43) (layer "B.Fab")
       (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp 15d8b566-8713-41ee-a11f-ea9dbcd396f9)
     )
