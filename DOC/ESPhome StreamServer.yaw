@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SettingsName>YAT Workspace Settings</SettingsName>
+  <SettingsVersion>1.2.3</SettingsVersion>
+  <ProductVersion>2.4.1</ProductVersion>
+  <Warning>Modifying structure and/or content may cause undefined behavior!</Warning>
+  <Mark>
+    <TimeStamp>2022-01-31T00:52:10.0940335+01:00</TimeStamp>
+    <UserName>danie</UserName>
+  </Mark>
+  <AutoSaved>false</AutoSaved>
+  <Workspace>
+    <Layout>Maximize</Layout>
+    <TerminalSettings>
+      <FilePath>.\ESPhome StreamServer Terminal1.yat</FilePath>
+      <FixedId>1</FixedId>
+      <Window>
+        <State>Maximized</State>
+        <Location>
+          <X>0</X>
+          <Y>0</Y>
+        </Location>
+        <Size>
+          <Width>854</Width>
+          <Height>600</Height>
+        </Size>
+      </Window>
+    </TerminalSettings>
+  </Workspace>
+</Settings>

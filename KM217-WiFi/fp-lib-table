@@ -1,0 +1,9 @@
+(fp_lib_table
+  (lib (name "Private_Connectors")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_Connectors.pretty")(options "")(descr ""))
+  (lib (name "Private_IC")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_IC.pretty")(options "")(descr ""))
+  (lib (name "Private_NPTH")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_NPTH.pretty")(options "")(descr ""))
+  (lib (name "Private_D")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_D.pretty")(options "")(descr ""))
+  (lib (name "Private_C")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_C.pretty")(options "")(descr ""))
+  (lib (name "Private_R")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_R.pretty")(options "")(descr ""))
+  (lib (name "Private_L")(type "KiCad")(uri "${KICAD_PRIVATE_LIBS}/Footprints/Private_L.pretty")(options "")(descr ""))
+)
