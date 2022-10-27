@@ -2,6 +2,9 @@
 
 A direct KM217 replacement with WiFi connection to control a buderus heating system with Logamatic 2107 controller board.
 
+This hardware and its documentation is released under the *TAPR Open Hardware License* Version 1.0 (May 25, 2007). 
+A [copy of the license](LICENSE.txt) is included here or can be accessed in multiple formats on [tapr.org](https://tapr.org/the-tapr-open-hardware-license/). 
+
 For more details, look on my [blog post](https://the78mole.de/reverse-engineering-the-buderus-km217/) or on [tindie](https://www.tindie.com/products/the78mole/buderus-km217-wifi-replacement/).
 
 Here is the latest picture of the 0.0.5 I received as the assembly confirmation (only SMD parts) from manufacturer:
