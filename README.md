@@ -11,7 +11,7 @@ Here is the latest picture of the 0.0.5 I received as the assembly confirmation 
 
 And this is a early 0.0.5 proto hand soldered.
 
-![v0.0.5_proto_top](IMG/KM271-WiFi_0.0.5_proto_top)
+![v0.0.5_proto_top](IMG/KM271-WiFi_0.0.5_proto_top.jpg)
 
 Here is a Version 0.0.1 board with fixes (corrected RX & TX pins of ESP32):
 
