@@ -7,7 +7,7 @@
   (paper "A4")
   (title_block
     (title "Buderus-KM217-WIFI")
-    (date "2022-01-09")
+    (date "2022-10-13")
     (rev "0.0.5")
     (company "the78mole")
     (comment 1 "Author: Daniel Glaser")
@@ -75,7 +75,7 @@
       (plotinvisibletext false)
       (sketchpadsonfab false)
       (subtractmaskfromsilk true)
-      (outputformat 1)
+      (outputformat 4)
       (mirror false)
       (drillshape 0)
       (scaleselection 1)

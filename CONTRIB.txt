@@ -1,0 +1,6 @@
+If you want to contribute to the project, you can do this using 
+Gitlab issues or by writing an email to me. Also I would request 
+you to send me a notice about derived work and successful 
+production of the hardware.
+
+contrib(at)the78mole.de
