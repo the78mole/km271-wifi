@@ -7,6 +7,8 @@ A [copy of the license](LICENSE.txt) is included here or can be accessed in mult
 
 For more details, look on my [blog post](https://the78mole.de/reverse-engineering-the-buderus-km217/) or on [tindie](https://www.tindie.com/products/the78mole/buderus-km217-wifi-replacement/).
 
+If you bought the board in my tindie store, you could find a how-to to get it running [here](https://the78mole.de/projects/km271-wifi-howto/)
+
 Here is the latest picture of the 0.0.5 I received as the assembly confirmation (only SMD parts) from manufacturer:
 
 ![v0.0.5_SMD_Top](IMG/KM271-WiFi_0.0.5_bottom.jpg)
