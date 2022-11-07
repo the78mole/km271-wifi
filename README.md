@@ -11,6 +11,7 @@ If you bought the board in my tindie store, you could find a how-to to get it ru
 
 Here is the latest picture of the 0.0.5 I received as the assembly confirmation (only SMD parts) from manufacturer:
 
+![v0.0.5_SMD_Top fully assembled](IMG/KM271-WiFi_0.0.5_top_fully.jpg)
 ![v0.0.5_SMD_Top](IMG/KM271-WiFi_0.0.5_bottom.jpg)
 ![v0.0.5_SMD_Bottom](IMG/KM271-WiFi_0.0.5_top.jpg)
 
