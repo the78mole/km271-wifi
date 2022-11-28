@@ -38,26 +38,44 @@ esp32_improv:
   
 captive_portal:
 
-# "Status LED1"
+uart:
+  id: uart_bus
+  tx_pin: GPIO2
+  rx_pin: GPIO4
+  baud_rate: 2400
+
+external_components:
+  - source:
+      type: local
+      path: my_components/components
+    components: [ km271_wifi ]
+#  - source: github://the78mole/esphome_components@main
+#    components: [ km271_wifi ]
+ 
+
+km271_wifi:
+  - id: budoil
+    uart_id: uart_bus
+
+#  - platform: km271_wifi
+#    km271_id: budoil
+#    name: "Vorlaufisttemperatur"
+#    reg_id: 0x8003
+
 status_led:
+  id: ledgn1
   pin: 
     number: GPIO21
     inverted: true
 
-switch:
-  - platform: gpio
-    pin: GPIO22
-    name: "LED 2"
-    inverted: true
-    id: led2
-
-output:
-  - platform: gpio
-    pin: GPIO23
-    inverted: true
-    id: led3
-    
 binary_sensor:
+  - platform: km271_wifi
+    boiler_error:
+      name: "KM271 Kesselfehler"
+    boiler_running:
+      name: "KM271 Kesselbetrieb"
+    load_pump_running:
+      name: "KM271 Ladepumpe"
   - platform: gpio
     name: "USER 1"
     pin:
@@ -80,3 +98,126 @@ binary_sensor:
       mode:
         input: true
         pullup: true
+
+sensor:
+  - platform: km271_wifi
+    heating_circuit_1_flow_target_temperature:
+      name: "KM271 Vorlaufsolltemperatur"
+    heating_circuit_1_flow_temperature:
+      name: "KM271 Vorlauftemperatur"
+    hot_water_target_temperature:
+      name: "KM271 Warmwassersolltemperatur"
+    hot_water_temperature:
+      name: "KM271 Warmwassertemperatur"
+    boiler_target_temperature:
+      name: "KM271 Kesselvorlaufsolltemperatur"
+    boiler_temperature:
+      name: "KM271 Kesselvorlauftemperatur"
+    outdoor_temperature:
+      name: "KM271 Außentemperatur"
+    room_target_temperature:
+      name: "KM271 Raumsolltemperatur"
+    heating_curve_n10:
+      name: "KM271 Heizkurve -10 °C"
+    heating_curve_0:
+      name: "KM271 Heizkurve 0 °C"
+    heating_curve_p10:
+      name: "KM271 Heizkurve +10 °C"
+    boiler_turn_on_temperature:
+      name: "KM271 Brennereinschalttemperatur"
+    boiler_turn_off_temperature:
+      name: "KM271 Brennerausschalttemperatur"
+
+  - platform: wifi_signal
+    name: "KM217 WiFi Signal Sensor"
+    update_interval: 60s
+
+#sensor:
+  - platform: adc
+    pin: 36
+    unit_of_measurement: "V"
+    name: "KM217 5V Supply"
+    accuracy_decimals: 2
+    update_interval: 60s
+    attenuation: 6dB
+    filters:
+      - multiply: 2.274
+      - sliding_window_moving_average:
+          window_size: 16
+          send_every: 4
+  - platform: adc
+    pin: 32
+    unit_of_measurement: "V"
+    name: "KM217 ADC CH4"
+    accuracy_decimals: 2
+    update_interval: 60s
+    attenuation: 6dB
+    filters:
+      - multiply: 2.274
+      - sliding_window_moving_average:
+          window_size: 16
+          send_every: 4
+  - platform: adc
+    pin: 33
+    unit_of_measurement: "V"
+    name: "KM217 ADC CH5"
+    accuracy_decimals: 2
+    update_interval: 60s
+    attenuation: 6dB
+    filters:
+      - multiply: 2.274
+      - sliding_window_moving_average:
+          window_size: 16
+          send_every: 4
+  - platform: adc
+    pin: 34
+    unit_of_measurement: "V"
+    name: "KM217 ADC CH6"
+    accuracy_decimals: 2
+    update_interval: 60s
+    attenuation: 6dB
+    filters:
+      - multiply: 2.274
+      - sliding_window_moving_average:
+          window_size: 16
+          send_every: 4
+  - platform: adc
+    pin: 35
+    unit_of_measurement: "V"
+    name: "KM217 ADC CH7"
+    accuracy_decimals: 2
+    update_interval: 60s
+    attenuation: 6dB
+    filters:
+      - multiply: 2.274
+      - sliding_window_moving_average:
+          window_size: 16
+          send_every: 4
+  - platform: wifi_signal
+    name: "KM217 WiFi Signal Sensor"
+    update_interval: 60s
+      
+switch:
+  - platform: gpio
+    id: led2
+    name: LED2_Green
+    pin: 
+      number: 22
+      mode: OUTPUT
+      inverted: true
+
+output:
+  - platform: gpio
+    id: led3
+    #name: LED3_Yellow
+    pin: 
+      number: 23
+      mode: OUTPUT
+      inverted: true
+  - platform: gpio
+    id: led4
+    #name: LED4_Red
+    pin: 
+      number: 25
+      mode: OUTPUT
+      inverted: true
