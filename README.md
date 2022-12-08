@@ -22,3 +22,11 @@ And this is a early 0.0.5 proto hand soldered.
 Here is a Version 0.0.1 board with fixes (corrected RX & TX pins of ESP32):
 
 ![v0.0.1_fixed](IMG/Buderus-KM217-Clone_0.0.1_with_fixes.jpg)
+
+## Improvements / ToDo
+
+ * Add a 100 nF filter capacitor to the 5V sense signal parallel to R12 (same as the other ADC inputs)
+ * Add OneWire connector and optional I2C-OneWire-Master (DS2484)
+ * Add extension connector with SPI and I2C interface (e.g. for a Display)
+ * Add a OneWire temperature Sensor on the board itself
+
