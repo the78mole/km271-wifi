@@ -9,19 +9,9 @@ For more details, look on my [blog post](https://the78mole.de/reverse-engineerin
 
 If you bought the board in my tindie store, you could find a how-to to get it running [here](https://the78mole.de/projects/km271-wifi-howto/)
 
-Here is the latest picture of the 0.0.5 I received as the assembly confirmation (only SMD parts) from manufacturer:
+This is the board as I ship it currently fully assembled:
 
 ![v0.0.5_SMD_Top fully assembled](IMG/KM271-WiFi_0.0.5_top_fully.jpg)
-![v0.0.5_SMD_Top](IMG/KM271-WiFi_0.0.5_bottom.jpg)
-![v0.0.5_SMD_Bottom](IMG/KM271-WiFi_0.0.5_top.jpg)
-
-And this is a early 0.0.5 proto hand soldered.
-
-![v0.0.5_proto_top](IMG/KM271-WiFi_0.0.5_proto_top.jpg)
-
-Here is a Version 0.0.1 board with fixes (corrected RX & TX pins of ESP32):
-
-![v0.0.1_fixed](IMG/Buderus-KM217-Clone_0.0.1_with_fixes.jpg)
 
 ## Improvements / ToDo
 
