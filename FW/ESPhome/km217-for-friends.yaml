@@ -146,18 +146,6 @@ sensor:
           window_size: 16
           send_every: 4
   - platform: adc
-    pin: 32
-    unit_of_measurement: "V"
-    name: "KM217 ADC CH4"
-    accuracy_decimals: 2
-    update_interval: 60s
-    attenuation: 6dB
-    filters:
-      - multiply: 2.274
-      - sliding_window_moving_average:
-          window_size: 16
-          send_every: 4
-  - platform: adc
     pin: 33
     unit_of_measurement: "V"
     name: "KM217 ADC CH5"
@@ -211,7 +199,7 @@ output:
     id: led3
     #name: LED3_Yellow
     pin: 
-      number: 23
+      number: 17
       mode: OUTPUT
       inverted: true
   - platform: gpio
