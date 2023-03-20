@@ -27,7 +27,7 @@ The EEPROM is meant to store persistent settings, that shall survive a full eras
 
 #### I2C-OneWire Bridge
 
-Since I had a lot of positive experience using the OneWire bridge devices in the past, having more range than a GPIO-based solution, to be able to drive the bus with strong power, sharpening the rising edge with strong pull-up and release the firmware from many burdens (e.g. the search algorithm), I decided to add such a bridge to the board as an option. Unfortunately, ESPhome has not yet a componentto support it. Maybe I'll develop one sooner or later. Feel free to take the challenge :-)
+Since I had a lot of positive experience using the OneWire bridge devices in the past, having more range than a GPIO-based solution, to be able to drive the bus with strong power, sharpening the rising edge with strong pull-up and release the firmware from many burdens (e.g. the search algorithm), I decided to add such a bridge to the board as an option. Unfortunately, ESPhome has not yet a component to support it. Maybe I'll develop one sooner or later. Feel free to take the challenge :-)
 
 ![I2C Part 2](../IMG/Schematics%20I2C_2.PNG)
 
@@ -39,7 +39,7 @@ The PCA9306 can be enabled by IO12 of the ESP32. The output voltage levels can b
 
 ## OneWire
 
-One wire is a very versatile bus, invented by Dallas, aquired by Maxim-IC and now is owned by Analog Devices. Nevertheless, still today new chips are released, extending the functionality of the OneWire bus more and more. The most widely known devices are the temperature sensors, namely the DS18B20. Up to 85°C, they do not even require a power supply and run completely from bus power. You can almost connect as many OneWire devices to the bus, as you want. There also exist switches, that can split you bus into segments and extend the range even further.
+One wire is a very versatile bus, invented by Dallas, aquired by Maxim-IC and now is owned by Analog Devices. Nevertheless, still today new chips are released, extending the functionality of the OneWire bus more and more. The most widely known devices are the temperature sensors, namely the DS18B20. Up to 85°C, they do not even require a power supply and run completely from bus power. You can almost connect as many OneWire devices to the bus, as you want. There also exist switches, that can split your bus into segments and extend the range even further.
 
 To address this wide spread sensors appropriately, I added an extension header to easily connect such devices and I also added a OneWire bus master (also known as I2C-OneWire-Bridge) to make even more use of it. Here are the OneWire relevant Pins:
 
@@ -65,14 +65,6 @@ To decide for a good value, you should consult the 1-wire applications notes for
 
 Due to many requests (e.g. to attach a small display), I added an extension pin header to the board, that carries I2C and SPI and two helper signals. This header can be quipped with a simple flat ribbon cable or a custom PCB. Feel free to create extensions and post me your creations (preferred by Pull-Requests to this repo, added here with a link to the project :-). 
 
-## Extension Wire Connector
-
-To make it easily possible to add other sensors (as the mentioned OneWire) attachable, I added a push wire connector to the board. The Type is a WAGO 2086-1208 that can be ordered e.g. from [Reichelt](https://www.reichelt.de/thr-leiterplattenklemme-druecker-1-5-mm-8-polig-wago-2086-1208-p327148.html) or any other good sorted electronics shop.
-
-The connector provides +5V, +3.3V and GND. Additionally, the internal circuitry for Pin 2 (ADC1 CH7), 4 (ADC1 CH6) & 6 (ADC1 CH5) is populated by default, to have 1K Pull-Up to +3.3V and a 100 nF to GND. So if you attach a 10K NTC between Pin 1 & 2, you have a simple resistor divider to be measured by ADC1 Channel 7. From that measurement, the Resistance can be easily calculated and from that and the temperature relation of the NTC, the temperature in turn. For more details, see the [section on NTC temperature measurement of ESPhome](https://esphome.io/components/sensor/ntc.html). In ESPhome, you could simply chain the platforms ADC, Resistance and NTC to get a temperature sensor from that. 
-
-This connector can also be used to supply power to the board for 5V and 3.3V.
-
 ![Extension Header](../IMG/Schematics%20ExtHeader.PNG)
 
 | Header | ESP32 Pin   | Signal    | Description                                               |
@@ -86,7 +78,17 @@ This connector can also be used to supply power to the board for 5V and 3.3V.
 | 7      | IO23        | MOSI      | SPI MOSI signal                                           |
 | 8      | IO14        | nINT      | I2C interrupt signal (attention !!! +3V3 !!!)             |
 | 9      | IO18        | SCLK      | SPI clock signal                                          |
-| 10     | (GND)       | GND       | Ground signal of the whole module                         |          
+| 10     | (GND)       | GND       | Ground signal of the whole module                         |     
+
+## Extension Wire Connector
+
+To make it easily possible to add other sensors (as the mentioned OneWire) attachable, I added a push wire connector to the board. The Type is a WAGO 2086-1208 that can be ordered e.g. from [Reichelt](https://www.reichelt.de/thr-leiterplattenklemme-druecker-1-5-mm-8-polig-wago-2086-1208-p327148.html) or any other good sorted electronics shop.
+
+The connector provides +5V, +3.3V and GND. Additionally, the internal circuitry for Pin 2 (ADC1 CH7), 4 (ADC1 CH6) & 6 (ADC1 CH5) is populated by default, to have 1K Pull-Up to +3.3V and a 100 nF to GND. So if you attach a 10K NTC between Pin 1 & 2, you have a simple resistor divider to be measured by ADC1 Channel 7. From that measurement, the Resistance can be easily calculated and from that and the temperature relation of the NTC, the temperature in turn. For more details, see the [section on NTC temperature measurement of ESPhome](https://esphome.io/components/sensor/ntc.html). In ESPhome, you could simply chain the platforms ADC, Resistance and NTC to get a temperature sensor from that. 
+
+This connector can also be used to supply power to the board for 5V and 3.3V.     
+
+![OneWire selection on J6](../IMG/Schematics%20OneWire.PNG)
 
 ## Power Supply Options
 
