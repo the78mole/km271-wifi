@@ -1,6 +1,11 @@
-# logamatic_2107_wifi_comm
+# KM271-WiFi (WiFi enabled replacement for the KM271)
 
-A direct KM217 replacement with WiFi connection to control a buderus heating system with Logamatic 2107 controller board.
+![Buderus Logamatic 2107 M grey](IMG/Logamatic_2107M_grey.PNG)
+
+[![Current Release](https://img.shields.io/github/release/the78mole/km271-wifi.svg)](https://github.com/the78mole/km271-wifi/releases/latest)    
+![GitHub Release Date](https://img.shields.io/github/release-date/the78mole/km271-wifi)    
+
+This piece of hardware is a direct replacement for the Buderus KM217 to control a buderus heating system with Logamatic 2107 controller board. Maybe other controllers are supported. Please file an issue (or better a PR) if you have my module running in other Buderus heating controllers, so I can add them here.
 
 This hardware and its documentation is released under the *TAPR Open Hardware License* Version 1.0 (May 25, 2007). 
 A [copy of the license](LICENSE.txt) is included here or can be accessed in multiple formats on [tapr.org](https://tapr.org/the-tapr-open-hardware-license/). 
