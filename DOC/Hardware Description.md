@@ -1,8 +1,59 @@
 # KM271/KM217 WiFi
 
+![KM271-WiFi mostly populated](../IMG/KM271-WiFi-0.0.6-Active.jpg)
+
 The current board as of version 0.0.6 got a bit more complicated than earlier versions. It was extended by many features requested from the community. I will explain the features and their options in the following parts.
 
 First of all, KM271 and KM217 is totally the same. The KM271 is the original RS232 extension from Buderus and it was my fault, having a typo here in the early beginning, when first releasing the module to the public. Now many file names have the KM217 in their name and changing it would simply be a nightmare... So just call it as you like it :-) 
+
+# Preparation and Installation of the Module
+
+After unpacking the module, first thing you need to do is break off the two handling edges of the PCB. These are left-overs from manufacturing and I keep them attached, as they give additional protection to the edges of the board during transport. You can use a finger nail file to remove shrap edges.
+
+You also need to remove the protective foil from the edge connector. These foils protect the contacts from solder tin during reworks (when applying the selected order options) and also from scratches to and oxidation of the finger contacts.
+
+Now check, if the power select header (if populated) has the correct jumper settings (see section "Power Supply Options" section). When done, insert the card into your Buderus control unit. Detailed instructions on how to connect the board to your WiFi and Home Assistant can be found here: <a href="http://bit.ly/3IWEZ5z">http://bit.ly/3IWEZ5z</a>
+
+<img src="../IMG/HowTo-QR.png" alt="HowTo QR" width="200px"/>
+
+In a few words, the path with ESPhome service running e.g. as a Home Assistant add-on is as follows:
+
+- Power up the board with following options (if populated) by
+  - inserting the module into the Buderus control unit
+  - (optional) through USB connector (set J3 correctly)
+  - (optional) through 3.3V on the debug, extension or sensor header
+  - (optional) through 5V on the sensor header
+- Wait for at least one minute for the fallback WiFi-AP to come up
+- If you use your smartphone to connect: Switch of the mobile internet connection (3G/4G/LTE)
+- Connect your Smartphone or PC to the Fallback WiFi network
+- Your smartphone tells, that you need to login to access internet (follow this)
+- You will be forwarded to the ESP inital configuration page (see image below)
+- Select your home WiFi from the list of the page and enter your WiFi credentials
+- Press `Save` to apply the settings
+- Watch the Home Assistant Web UI for a notification to appear
+- Follow this notification and select `Configure` for the ESPhome device that was found
+- Now you can enter the ESPhome Web UI, adjust the YAML file to your needs and do an OTA firmware update
+
+<img src="../IMG/esphome-fallback-page.png" alt="Fallback Login" width="300px"/>
+
+<div style="page-break-after: always"></div>
+
+## Power Supply Options
+
+When you receive the assembled board, it will be powered by the Buderus control unit by default. When there is no power supply header installed, two zero-ohm resistors select the supply:
+  - Bridge from LDO output  to 3.3V of ESP
+  - Bridge from Buderus 5V to the LDO input
+
+If the power select header (J3) is installed, the two zero-ohm resistors are not populated. Therefore, two jumpers take over. These exactly mimic the behaviour of the zero-ohm resistors, when the board was assembled by me. This means in turn, even when a USB connector (J2) is assembled, the jumper configuration defaults to the Buderus supply, because I already had support requests complaining about non-functional boards with no USB power applied but jumpers set to USB supply.
+
+But since some of the Buderus Heating Control units seem to have a weak power supply, some of the users of my extension suffer from, I added a USB power connector [Würth 65100516121](https://www.we-online.com/en/components/products/COM_SMT_MINI_TYPE_B_HORIZONTAL#65100516121) or [Reichelt USB BWM SMD](https://www.reichelt.de/usb-einbaubuchse-b-mini-gew-smd-montage-usb-bwm-smd-p52003.html) and the possibility to cut the supply from the 5V from Buderus. I'm not sure, if this is a problem of certain controllers equipped with a ton of original extensions or just scattering of good and bad supplies, but as soon as you attach other power hungry extensions to my board (like LC displays, many sensors,...), you should make use of this external power option.
+
+For this purpose, I added a power select pin header (J3) with jumpers for the two 5V options (top = USB, bottom = Buderus) and if you want to supply 3.3V, you can cut-off the 3.3.V-LDO from the circuit with the middle Jumper.
+
+![Power Select](../IMG/Power%20Select.PNG)
+![Power Supply](../IMG/Schematics%20Power%20Supply.PNG)
+
+If you populate the power select header yourself, do not forget to remove the two resistors R68 and R67.
 
 ## I2C
 
@@ -51,8 +102,8 @@ To address this wide spread sensors appropriately, I added an extension header t
 
 The relevant parts of the OneWire feature are as follows:
 
-![OneWire selection on J6](../IMG/Schematics%20OneWire.PNG)
-![I2C Onewire Bridge](../IMG/Schematics%20I2C_2.PNG)
+<img alt="OneWire selection on J6" src="../IMG/Schematics OneWire.PNG" width="48%" />
+<img alt="I2C Onewire Bridge" src="../IMG/Schematics I2C_2.PNG" width="48%" />
 
 If you want to use OneWire directly on ESP32 GPIO, you first need to fit in a 0 Ohm R66. With this, you can easily drive OneWire from IO. Additionally you need to populate R49 with an appropriate resistor to serve your needs. Depending on the bus load, the length and the devices in general, you should always try out different values. In my case (with relatively short lines), 1K often serverd well. But I usually tend to supply the devices with a seperate power rail (3.3 or 5V), since the temperature sensors do not work with parasite power above 85°C, which can be quite common in heating applications (oil, gas burners, wood stoves, solar).
 
@@ -89,17 +140,6 @@ The connector provides +5V, +3.3V and GND. Additionally, the internal circuitry 
 This connector can also be used to supply power to the board for 5V and 3.3V.     
 
 ![OneWire selection on J6](../IMG/Schematics%20OneWire.PNG)
-
-## Power Supply Options
-
-Since some of the Buderus Heating Control units seem to have a weak power supply, some of the users of my extension suffer from, I added a USB power connector [Würth 65100516121](https://www.we-online.com/en/components/products/COM_SMT_MINI_TYPE_B_HORIZONTAL#65100516121) or [Reichelt USB BWM SMD](https://www.reichelt.de/usb-einbaubuchse-b-mini-gew-smd-montage-usb-bwm-smd-p52003.html) and the possibility to cut the supply from the 5V from Buderus. I'm not sure, if this is a problem of certain controllers equipped with a ton of original extensions or just scattering of good and bad supplies, but as soon as you attach other power hungry extensions to my board (like LC displays, many sensors,...), you should make use of this external power option.
-
-For this purpose, I added a power select pin header (J3) with jumpers for the two 5V options (top = USB, bottom = Buderus) and if you want to supply 3.3V, you can cut-off the 3.3.V-LDO from the circuit with the middle Jumper.
-
-![Power Select](../IMG/Power%20Select.PNG)
-![Power Supply](../IMG/Schematics%20Power%20Supply.PNG)
-
-By default, when not shipped with the connector assembled, there are two 0 Ohm resistors (R67 and R68) populated, that take over the burden of the two jumpers. If you populate the pin header yourself, do not forget to remove these two resistors.
 
 ## DEBUG Connector
 
