@@ -6,8 +6,8 @@
 
   (title_block
     (title "Buderus-KM217-WIFI")
-    (date "2023-09-15")
-    (rev "0.0.7")
+    (date "2023-09-27")
+    (rev "0.0.8")
     (company "the78mole")
     (comment 1 "Author: Daniel Glaser")
   )
