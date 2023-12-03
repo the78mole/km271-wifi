@@ -5,3 +5,6 @@ _autosave-*
 /KM217-WiFi/Export
 /KM217-WiFi/KM217-WiFi.pdf
 /KM217-WiFi/2023-02-08 PCBway order
+*.bak
+**/jlcpcb/
+*.lck
