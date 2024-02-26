@@ -1,4 +1,4 @@
-$COMPORT = "COM3"
+$COMPORT = "COM4"
 $BAUDRATE = 921600
 $FWFILE = "buderus_km271_esp32_flash_v3.2.4.bin"
 
