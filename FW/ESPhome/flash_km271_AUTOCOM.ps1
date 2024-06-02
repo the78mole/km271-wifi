@@ -61,7 +61,7 @@ if ($matches.Success) {
 
 $COMPORT = "$($matches.Value)"
 $BAUDRATE = 921600
-$FWFILE = "buderus_km271_esp32_flash_v4.1.0.bin"
+$FWFILE = "km271-for-friends-factory.bin"
 
 Write-Host ""
 Write-Host "COM Port: $COMPORT"
@@ -85,9 +85,9 @@ while($true) {
 
 	Write-Host "#########################################################"
     Write-Host "Hier die Informationen zum Target:"	
-	C:\Users\danie\Tools\esptool-v3.3.2-win64\esptool.exe --chip esp32 --port $COMPORT --baud $BAUDRATE flash_id
+	C:\Users\danie\Tools\esptool-v3.3.2-win64\esptool.exe --chip esp32 --baud $BAUDRATE flash_id
 
 	Write-Host "#########################################################"
 	
-	C:\Users\danie\Tools\esptool-v3.3.2-win64\esptool.exe --chip esp32 --port $COMPORT --baud $BAUDRATE write_flash -z 0x0 $FWFILE
+	C:\Users\danie\Tools\esptool-v3.3.2-win64\esptool.exe --chip esp32 --baud $BAUDRATE write_flash -z 0x0 $FWFILE
 }
