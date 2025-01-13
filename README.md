@@ -14,7 +14,7 @@ For more details, look on
   
   * in the [hardware description](DOC/Hardware%20Description.md)
   * my [blog post](https://the78mole.de/reverse-engineering-the-buderus-km217/) 
-  * [interactive BOM](https://htmlpreview.github.io/?https://github.com/the78mole/km271-wifi/blob/main/KM217-WiFi/bom/ibom.html)
+  * [interactive BOM](https://htmlpreview.github.io/?https://github.com/the78mole/km271-wifi/blob/main/KM217-WiFi/bom/ibom_0.1.0.html)
   * [tindie](https://www.tindie.com/products/the78mole/buderus-km217-wifi-replacement/).
 
 If you bought the board in my tindie store, you could find a how-to to get it running [here](https://the78mole.de/projects/km271-wifi-howto/)
