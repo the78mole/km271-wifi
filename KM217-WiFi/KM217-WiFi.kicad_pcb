@@ -231,7 +231,7 @@
 			)
 		)
 		(property "Value" "USER1"
-			(at 0 4.75 -90)
+			(at 0 4.75 90)
 			(layer "F.Fab")
 			(uuid "28168752-56b0-4e7c-905e-5696ed3a23e6")
 			(effects
@@ -242,7 +242,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "bb438d85-a9d5-4cf2-a48b-18c7d726c552")
@@ -254,7 +254,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "69ddaac3-8c19-43f1-9f90-74f7848c3f6d")
@@ -266,7 +266,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "001650a2-c28f-4633-a68b-78ef666d9c18")
@@ -500,7 +500,7 @@
 			(uuid "3f6a83ae-cff1-4c39-98be-8887d8ed4de6")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -4.5 -90)
+			(at 0 -4.5 90)
 			(layer "F.Fab")
 			(uuid "4d15044e-ba42-49c7-9385-a61cb67a80bd")
 			(effects
@@ -558,7 +558,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${THE78MOLE_LIBS}/3dmodels/B3SL-1002P--3DModel-STEP-1.step"
+		(model "${PATH_3D_THE78MOLE}/B3SL-1002P--3DModel-STEP-1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -1864,7 +1864,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${THE78MOLE_LIBS}/3dmodels/WE-65100516121_Mini-B-USB.stp"
+		(model "${PATH_3D_THE78MOLE}/WE-65100516121_Mini-B-USB.stp"
 			(offset
 				(xyz 0 -1.3 2)
 			)
@@ -6754,7 +6754,7 @@
 			(pintype "passive")
 			(uuid "75e89c98-f890-426a-8fa1-7783981e0a3c")
 		)
-		(model "${THE78MOLE_LIBS}/3dmodels/WAGO_2086-1208.stp"
+		(model "${PATH_3D_THE78MOLE}/WAGO_2086-1208.stp"
 			(offset
 				(xyz -28.7 8.35 0)
 			)
@@ -7564,7 +7564,7 @@
 			)
 		)
 		(property "Value" "USER2"
-			(at 0 4.75 -90)
+			(at 0 4.75 90)
 			(layer "F.Fab")
 			(uuid "40440c3a-78b1-41ee-9ba0-84f9716dffc0")
 			(effects
@@ -7575,7 +7575,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a22dd3a5-bde6-4cec-b7a4-113768d3d7b8")
@@ -7587,7 +7587,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "38113100-2bee-4f4e-bc65-f49a18e3365b")
@@ -7599,7 +7599,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "897778cf-ac65-4976-b8ca-443cde517a8c")
@@ -7833,7 +7833,7 @@
 			(uuid "b6f0eb07-7559-4374-8da4-b06e37c90bed")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -4.5 -90)
+			(at 0 -4.5 90)
 			(layer "F.Fab")
 			(uuid "8e194a28-9dfb-415a-b20c-ce4bfa149fb2")
 			(effects
@@ -7891,7 +7891,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${THE78MOLE_LIBS}/3dmodels/B3SL-1002P--3DModel-STEP-1.step"
+		(model "${PATH_3D_THE78MOLE}/B3SL-1002P--3DModel-STEP-1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -8165,7 +8165,7 @@
 			)
 		)
 		(property "Value" "BOOT"
-			(at 0 4.75 -90)
+			(at 0 4.75 90)
 			(layer "F.Fab")
 			(uuid "88f2c5d0-ef3f-49a8-aa6f-586a595bc1a1")
 			(effects
@@ -8176,7 +8176,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "ae3de4ab-10c3-494a-977c-d4aa2b1c3f13")
@@ -8188,7 +8188,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a7f0dc63-14b4-413a-90a4-01bc8e3a463c")
@@ -8200,7 +8200,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "8ddfe004-4285-4608-a635-33a3b3b52d45")
@@ -8410,7 +8410,7 @@
 			(uuid "aaa9f8c5-595e-4132-8261-8afe673c2e15")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -4.5 -90)
+			(at 0 -4.5 90)
 			(layer "F.Fab")
 			(uuid "c10bdb93-40f2-4534-a38d-7f700adc998a")
 			(effects
@@ -8468,7 +8468,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${THE78MOLE_LIBS}/3dmodels/B3SL-1002P--3DModel-STEP-1.step"
+		(model "${PATH_3D_THE78MOLE}/B3SL-1002P--3DModel-STEP-1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -9334,7 +9334,7 @@
 			)
 		)
 		(property "Value" "RESET"
-			(at 0 4.75 -90)
+			(at 0 4.75 90)
 			(layer "F.Fab")
 			(uuid "6182ca9b-1bd4-4f37-bff8-2540085c3fe2")
 			(effects
@@ -9345,7 +9345,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "3145e50d-79a3-4c39-9831-d6c420d1ed88")
@@ -9357,7 +9357,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "da9fea73-0ec1-472c-b9cd-403722ac9904")
@@ -9369,7 +9369,7 @@
 			)
 		)
 		(property "Description" "Push button switch, generic, two pins"
-			(at 0 0 -90)
+			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "be880435-c92b-44d4-9bc5-0cc85dbb1b96")
@@ -9579,7 +9579,7 @@
 			(uuid "945b482c-3dca-442a-b871-9842ee27c9e3")
 		)
 		(fp_text user "${REFERENCE}"
-			(at 0 -4.5 -90)
+			(at 0 -4.5 90)
 			(layer "F.Fab")
 			(uuid "021ed89a-ca5a-454a-8f0d-f9d80781599b")
 			(effects
@@ -9637,7 +9637,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "${THE78MOLE_LIBS}/3dmodels/B3SL-1002P--3DModel-STEP-1.step"
+		(model "${PATH_3D_THE78MOLE}/B3SL-1002P--3DModel-STEP-1.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -33478,9 +33478,9 @@
 		(pts
 			(xy 87 130) (xy 87 115)
 		)
-		(height -2.75)
+		(height -23.2)
 		(gr_text "15,00 mm"
-			(at 83.1 122.5 90)
+			(at 62.65 122.5 90)
 			(layer "Dwgs.User")
 			(uuid "0f4a7cd4-ce8e-4b3b-a1ba-47161d3df2e1")
 			(effects
@@ -33511,9 +33511,9 @@
 		(pts
 			(xy 70 130) (xy 70 90)
 		)
-		(height -4.5)
+		(height -9.45)
 		(gr_text "40,00 mm"
-			(at 64.35 110 90)
+			(at 59.4 110 90)
 			(layer "Dwgs.User")
 			(uuid "118c59b9-3da9-4fb2-bf8c-2e27c6b2570d")
 			(effects
@@ -33578,9 +33578,9 @@
 		(pts
 			(xy 90.5 124.25) (xy 90.5 115)
 		)
-		(height 4.25)
+		(height -23.825)
 		(gr_text "9,25 mm"
-			(at 93.6 119.625 90)
+			(at 65.375 119.225 90)
 			(layer "Dwgs.User")
 			(uuid "1bcc0ad2-9b9b-48cc-81a7-84e14a9d4b1b")
 			(effects
@@ -33600,7 +33600,7 @@
 		(style
 			(thickness 0.15)
 			(arrow_length 1.27)
-			(text_position_mode 0)
+			(text_position_mode 2)
 			(extension_height 0.58642)
 			(extension_offset 0.5) keep_text_aligned)
 	)
@@ -33670,39 +33670,6 @@
 			(extension_height 0.58642)
 			(extension_offset 0.5)
 		)
-	)
-	(dimension
-		(type aligned)
-		(layer "Dwgs.User")
-		(uuid "7a7f631f-dace-44da-9f9f-fe6bb6847108")
-		(pts
-			(xy 70 130) (xy 172 130)
-		)
-		(height 18.971)
-		(gr_text "102,00 mm"
-			(at 121 147.821 0)
-			(layer "Dwgs.User")
-			(uuid "7a7f631f-dace-44da-9f9f-fe6bb6847108")
-			(effects
-				(font
-					(size 1 1)
-					(thickness 0.15)
-				)
-			)
-		)
-		(format
-			(prefix "")
-			(suffix "")
-			(units 3)
-			(units_format 1)
-			(precision 2)
-		)
-		(style
-			(thickness 0.15)
-			(arrow_length 1.27)
-			(text_position_mode 0)
-			(extension_height 0.58642)
-			(extension_offset 0.5) keep_text_aligned)
 	)
 	(dimension
 		(type aligned)
@@ -33815,6 +33782,39 @@
 			(at 125 136.645 0)
 			(layer "Dwgs.User")
 			(uuid "d4e68015-2405-428b-a59a-78524044eaa9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(format
+			(prefix "")
+			(suffix "")
+			(units 3)
+			(units_format 1)
+			(precision 1)
+		)
+		(style
+			(thickness 0.15)
+			(arrow_length 1.27)
+			(text_position_mode 0)
+			(extension_height 0.58642)
+			(extension_offset 0.5) keep_text_aligned)
+	)
+	(dimension
+		(type aligned)
+		(layer "Dwgs.User")
+		(uuid "f79d55b7-7eb3-4d92-bf77-665eec37e832")
+		(pts
+			(xy 70 130) (xy 170.815 130)
+		)
+		(height 17.125)
+		(gr_text "100,8 mm"
+			(at 120.4075 145.975 0)
+			(layer "Dwgs.User")
+			(uuid "f79d55b7-7eb3-4d92-bf77-665eec37e832")
 			(effects
 				(font
 					(size 1 1)

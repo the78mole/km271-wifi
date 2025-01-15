@@ -12,6 +12,193 @@
 		(comment 1 "Author: Daniel Glaser")
 	)
 	(lib_symbols
+		(symbol "Connector:Screw_Terminal_01x02"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Screw_Terminal_01x02"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "screw terminal"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "TerminalBlock*:*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Screw_Terminal_01x02_1_1"
+				(rectangle
+					(start -1.27 1.27)
+					(end 1.27 -3.81)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(circle
+					(center 0 -2.54)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 -2.2098) (xy 0.3302 -3.048)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 -2.032) (xy 0.508 -2.8702)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.3556 0.508) (xy 0.508 -0.3302)
+					)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 0.635)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 -2.54 0)
+					(length 3.81)
+					(name "Pin_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector:TestPoint"
 			(pin_numbers hide)
 			(pin_names
@@ -12447,6 +12634,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 36.195 117.475 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 117.475 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2d085a4f-f516-457f-8334-4e6e9429846b")
 		)
@@ -12533,7 +12738,25 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "np"
+			(at 85.725 122.555 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 85.725 122.555 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 85.725 122.555 0)
 			(effects
 				(font
@@ -12609,7 +12832,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "np"
+		(property "MPN" "24LC1025-I/SM"
 			(at 128.905 179.07 0)
 			(effects
 				(font
@@ -12627,7 +12850,34 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Microchip"
+			(at 128.905 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "4,90"
+			(at 128.905 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 128.905 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "24LC1025-I/SM"
 			(at 128.905 179.07 0)
 			(effects
 				(font
@@ -12934,6 +13184,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,459"
+			(at 142.875 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 142.875 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "57ef640d-384f-42e1-9d66-e54a9b2a51e2")
 		)
@@ -13046,6 +13314,24 @@
 			)
 		)
 		(property "NP" "np"
+			(at 201.93 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 201.93 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 201.93 22.86 0)
 			(effects
 				(font
@@ -13270,7 +13556,25 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "np"
+			(at 85.725 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 85.725 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 85.725 140.97 0)
 			(effects
 				(font
@@ -13364,6 +13668,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 233.045 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 233.045 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "af1161ba-740e-4cab-8cad-2cbb75d6b068")
 		)
@@ -13441,6 +13763,24 @@
 			)
 		)
 		(property "MPN" "R0603_220"
+			(at 183.515 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 183.515 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 183.515 87.63 0)
 			(effects
 				(font
@@ -13535,6 +13875,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 216.535 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 216.535 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c784647a-5c63-43cd-9f0d-3d24060dc7fd")
 		)
@@ -13612,6 +13970,24 @@
 			)
 		)
 		(property "MPN" "R0603_220"
+			(at 233.045 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 233.045 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 233.045 87.63 0)
 			(effects
 				(font
@@ -13707,6 +14083,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 167.64 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 167.64 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5b210e83-1503-4893-970e-fa5d49bc51f2")
 		)
@@ -13783,7 +14177,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "R0603_0"
 			(at 151.765 121.92 0)
 			(effects
 				(font
@@ -13793,6 +14187,24 @@
 			)
 		)
 		(property "NP" ""
+			(at 151.765 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 151.765 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 151.765 121.92 0)
 			(effects
 				(font
@@ -13896,6 +14308,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 36.195 109.855 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 109.855 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9f9fef28-5c60-42d2-b380-7dc56a5ea309")
 		)
@@ -13981,6 +14411,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 49.53 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 49.53 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "68432a71-8e6f-41b4-8c2c-540c6bb7ddf4")
 		)
@@ -14058,6 +14506,33 @@
 			)
 		)
 		(property "Manufacturer" "Diodes Inc."
+			(at 55.245 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,140"
+			(at 55.245 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "AZ1117IH-3.3TRG1"
+			(at 55.245 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "TS 1117 BCW33"
 			(at 55.245 138.43 0)
 			(effects
 				(font
@@ -14214,6 +14689,24 @@
 			)
 		)
 		(property "MPN" "C0603_100n"
+			(at 65.405 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 65.405 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 65.405 143.51 0)
 			(effects
 				(font
@@ -14438,6 +14931,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,003"
+			(at 126.365 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 126.365 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e3320071-37ea-48ef-8c6c-78651f0bf207")
 		)
@@ -14515,6 +15026,24 @@
 			)
 		)
 		(property "MPN" "R0603_680"
+			(at 231.775 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 231.775 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 231.775 130.81 0)
 			(effects
 				(font
@@ -14674,6 +15203,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 133.985 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 133.985 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3d44ac9b-bbe1-4c9a-a90f-0de712056996")
 		)
@@ -14761,7 +15308,25 @@
 				(hide yes)
 			)
 		)
-		(property "NP" ""
+		(property "NP" "np"
+			(at 244.475 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 244.475 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "B3SL-1002P"
 			(at 244.475 147.32 0)
 			(effects
 				(font
@@ -14848,6 +15413,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 213.995 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 213.995 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 213.995 77.47 0)
 			(effects
 				(font
@@ -14944,6 +15527,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,011"
+			(at 37.465 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 37.465 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4d65dd82-277b-4ca2-800f-57e8eb5a8747")
 		)
@@ -15024,6 +15625,24 @@
 			)
 		)
 		(property "MPN" "C0603_100n"
+			(at 152.4 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 152.4 128.27 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 152.4 128.27 0)
 			(effects
 				(font
@@ -15117,6 +15736,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 231.775 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 231.775 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "72e21ac9-df5e-4930-9308-0d015ecae740")
 		)
@@ -15196,6 +15833,24 @@
 			)
 		)
 		(property "Manufacturer" "Omron"
+			(at 268.605 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,280"
+			(at 268.605 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "B3SL-1002P"
 			(at 268.605 50.8 0)
 			(effects
 				(font
@@ -15299,6 +15954,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 36.195 112.395 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 112.395 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b9923e59-63fc-4e32-95e5-39149c5ca11b")
 		)
@@ -15376,6 +16049,24 @@
 			)
 		)
 		(property "MPN" "R0603_680"
+			(at 231.775 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 231.775 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 231.775 125.73 0)
 			(effects
 				(font
@@ -15527,6 +16218,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 48.895 112.395 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 48.895 112.395 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1b58f4ca-6ef5-48a0-a544-c1e61524b9d2")
 		)
@@ -15603,7 +16312,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "1757475"
+		(property "MPN" "CTB9352/2"
 			(at 77.47 55.245 0)
 			(effects
 				(font
@@ -15612,7 +16321,34 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Phoenix Contact"
+		(property "Manufacturer" "CAMDENBOSS"
+			(at 77.47 55.245 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,18"
+			(at 77.47 55.245 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "CTB9352-2"
+			(at 77.47 55.245 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 77.47 55.245 0)
 			(effects
 				(font
@@ -15699,6 +16435,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 36.195 97.155 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 36.195 97.155 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 36.195 97.155 0)
 			(effects
 				(font
@@ -15794,6 +16548,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,065"
+			(at 28.575 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "UWT1C101MCL1GB"
+			(at 28.575 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b6bfc835-2610-4127-b1d1-4549cf89bf1d")
 		)
@@ -15871,6 +16643,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 248.285 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,015"
+			(at 248.285 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 248.285 123.19 0)
 			(effects
 				(font
@@ -16030,6 +16820,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 36.195 92.075 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 92.075 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5c1af89e-9217-40c2-9e2e-d6deb8e39e5e")
 		)
@@ -16109,6 +16917,24 @@
 			)
 		)
 		(property "MPN" "C0603_100n"
+			(at 151.13 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 151.13 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 151.13 110.49 0)
 			(effects
 				(font
@@ -16324,6 +17150,33 @@
 			)
 		)
 		(property "Manufacturer" "Espressif Systems"
+			(at 207.645 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "3,731"
+			(at 207.645 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "ESP32-WROOM-32D-N8"
+			(at 207.645 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "ESP32WROOM32D8"
 			(at 207.645 118.11 0)
 			(effects
 				(font
@@ -16603,6 +17456,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 36.195 94.615 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 94.615 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7aaf1a85-2b27-4071-b185-87835c1e6def")
 		)
@@ -16681,6 +17552,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 36.195 89.535 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 36.195 89.535 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 36.195 89.535 0)
 			(effects
 				(font
@@ -16776,6 +17665,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 262.255 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 262.255 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0b48722c-ff49-4124-83d9-f52335da3065")
 		)
@@ -16861,6 +17768,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 158.115 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 158.115 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "298a24da-f46b-4990-bc83-0fa414559d51")
 		)
@@ -16938,6 +17863,24 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
+			(at 35.56 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,149"
+			(at 35.56 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "SN74LV1T34DBVR"
 			(at 35.56 175.895 0)
 			(effects
 				(font
@@ -17041,7 +17984,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "multipart"
+			(at 96.52 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 96.52 184.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 96.52 184.785 0)
 			(effects
 				(font
@@ -17128,6 +18089,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 189.23 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 189.23 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 189.23 27.94 0)
 			(effects
 				(font
@@ -17278,6 +18257,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 126.365 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 126.365 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 126.365 99.06 0)
 			(effects
 				(font
@@ -17503,6 +18500,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 130.81 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 130.81 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "dca7693c-89e7-4e14-a270-8fd5e5db7e0b")
 		)
@@ -17580,6 +18595,24 @@
 			)
 		)
 		(property "MPN" "R0603_22"
+			(at 158.115 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 158.115 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 158.115 41.91 0)
 			(effects
 				(font
@@ -17666,6 +18699,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 36.195 102.235 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 36.195 102.235 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 36.195 102.235 0)
 			(effects
 				(font
@@ -17817,6 +18868,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 48.895 109.855 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 48.895 109.855 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4acbc0f5-1b37-40f5-8b03-595818022b4b")
 		)
@@ -17959,6 +19028,24 @@
 			)
 		)
 		(property "MPN" "C0603_100n"
+			(at 46.355 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 46.355 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 46.355 143.51 0)
 			(effects
 				(font
@@ -18186,6 +19273,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 100.965 24.765 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 100.965 24.765 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ba54e42c-a958-4345-a610-14ac4d10a8eb")
 		)
@@ -18264,6 +19369,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 130.81 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 130.81 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 130.81 36.83 0)
 			(effects
 				(font
@@ -18487,6 +19610,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 233.045 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 233.045 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "771cc5bd-5b99-48aa-8e73-49356ece528f")
 		)
@@ -18582,6 +19723,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 36.195 114.935 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 114.935 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b54d5715-6b8b-4a06-984b-724ae4fcfb36")
 		)
@@ -18669,8 +19828,17 @@
 				(hide yes)
 			)
 		)
-		(property "Strict MPN" "no"
-			(at 213.995 68.58 90)
+		(property "Price" "0,641"
+			(at 213.995 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "C4532X5R1A226M230KA"
+			(at 213.995 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18960,6 +20128,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 86.36 164.465 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 86.36 164.465 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ec10af0d-129d-451d-a020-4314cf7ce1bc")
 		)
@@ -19047,6 +20233,33 @@
 			)
 		)
 		(property "Manufacturer" "WAGO"
+			(at 109.22 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "1,99"
+			(at 109.22 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 109.22 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "WAGO 2086-1208"
 			(at 109.22 100.33 0)
 			(effects
 				(font
@@ -19159,6 +20372,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 36.195 107.315 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 107.315 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c235f987-e4bd-43bf-bb0f-ac1c07fd0d01")
 		)
@@ -19236,6 +20467,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 266.7 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,011"
+			(at 266.7 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 266.7 130.81 0)
 			(effects
 				(font
@@ -19396,6 +20645,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 26.67 165.735 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 26.67 165.735 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "af9261a4-eed2-4979-ad03-2be8c366b542")
 		)
@@ -19541,6 +20808,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 40.64 164.465 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 40.64 164.465 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 40.64 164.465 0)
 			(effects
 				(font
@@ -19838,6 +21123,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 148.59 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 148.59 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "62312e5f-1b6a-4f2c-8f80-444195972a84")
 		)
@@ -20053,6 +21356,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,015"
+			(at 266.7 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 266.7 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "5011c6d4-ad50-4c66-ba1a-5567a23919fc")
 		)
@@ -20130,6 +21451,24 @@
 			)
 		)
 		(property "MPN" "R0603_22"
+			(at 158.115 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 158.115 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 158.115 46.99 0)
 			(effects
 				(font
@@ -20217,6 +21556,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 173.99 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 173.99 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 173.99 31.115 0)
 			(effects
 				(font
@@ -20370,6 +21727,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 119.38 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 119.38 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 119.38 82.55 0)
 			(effects
 				(font
@@ -20585,7 +21960,16 @@
 				(hide yes)
 			)
 		)
-		(property "NP" "R0603_3K3"
+		(property "MPN" "R0603_3K3"
+			(at 69.85 61.595 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
 			(at 69.85 61.595 0)
 			(effects
 				(font
@@ -20594,7 +21978,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "Digikey" ""
 			(at 69.85 61.595 0)
 			(effects
 				(font
@@ -20744,7 +22128,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "np"
+		(property "MPN" "R0603_1K"
 			(at 148.59 101.6 0)
 			(effects
 				(font
@@ -20753,7 +22137,25 @@
 				(hide yes)
 			)
 		)
-		(property "NP" "np"
+		(property "NP" ""
+			(at 148.59 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 148.59 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 148.59 101.6 0)
 			(effects
 				(font
@@ -20850,7 +22252,7 @@
 				(hide yes)
 			)
 		)
-		(property "NP" "np"
+		(property "Reichelt" "USB BWM SMD"
 			(at 88.9 25.4 0)
 			(effects
 				(font
@@ -20859,7 +22261,16 @@
 				(hide yes)
 			)
 		)
-		(property "Reichelt" "USB BWM SMD"
+		(property "Price" "1,728"
+			(at 88.9 25.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 88.9 25.4 0)
 			(effects
 				(font
@@ -20960,6 +22371,24 @@
 			)
 		)
 		(property "MPN" "C0603_2u2"
+			(at 74.295 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,011"
+			(at 74.295 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 74.295 143.51 0)
 			(effects
 				(font
@@ -21186,6 +22615,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 159.385 66.675 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 159.385 66.675 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3d0f8063-eb4f-47a3-aaee-b9037adab156")
 		)
@@ -21273,6 +22720,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 149.225 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 149.225 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "678677f6-bd3d-4f7b-8c01-f39c893671ea")
 		)
@@ -21351,7 +22816,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "C0603_4p7"
 			(at 143.51 113.03 0)
 			(effects
 				(font
@@ -21361,6 +22826,24 @@
 			)
 		)
 		(property "NP" ""
+			(at 143.51 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,003"
+			(at 143.51 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 143.51 113.03 0)
 			(effects
 				(font
@@ -21447,7 +22930,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Texas Instruments"
 			(at 207.01 41.91 0)
 			(effects
 				(font
@@ -21456,7 +22939,34 @@
 				(hide yes)
 			)
 		)
-		(property "NP" ""
+		(property "NP" "np"
+			(at 207.01 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "1,15"
+			(at 207.01 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 207.01 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "PCA 9306 DCUR"
 			(at 207.01 41.91 0)
 			(effects
 				(font
@@ -21645,6 +23155,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,005"
+			(at 64.77 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 64.77 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c6c856f2-8e8c-4a85-9734-df4f06437dfc")
 		)
@@ -21725,6 +23253,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 165.1 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 165.1 31.115 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 165.1 31.115 0)
 			(effects
 				(font
@@ -21818,6 +23364,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 89.535 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 89.535 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "31f0275a-05f8-4e4e-af0e-ac66fab2c033")
 		)
@@ -21903,15 +23467,6 @@
 				(hide yes)
 			)
 		)
-		(property "NP" "np"
-			(at 84.455 133.35 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(property "AltMPN" "090-3-006-0-T-XT0-0910"
 			(at 84.455 133.35 0)
 			(effects
@@ -21922,6 +23477,24 @@
 			)
 		)
 		(property "AltManufacturer" "MPE Garry"
+			(at 84.455 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,608"
+			(at 84.455 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "  609-5602-ND"
 			(at 84.455 133.35 0)
 			(effects
 				(font
@@ -22028,7 +23601,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "multipart"
+			(at 44.45 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 44.45 185.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 44.45 185.42 0)
 			(effects
 				(font
@@ -22116,6 +23707,24 @@
 			)
 		)
 		(property "Manufacturer" "Omron"
+			(at 255.905 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,280"
+			(at 255.905 50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "B3SL-1002P"
 			(at 255.905 50.8 0)
 			(effects
 				(font
@@ -22218,6 +23827,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 148.59 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 148.59 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "70711189-887f-49b4-b347-c63c6fbc235f")
 		)
@@ -22287,7 +23914,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "np"
+		(property "MPN" "088-2-006-0-S-XS0-1080"
 			(at 281.305 34.29 0)
 			(effects
 				(font
@@ -22314,7 +23941,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "MPE Garry"
+			(at 281.305 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,33"
+			(at 281.305 34.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "1849-PR20203HBDN-ND"
 			(at 281.305 34.29 0)
 			(effects
 				(font
@@ -22422,7 +24067,25 @@
 				(hide yes)
 			)
 		)
-		(property "NP" ""
+		(property "NP" "np"
+			(at 254.635 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 254.635 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "B3SL-1002P"
 			(at 254.635 147.32 0)
 			(effects
 				(font
@@ -22518,6 +24181,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 143.51 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 143.51 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9d7007ff-fb5e-44f7-8a73-bc8bd62a7eb6")
 		)
@@ -22595,6 +24276,24 @@
 			)
 		)
 		(property "MPN" "R0603_22"
+			(at 130.81 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 130.81 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 130.81 41.91 0)
 			(effects
 				(font
@@ -22681,6 +24380,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 48.895 117.475 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 48.895 117.475 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "68f5ca78-28e6-4cf9-a9d4-c950007aa96c")
 		)
@@ -22756,6 +24473,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 130.81 32.385 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 130.81 32.385 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 130.81 32.385 0)
 			(effects
 				(font
@@ -22982,6 +24717,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 204.47 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 204.47 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3f33fa55-429b-46c1-8bd0-505b34fec71b")
 		)
@@ -23076,6 +24829,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 148.59 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 148.59 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "906935b5-9205-44c0-bed1-974c03c3ac69")
 		)
@@ -23162,6 +24933,24 @@
 			)
 		)
 		(property "NP" ""
+			(at 24.13 59.055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 24.13 59.055 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 24.13 59.055 0)
 			(effects
 				(font
@@ -23460,6 +25249,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 36.195 104.775 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 104.775 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e03e67d6-96e2-4311-a0fa-3770a2e1f36e")
 		)
@@ -23611,6 +25418,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 52.07 107.315 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 52.07 107.315 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "fedd35f3-450b-4463-98c4-f653368357a2")
 		)
@@ -23699,6 +25524,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 146.685 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 146.685 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "86b1c69f-9427-4b1a-9b61-88cfadbccdd2")
 		)
@@ -23775,7 +25618,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" ""
+		(property "MPN" "R0603_1K"
 			(at 148.59 71.755 0)
 			(effects
 				(font
@@ -23785,6 +25628,24 @@
 			)
 		)
 		(property "NP" ""
+			(at 148.59 71.755 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 148.59 71.755 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 148.59 71.755 0)
 			(effects
 				(font
@@ -23999,7 +25860,34 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "R0603_1K"
+		(property "MPN" "np"
+			(at 148.59 79.375 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "NP" "np"
+			(at 148.59 79.375 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 148.59 79.375 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 148.59 79.375 0)
 			(effects
 				(font
@@ -24087,7 +25975,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Samsung"
+		(property "Manufacturer" "multipart"
 			(at 213.995 73.025 0)
 			(effects
 				(font
@@ -24096,8 +25984,17 @@
 				(hide yes)
 			)
 		)
-		(property "Strict_MPN" "no"
-			(at 213.995 73.025 90)
+		(property "Price" "0,011"
+			(at 213.995 73.025 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 213.995 73.025 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -24320,6 +26217,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 231.775 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 231.775 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7d38a521-4631-43f6-bd78-69a7bd553e2d")
 		)
@@ -24472,6 +26387,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 268.605 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 268.605 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "594733e1-c796-4f29-8f9c-d509af1f0fd6")
 		)
@@ -24549,6 +26482,24 @@
 			)
 		)
 		(property "MPN" "R0603_22"
+			(at 130.81 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 130.81 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 130.81 49.53 0)
 			(effects
 				(font
@@ -24673,7 +26624,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.analog.com/media/en/technical-documentation/data-sheets/ds2484.pdf"
 			(at 148.59 139.065 0)
 			(effects
 				(font
@@ -24710,6 +26661,24 @@
 			)
 		)
 		(property "NP" "np"
+			(at 148.59 139.065 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "3,35"
+			(at 148.59 139.065 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "DS2484R+T"
 			(at 148.59 139.065 0)
 			(effects
 				(font
@@ -24807,6 +26776,24 @@
 			)
 		)
 		(property "NP" "np"
+			(at 36.195 24.765 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 36.195 24.765 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 36.195 24.765 0)
 			(effects
 				(font
@@ -24932,7 +26919,25 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "multipart"
+			(at 100.33 165.735 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 100.33 165.735 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 100.33 165.735 0)
 			(effects
 				(font
@@ -25100,6 +27105,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 28.575 62.865 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 28.575 62.865 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1501f90e-19af-4c83-83b2-665261ff21c9")
 		)
@@ -25178,6 +27201,24 @@
 			)
 		)
 		(property "Manufacturer" "Texas Instruments"
+			(at 91.44 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,149"
+			(at 91.44 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "SN74LV1T34DBVR"
 			(at 91.44 175.895 0)
 			(effects
 				(font
@@ -25410,6 +27451,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 126.365 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 126.365 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c5ba761c-fcad-4bab-b5de-cdae4a7fdb12")
 		)
@@ -25487,6 +27546,24 @@
 			)
 		)
 		(property "MPN" "R0603_1K"
+			(at 148.59 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 148.59 76.835 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 148.59 76.835 0)
 			(effects
 				(font
@@ -25580,6 +27657,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 148.59 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 148.59 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a6390500-d0e7-4199-a6df-866d95fd32de")
 		)
@@ -25660,6 +27755,24 @@
 			)
 		)
 		(property "Manufacturer" "Nichicon"
+			(at 106.045 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,065"
+			(at 106.045 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "UWT1C101MCL1GB"
 			(at 106.045 143.51 0)
 			(effects
 				(font
@@ -25763,6 +27876,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 69.85 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 69.85 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ad117f96-4eba-4260-8ff5-b92328ffa92d")
 		)
@@ -25839,7 +27970,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "np"
+		(property "MPN" "BZX84C5V1-7-F"
 			(at 78.74 69.215 0)
 			(effects
 				(font
@@ -25848,7 +27979,34 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" ""
+		(property "Manufacturer" "Diodes Inc."
+			(at 78.74 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,05"
+			(at 78.74 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "BZX 84C5V1 VIS"
+			(at 78.74 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" "BZX84C5V1-7-F"
 			(at 78.74 69.215 0)
 			(effects
 				(font
@@ -25934,6 +28092,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 126.365 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 126.365 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 126.365 96.52 0)
 			(effects
 				(font
@@ -26029,6 +28205,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,002"
+			(at 151.13 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 151.13 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b2d7601a-144a-435f-91b7-b68686f88239")
 		)
@@ -26106,6 +28300,24 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
+			(at 78.105 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 78.105 175.895 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 78.105 175.895 0)
 			(effects
 				(font
@@ -26203,6 +28415,24 @@
 			)
 		)
 		(property "NP" ""
+			(at 58.42 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,002"
+			(at 58.42 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 58.42 74.295 0)
 			(effects
 				(font
@@ -26361,6 +28591,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 130.81 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 130.81 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "898f6883-b531-4b64-ad52-97f574252236")
 		)
@@ -26447,6 +28695,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,001"
+			(at 36.195 99.695 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 36.195 99.695 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "17838b9a-b014-4a97-8fc1-014ede64d6a1")
 		)
@@ -26457,6 +28723,130 @@
 			(project "KM217-WiFi"
 				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
 					(reference "R37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:Screw_Terminal_01x02")
+		(at 80.01 49.53 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp yes)
+		(fields_autoplaced yes)
+		(uuid "f45ce716-fadb-4f48-b4bd-159456e998c1")
+		(property "Reference" "J8"
+			(at 82.55 48.2599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "ATS_mate"
+			(at 82.55 50.7999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Reichelt" "CTB9202-2"
+			(at 80.01 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "NP" "np"
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "CTB9202/2"
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "CAMDENBOSS"
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,38"
+			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "916bb7bd-2c64-4b01-a84e-118c4eacf2bc")
+		)
+		(pin "1"
+			(uuid "e5d214b0-37ae-42e1-9417-a76cd87ac5fb")
+		)
+		(instances
+			(project ""
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "J8")
 					(unit 1)
 				)
 			)
@@ -26662,6 +29052,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" "0,014"
+			(at 248.285 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 248.285 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "70f60d42-d5b8-44d1-8f9f-1f4cca563637")
 		)
@@ -26741,6 +29149,24 @@
 			)
 		)
 		(property "MPN" "R0603_10K"
+			(at 255.905 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 255.905 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 255.905 24.13 0)
 			(effects
 				(font
@@ -26883,6 +29309,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 18.415 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 18.415 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(instances
 			(project "KM217-WiFi"
 				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
@@ -26956,6 +29400,24 @@
 			)
 		)
 		(property "MPN" "R0603_0"
+			(at 116.84 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" "0,001"
+			(at 116.84 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 116.84 82.55 0)
 			(effects
 				(font
@@ -27060,6 +29522,24 @@
 				(hide yes)
 			)
 		)
+		(property "Price" ""
+			(at 156.845 66.675 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
+			(at 156.845 66.675 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "905c0daf-fc40-4f05-827d-252b087c4060")
 		)
@@ -27130,6 +29610,24 @@
 			)
 		)
 		(property "NP" "np"
+			(at 48.895 114.935 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Price" ""
+			(at 48.895 114.935 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Digikey" ""
 			(at 48.895 114.935 0)
 			(effects
 				(font
