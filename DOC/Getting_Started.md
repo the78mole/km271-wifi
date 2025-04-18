@@ -13,7 +13,7 @@ This is a short guide for commissioning the KM271-WiFi module.
 
 First, check if everything is present as ordered (from left to right):
 
-- **J5** is the connector for the exhaust temperature sensor (the counterpart was included in the package; wire colors may vary: black or green)
+- **J5** is the connector for the exhaust temperature sensor (the counterpart was included in the package; colors may vary: black or green)
 - **J6** is the connector for sensor lines
 - **J4** is the debug interface for programming via a serial connection
 
@@ -40,7 +40,7 @@ If you plan to use Ethernet, now is the right time to attach the Ethernet extens
 
 The Buderus control unit's display should now show a new entry `ABGAS` or `EXHAUST`. If not, use the rotary knob to navigate. If an exhaust temperature sensor is connected, its current temperature will be shown. If not, it will display `---` – which is perfectly fine.
 
-Now take your smartphone or PC and look for the Wi-Fi network `Fallback Hotspot` (for ESPhome) or `ESP-Buderus-KM271` (for dewennis firmware). On Android, the device may ask after 10–20 seconds whether you want to stay connected (since there’s no internet) – confirm with `Yes`. Then open your browser and visit http://192.168.4.1. Sometimes it takes a few minutes to establish the connection or load the page (probably a bug in ESPhome). Up to this point, the steps are the same for dewennis firmware – it's usually just a bit faster. Continue with the appropriate chapter for your firmware.
+Now take your smartphone or PC and look for the Wi-Fi network `Fallback Hotspot` (for ESPhome, passphrase: `Z8zfajgxVvNw`) or `ESP-Buderus-KM271` (for dewennis firmware). On Android, the device may ask after 10–20 seconds whether you want to stay connected (since there’s no internet) – confirm with `Yes`. Then open your browser and visit http://192.168.4.1. Sometimes it takes a few minutes to establish the connection or load the page (probably a bug in ESPhome). Up to this point, the steps are the same for dewennis firmware – it's usually just a bit faster. Continue with the appropriate chapter for your firmware.
 
 ### ESPhome Configuration
 
@@ -48,7 +48,7 @@ You should now see the fallback hotspot page:
 
 ![Fallback Hotspot Page](../IMG/esphome-fallback-page.png)
 
-Select your Wi-Fi and enter the password. If you accidentally choose the wrong network, it can be difficult to regain access to the board. In that case, you need to disable the wrong Wi-Fi or move the module out of its range. Alternatively, you can remove the module from the Buderus unit, power it via USB, and move out of Wi-Fi range (set the PWRSEL jumper accordingly). Then you can restart the setup process.
+Select your Wi-Fi and enter the password. If you accidentally choose the wrong network, it can be difficult to regain access to the board. In that case, you need to disable the wrong Wi-Fi. Alternatively, you can remove the module from the Buderus unit, move out of WiFi range and power it via USB (set the PWRSEL jumper accordingly). Then you can restart the setup process.
 
 You can also flash a new firmware on the fallback hotspot page – but **not a different firmware** (e.g., the one by dewenni).
 

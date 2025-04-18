@@ -40,7 +40,7 @@ Wenn du Ethernet nutzen möchtest, ist jetzt der richtige Zeitpunkt, die Etherne
 
 Auf dem Display der Buderus-Steuerung sollte nun ein neuer Eintrag `ABGAS` oder `EXHAUST` erscheinen. Falls nicht, nutze das Drehrad zur Navigation. Wenn du einen Abgastemperaturfühler angeschlossen hast, wird dessen aktuelle Temperatur angezeigt. Falls nicht, steht dort `---` – das ist völlig in Ordnung.
 
-Nun nimm dein Smartphone oder einen PC und suche nach dem WLAN `Fallback Hotspot` (bei ESPhome) oder `ESP-Buderus-KM271` (bei dewennis Firmware). Auf Android fragt das Gerät nach 10–20 Sekunden, ob du verbunden bleiben möchtest (da keine Internetverbindung vorhanden ist) – bestätige mit `Ja`. Öffne dann den Browser und rufe die Adresse http://192.168.4.1 auf. Manchmal dauert es einige Minuten, bis eine Verbindung aufgebaut oder die Seite geladen ist (vermutlich ein Bug in ESPhome). Bis zu diesem Punkt ist das Vorgehen bei dewennis Firmware identisch – sie reagiert meist nur etwas schneller. Fahre jetzt mit dem passenden Kapitel zu deiner Firmware fort.
+Nun nimm dein Smartphone oder einen PC und suche nach dem WLAN `Fallback Hotspot` (bei ESPhome, Passwort: `Z8zfajgxVvNw`) oder `ESP-Buderus-KM271` (bei dewennis Firmware). Auf Android fragt das Gerät nach 10–20 Sekunden, ob du verbunden bleiben möchtest (da keine Internetverbindung vorhanden ist) – bestätige mit `Ja`. Öffne dann den Browser und rufe die Adresse http://192.168.4.1 auf. Manchmal dauert es einige Minuten, bis eine Verbindung aufgebaut oder die Seite geladen ist (vermutlich ein Bug in ESPhome). Bis zu diesem Punkt ist das Vorgehen bei dewennis Firmware identisch – sie reagiert meist nur etwas schneller. Fahre jetzt mit dem passenden Kapitel zu deiner Firmware fort.
 
 ### ESPhome-Konfiguration
 
@@ -48,9 +48,9 @@ Du solltest nun die Seite des Fallback-Hotspots sehen:
 
 ![Fallback-Hotspot-Seite](../IMG/esphome-fallback-page.png)
 
-Wähle dein WLAN und gib das Passwort ein. Wenn du versehentlich das falsche WLAN gewählt hast, ist es später schwierig, wieder Zugriff auf das Board zu bekommen. In diesem Fall musst du das falsche WLAN deaktivieren oder das Modul außerhalb der Reichweite bringen. Alternativ kannst du das Modul aus der Buderus-Steuerung entfernen und per USB versorgen und aus dem Empfangsbereich rausgehen (dazu den PWRSEL-Jumper umsetzen). Danach kannst du die Einrichtung erneut starten.
+Wähle dein WLAN und gib das Passwort ein. Wenn du versehentlich das falsche WLAN gewählt hast, ist es später schwierig, wieder Zugriff auf das Board zu bekommen. In diesem Fall musst du das falsche WLAN deaktivieren. Alternativ kannst du das Modul aus der Buderus-Steuerung entfernen, aus dem Empfangsbereich rausgehen und das Modul per USB versorgen (dazu den PWRSEL-Jumper umsetzen). Danach kannst du die Einrichtung erneut starten.
 
-Auf der Seite des Fallback-Hotspots kannst du auch eine neue Firmware flashen – allerdings **keine andere Firmware** (z. B. die von dewenni).
+Auf der Seite des Fallback-Hotspots kannst du auch eine neue Firmware flashen – allerdings **keine andere Firmware** (z. B. nicht die von dewenni).
 
 Nach der Einrichtung sollte das Board in deinem ESPhome-Addon in Home Assistant erscheinen. Du kannst nun die YAML-Konfiguration anpassen oder so lassen, wie sie ist. Wenn eine neue Firmware verfügbar ist (z. B. durch ein Update des Addons), kann diese in der Regel problemlos eingespielt werden.
 
