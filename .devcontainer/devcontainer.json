@@ -1,0 +1,17 @@
+{
+  "name": "Asciidoctor Dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "asciidoctor.asciidoctor-vscode",
+        "tomoki1207.pdf"
+      ]
+    }
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/documents,type=bind"
+  ]
+}
