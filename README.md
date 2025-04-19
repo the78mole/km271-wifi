@@ -40,3 +40,7 @@ There is now an Extension to add wired Ethernet to the board. The prototype alre
   - [KM271-Firmware ESPhoome Component (GitHub)](https://github.com/the78mole/esphome_components)
 
 You can buy the module on [Tindie](https://www.tindie.com/products/the78mole/buderus-km217-wifi-replacement/) (if available).
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=the78mole/km271-wifi&type=Date)](https://www.star-history.com/#the78mole/km271-wifi&Date)
