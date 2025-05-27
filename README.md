@@ -31,13 +31,38 @@ There is now an Extension to add wired Ethernet to the board. The prototype alre
 
 ![KM271-WiFi_0.1.0_ETH-Ext](IMG/KM271-WiFi-0.1.0-ETH-Ext.jpg)
 
+## 5V Supply Calibration
+
+I decided to set the multiplier very far of the actual value, to make it clear, that you need to calibrate it due to the inaccurate/bad design of the ESP32 ADC with a quite low input impedance and general error.
+To calibrate the Buderus 5V voltage monitor, you need to first find out the YAML section of your ESPhome device. It should look like the following:
+
+```yaml
+  - platform: adc
+    pin: 36
+    unit_of_measurement: "V"
+    name: "KM217 5V Supply"
+    accuracy_decimals: 2
+    update_interval: 5s
+    attenuation: 6dB
+    filters:
+      - multiply: 28.1826
+      - throttle_average: 60s
+```
+
+Now look at the readout of your sensor, say it is 47.3V and measure the real voltage of the 5V supply (e.g. Pin 1 to 7 on the sensor header), say you measure 4.9V. Use the multiplier from your YAML and do the following calculation:
+
+    4.9V / 47.3V * 28.1826 = 2.9196
+
+Replace the multiplier by the calculated value and you will get more exact values, close to the 5V.
+
+
 ## Additional Information
 
   - [Moles Blog - Reverse Engineering KM271](https://the78mole.de/reverse-engineering-the-buderus-km217/)
   - [Moles Blog - KM271-WiFi Project](https://the78mole.de/projects/km271-wifi-howto/)
   - [KM271-WiFi ESPhome Project (GitHub)](https://github.com/the78mole/ESPhome-KM271-WiFi)
   - [KM271-WiFi WebTools (Flashing)](https://the78mole.github.io/ESPhome-KM271-WiFi/)
-  - [KM271-Firmware ESPhoome Component (GitHub)](https://github.com/the78mole/esphome_components)
+  - [KM271-Firmware ESPhome Component (GitHub)](https://github.com/the78mole/esphome_components)
 
 You can buy the module on [Tindie](https://www.tindie.com/products/the78mole/buderus-km217-wifi-replacement/) (if available).
 
