@@ -33,7 +33,7 @@ There is now an Extension to add wired Ethernet to the board. The prototype alre
 
 ## 5V Supply Calibration
 
-I decided to set the multiplier very far of the actual value, to make it clear, that you need to calibrate it due to the inaccurate/bad design of the ESP32 ADC with a quite low input impedance and general error.
+I decided to set the multiplier very far off the actual value, to make it clear, that you need to calibrate it due to the inaccurate/bad design of the ESP32 ADC with a quite low input impedance and general error.
 To calibrate the Buderus 5V voltage monitor, you need to first find out the YAML section of your ESPhome device. It should look like the following:
 
 ```yaml
