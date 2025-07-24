@@ -108,8 +108,22 @@ uv run scripts/update_firmwares.py
 # Quiet mode (no progress bars)
 uv run scripts/update_firmwares.py --quiet
 
+# Generate version info for releases
+uv run scripts/update_firmwares.py --save-versions
+
 # Custom sources file
 uv run scripts/update_firmwares.py --sources=custom.yaml
+```
+
+### `scripts/generate_release_description.py`
+Generates GitHub release descriptions from version information.
+
+```bash
+# Generate release description from versions.json
+uv run scripts/generate_release_description.py
+
+# Custom input/output files
+uv run scripts/generate_release_description.py --versions=custom_versions.json --output=release.md
 ```
 
 ### `scripts/flash_firmware.py`

@@ -1,0 +1,93 @@
+name: Release Firmware Images
+
+on:
+  schedule:
+    # Run daily at 02:00 UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual triggering
+  push:
+    branches:
+      - main
+    paths:
+      - 'FW/sources.yaml'
+      - 'FW/scripts/**'
+      - '.github/workflows/release-firmware.yml'
+
+jobs:
+  build-release:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install uv
+      uses: astral-sh/setup-uv@v4
+      with:
+        enable-cache: true
+        cache-dependency-glob: "FW/scripts/pyproject.toml"
+        
+    - name: Generate release tag
+      id: tag
+      run: |
+        TAG=$(date -u +%Y%m%d_%H%M)
+        echo "tag=$TAG" >> $GITHUB_OUTPUT
+        echo "Generated tag: $TAG"
+        
+    - name: Check if tag already exists
+      id: check_tag
+      run: |
+        if git tag --list | grep -q "^${{ steps.tag.outputs.tag }}$"; then
+          echo "exists=true" >> $GITHUB_OUTPUT
+          echo "Tag ${{ steps.tag.outputs.tag }} already exists"
+        else
+          echo "exists=false" >> $GITHUB_OUTPUT
+          echo "Tag ${{ steps.tag.outputs.tag }} is new"
+        fi
+        
+    - name: Download and build firmware images
+      if: steps.check_tag.outputs.exists == 'false'
+      working-directory: FW
+      run: |
+        # Install dependencies and run update script with version info
+        uv run scripts/update_firmwares.py --quiet --save-versions
+        
+        # List generated files
+        echo "Generated firmware files:"
+        ls -la tmpfw/
+        
+    - name: Generate release description
+      if: steps.check_tag.outputs.exists == 'false'
+      id: description
+      working-directory: FW
+      run: |
+        # Generate release description from versions.json
+        uv run scripts/generate_release_description.py
+        
+    - name: Create GitHub Release
+      if: steps.check_tag.outputs.exists == 'false'
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: ${{ steps.tag.outputs.tag }}
+        name: "Release ${{ steps.tag.outputs.tag }}"
+        body_path: FW/release_description.md
+        files: |
+          FW/tmpfw/*.bin
+          FW/tmpfw/versions.json
+        draft: false
+        prerelease: false
+        generate_release_notes: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Skip release (tag exists)
+      if: steps.check_tag.outputs.exists == 'true'
+      run: |
+        echo "⏭️ Skipping release creation - tag ${{ steps.tag.outputs.tag }} already exists"
+        echo "This prevents duplicate releases when multiple commits happen in the same minute"
