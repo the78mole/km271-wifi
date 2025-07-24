@@ -1,0 +1,61 @@
+@page {
+	size: A4 landscape;
+	margin: 0.5cm 0.5cm 0.5cm 0.5cm;
+}
+
+body {
+    font-family: "Arial", sans-serif;
+    font-size: 10pt;
+    margin: 2cm;
+    line-height: 1.2;
+	column-count: 2;
+  	column-gap: 1cm;
+  	column-fill: balance;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+}
+
+h1,
+h2,
+h3 {
+    color: #222;
+}
+
+code {
+    background-color: #f0f0f0;
+    padding: 0.2em;
+    border-radius: 4px;
+}
+
+.pdffloatright {
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	width: 48%
+}
+
+.pdffloatlefttab {
+	float: left;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	width: 30%
+}
+
+.pdffloatrightsmall {
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	width: 15%
+}
+
+.pdffloatleftsmall {
+	float: left;
+	margin-right: 1em;
+	margin-bottom: 1em;
+	width: 15%
+}

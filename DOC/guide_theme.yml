@@ -1,0 +1,10 @@
+page:
+  size: A5
+  layout: portrait  # oder 'landscape' für Querformat
+base:
+  font_size: 9
+
+role:
+  float-right:
+    text-align: right
+    display: block

@@ -1,0 +1,61 @@
+# This is the configuration, I've put on the board.
+# If you apply voltage to it, the green LED D! serves as status led2
+# usually blinking with around 1 Hz. If you press button USER 1, it will
+# toggle green led D2.
+# To upload a new firmware, search for the "Fallback Hotspot" WiFi and
+# log in with password "Z8zfajgxVvNw". It could take up to a minute for
+# the fallack AP to be enabled when not able to connect to the "test"
+# wifi network. So, if status is blinking, give it a minute to show up.
+
+esphome:
+  name: km217-for-friends
+  platform: ESP32
+  board: esp32dev
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+  password: "c38c9fd48a1afe7a76834cc5721c5c46"
+
+wifi:
+  ssid: "test"
+  password: "testtest"
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Fallback Hotspot"
+    password: "Z8zfajgxVvNw"
+
+captive_portal:
+
+# "Status LED1"
+status_led:
+  pin: 
+    number: GPIO21
+    inverted: true
+
+switch:
+  - platform: gpio
+    pin: GPIO22
+    name: "LED 2"
+    inverted: true
+    id: led2
+    
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: GPIO26
+      inverted: true
+      mode:
+        input: true
+        pullup: true
+    name: "USER 1"
+    filters:
+      - delayed_on: 10ms
+    on_press:
+      then:
+        - switch.toggle: led2

@@ -28919,6 +28919,15 @@
 				(hide yes)
 			)
 		)
+		(property "Alternative" "Phoenix 1873058"
+			(at 80.01 49.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "916bb7bd-2c64-4b01-a84e-118c4eacf2bc")
 		)

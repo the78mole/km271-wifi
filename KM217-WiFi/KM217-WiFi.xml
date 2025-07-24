@@ -2,14 +2,14 @@
 <export version="E">
   <design>
     <source>C:\GIT\Hardware\Buderus-KM217-Clone\KM217-WiFi\KM217-WiFi.kicad_sch</source>
-    <date>15.09.2023 22:25:21</date>
-    <tool>Eeschema (6.0.4)</tool>
+    <date>2025-03-10T00:09:37+0100</date>
+    <tool>Eeschema 9.0.0</tool>
     <sheet number="1" name="/" tstamps="/">
       <title_block>
         <title>Buderus-KM217-WIFI</title>
         <company>the78mole</company>
-        <rev>0.0.7</rev>
-        <date>2023-09-15</date>
+        <rev>0.1.0</rev>
+        <date>2025-01-13</date>
         <source>KM217-WiFi.kicad_sch</source>
         <comment number="1" value="Author: Daniel Glaser"/>
         <comment number="2" value=""/>
@@ -30,12 +30,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>28c56fb3-181e-4de2-86f1-85860c8edf9b</tstamps>
     </comp>
@@ -43,14 +52,23 @@
       <value>2u2</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_2u2</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_2u2</field>
+        <field name="Price">0,011</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_2u2"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,011"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>2baf8b92-3a92-4c3a-8832-ce04d47ec69d</tstamps>
     </comp>
@@ -58,14 +76,23 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4decf9e4-2d54-4d8c-aa35-94772a414eea</tstamps>
     </comp>
@@ -73,14 +100,23 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>1d4acc83-c51e-4cab-a146-30249bd02af2</tstamps>
     </comp>
@@ -88,14 +124,23 @@
       <value>2u2</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_2u2</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_2u2</field>
+        <field name="Price">0,011</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_2u2"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,011"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>817e51e3-babd-446f-a971-788d728903a2</tstamps>
     </comp>
@@ -105,12 +150,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>24e4b8a3-fa87-45a2-98c3-4a331a4ee5c0</tstamps>
     </comp>
@@ -120,12 +174,21 @@
       <fields>
         <field name="MPN">UWT1C101MCL1GB</field>
         <field name="Manufacturer">Nichicon</field>
+        <field name="Price">0,065</field>
+        <field name="Digikey">UWT1C101MCL1GB</field>
+        <field name="Footprint">Capacitor_SMD:CP_Elec_6.3x5.4_Nichicon</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Polarized_Small" description="Polarized capacitor, small symbol"/>
       <property name="MPN" value="UWT1C101MCL1GB"/>
       <property name="Manufacturer" value="Nichicon"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,065"/>
+      <property name="Digikey" value="UWT1C101MCL1GB"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>358bff46-ab55-4d54-a596-1116722134e0</tstamps>
     </comp>
@@ -135,12 +198,21 @@
       <fields>
         <field name="MPN">UWT1C101MCL1GB</field>
         <field name="Manufacturer">Nichicon</field>
+        <field name="Price">0,065</field>
+        <field name="Digikey">UWT1C101MCL1GB</field>
+        <field name="Footprint">Capacitor_SMD:CP_Elec_6.3x5.4_Nichicon</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Polarized_Small" description="Polarized capacitor, small symbol"/>
       <property name="MPN" value="UWT1C101MCL1GB"/>
       <property name="Manufacturer" value="Nichicon"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,065"/>
+      <property name="Digikey" value="UWT1C101MCL1GB"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>ec103263-06df-4edd-ac00-aa6cb0e42840</tstamps>
     </comp>
@@ -150,12 +222,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>68252733-4d7b-4902-a455-2aff73bccd7e</tstamps>
     </comp>
@@ -165,12 +246,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>626ca9f5-e971-4145-b91f-97a816578f21</tstamps>
     </comp>
@@ -178,16 +268,25 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="NP"/>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="C0603_100n"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f2013381-d31a-47b8-b596-11d556d60aaf</tstamps>
     </comp>
@@ -195,16 +294,25 @@
       <value>33n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">C0603_33n</field>
+        <field name="NP"/>
+        <field name="Price">0,005</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="C0603_33n"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,005"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>9111d314-e6cd-4cfa-9bc8-fc5dc8846e15</tstamps>
     </comp>
@@ -214,14 +322,21 @@
       <fields>
         <field name="MPN">C4532X5R1A226M230KA</field>
         <field name="Manufacturer">TDK</field>
-        <field name="Strict MPN">no</field>
+        <field name="Price">0,641</field>
+        <field name="Digikey">C4532X5R1A226M230KA</field>
+        <field name="Footprint">Capacitor_SMD:C_1812_4532Metric_Pad1.57x3.40mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Polarized_Small" description="Polarized capacitor, small symbol"/>
       <property name="MPN" value="C4532X5R1A226M230KA"/>
       <property name="Manufacturer" value="TDK"/>
-      <property name="Strict MPN" value="no"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,641"/>
+      <property name="Digikey" value="C4532X5R1A226M230KA"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="cap capacitor"/>
+      <property name="ki_fp_filters" value="CP_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>5e131de0-59dd-4487-8337-de0dce828791</tstamps>
     </comp>
@@ -230,15 +345,22 @@
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
         <field name="MPN">C0603_2u2</field>
-        <field name="Manufacturer">Samsung</field>
-        <field name="Strict_MPN">no</field>
+        <field name="Manufacturer">multipart</field>
+        <field name="Price">0,011</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_2u2"/>
-      <property name="Manufacturer" value="Samsung"/>
-      <property name="Strict_MPN" value="no"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="multipart"/>
+      <property name="Price" value="0,011"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>c7e86f17-c1d6-413f-ac80-eaff4dec286b</tstamps>
     </comp>
@@ -246,14 +368,23 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f1c014d1-bba7-41f3-b900-a2a5f7c2f13e</tstamps>
     </comp>
@@ -261,14 +392,23 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3ad17a83-5dca-4876-a4b6-0a80d71e30af</tstamps>
     </comp>
@@ -276,31 +416,49 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>a7fa668c-e23c-46ab-a619-decf446802c9</tstamps>
     </comp>
     <comp ref="C18">
-      <value>np</value>
+      <value>4p7</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">C0603_4p7</field>
+        <field name="NP"/>
+        <field name="Price">0,003</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="C0603_4p7"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,003"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>85d0ef65-4ceb-49b9-8cb6-cb86012f9497</tstamps>
     </comp>
@@ -308,14 +466,23 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>5172727e-529a-4fb9-af99-d1ef728e5dba</tstamps>
     </comp>
@@ -325,12 +492,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>52628653-e044-41e7-b9c8-68c9bdc6cae0</tstamps>
     </comp>
@@ -340,12 +516,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>ab74fdfd-1689-4e8a-9ba4-7a1fc1c5fae6</tstamps>
     </comp>
@@ -355,12 +540,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>44b63989-578a-4baa-b0b0-8788431e3f25</tstamps>
     </comp>
@@ -370,12 +564,21 @@
       <fields>
         <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="MPN" value="C0603_100n"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>152fd5a0-d4f4-4388-a359-b13a0850c084</tstamps>
     </comp>
@@ -383,14 +586,23 @@
       <value>100n</value>
       <footprint>Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">C0603_100n</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">C0603_100n</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="C_Small" description="Unpolarized capacitor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="C0603_100n"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="capacitor cap"/>
+      <property name="ki_fp_filters" value="C_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>2bee7955-892a-48df-bc71-69f4bd393470</tstamps>
     </comp>
@@ -400,12 +612,21 @@
       <fields>
         <field name="MPN">D0603_LED_green</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,015</field>
+        <field name="Digikey"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="MPN" value="D0603_LED_green"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,015"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>36caa968-9eff-48d6-82b6-745c22819af2</tstamps>
     </comp>
@@ -415,12 +636,21 @@
       <fields>
         <field name="MPN">D0603_LED_green</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,015</field>
+        <field name="Digikey"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="MPN" value="D0603_LED_green"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,015"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6e178e95-9896-4df8-824d-b2195f1ea674</tstamps>
     </comp>
@@ -430,12 +660,21 @@
       <fields>
         <field name="MPN">D0603_LED_yellow</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,014</field>
+        <field name="Digikey"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="MPN" value="D0603_LED_yellow"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,014"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f54e3632-7749-4201-a259-041a81f321bd</tstamps>
     </comp>
@@ -445,12 +684,21 @@
       <fields>
         <field name="MPN">D0603_LED_red</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,011</field>
+        <field name="Digikey"/>
+        <field name="Footprint">LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="LED" description="Light emitting diode"/>
       <property name="MPN" value="D0603_LED_red"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,011"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="LED diode"/>
+      <property name="ki_fp_filters" value="LED* LED_SMD:* LED_THT:*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>65e4f84a-00fd-414f-bfd0-73319fee2e23</tstamps>
     </comp>
@@ -458,23 +706,48 @@
       <value>BZX84C5V1</value>
       <footprint>Diode_SMD:D_SOT-23_ANK</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="MPN">BZX84C5V1-7-F</field>
+        <field name="Manufacturer">Diodes Inc.</field>
+        <field name="Price">0,05</field>
+        <field name="Reichelt">BZX 84C5V1 VIS</field>
+        <field name="Digikey">BZX84C5V1-7-F</field>
+        <field name="Footprint">Diode_SMD:D_SOT-23_ANK</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="D_Zener" description="Zener diode"/>
       <property name="NP" value="np"/>
-      <property name="MPN" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="BZX84C5V1-7-F"/>
+      <property name="Manufacturer" value="Diodes Inc."/>
+      <property name="Price" value="0,05"/>
+      <property name="Reichelt" value="BZX 84C5V1 VIS"/>
+      <property name="Digikey" value="BZX84C5V1-7-F"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="diode"/>
+      <property name="ki_fp_filters" value="TO-???* *_Diode_* *SingleDiode* D_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>edb3ae51-3e8b-41cd-8ee5-db3a748b710e</tstamps>
     </comp>
     <comp ref="H1">
       <value>MountingHole</value>
       <footprint>MountingHole:MountingHole_3.2mm_M3_DIN965</footprint>
+      <fields>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">MountingHole:MountingHole_3.2mm_M3_DIN965</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
+      </fields>
       <libsource lib="Mechanical" part="MountingHole" description="Mounting Hole without connection"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="mounting hole"/>
+      <property name="ki_fp_filters" value="MountingHole*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fbb2efcc-5ac2-4718-8a29-4f4a8c2b8bde</tstamps>
     </comp>
@@ -484,12 +757,21 @@
       <fields>
         <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">the78mole:LM2107_ComModuleCon</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_02x06_Odd_Even" description="Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_2x??_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>dc398a40-92ea-4ab6-bb65-0566d97345f3</tstamps>
     </comp>
@@ -500,16 +782,23 @@
       <fields>
         <field name="MPN">65100516121</field>
         <field name="Manufacturer">Wuerth</field>
-        <field name="NP">np</field>
         <field name="Reichelt">USB BWM SMD</field>
+        <field name="Price">1,728</field>
+        <field name="Digikey"/>
+        <field name="Footprint">the78mole:USB_Mini-B_Wuerth_65100516121_Horizontal</field>
+        <field name="Datasheet">https://www.we-online.com/components/products/datasheet/65100516121.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector" part="USB_B_Mini" description="USB Mini Type B connector"/>
       <property name="MPN" value="65100516121"/>
       <property name="Manufacturer" value="Wuerth"/>
-      <property name="NP" value="np"/>
       <property name="Reichelt" value="USB BWM SMD"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="1,728"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="connector USB mini"/>
+      <property name="ki_fp_filters" value="USB*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>806127aa-7c46-4b77-840b-34fe242b8043</tstamps>
     </comp>
@@ -517,20 +806,27 @@
       <value>VSEL</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD</footprint>
       <fields>
-        <field name="AltMPN">090-3-006-0-T-XT0-0910</field>
-        <field name="AltManufacturer">MPE Garry</field>
         <field name="MPN">54202-G08-03</field>
         <field name="Manufacturer">Amphenol</field>
-        <field name="NP">np</field>
+        <field name="AltMPN">090-3-006-0-T-XT0-0910</field>
+        <field name="AltManufacturer">MPE Garry</field>
+        <field name="Price">0,608</field>
+        <field name="Digikey">  609-5602-ND</field>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Vertical_SMD</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_02x03_Odd_Even" description="Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value="54202-G08-03"/>
       <property name="Manufacturer" value="Amphenol"/>
-      <property name="NP" value="np"/>
       <property name="AltMPN" value="090-3-006-0-T-XT0-0910"/>
       <property name="AltManufacturer" value="MPE Garry"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,608"/>
+      <property name="Digikey" value="  609-5602-ND"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_2x??_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>98c3ce32-fc8e-4528-8fd0-64583dc43644</tstamps>
     </comp>
@@ -538,16 +834,28 @@
       <value>DEBUG</value>
       <footprint>Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal</footprint>
       <fields>
-        <field name="MPN">np</field>
+        <field name="MPN">088-2-006-0-S-XS0-1080</field>
         <field name="NP">np</field>
         <field name="Reichelt">MPE 088-2-006</field>
+        <field name="Manufacturer">MPE Garry</field>
+        <field name="Price">0,33</field>
+        <field name="Digikey">1849-PR20203HBDN-ND</field>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_2x03_P2.54mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_01x06" description="Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
-      <property name="MPN" value="np"/>
+      <property name="MPN" value="088-2-006-0-S-XS0-1080"/>
       <property name="NP" value="np"/>
       <property name="Reichelt" value="MPE 088-2-006"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="MPE Garry"/>
+      <property name="Price" value="0,33"/>
+      <property name="Digikey" value="1849-PR20203HBDN-ND"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>a3d262b5-d34e-4dfb-8468-10ea4adaac1a</tstamps>
     </comp>
@@ -555,16 +863,28 @@
       <value>ATS</value>
       <footprint>Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal</footprint>
       <fields>
-        <field name="MPN">1757475</field>
-        <field name="Manufacturer">Phoenix Contact</field>
         <field name="NP">np</field>
+        <field name="MPN">CTB9352/2</field>
+        <field name="Manufacturer">CAMDENBOSS</field>
+        <field name="Price">0,18</field>
+        <field name="Reichelt">CTB9352-2</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Connector_Phoenix_MSTB:PhoenixContact_MSTBA_2,5_2-G-5,08_1x02_P5.08mm_Horizontal</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_01x02" description="Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="NP" value="np"/>
-      <property name="MPN" value="1757475"/>
-      <property name="Manufacturer" value="Phoenix Contact"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="CTB9352/2"/>
+      <property name="Manufacturer" value="CAMDENBOSS"/>
+      <property name="Price" value="0,18"/>
+      <property name="Reichelt" value="CTB9352-2"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>34d73292-293b-415c-b248-b39a82687f77</tstamps>
     </comp>
@@ -573,15 +893,27 @@
       <footprint>the78mole:WAGO 2086-1208</footprint>
       <fields>
         <field name="MPN">WAGO 2086-1208</field>
-        <field name="Manufacturer">WAGO</field>
         <field name="NP">np</field>
+        <field name="Manufacturer">WAGO</field>
+        <field name="Price">1,99</field>
+        <field name="Digikey"/>
+        <field name="Reichelt">WAGO 2086-1208</field>
+        <field name="Footprint">the78mole:WAGO 2086-1208</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_01x08" description="Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value="WAGO 2086-1208"/>
       <property name="NP" value="np"/>
       <property name="Manufacturer" value="WAGO"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="1,99"/>
+      <property name="Digikey" value=""/>
+      <property name="Reichelt" value="WAGO 2086-1208"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_1x??_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6381c663-26fa-4e91-ae84-943d882baf4a</tstamps>
     </comp>
@@ -591,14 +923,52 @@
       <fields>
         <field name="MPN">54202-G0805LF</field>
         <field name="Manufacturer">Amphenol </field>
+        <field name="Price">0,459</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical_SMD</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector_Generic" part="Conn_02x05_Odd_Even" description="Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"/>
       <property name="MPN" value="54202-G0805LF"/>
       <property name="Manufacturer" value="Amphenol "/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,459"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="connector"/>
+      <property name="ki_fp_filters" value="Connector*:*_2x??_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>0dcbd994-5969-4498-852c-5d5d7050384a</tstamps>
+    </comp>
+    <comp ref="J8">
+      <value>ATS_mate</value>
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <fields>
+        <field name="Reichelt">CTB9202-2</field>
+        <field name="NP">np</field>
+        <field name="MPN">CTB9202/2</field>
+        <field name="Manufacturer">CAMDENBOSS</field>
+        <field name="Digikey"/>
+        <field name="Price">0,38</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description">Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <libsource lib="Connector" part="Screw_Terminal_01x02" description="Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"/>
+      <property name="Reichelt" value="CTB9202-2"/>
+      <property name="NP" value="np"/>
+      <property name="MPN" value="CTB9202/2"/>
+      <property name="Manufacturer" value="CAMDENBOSS"/>
+      <property name="Digikey" value=""/>
+      <property name="Price" value="0,38"/>
+      <property name="Sheetname" value="Stammblatt"/>
+      <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="screw terminal"/>
+      <property name="ki_fp_filters" value="TerminalBlock*:*"/>
+      <sheetpath names="/" tstamps="/"/>
+      <tstamps>f45ce716-fadb-4f48-b4bd-159456e998c1</tstamps>
     </comp>
     <comp ref="R1">
       <value>220</value>
@@ -606,12 +976,21 @@
       <fields>
         <field name="MPN">R0603_220</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_220"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f1f4b220-95ba-49b5-8112-ec3046de8a5c</tstamps>
     </comp>
@@ -621,12 +1000,21 @@
       <fields>
         <field name="MPN">R0603_10K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_10K"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>673cc7a0-add5-4664-b02a-142dc89a86a4</tstamps>
     </comp>
@@ -636,12 +1024,21 @@
       <fields>
         <field name="MPN">R0603_220</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_220"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>18f9c732-658e-4809-a20e-5acc336b2fc7</tstamps>
     </comp>
@@ -651,27 +1048,47 @@
       <fields>
         <field name="MPN">R0603_4K7</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_4K7"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>bb922217-6a39-4825-8948-daeb1006630c</tstamps>
     </comp>
     <comp ref="R5">
-      <value>1M</value>
+      <value>100K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_1M</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_100K</field>
+        <field name="NP"/>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="R0603_1M"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_100K"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>b2df68c6-4b6c-414b-af2e-98499e59f3b0</tstamps>
     </comp>
@@ -679,14 +1096,23 @@
       <value>10</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_10</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_10</field>
+        <field name="Price">0,003</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_10"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,003"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>223ab63d-d53e-4636-8e70-315f64ecd76a</tstamps>
     </comp>
@@ -694,14 +1120,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>ee5335c9-ea4f-439f-8af5-1d2cdcbd3d9c</tstamps>
     </comp>
@@ -709,29 +1144,47 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>47bfe57a-ed43-439e-8736-f05bddd6fb6e</tstamps>
     </comp>
     <comp ref="R9">
-      <value>0</value>
+      <value>330</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>ea50b935-3ca1-47f9-89d3-0821e610404c</tstamps>
     </comp>
@@ -741,12 +1194,24 @@
       <fields>
         <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Manufacturer">multipart</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="multipart"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>dec7d272-2037-4181-adf7-18ac332715b0</tstamps>
     </comp>
@@ -754,31 +1219,51 @@
       <value>100K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_100K</field>
+        <field name="NP"/>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_100K"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>ec5772c6-7cc2-4597-8ff4-1bb3ca4641ee</tstamps>
     </comp>
     <comp ref="R12">
-      <value>33K</value>
+      <value>47K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_33K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_47K</field>
+        <field name="NP"/>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="R0603_33K"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_47K"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>e2f4d613-7d25-40f9-b2d8-5984d9b49586</tstamps>
     </comp>
@@ -786,16 +1271,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6ae699cf-147b-4a44-a806-61cf6620e839</tstamps>
     </comp>
@@ -803,16 +1298,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>a3c8c9aa-e92e-43b7-ba4b-4bc6458192bf</tstamps>
     </comp>
@@ -820,33 +1325,52 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>b2a129bc-5a5e-482f-b4f7-a25ebc1402ad</tstamps>
     </comp>
     <comp ref="R16">
-      <value>np</value>
+      <value>1K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_1K</field>
+        <field name="NP"/>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_1K"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>7ff163d4-f025-4da6-9f9d-ae1a11226d6b</tstamps>
     </comp>
@@ -854,16 +1378,23 @@
       <value>3K3</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_3K3</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="NP" value="np"/>
-      <property name="MPN" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_3K3"/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>7c899814-f938-468e-98be-3b6e01d62a34</tstamps>
     </comp>
@@ -873,12 +1404,24 @@
       <fields>
         <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Manufacturer">multipart</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="multipart"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>98e5da1f-3b36-47a8-b7ad-e49442e30d07</tstamps>
     </comp>
@@ -886,14 +1429,23 @@
       <value>220</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_220</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_220</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_220"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>131ef406-3243-407b-9a3e-6639849db737</tstamps>
     </comp>
@@ -901,14 +1453,23 @@
       <value>220</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_220</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_220</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_220"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>16608fdd-4762-425c-8c48-109b16df1bf4</tstamps>
     </comp>
@@ -916,14 +1477,23 @@
       <value>220</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_220</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_220</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_220"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>58d63f4d-75a7-48ae-be34-019250e8a305</tstamps>
     </comp>
@@ -931,14 +1501,23 @@
       <value>220</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_220</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_220</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_220"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>1101fdd2-e421-4dc0-8373-8d74b014c14a</tstamps>
     </comp>
@@ -946,14 +1525,23 @@
       <value>680</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_680</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_680</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_680"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>2cc3154e-961b-42f5-a3fd-3c6097dbb1f0</tstamps>
     </comp>
@@ -961,14 +1549,23 @@
       <value>680</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_680</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_680</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_680"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>329b9074-085a-4869-80d9-efe5ec4d37d1</tstamps>
     </comp>
@@ -976,14 +1573,23 @@
       <value>680</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_680</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_680</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_680"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>cdad79ac-4db8-4aca-9513-4ec55c611a15</tstamps>
     </comp>
@@ -991,14 +1597,23 @@
       <value>680</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_680</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_680</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_680"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>242b395a-619b-4095-8542-f2ea0908b881</tstamps>
     </comp>
@@ -1006,14 +1621,23 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_10K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_10K</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_10K"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fa78c47d-df59-4787-a07a-bb10bf6b938c</tstamps>
     </comp>
@@ -1021,14 +1645,23 @@
       <value>1M</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_1M</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_1M</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_1M"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4080a1e4-fce3-4272-b78d-616784d1f610</tstamps>
     </comp>
@@ -1036,14 +1669,23 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_10K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_10K</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_10K"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>d1720e0e-bc6f-4346-b470-7755688b1044</tstamps>
     </comp>
@@ -1053,12 +1695,21 @@
       <fields>
         <field name="MPN">R0603_4K7</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_4K7"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>858f1cad-31a6-46b9-86f4-8b7b5d469367</tstamps>
     </comp>
@@ -1068,12 +1719,24 @@
       <fields>
         <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Manufacturer">multipart</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="multipart"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>42c6b28f-8500-4b68-bbdf-32bd8be86f80</tstamps>
     </comp>
@@ -1081,14 +1744,23 @@
       <value>10K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_10K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_10K</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_10K"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>b990107a-0e4c-458f-8840-f696a05a2a7b</tstamps>
     </comp>
@@ -1096,14 +1768,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3f6d951b-c866-45d5-951c-4cf0a1d8ca29</tstamps>
     </comp>
@@ -1111,31 +1792,49 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>39031a94-cdf9-4b0b-948b-d3c5e6239a00</tstamps>
     </comp>
     <comp ref="R35">
-      <value>np</value>
+      <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_0</field>
+        <field name="NP"/>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_0"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3cb7a9da-6c9d-47d8-8036-58ae8e432832</tstamps>
     </comp>
@@ -1143,14 +1842,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>358bb74b-36fb-4238-89e3-084c014dd90e</tstamps>
     </comp>
@@ -1158,14 +1866,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f43ea07c-f797-46f1-9537-becd08b1c531</tstamps>
     </comp>
@@ -1173,31 +1890,49 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4a4c2fef-30f6-4fcf-aec2-2533b3d18ca7</tstamps>
     </comp>
     <comp ref="R39">
-      <value>np</value>
+      <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_0</field>
+        <field name="NP"/>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_0"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>b90b0d3d-1a47-4a43-8c79-a20c3ff9ddfc</tstamps>
     </comp>
@@ -1205,14 +1940,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>64999206-3886-49a2-94ea-4dc94801f7a7</tstamps>
     </comp>
@@ -1220,16 +1964,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>185f0fdb-45f9-41f6-98b5-c21c091009cf</tstamps>
     </comp>
@@ -1237,16 +1991,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>31e769c2-62b0-4539-9404-48e372d58b93</tstamps>
     </comp>
@@ -1254,16 +2018,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>596ad3fd-3554-4880-b141-b89840e4e442</tstamps>
     </comp>
@@ -1271,16 +2045,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>011e7a39-1f2b-4aa9-b713-80af67cc021b</tstamps>
     </comp>
@@ -1288,14 +2072,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>a9a17361-606a-4339-99a9-c5b79e198a7d</tstamps>
     </comp>
@@ -1303,14 +2096,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4a046479-1bfa-47d6-98e4-eae0b3da0763</tstamps>
     </comp>
@@ -1318,14 +2120,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>f3cfebdb-3f5d-40c5-b04e-39d98d112605</tstamps>
     </comp>
@@ -1333,31 +2144,49 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>d677d955-8879-4c7b-adae-8f4bcc9e928e</tstamps>
     </comp>
     <comp ref="R49">
-      <value>np</value>
+      <value>1K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_1K</field>
+        <field name="NP"/>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_1K"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>c37d2755-5be0-4004-84c9-a76c18dce7b7</tstamps>
     </comp>
@@ -1365,14 +2194,23 @@
       <value>1K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_1K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_1K</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_1K"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>eb7e1ed0-317b-4366-9328-a939d0eef252</tstamps>
     </comp>
@@ -1380,29 +2218,50 @@
       <value>1K</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_1K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_1K</field>
+        <field name="Price">0,002</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_1K"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,002"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>eab9893e-df42-4954-8b39-1f7096aa443c</tstamps>
     </comp>
     <comp ref="R52">
-      <value>1K</value>
+      <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_1K</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
+        <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="R0603_1K"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="np"/>
+      <property name="NP" value="np"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>c5e8699a-0bf5-4c71-8ce8-464bdac4879a</tstamps>
     </comp>
@@ -1410,16 +2269,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fc6ca6db-387e-4160-87b3-311dd06f24d1</tstamps>
     </comp>
@@ -1427,14 +2296,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4a3623d1-f010-449b-83c1-6471ef2f7193</tstamps>
     </comp>
@@ -1442,14 +2320,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>40b2cba9-956e-4218-950a-6687886a4bd6</tstamps>
     </comp>
@@ -1457,14 +2344,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6eb180fa-58bd-4b25-8276-2db3e24d1c12</tstamps>
     </comp>
@@ -1472,14 +2368,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>83ff0cd8-87d4-439d-96f4-1108954ba9d3</tstamps>
     </comp>
@@ -1487,16 +2392,26 @@
       <value>np</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">np</field>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="np"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>0ef4ad27-7827-4c76-b47b-89d1b09d89a4</tstamps>
     </comp>
@@ -1504,14 +2419,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>b2761eab-f3f0-42a6-9c4d-046577d07645</tstamps>
     </comp>
@@ -1519,14 +2443,23 @@
       <value>22</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_22</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_22</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_22"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>975b2ba2-4ceb-446d-be73-34838d46bbe1</tstamps>
     </comp>
@@ -1536,12 +2469,21 @@
       <fields>
         <field name="MPN">R0603_4K7</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_4K7"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>941756f5-6695-43f0-bcdc-8939255dbe39</tstamps>
     </comp>
@@ -1551,12 +2493,21 @@
       <fields>
         <field name="MPN">R0603_4K7</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_4K7"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>1664e158-0241-458d-9814-108555a32898</tstamps>
     </comp>
@@ -1566,12 +2517,21 @@
       <fields>
         <field name="MPN">R0603_4K7</field>
         <field name="Manufacturer">multipart</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="MPN" value="R0603_4K7"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>6f1c7fbd-a3bc-4da2-8e06-9395a06b05b6</tstamps>
     </comp>
@@ -1579,14 +2539,23 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fc18b5df-ee8a-4fe9-aab7-87a1c0569585</tstamps>
     </comp>
@@ -1594,31 +2563,49 @@
       <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">R0603_0</field>
         <field name="Manufacturer">multipart</field>
+        <field name="MPN">R0603_0</field>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="MPN" value="R0603_0"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>78eec8be-e0aa-432b-8394-1b1f58c5cd5b</tstamps>
     </comp>
     <comp ref="R66">
-      <value>np</value>
+      <value>0</value>
       <footprint>Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</footprint>
       <fields>
-        <field name="MPN">np</field>
         <field name="Manufacturer">multipart</field>
-        <field name="NP">np</field>
+        <field name="MPN">R0603_0</field>
+        <field name="NP"/>
+        <field name="Price">0,001</field>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
-      <property name="MPN" value="np"/>
-      <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="R0603_0"/>
+      <property name="NP" value=""/>
+      <property name="Price" value="0,001"/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>1848a0ec-4521-4981-9664-6aa51108548e</tstamps>
     </comp>
@@ -1628,12 +2615,24 @@
       <fields>
         <field name="Manufacturer">multipart</field>
         <field name="NP">np</field>
+        <field name="MPN">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="np"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>03bf0fa7-1fc6-4c03-866e-5247e25202b7</tstamps>
     </comp>
@@ -1643,12 +2642,24 @@
       <fields>
         <field name="Manufacturer">multipart</field>
         <field name="NP">np</field>
+        <field name="MPN">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Device" part="R_Small" description="Resistor, small symbol"/>
       <property name="Manufacturer" value="multipart"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="MPN" value="np"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="R resistor"/>
+      <property name="ki_fp_filters" value="R_*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>10022d08-668b-451e-b32f-9fb450a64413</tstamps>
     </comp>
@@ -1658,12 +2669,23 @@
       <fields>
         <field name="MPN">B3SL-1002P</field>
         <field name="Manufacturer">Omron</field>
+        <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey">B3SL-1002P</field>
+        <field name="Footprint">Button_Switch_SMD:SW_SPST_B3SL-1002P</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <property name="MPN" value="B3SL-1002P"/>
       <property name="Manufacturer" value="Omron"/>
-      <property name="Sheetname" value=""/>
+      <property name="NP" value="np"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value="B3SL-1002P"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>2586c64e-72fc-4aeb-a1eb-041f89394fcf</tstamps>
     </comp>
@@ -1673,12 +2695,23 @@
       <fields>
         <field name="MPN">B3SL-1002P</field>
         <field name="Manufacturer">Omron</field>
+        <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey">B3SL-1002P</field>
+        <field name="Footprint">Button_Switch_SMD:SW_SPST_B3SL-1002P</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <property name="MPN" value="B3SL-1002P"/>
       <property name="Manufacturer" value="Omron"/>
-      <property name="Sheetname" value=""/>
+      <property name="NP" value="np"/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value="B3SL-1002P"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>a78cce33-f1ae-48f5-8bf3-83ca2920d4a3</tstamps>
     </comp>
@@ -1688,12 +2721,20 @@
       <fields>
         <field name="MPN">B3SL-1002P</field>
         <field name="Manufacturer">Omron</field>
+        <field name="Price">0,280</field>
+        <field name="Digikey">B3SL-1002P</field>
+        <field name="Footprint">Button_Switch_SMD:SW_SPST_B3SL-1002P</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <property name="MPN" value="B3SL-1002P"/>
       <property name="Manufacturer" value="Omron"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,280"/>
+      <property name="Digikey" value="B3SL-1002P"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>9ccfd8a3-27b3-4bac-b1c0-dbc82ecb1089</tstamps>
     </comp>
@@ -1703,12 +2744,20 @@
       <fields>
         <field name="MPN">B3SL-1002P</field>
         <field name="Manufacturer">Omron</field>
+        <field name="Price">0,280</field>
+        <field name="Digikey">B3SL-1002P</field>
+        <field name="Footprint">Button_Switch_SMD:SW_SPST_B3SL-1002P</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Switch" part="SW_Push" description="Push button switch, generic, two pins"/>
       <property name="MPN" value="B3SL-1002P"/>
       <property name="Manufacturer" value="Omron"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,280"/>
+      <property name="Digikey" value="B3SL-1002P"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="switch normally-open pushbutton push-button"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>2f151092-de12-435b-8035-bf64ac63c95b</tstamps>
     </comp>
@@ -1717,11 +2766,20 @@
       <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
       <fields>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector" part="TestPoint" description="test point"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4ae230e1-bf0b-47b1-8968-a7d48dbfb273</tstamps>
     </comp>
@@ -1730,11 +2788,20 @@
       <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
       <fields>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector" part="TestPoint" description="test point"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>33b94ead-c86d-4795-aad9-799a3f358f74</tstamps>
     </comp>
@@ -1743,11 +2810,20 @@
       <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
       <fields>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector" part="TestPoint" description="test point"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>fe75b482-309d-4557-bef4-6b42792bfe6e</tstamps>
     </comp>
@@ -1756,11 +2832,20 @@
       <footprint>TestPoint:TestPoint_Pad_D2.0mm</footprint>
       <fields>
         <field name="NP">np</field>
+        <field name="Price"/>
+        <field name="Digikey"/>
+        <field name="Footprint">TestPoint:TestPoint_Pad_D2.0mm</field>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <libsource lib="Connector" part="TestPoint" description="test point"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value=""/>
+      <property name="Digikey" value=""/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="test point tp"/>
+      <property name="ki_fp_filters" value="Pin* Test*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>aabb3a48-4b90-4fd0-a251-8e45dd83760b</tstamps>
     </comp>
@@ -1771,12 +2856,23 @@
       <fields>
         <field name="MPN">ESP32-WROOM-32D-N8</field>
         <field name="Manufacturer">Espressif Systems</field>
+        <field name="Price">3,731</field>
+        <field name="Digikey">ESP32-WROOM-32D-N8</field>
+        <field name="Reichelt">ESP32WROOM32D8</field>
+        <field name="Footprint">RF_Module:ESP32-WROOM-32</field>
+        <field name="Datasheet">https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="RF_Module" part="ESP32-WROOM-32D" description="RF Module, ESP32-D0WD SoC, Wi-Fi 802.11b/g/n, Bluetooth, BLE, 32-bit, 2.7-3.6V, onboard antenna, SMD"/>
       <property name="MPN" value="ESP32-WROOM-32D-N8"/>
       <property name="Manufacturer" value="Espressif Systems"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="3,731"/>
+      <property name="Digikey" value="ESP32-WROOM-32D-N8"/>
+      <property name="Reichelt" value="ESP32WROOM32D8"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="RF Radio BT ESP ESP32 Espressif onboard PCB antenna"/>
+      <property name="ki_fp_filters" value="ESP32?WROOM?32*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>3bce8568-5dfe-473a-bacf-9baead6e9cd6</tstamps>
     </comp>
@@ -1787,12 +2883,23 @@
       <fields>
         <field name="MPN">AZ1117IH-3.3TRG1</field>
         <field name="Manufacturer">Diodes Inc.</field>
+        <field name="Price">0,140</field>
+        <field name="Digikey">AZ1117IH-3.3TRG1</field>
+        <field name="Reichelt">TS 1117 BCW33</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-223-3_TabPin2</field>
+        <field name="Datasheet">http://www.diodes.com/datasheets/AP1117.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="Regulator_Linear" part="AP1117-33" description="1A Low Dropout regulator, positive, 3.3V fixed output, SOT-223"/>
       <property name="MPN" value="AZ1117IH-3.3TRG1"/>
       <property name="Manufacturer" value="Diodes Inc."/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,140"/>
+      <property name="Digikey" value="AZ1117IH-3.3TRG1"/>
+      <property name="Reichelt" value="TS 1117 BCW33"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="linear regulator ldo fixed positive obsolete"/>
+      <property name="ki_fp_filters" value="SOT?223*TabPin2*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>1b406388-f6e8-413f-99b9-e7f42164ab8d</tstamps>
     </comp>
@@ -1801,14 +2908,28 @@
       <footprint>Package_SO:SO-8_5.3x6.2mm_P1.27mm</footprint>
       <datasheet>http://ww1.microchip.com/downloads/en/DeviceDoc/21941B.pdf</datasheet>
       <fields>
-        <field name="MPN">np</field>
+        <field name="MPN">24LC1025-I/SM</field>
         <field name="NP">np</field>
+        <field name="Manufacturer">Microchip</field>
+        <field name="Price">4,90</field>
+        <field name="Digikey"/>
+        <field name="Reichelt">24LC1025-I/SM</field>
+        <field name="Footprint">Package_SO:SO-8_5.3x6.2mm_P1.27mm</field>
+        <field name="Datasheet">http://ww1.microchip.com/downloads/en/DeviceDoc/21941B.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="Memory_EEPROM" part="24LC1025" description="I2C Serial EEPROM, 1024Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8"/>
-      <property name="MPN" value="np"/>
+      <property name="MPN" value="24LC1025-I/SM"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="Microchip"/>
+      <property name="Price" value="4,90"/>
+      <property name="Digikey" value=""/>
+      <property name="Reichelt" value="24LC1025-I/SM"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="I2C Serial EEPROM"/>
+      <property name="ki_fp_filters" value="DIP*W7.62mm* SOIC*3.9x4.9mm* TSSOP*4.4x3mm*P0.65mm* DFN*3x2mm*P0.5mm*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>073804fc-4d99-4722-afce-2f9cd7934717</tstamps>
     </comp>
@@ -1819,12 +2940,21 @@
       <fields>
         <field name="MPN">SN74LV1T34DBVRG4</field>
         <field name="Manufacturer">Texas Instruments</field>
+        <field name="Price">0,149</field>
+        <field name="Digikey">SN74LV1T34DBVR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lv1t34.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="Logic_LevelTranslator" part="SN74LV1T34DBV" description="Single Power Supply, Single Buffer GATE, CMOS Logic, Level Shifter, SOT-23-5"/>
       <property name="MPN" value="SN74LV1T34DBVRG4"/>
       <property name="Manufacturer" value="Texas Instruments"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,149"/>
+      <property name="Digikey" value="SN74LV1T34DBVR"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="single buffer level shift"/>
+      <property name="ki_fp_filters" value="SOT?23*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>4295f4c0-ca28-493e-b1dd-27961c653479</tstamps>
     </comp>
@@ -1835,12 +2965,21 @@
       <fields>
         <field name="MPN">SN74LV1T34DBVRG4</field>
         <field name="Manufacturer">Texas Instruments</field>
+        <field name="Price">0,149</field>
+        <field name="Digikey">SN74LV1T34DBVR</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
+        <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lv1t34.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="Logic_LevelTranslator" part="SN74LV1T34DBV" description="Single Power Supply, Single Buffer GATE, CMOS Logic, Level Shifter, SOT-23-5"/>
       <property name="MPN" value="SN74LV1T34DBVRG4"/>
       <property name="Manufacturer" value="Texas Instruments"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="0,149"/>
+      <property name="Digikey" value="SN74LV1T34DBVR"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="ki_keywords" value="single buffer level shift"/>
+      <property name="ki_fp_filters" value="SOT?23*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>e489d0fb-ce0a-4e6c-88a9-25a89c1d94c4</tstamps>
     </comp>
@@ -1850,33 +2989,76 @@
       <datasheet>https://www.nxp.com/docs/en/data-sheet/PCA9306.pdf</datasheet>
       <fields>
         <field name="MPN">PCA9306DC1Z</field>
+        <field name="Manufacturer">Texas Instruments</field>
+        <field name="NP">np</field>
+        <field name="Price">1,15</field>
+        <field name="Digikey"/>
+        <field name="Reichelt">PCA 9306 DCUR</field>
+        <field name="Footprint">Package_SO:VSSOP-8_2.3x2mm_P0.5mm</field>
+        <field name="Datasheet">https://www.nxp.com/docs/en/data-sheet/PCA9306.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="Interface" part="PCA9306DC1" description="Dual bidirectional I2C Bus and SMBus voltage level translator, VSSOP-8"/>
       <property name="MPN" value="PCA9306DC1Z"/>
-      <property name="Sheetname" value=""/>
+      <property name="Manufacturer" value="Texas Instruments"/>
+      <property name="NP" value="np"/>
+      <property name="Price" value="1,15"/>
+      <property name="Digikey" value=""/>
+      <property name="Reichelt" value="PCA 9306 DCUR"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
+      <property name="ki_keywords" value="I2C SMBus"/>
+      <property name="ki_fp_filters" value="VSSOP*2.3x2mm*P0.5mm*"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>8a545577-91e7-4a2d-903a-679e3be87f06</tstamps>
     </comp>
     <comp ref="U7">
       <value>DS2484</value>
       <footprint>Package_TO_SOT_SMD:SOT-23-6_Handsoldering</footprint>
+      <datasheet>https://www.analog.com/media/en/technical-documentation/data-sheets/ds2484.pdf</datasheet>
       <fields>
         <field name="MPN">DS2484R+T</field>
         <field name="Manufacturer">Analog Devices</field>
         <field name="NP">np</field>
+        <field name="Price">3,35</field>
+        <field name="Digikey">DS2484R+T</field>
+        <field name="Footprint">Package_TO_SOT_SMD:SOT-23-6_Handsoldering</field>
+        <field name="Datasheet">https://www.analog.com/media/en/technical-documentation/data-sheets/ds2484.pdf</field>
+        <field name="Description"/>
       </fields>
       <libsource lib="the78mole" part="DS2484" description=""/>
       <property name="MPN" value="DS2484R+T"/>
       <property name="Manufacturer" value="Analog Devices"/>
       <property name="NP" value="np"/>
-      <property name="Sheetname" value=""/>
+      <property name="Price" value="3,35"/>
+      <property name="Digikey" value="DS2484R+T"/>
+      <property name="Sheetname" value="Stammblatt"/>
       <property name="Sheetfile" value="KM217-WiFi.kicad_sch"/>
+      <property name="dnp"/>
       <sheetpath names="/" tstamps="/"/>
       <tstamps>da6df61e-b7cb-4e3b-8539-a52e90d2627c</tstamps>
     </comp>
   </components>
   <libparts>
+    <libpart lib="Connector" part="Screw_Terminal_01x02">
+      <description>Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</description>
+      <docs>~</docs>
+      <footprints>
+        <fp>TerminalBlock*:*</fp>
+      </footprints>
+      <fields>
+        <field name="Reference">J</field>
+        <field name="Value">Screw_Terminal_01x02</field>
+        <field name="Footprint"/>
+        <field name="Datasheet">~</field>
+        <field name="Description">Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
+      </fields>
+      <pins>
+        <pin num="1" name="Pin_1" type="passive"/>
+        <pin num="2" name="Pin_2" type="passive"/>
+      </pins>
+    </libpart>
     <libpart lib="Connector" part="TestPoint">
       <description>test point</description>
       <docs>~</docs>
@@ -1887,7 +3069,9 @@
       <fields>
         <field name="Reference">TP</field>
         <field name="Value">TestPoint</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">test point</field>
       </fields>
       <pins>
         <pin num="1" name="1" type="passive"/>
@@ -1902,7 +3086,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">USB_B_Mini</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">USB Mini Type B connector</field>
       </fields>
       <pins>
         <pin num="1" name="VBUS" type="power_out"/>
@@ -1922,7 +3108,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">Conn_01x02</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -1938,7 +3126,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">Conn_01x06</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -1958,7 +3148,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">Conn_01x08</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, single row, 01x08, script generated (kicad-library-utils/schlib/autogen/connector/)</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -1980,7 +3172,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">Conn_02x03_Odd_Even</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, double row, 02x03, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -2000,7 +3194,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">Conn_02x05_Odd_Even</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -2024,7 +3220,9 @@
       <fields>
         <field name="Reference">J</field>
         <field name="Value">Conn_02x06_Odd_Even</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Generic connector, double row, 02x06, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)</field>
       </fields>
       <pins>
         <pin num="1" name="Pin_1" type="passive"/>
@@ -2050,7 +3248,9 @@
       <fields>
         <field name="Reference">C</field>
         <field name="Value">C_Polarized_Small</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Polarized capacitor, small symbol</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -2066,7 +3266,9 @@
       <fields>
         <field name="Reference">C</field>
         <field name="Value">C_Small</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Unpolarized capacitor, small symbol</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -2085,7 +3287,9 @@
       <fields>
         <field name="Reference">D</field>
         <field name="Value">D_Zener</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Zener diode</field>
       </fields>
       <pins>
         <pin num="1" name="K" type="passive"/>
@@ -2103,7 +3307,9 @@
       <fields>
         <field name="Reference">D</field>
         <field name="Value">LED</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Light emitting diode</field>
       </fields>
       <pins>
         <pin num="1" name="K" type="passive"/>
@@ -2119,7 +3325,9 @@
       <fields>
         <field name="Reference">R</field>
         <field name="Value">R_Small</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Resistor, small symbol</field>
       </fields>
       <pins>
         <pin num="1" name="" type="passive"/>
@@ -2137,6 +3345,7 @@
         <field name="Value">PCA9306DC1</field>
         <field name="Footprint">Package_SO:VSSOP-8_2.3x2mm_P0.5mm</field>
         <field name="Datasheet">https://www.nxp.com/docs/en/data-sheet/PCA9306.pdf</field>
+        <field name="Description">Dual bidirectional I2C Bus and SMBus voltage level translator, VSSOP-8</field>
       </fields>
       <pins>
         <pin num="1" name="GND" type="power_in"/>
@@ -2160,6 +3369,7 @@
         <field name="Value">SN74LV1T34DBV</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-23-5</field>
         <field name="Datasheet">https://www.ti.com/lit/ds/symlink/sn74lv1t34.pdf</field>
+        <field name="Description">Single Power Supply, Single Buffer GATE, CMOS Logic, Level Shifter, SOT-23-5</field>
       </fields>
       <pins>
         <pin num="1" name="NC" type="no_connect"/>
@@ -2178,7 +3388,9 @@
       <fields>
         <field name="Reference">H</field>
         <field name="Value">MountingHole</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Mounting Hole without connection</field>
       </fields>
     </libpart>
     <libpart lib="Memory_EEPROM" part="24LC1025">
@@ -2193,7 +3405,9 @@
       <fields>
         <field name="Reference">U</field>
         <field name="Value">24LC1025</field>
+        <field name="Footprint"/>
         <field name="Datasheet">http://ww1.microchip.com/downloads/en/DeviceDoc/21941B.pdf</field>
+        <field name="Description">I2C Serial EEPROM, 1024Kb, DIP-8/SOIC-8/TSSOP-8/DFN-8</field>
       </fields>
       <pins>
         <pin num="1" name="A0" type="input"/>
@@ -2217,6 +3431,7 @@
         <field name="Value">ESP32-WROOM-32D</field>
         <field name="Footprint">RF_Module:ESP32-WROOM-32</field>
         <field name="Datasheet">https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32d_esp32-wroom-32u_datasheet_en.pdf</field>
+        <field name="Description">RF Module, ESP32-D0WD SoC, Wi-Fi 802.11b/g/n, Bluetooth, BLE, 32-bit, 2.7-3.6V, onboard antenna, SMD</field>
       </fields>
       <pins>
         <pin num="1" name="GND" type="power_in"/>
@@ -2271,6 +3486,7 @@
         <field name="Value">AP1117-33</field>
         <field name="Footprint">Package_TO_SOT_SMD:SOT-223-3_TabPin2</field>
         <field name="Datasheet">http://www.diodes.com/datasheets/AP1117.pdf</field>
+        <field name="Description">1A Low Dropout regulator, positive, 3.3V fixed output, SOT-223</field>
       </fields>
       <pins>
         <pin num="1" name="GND" type="power_in"/>
@@ -2284,7 +3500,9 @@
       <fields>
         <field name="Reference">SW</field>
         <field name="Value">SW_Push</field>
+        <field name="Footprint"/>
         <field name="Datasheet">~</field>
+        <field name="Description">Push button switch, generic, two pins</field>
       </fields>
       <pins>
         <pin num="1" name="1" type="passive"/>
@@ -2295,6 +3513,9 @@
       <fields>
         <field name="Reference">U</field>
         <field name="Value">DS2484</field>
+        <field name="Footprint"/>
+        <field name="Datasheet"/>
+        <field name="Description"/>
       </fields>
       <pins>
         <pin num="1" name="SLPZ" type="input"/>
@@ -2308,41 +3529,41 @@
   </libparts>
   <libraries>
     <library logical="Connector">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Connector.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Connector.kicad_sym</uri>
     </library>
     <library logical="Connector_Generic">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Connector_Generic.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Connector_Generic.kicad_sym</uri>
     </library>
     <library logical="Device">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Device.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Device.kicad_sym</uri>
     </library>
     <library logical="Interface">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Interface.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Interface.kicad_sym</uri>
     </library>
     <library logical="Logic_LevelTranslator">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Logic_LevelTranslator.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Logic_LevelTranslator.kicad_sym</uri>
     </library>
     <library logical="Mechanical">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Mechanical.kicad_sym</uri>
     </library>
     <library logical="Memory_EEPROM">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Memory_EEPROM.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Memory_EEPROM.kicad_sym</uri>
     </library>
     <library logical="RF_Module">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/RF_Module.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/RF_Module.kicad_sym</uri>
     </library>
     <library logical="Regulator_Linear">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Regulator_Linear.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Regulator_Linear.kicad_sym</uri>
     </library>
     <library logical="Switch">
-      <uri>C:\Program Files\KiCad\6.0\share\kicad\symbols\/Switch.kicad_sym</uri>
+      <uri>C:\Program Files\KiCad\9.0\share\kicad\symbols\/Switch.kicad_sym</uri>
     </library>
     <library logical="the78mole">
       <uri>C:\GIT\KiCad\userlibs/symbols/the78mole.kicad_sym</uri>
     </library>
   </libraries>
   <nets>
-    <net code="1" name="+3V3">
+    <net code="1" name="+3V3" class="Default">
       <node ref="C1" pin="1" pintype="passive"/>
       <node ref="C13" pin="1" pintype="passive"/>
       <node ref="C14" pin="1" pintype="passive"/>
@@ -2376,7 +3597,7 @@
       <node ref="U4" pin="5" pinfunction="VCC" pintype="power_in"/>
       <node ref="U6" pin="7" pinfunction="VREF2" pintype="power_in"/>
     </net>
-    <net code="2" name="+5V">
+    <net code="2" name="+5V" class="Default">
       <node ref="C10" pin="2" pintype="passive"/>
       <node ref="C2" pin="1" pintype="passive"/>
       <node ref="C20" pin="2" pintype="passive"/>
@@ -2395,64 +3616,64 @@
       <node ref="U5" pin="5" pinfunction="VCC" pintype="power_in"/>
       <node ref="U7" pin="6" pinfunction="VCC" pintype="power_in"/>
     </net>
-    <net code="3" name="/SCL_EXT">
+    <net code="3" name="/SCL_EXT" class="Default">
       <node ref="R54" pin="2" pintype="passive"/>
       <node ref="R61" pin="2" pintype="passive"/>
       <node ref="U6" pin="3" pinfunction="SCL1" pintype="bidirectional"/>
     </net>
-    <net code="4" name="/SDA_EXT">
+    <net code="4" name="/SDA_EXT" class="Default">
       <node ref="R55" pin="2" pintype="passive"/>
       <node ref="R62" pin="2" pintype="passive"/>
       <node ref="U6" pin="4" pinfunction="SDA1" pintype="bidirectional"/>
     </net>
-    <net code="5" name="ADC1_CH0">
+    <net code="5" name="ADC1_CH0" class="Default">
       <node ref="R12" pin="1" pintype="passive"/>
       <node ref="R5" pin="2" pintype="passive"/>
       <node ref="U1" pin="4" pinfunction="SENSOR_VP" pintype="input"/>
     </net>
-    <net code="6" name="ADC1_CH5">
+    <net code="6" name="ADC1_CH5" class="Default">
       <node ref="C16" pin="1" pintype="passive"/>
       <node ref="R14" pin="1" pintype="passive"/>
       <node ref="R50" pin="1" pintype="passive"/>
       <node ref="R7" pin="2" pintype="passive"/>
       <node ref="U1" pin="9" pinfunction="IO33" pintype="bidirectional"/>
     </net>
-    <net code="7" name="ADC1_CH6">
+    <net code="7" name="ADC1_CH6" class="Default">
       <node ref="C17" pin="1" pintype="passive"/>
       <node ref="R15" pin="1" pintype="passive"/>
       <node ref="R51" pin="1" pintype="passive"/>
       <node ref="R8" pin="2" pintype="passive"/>
       <node ref="U1" pin="6" pinfunction="IO34" pintype="input"/>
     </net>
-    <net code="8" name="ADC1_CH7">
+    <net code="8" name="ADC1_CH7" class="Default">
       <node ref="C15" pin="1" pintype="passive"/>
       <node ref="R16" pin="1" pintype="passive"/>
       <node ref="R52" pin="1" pintype="passive"/>
       <node ref="R9" pin="2" pintype="passive"/>
       <node ref="U1" pin="7" pinfunction="IO35" pintype="input"/>
     </net>
-    <net code="9" name="ESP_EN">
+    <net code="9" name="ESP_EN" class="Default">
       <node ref="J4" pin="3" pinfunction="Pin_3" pintype="passive"/>
       <node ref="R19" pin="1" pintype="passive"/>
       <node ref="R29" pin="2" pintype="passive"/>
       <node ref="SW4" pin="2" pinfunction="2" pintype="passive"/>
     </net>
-    <net code="10" name="ESP_IO0">
+    <net code="10" name="ESP_IO0" class="Default">
       <node ref="J4" pin="2" pinfunction="Pin_2" pintype="passive"/>
       <node ref="R20" pin="2" pintype="passive"/>
       <node ref="R27" pin="2" pintype="passive"/>
       <node ref="SW3" pin="2" pinfunction="2" pintype="passive"/>
     </net>
-    <net code="11" name="ESP_RX">
+    <net code="11" name="ESP_RX" class="Default">
       <node ref="J4" pin="5" pinfunction="Pin_5" pintype="passive"/>
       <node ref="R22" pin="2" pintype="passive"/>
     </net>
-    <net code="12" name="ESP_TX">
+    <net code="12" name="ESP_TX" class="Default">
       <node ref="J4" pin="4" pinfunction="Pin_4" pintype="passive"/>
       <node ref="R21" pin="2" pintype="passive"/>
       <node ref="R28" pin="2" pintype="passive"/>
     </net>
-    <net code="13" name="GND">
+    <net code="13" name="GND" class="Default">
       <node ref="C1" pin="2" pintype="passive"/>
       <node ref="C10" pin="1" pintype="passive"/>
       <node ref="C13" pin="2" pintype="passive"/>
@@ -2506,90 +3727,104 @@
       <node ref="U6" pin="1" pinfunction="GND" pintype="power_in"/>
       <node ref="U7" pin="4" pinfunction="GND" pintype="power_in"/>
     </net>
-    <net code="14" name="I2C_EXT_EN">
+    <net code="14" name="I2C_EXT_EN" class="Default">
       <node ref="U1" pin="14" pinfunction="IO12" pintype="bidirectional"/>
       <node ref="U6" pin="8" pinfunction="EN" pintype="input"/>
     </net>
-    <net code="15" name="LM_P1">
+    <net code="15" name="LM_P1" class="Default">
       <node ref="J1" pin="1" pinfunction="Pin_1" pintype="passive"/>
       <node ref="R33" pin="1" pintype="passive"/>
     </net>
-    <net code="16" name="LM_P2">
+    <net code="16" name="LM_P2" class="Default">
       <node ref="J1" pin="2" pinfunction="Pin_2" pintype="passive"/>
       <node ref="R34" pin="1" pintype="passive"/>
     </net>
-    <net code="17" name="LM_P3">
+    <net code="17" name="LM_P3" class="Default">
       <node ref="J1" pin="3" pinfunction="Pin_3" pintype="passive"/>
       <node ref="R35" pin="1" pintype="passive"/>
     </net>
-    <net code="18" name="LM_P4">
+    <net code="18" name="LM_P4" class="Default">
       <node ref="J1" pin="4" pinfunction="Pin_4" pintype="passive"/>
       <node ref="R36" pin="1" pintype="passive"/>
     </net>
-    <net code="19" name="LM_P5">
+    <net code="19" name="LM_P5" class="Default">
       <node ref="J1" pin="5" pinfunction="Pin_5" pintype="passive"/>
       <node ref="R37" pin="1" pintype="passive"/>
     </net>
-    <net code="20" name="LM_P6">
+    <net code="20" name="LM_P6" class="Default">
       <node ref="J1" pin="6" pinfunction="Pin_6" pintype="passive"/>
       <node ref="R38" pin="1" pintype="passive"/>
     </net>
-    <net code="21" name="LM_P7">
+    <net code="21" name="LM_P7" class="Default">
       <node ref="J1" pin="7" pinfunction="Pin_7" pintype="passive"/>
       <node ref="R39" pin="1" pintype="passive"/>
     </net>
-    <net code="22" name="LM_P8">
+    <net code="22" name="LM_P8" class="Default">
       <node ref="J1" pin="8" pinfunction="Pin_8" pintype="passive"/>
       <node ref="R40" pin="1" pintype="passive"/>
     </net>
-    <net code="23" name="LM_P9">
+    <net code="23" name="LM_P9" class="Default">
       <node ref="J1" pin="9" pinfunction="Pin_9" pintype="passive"/>
       <node ref="R41" pin="1" pintype="passive"/>
     </net>
-    <net code="24" name="LM_P10">
+    <net code="24" name="LM_P10" class="Default">
       <node ref="J1" pin="10" pinfunction="Pin_10" pintype="passive"/>
       <node ref="R42" pin="1" pintype="passive"/>
     </net>
-    <net code="25" name="LM_P11">
+    <net code="25" name="LM_P11" class="Default">
       <node ref="J1" pin="11" pinfunction="Pin_11" pintype="passive"/>
       <node ref="R43" pin="1" pintype="passive"/>
     </net>
-    <net code="26" name="LM_P12">
+    <net code="26" name="LM_P12" class="Default">
       <node ref="J1" pin="12" pinfunction="Pin_12" pintype="passive"/>
       <node ref="R44" pin="1" pintype="passive"/>
     </net>
-    <net code="27" name="LM_RX">
+    <net code="27" name="LM_RX" class="Default">
       <node ref="R1" pin="1" pintype="passive"/>
       <node ref="R31" pin="1" pintype="passive"/>
       <node ref="R38" pin="2" pintype="passive"/>
     </net>
-    <net code="28" name="LM_TX">
+    <net code="28" name="LM_TX" class="Default">
       <node ref="R18" pin="1" pintype="passive"/>
       <node ref="R2" pin="2" pintype="passive"/>
       <node ref="R37" pin="2" pintype="passive"/>
       <node ref="U4" pin="2" pinfunction="A" pintype="input"/>
     </net>
-    <net code="29" name="MISO">
+    <net code="29" name="MISO" class="Default">
       <node ref="R46" pin="1" pintype="passive"/>
       <node ref="U1" pin="31" pinfunction="IO19" pintype="bidirectional"/>
     </net>
-    <net code="30" name="MOSI">
+    <net code="30" name="MOSI" class="Default">
       <node ref="R47" pin="1" pintype="passive"/>
       <node ref="U1" pin="37" pinfunction="IO23" pintype="bidirectional"/>
     </net>
-    <net code="31" name="Net-(C4-Pad1)">
-      <node ref="C4" pin="1" pintype="passive"/>
-      <node ref="C5" pin="1" pintype="passive"/>
-      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
-      <node ref="R67" pin="1" pintype="passive"/>
-      <node ref="U2" pin="2" pinfunction="VO" pintype="power_out"/>
-    </net>
-    <net code="32" name="Net-(C11-Pad1)">
+    <net code="31" name="Net-(C11-Pad1)" class="Default">
       <node ref="C11" pin="1" pintype="passive"/>
       <node ref="R17" pin="1" pintype="passive"/>
       <node ref="R35" pin="2" pintype="passive"/>
     </net>
-    <net code="33" name="Net-(C11-Pad2)">
+    <net code="32" name="Net-(C12-Pad1)" class="Default">
+      <node ref="C12" pin="1" pintype="passive"/>
+      <node ref="R11" pin="1" pintype="passive"/>
+      <node ref="R39" pin="2" pintype="passive"/>
+    </net>
+    <net code="33" name="Net-(D1-K)" class="Default">
+      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R23" pin="2" pintype="passive"/>
+    </net>
+    <net code="34" name="Net-(D2-K)" class="Default">
+      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R24" pin="2" pintype="passive"/>
+    </net>
+    <net code="35" name="Net-(D3-K)" class="Default">
+      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R25" pin="2" pintype="passive"/>
+    </net>
+    <net code="36" name="Net-(D4-K)" class="Default">
+      <node ref="D4" pin="1" pinfunction="K" pintype="passive"/>
+      <node ref="R26" pin="2" pintype="passive"/>
+    </net>
+    <net code="37" name="Net-(D5-A)" class="Default">
       <node ref="C11" pin="2" pintype="passive"/>
       <node ref="C12" pin="2" pintype="passive"/>
       <node ref="D5" pin="2" pinfunction="A" pintype="passive"/>
@@ -2597,156 +3832,96 @@
       <node ref="R32" pin="2" pintype="passive"/>
       <node ref="R36" pin="2" pintype="passive"/>
     </net>
-    <net code="34" name="Net-(C12-Pad1)">
-      <node ref="C12" pin="1" pintype="passive"/>
-      <node ref="R11" pin="1" pintype="passive"/>
-      <node ref="R39" pin="2" pintype="passive"/>
-    </net>
-    <net code="35" name="Net-(C22-Pad2)">
-      <node ref="C22" pin="2" pintype="passive"/>
-      <node ref="R58" pin="1" pintype="passive"/>
-      <node ref="R59" pin="1" pintype="passive"/>
-      <node ref="U6" pin="2" pinfunction="VREF1" pintype="power_in"/>
-    </net>
-    <net code="36" name="Net-(D1-Pad1)">
-      <node ref="D1" pin="1" pinfunction="K" pintype="passive"/>
-      <node ref="R23" pin="2" pintype="passive"/>
-    </net>
-    <net code="37" name="Net-(D2-Pad1)">
-      <node ref="D2" pin="1" pinfunction="K" pintype="passive"/>
-      <node ref="R24" pin="2" pintype="passive"/>
-    </net>
-    <net code="38" name="Net-(D3-Pad1)">
-      <node ref="D3" pin="1" pinfunction="K" pintype="passive"/>
-      <node ref="R25" pin="2" pintype="passive"/>
-    </net>
-    <net code="39" name="Net-(D4-Pad1)">
-      <node ref="D4" pin="1" pinfunction="K" pintype="passive"/>
-      <node ref="R26" pin="2" pintype="passive"/>
-    </net>
-    <net code="40" name="Net-(D5-Pad1)">
+    <net code="38" name="Net-(D5-K)" class="Default">
       <node ref="D5" pin="1" pinfunction="K" pintype="passive"/>
       <node ref="J5" pin="1" pinfunction="Pin_1" pintype="passive"/>
       <node ref="R11" pin="2" pintype="passive"/>
       <node ref="R17" pin="2" pintype="passive"/>
     </net>
-    <net code="41" name="Net-(J2-Pad6)">
+    <net code="39" name="Net-(J2-Shield)" class="Default">
       <node ref="J2" pin="6" pinfunction="Shield" pintype="passive"/>
       <node ref="R60" pin="1" pintype="passive"/>
     </net>
-    <net code="42" name="Net-(J6-Pad2)">
+    <net code="40" name="Net-(J3-Pin_3)" class="Default">
+      <node ref="C4" pin="1" pintype="passive"/>
+      <node ref="C5" pin="1" pintype="passive"/>
+      <node ref="J3" pin="3" pinfunction="Pin_3" pintype="passive"/>
+      <node ref="R67" pin="1" pintype="passive"/>
+      <node ref="U2" pin="2" pinfunction="VO" pintype="power_out"/>
+    </net>
+    <net code="41" name="Net-(J6-Pin_2)" class="Default">
       <node ref="J6" pin="2" pinfunction="Pin_2" pintype="passive"/>
       <node ref="R9" pin="1" pintype="passive"/>
     </net>
-    <net code="43" name="Net-(J6-Pad4)">
+    <net code="42" name="Net-(J6-Pin_4)" class="Default">
       <node ref="J6" pin="4" pinfunction="Pin_4" pintype="passive"/>
       <node ref="R8" pin="1" pintype="passive"/>
     </net>
-    <net code="44" name="Net-(J6-Pad5)">
+    <net code="43" name="Net-(J6-Pin_5)" class="Default">
       <node ref="J6" pin="5" pinfunction="Pin_5" pintype="passive"/>
       <node ref="R65" pin="1" pintype="passive"/>
     </net>
-    <net code="45" name="Net-(J6-Pad6)">
+    <net code="44" name="Net-(J6-Pin_6)" class="Default">
       <node ref="J6" pin="6" pinfunction="Pin_6" pintype="passive"/>
       <node ref="R7" pin="1" pintype="passive"/>
     </net>
-    <net code="46" name="Net-(J6-Pad7)">
+    <net code="45" name="Net-(J6-Pin_7)" class="Default">
       <node ref="J6" pin="7" pinfunction="Pin_7" pintype="passive"/>
       <node ref="R64" pin="1" pintype="passive"/>
     </net>
-    <net code="47" name="Net-(J6-Pad8)">
+    <net code="46" name="Net-(J6-Pin_8)" class="Default">
       <node ref="J6" pin="8" pinfunction="Pin_8" pintype="passive"/>
       <node ref="R6" pin="1" pintype="passive"/>
     </net>
-    <net code="48" name="Net-(J7-Pad3)">
+    <net code="47" name="Net-(J7-Pin_3)" class="Default">
       <node ref="J7" pin="3" pinfunction="Pin_3" pintype="passive"/>
       <node ref="R45" pin="2" pintype="passive"/>
     </net>
-    <net code="49" name="Net-(J7-Pad4)">
+    <net code="48" name="Net-(J7-Pin_4)" class="Default">
       <node ref="J7" pin="4" pinfunction="Pin_4" pintype="passive"/>
       <node ref="R54" pin="1" pintype="passive"/>
     </net>
-    <net code="50" name="Net-(J7-Pad5)">
+    <net code="49" name="Net-(J7-Pin_5)" class="Default">
       <node ref="J7" pin="5" pinfunction="Pin_5" pintype="passive"/>
       <node ref="R46" pin="2" pintype="passive"/>
     </net>
-    <net code="51" name="Net-(J7-Pad6)">
+    <net code="50" name="Net-(J7-Pin_6)" class="Default">
       <node ref="J7" pin="6" pinfunction="Pin_6" pintype="passive"/>
       <node ref="R55" pin="1" pintype="passive"/>
     </net>
-    <net code="52" name="Net-(J7-Pad7)">
+    <net code="51" name="Net-(J7-Pin_7)" class="Default">
       <node ref="J7" pin="7" pinfunction="Pin_7" pintype="passive"/>
       <node ref="R47" pin="2" pintype="passive"/>
     </net>
-    <net code="53" name="Net-(J7-Pad8)">
+    <net code="52" name="Net-(J7-Pin_8)" class="Default">
       <node ref="J7" pin="8" pinfunction="Pin_8" pintype="passive"/>
       <node ref="R56" pin="1" pintype="passive"/>
     </net>
-    <net code="54" name="Net-(J7-Pad9)">
+    <net code="53" name="Net-(J7-Pin_9)" class="Default">
       <node ref="J7" pin="9" pinfunction="Pin_9" pintype="passive"/>
       <node ref="R48" pin="2" pintype="passive"/>
     </net>
-    <net code="55" name="Net-(R1-Pad2)">
-      <node ref="R1" pin="2" pintype="passive"/>
-      <node ref="U5" pin="4" pinfunction="Y" pintype="output"/>
-    </net>
-    <net code="56" name="Net-(R3-Pad1)">
-      <node ref="R3" pin="1" pintype="passive"/>
-      <node ref="U4" pin="4" pinfunction="Y" pintype="output"/>
-    </net>
-    <net code="57" name="Net-(R19-Pad2)">
-      <node ref="R19" pin="2" pintype="passive"/>
-      <node ref="U1" pin="3" pinfunction="EN" pintype="input"/>
-    </net>
-    <net code="58" name="Net-(R20-Pad1)">
-      <node ref="R20" pin="1" pintype="passive"/>
-      <node ref="U1" pin="25" pinfunction="IO0" pintype="bidirectional"/>
-    </net>
-    <net code="59" name="Net-(R21-Pad1)">
-      <node ref="R21" pin="1" pintype="passive"/>
-      <node ref="U1" pin="35" pinfunction="TXD0/IO1" pintype="bidirectional"/>
-    </net>
-    <net code="60" name="Net-(R22-Pad1)">
-      <node ref="R22" pin="1" pintype="passive"/>
-      <node ref="U1" pin="34" pinfunction="RXD0/IO3" pintype="bidirectional"/>
-    </net>
-    <net code="61" name="Net-(R23-Pad1)">
-      <node ref="R23" pin="1" pintype="passive"/>
-      <node ref="U1" pin="33" pinfunction="IO21" pintype="bidirectional"/>
-    </net>
-    <net code="62" name="Net-(R24-Pad1)">
-      <node ref="R24" pin="1" pintype="passive"/>
-      <node ref="U1" pin="36" pinfunction="IO22" pintype="bidirectional"/>
-    </net>
-    <net code="63" name="Net-(R25-Pad1)">
-      <node ref="R25" pin="1" pintype="passive"/>
-      <node ref="U1" pin="28" pinfunction="IO17" pintype="bidirectional"/>
-    </net>
-    <net code="64" name="Net-(R26-Pad1)">
-      <node ref="R26" pin="1" pintype="passive"/>
-      <node ref="U1" pin="10" pinfunction="IO25" pintype="bidirectional"/>
-    </net>
-    <net code="65" name="Net-(R32-Pad1)">
+    <net code="54" name="Net-(R32-Pad1)" class="Default">
       <node ref="R32" pin="1" pintype="passive"/>
       <node ref="R40" pin="2" pintype="passive"/>
     </net>
-    <net code="66" name="Net-(R41-Pad2)">
+    <net code="55" name="Net-(R41-Pad2)" class="Default">
       <node ref="R41" pin="2" pintype="passive"/>
       <node ref="TP1" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="67" name="Net-(R42-Pad2)">
+    <net code="56" name="Net-(R42-Pad2)" class="Default">
       <node ref="R42" pin="2" pintype="passive"/>
       <node ref="TP2" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="68" name="Net-(R43-Pad2)">
+    <net code="57" name="Net-(R43-Pad2)" class="Default">
       <node ref="R43" pin="2" pintype="passive"/>
       <node ref="TP3" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="69" name="Net-(R44-Pad2)">
+    <net code="58" name="Net-(R44-Pad2)" class="Default">
       <node ref="R44" pin="2" pintype="passive"/>
       <node ref="TP4" pin="1" pinfunction="1" pintype="passive"/>
     </net>
-    <net code="70" name="Net-(R49-Pad2)">
+    <net code="59" name="Net-(R49-Pad2)" class="Default">
       <node ref="R49" pin="2" pintype="passive"/>
       <node ref="R50" pin="2" pintype="passive"/>
       <node ref="R51" pin="2" pintype="passive"/>
@@ -2754,15 +3929,61 @@
       <node ref="R53" pin="1" pintype="passive"/>
       <node ref="R57" pin="1" pintype="passive"/>
     </net>
-    <net code="71" name="Net-(SW1-Pad2)">
-      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
-      <node ref="U1" pin="12" pinfunction="IO27" pintype="bidirectional"/>
+    <net code="60" name="Net-(U1-EN)" class="Default">
+      <node ref="R19" pin="2" pintype="passive"/>
+      <node ref="U1" pin="3" pinfunction="EN" pintype="input"/>
     </net>
-    <net code="72" name="Net-(SW2-Pad2)">
+    <net code="61" name="Net-(U1-IO0)" class="Default">
+      <node ref="R20" pin="1" pintype="passive"/>
+      <node ref="U1" pin="25" pinfunction="IO0" pintype="bidirectional"/>
+    </net>
+    <net code="62" name="Net-(U1-IO17)" class="Default">
+      <node ref="R25" pin="1" pintype="passive"/>
+      <node ref="U1" pin="28" pinfunction="IO17" pintype="bidirectional"/>
+    </net>
+    <net code="63" name="Net-(U1-IO21)" class="Default">
+      <node ref="R23" pin="1" pintype="passive"/>
+      <node ref="U1" pin="33" pinfunction="IO21" pintype="bidirectional"/>
+    </net>
+    <net code="64" name="Net-(U1-IO22)" class="Default">
+      <node ref="R24" pin="1" pintype="passive"/>
+      <node ref="U1" pin="36" pinfunction="IO22" pintype="bidirectional"/>
+    </net>
+    <net code="65" name="Net-(U1-IO25)" class="Default">
+      <node ref="R26" pin="1" pintype="passive"/>
+      <node ref="U1" pin="10" pinfunction="IO25" pintype="bidirectional"/>
+    </net>
+    <net code="66" name="Net-(U1-IO26)" class="Default">
       <node ref="SW2" pin="2" pinfunction="2" pintype="passive"/>
       <node ref="U1" pin="11" pinfunction="IO26" pintype="bidirectional"/>
     </net>
-    <net code="73" name="OW">
+    <net code="67" name="Net-(U1-IO27)" class="Default">
+      <node ref="SW1" pin="2" pinfunction="2" pintype="passive"/>
+      <node ref="U1" pin="12" pinfunction="IO27" pintype="bidirectional"/>
+    </net>
+    <net code="68" name="Net-(U1-RXD0/IO3)" class="Default">
+      <node ref="R22" pin="1" pintype="passive"/>
+      <node ref="U1" pin="34" pinfunction="RXD0/IO3" pintype="bidirectional"/>
+    </net>
+    <net code="69" name="Net-(U1-TXD0/IO1)" class="Default">
+      <node ref="R21" pin="1" pintype="passive"/>
+      <node ref="U1" pin="35" pinfunction="TXD0/IO1" pintype="bidirectional"/>
+    </net>
+    <net code="70" name="Net-(U4-Y)" class="Default">
+      <node ref="R3" pin="1" pintype="passive"/>
+      <node ref="U4" pin="4" pinfunction="Y" pintype="output"/>
+    </net>
+    <net code="71" name="Net-(U5-Y)" class="Default">
+      <node ref="R1" pin="2" pintype="passive"/>
+      <node ref="U5" pin="4" pinfunction="Y" pintype="output"/>
+    </net>
+    <net code="72" name="Net-(U6-VREF1)" class="Default">
+      <node ref="C22" pin="2" pintype="passive"/>
+      <node ref="R58" pin="1" pintype="passive"/>
+      <node ref="R59" pin="1" pintype="passive"/>
+      <node ref="U6" pin="2" pinfunction="VREF1" pintype="power_in"/>
+    </net>
+    <net code="73" name="OW" class="Default">
       <node ref="C18" pin="1" pintype="passive"/>
       <node ref="R13" pin="1" pintype="passive"/>
       <node ref="R49" pin="1" pintype="passive"/>
@@ -2770,100 +3991,106 @@
       <node ref="R66" pin="1" pintype="passive"/>
       <node ref="U7" pin="5" pinfunction="IO" pintype="bidirectional"/>
     </net>
-    <net code="74" name="OW_TMP">
+    <net code="74" name="OW_TMP" class="Default">
       <node ref="R66" pin="2" pintype="passive"/>
       <node ref="U1" pin="8" pinfunction="IO32" pintype="bidirectional"/>
       <node ref="U7" pin="1" pinfunction="SLPZ" pintype="input"/>
     </net>
-    <net code="75" name="SCL">
+    <net code="75" name="SCL" class="Default">
       <node ref="R30" pin="2" pintype="passive"/>
       <node ref="U1" pin="27" pinfunction="IO16" pintype="bidirectional"/>
       <node ref="U3" pin="6" pinfunction="SCL" pintype="input"/>
       <node ref="U6" pin="6" pinfunction="SCL2" pintype="bidirectional"/>
       <node ref="U7" pin="3" pinfunction="SCL" pintype="input"/>
     </net>
-    <net code="76" name="SCLK">
+    <net code="76" name="SCLK" class="Default">
       <node ref="R48" pin="1" pintype="passive"/>
       <node ref="U1" pin="30" pinfunction="IO18" pintype="bidirectional"/>
     </net>
-    <net code="77" name="SDA">
+    <net code="77" name="SDA" class="Default">
       <node ref="R4" pin="2" pintype="passive"/>
       <node ref="U1" pin="16" pinfunction="IO13" pintype="bidirectional"/>
       <node ref="U3" pin="5" pinfunction="SDA" pintype="bidirectional"/>
       <node ref="U6" pin="5" pinfunction="SDA2" pintype="bidirectional"/>
       <node ref="U7" pin="2" pinfunction="SDA" pintype="bidirectional"/>
     </net>
-    <net code="78" name="U1RX">
+    <net code="78" name="U1RX" class="Default">
       <node ref="R18" pin="2" pintype="passive"/>
       <node ref="R3" pin="2" pintype="passive"/>
       <node ref="U1" pin="26" pinfunction="IO4" pintype="bidirectional"/>
     </net>
-    <net code="79" name="U1TX">
+    <net code="79" name="U1TX" class="Default">
       <node ref="R10" pin="2" pintype="passive"/>
       <node ref="R31" pin="2" pintype="passive"/>
       <node ref="U1" pin="24" pinfunction="IO2" pintype="bidirectional"/>
       <node ref="U5" pin="2" pinfunction="A" pintype="input"/>
     </net>
-    <net code="80" name="VBUS">
+    <net code="80" name="VBUS" class="Default">
       <node ref="C19" pin="1" pintype="passive"/>
       <node ref="J2" pin="1" pinfunction="VBUS" pintype="power_out"/>
       <node ref="J3" pin="2" pinfunction="Pin_2" pintype="passive"/>
     </net>
-    <net code="81" name="VDRV">
+    <net code="81" name="VDRV" class="Default">
       <node ref="R53" pin="2" pintype="passive"/>
       <node ref="U1" pin="29" pinfunction="IO5" pintype="bidirectional"/>
     </net>
-    <net code="82" name="VPP">
+    <net code="82" name="VPP" class="Default">
       <node ref="J3" pin="6" pinfunction="Pin_6" pintype="passive"/>
       <node ref="R33" pin="2" pintype="passive"/>
       <node ref="R68" pin="2" pintype="passive"/>
     </net>
-    <net code="83" name="nCS">
+    <net code="83" name="nCS" class="Default">
       <node ref="R45" pin="1" pintype="passive"/>
       <node ref="U1" pin="23" pinfunction="IO15" pintype="bidirectional"/>
     </net>
-    <net code="84" name="nINT">
+    <net code="84" name="nINT" class="Default">
       <node ref="R56" pin="2" pintype="passive"/>
       <node ref="R63" pin="2" pintype="passive"/>
       <node ref="U1" pin="13" pinfunction="IO14" pintype="bidirectional"/>
     </net>
-    <net code="85" name="unconnected-(J2-Pad2)">
-      <node ref="J2" pin="2" pinfunction="D-" pintype="bidirectional+no_connect"/>
-    </net>
-    <net code="86" name="unconnected-(J2-Pad3)">
+    <net code="85" name="unconnected-(J2-D+-Pad3)" class="Default">
       <node ref="J2" pin="3" pinfunction="D+" pintype="bidirectional+no_connect"/>
     </net>
-    <net code="87" name="unconnected-(J2-Pad4)">
+    <net code="86" name="unconnected-(J2-D--Pad2)" class="Default">
+      <node ref="J2" pin="2" pinfunction="D-" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="87" name="unconnected-(J2-ID-Pad4)" class="Default">
       <node ref="J2" pin="4" pinfunction="ID" pintype="passive+no_connect"/>
     </net>
-    <net code="88" name="unconnected-(U1-Pad5)">
-      <node ref="U1" pin="5" pinfunction="SENSOR_VN" pintype="input+no_connect"/>
+    <net code="88" name="unconnected-(J8-Pin_1-Pad1)" class="Default">
+      <node ref="J8" pin="1" pinfunction="Pin_1" pintype="passive"/>
     </net>
-    <net code="89" name="unconnected-(U1-Pad17)">
-      <node ref="U1" pin="17" pinfunction="SHD/SD2" pintype="bidirectional+no_connect"/>
+    <net code="89" name="unconnected-(J8-Pin_2-Pad2)" class="Default">
+      <node ref="J8" pin="2" pinfunction="Pin_2" pintype="passive"/>
     </net>
-    <net code="90" name="unconnected-(U1-Pad18)">
-      <node ref="U1" pin="18" pinfunction="SWP/SD3" pintype="bidirectional+no_connect"/>
-    </net>
-    <net code="91" name="unconnected-(U1-Pad19)">
-      <node ref="U1" pin="19" pinfunction="SCS/CMD" pintype="bidirectional+no_connect"/>
-    </net>
-    <net code="92" name="unconnected-(U1-Pad20)">
-      <node ref="U1" pin="20" pinfunction="SCK/CLK" pintype="bidirectional+no_connect"/>
-    </net>
-    <net code="93" name="unconnected-(U1-Pad21)">
-      <node ref="U1" pin="21" pinfunction="SDO/SD0" pintype="bidirectional+no_connect"/>
-    </net>
-    <net code="94" name="unconnected-(U1-Pad22)">
-      <node ref="U1" pin="22" pinfunction="SDI/SD1" pintype="bidirectional+no_connect"/>
-    </net>
-    <net code="95" name="unconnected-(U1-Pad32)">
+    <net code="90" name="unconnected-(U1-NC-Pad32)" class="Default">
       <node ref="U1" pin="32" pinfunction="NC" pintype="no_connect"/>
     </net>
-    <net code="96" name="unconnected-(U4-Pad1)">
+    <net code="91" name="unconnected-(U1-SCK/CLK-Pad20)" class="Default">
+      <node ref="U1" pin="20" pinfunction="SCK/CLK" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="92" name="unconnected-(U1-SCS/CMD-Pad19)" class="Default">
+      <node ref="U1" pin="19" pinfunction="SCS/CMD" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="93" name="unconnected-(U1-SDI/SD1-Pad22)" class="Default">
+      <node ref="U1" pin="22" pinfunction="SDI/SD1" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="94" name="unconnected-(U1-SDO/SD0-Pad21)" class="Default">
+      <node ref="U1" pin="21" pinfunction="SDO/SD0" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="95" name="unconnected-(U1-SENSOR_VN-Pad5)" class="Default">
+      <node ref="U1" pin="5" pinfunction="SENSOR_VN" pintype="input+no_connect"/>
+    </net>
+    <net code="96" name="unconnected-(U1-SHD/SD2-Pad17)" class="Default">
+      <node ref="U1" pin="17" pinfunction="SHD/SD2" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="97" name="unconnected-(U1-SWP/SD3-Pad18)" class="Default">
+      <node ref="U1" pin="18" pinfunction="SWP/SD3" pintype="bidirectional+no_connect"/>
+    </net>
+    <net code="98" name="unconnected-(U4-NC-Pad1)" class="Default">
       <node ref="U4" pin="1" pinfunction="NC" pintype="no_connect"/>
     </net>
-    <net code="97" name="unconnected-(U5-Pad1)">
+    <net code="99" name="unconnected-(U5-NC-Pad1)" class="Default">
       <node ref="U5" pin="1" pinfunction="NC" pintype="no_connect"/>
     </net>
   </nets>

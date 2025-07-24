@@ -1,0 +1,20 @@
+fetchdir: ./tmpfw
+
+sources:
+  - type: local
+    name: blinkenlights
+    platform: pio
+    path: ./KM271-WIFI-Test/
+
+  - type: github
+    platform: esphome
+    name: km271-esphome
+    repo: the78mole/ESPhome-KM271-WiFi
+    asset_pattern: "^km271-for-friends-esp32.factory.bin$"
+
+  - type: github
+    platform: pio
+    name: dewenni-km271
+    repo: dewenni/ESP_Buderus_KM271
+    asset_pattern: "^buderus_km271_esp32_flash_${revision}.bin$"
+    current_version: "v5.4.1"

@@ -34,3 +34,45 @@ This is version 0.0.5:
  * Add a OneWire temperature Sensor on the board itself
  * Fix a minor bug with external I2C pull-up (tie them to PCA9306 selectable supply)
 
+## Firmware Management
+
+This project includes a comprehensive firmware management system for easy firmware updates and batch production:
+
+### 🚀 Quick Start
+
+```bash
+cd FW
+./setup-dev.sh                                    # Setup development environment
+uv run scripts/flash_firmware.py                  # List available firmware
+uv run scripts/flash_firmware.py blinkenlights    # Flash single device
+```
+
+### 📦 Available Firmware Options
+
+- **blinkenlights** - Local PlatformIO test project for hardware validation  
+- **km271-esphome** - ESPHome-based KM271 WiFi replacement ([the78mole/ESPhome-KM271-WiFi](https://github.com/the78mole/ESPhome-KM271-WiFi))
+- **dewenni-km271** - Feature-rich KM271 firmware ([dewenni/ESP_Buderus_KM271](https://github.com/dewenni/ESP_Buderus_KM271))
+
+All firmware images are automatically downloaded and prepared for flashing using the management scripts.
+
+### 🏭 Batch Production
+
+For manufacturing multiple units:
+
+```bash
+uv run scripts/flash_firmware.py blinkenlights --loop
+```
+
+- Flash device → Connect next device → Press any key to continue
+- Press 'n' to stop and show statistics
+- Supports both ESC and 'n' for stopping
+
+### 📖 Documentation
+
+See [`FW/README.md`](FW/README.md) for detailed firmware management documentation, including:
+
+- Setup instructions
+- Script usage examples  
+- Troubleshooting guide
+- Batch production workflows
+

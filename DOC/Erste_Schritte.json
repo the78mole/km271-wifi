@@ -1,0 +1,6636 @@
+{
+  "pandoc-api-version": [
+    1,
+    23,
+    1
+  ],
+  "meta": {
+    "author": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Daniel"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(the78mole)"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Glaser"
+        }
+      ]
+    },
+    "date": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "RawInline",
+          "c": [
+            "tex",
+            "\\today"
+          ]
+        }
+      ]
+    },
+    "documentclass": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "extarticle"
+        }
+      ]
+    },
+    "fontsize": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "9pt"
+        }
+      ]
+    },
+    "geometry": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "a5paper,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "margin=0.5cm"
+        }
+      ]
+    },
+    "header-includes": {
+      "t": "MetaList",
+      "c": [
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{multicol}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{graphicx}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{wrapfig}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage[svgnames]{xcolor}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{float}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{caption}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{ifthen}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\usepackage{enumitem}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\setlist{nosep}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\linespread{1.2}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\setlength{\\columnsep}{1cm}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\newboolean{inlatex}"
+              ]
+            }
+          ]
+        },
+        {
+          "t": "MetaInlines",
+          "c": [
+            {
+              "t": "RawInline",
+              "c": [
+                "tex",
+                "\\setboolean{inlatex}{true}"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "mainfont": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Latin"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Modern"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Roman"
+        }
+      ]
+    },
+    "output": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "pdf"
+        }
+      ]
+    },
+    "title": {
+      "t": "MetaInlines",
+      "c": [
+        {
+          "t": "Str",
+          "c": "KM271-WiFi"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Schnellstart-Anleitung"
+        }
+      ]
+    }
+  },
+  "blocks": [
+    {
+      "t": "Header",
+      "c": [
+        1,
+        [
+          "km271-wifi-schnellstart",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "KM271-WiFi"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "Schnellstart"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Dies"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "eine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kurze"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Anleitung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zur"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Inbetriebnahme"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "des"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "KM271-WiFi-Moduls."
+        }
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        2,
+        [
+          "voraussetzungen",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Voraussetzungen"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Überprüfe"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zunächst,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ob"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "alles"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wie"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bestellt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "vorhanden"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(von"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "links"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "rechts):"
+        }
+      ]
+    },
+    {
+      "t": "BulletList",
+      "c": [
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Strong",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "J5"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "ist"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "der"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Anschluss"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "für"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "den"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Abgastemperatursensor"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "(das"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Gegenstück"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "lag"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "dem"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Paket"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "bei,"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Farben"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "können"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "abweichen:"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "schwarz"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "oder"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "grün)"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Strong",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "J6"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "ist"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "der"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Anschluss"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "für"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Sensorleitungen"
+              }
+            ]
+          }
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Strong",
+                "c": [
+                  {
+                    "t": "Str",
+                    "c": "J4"
+                  }
+                ]
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "ist"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "der"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Debug-Anschluss"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "zur"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Programmierung"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "über"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "eine"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "serielle"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Verbindung"
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Je"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Bestellung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "gewählten"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Optionen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sind"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "einige"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Anschlüsse"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "möglicherweise"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nicht"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bestückt."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ethernet-Erweiterung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zweiten"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Bild"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ein"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "separates"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Modul,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ebenfalls"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "meinem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Tindie-Shop"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "erhältlich"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Image",
+          "c": [
+            [
+              "",
+              [],
+              [
+                [
+                  "height",
+                  "3cm"
+                ]
+              ]
+            ],
+            [
+              {
+                "t": "Str",
+                "c": "KM271-WiFi"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "größtenteils"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "bestückt"
+              }
+            ],
+            [
+              "../IMG/KM271-WiFi-0.1.0.jpg",
+              ""
+            ]
+          ]
+        },
+        {
+          "t": "SoftBreak"
+        },
+        {
+          "t": "Image",
+          "c": [
+            [
+              "",
+              [],
+              [
+                [
+                  "height",
+                  "3cm"
+                ]
+              ]
+            ],
+            [
+              {
+                "t": "Str",
+                "c": "KM271-WiFi"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "mit"
+              },
+              {
+                "t": "Space"
+              },
+              {
+                "t": "Str",
+                "c": "Ethernet-Erweiterung"
+              }
+            ],
+            [
+              "../IMG/KM271-WiFi-0.1.0-ETH-Ext.jpg",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Nun"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Strong",
+          "c": [
+            {
+              "t": "Str",
+              "c": "prüfe,"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "ob"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "der"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "PWRSEL-Header"
+            }
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wie"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "im"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Bild"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "gezeigt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bestückt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "mittlere"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "untere"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Jumper"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sollten"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "gesteckt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sein."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Dies"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "korrekte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Variante"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "für"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Strong",
+          "c": [
+            {
+              "t": "Str",
+              "c": "Versorgung"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "über"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "die"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Buderus-Steuerung"
+            }
+          ]
+        },
+        {
+          "t": "Str",
+          "c": "."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Modul"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Strong",
+          "c": [
+            {
+              "t": "Str",
+              "c": "über"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "USB"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "versorgen"
+            }
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "willst,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "musst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "den"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "unteren"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Jumper"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(blau"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "im"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Bild)"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oben"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "versetzen."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Orientiere"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dich"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dabei"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "an"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Beschriftung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "unter"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Kondensator."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "schwarze"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Jumper"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "darf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nur"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zum"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Flashen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "über"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "serielle"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Schnittstelle"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "entfernt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "werden."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Für"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ethernet-Erweiterung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "prüfe:"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "J5"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "geschlossen,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "J4"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "offen,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Jumper"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "J1"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bis"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "J3"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sitzen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "den"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Positionen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "2–3."
+        }
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        2,
+        [
+          "einbau",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Einbau"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ethernet"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nutzen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "möchtest,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "jetzt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "richtige"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Zeitpunkt,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ethernet-Erweiterung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "aufzustecken."
+        }
+      ]
+    },
+    {
+      "t": "OrderedList",
+      "c": [
+        [
+          1,
+          {
+            "t": "Decimal"
+          },
+          {
+            "t": "Period"
+          }
+        ],
+        [
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Schalte"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "die"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Buderus-Steuerung"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "aus"
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Entferne"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "die"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "beiden"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Schrauben"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "des"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Gehäuses"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "und"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "hebe"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "es"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "vorsichtig"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "an"
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Biege"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "die"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "über"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "dem"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "KM271-Slot"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "verlaufenden"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Kabel"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "etwas"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "nach"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "oben,"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "sodass"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "das"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Modul"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "seitlich"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "eingeschoben"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "werden"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "kann"
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Richte"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "das"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Modul"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "in"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "den"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Führungsschienen"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "des"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "KM271"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "aus"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "und"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "schiebe"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "es"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "nach"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "unten"
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Drücke"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "das"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Modul"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "vorsichtig"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "in"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "den"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Steckplatz"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "–"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "es"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "rastet"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "mit"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "einer"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "kleinen"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Lasche"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "in"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "die"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "rechteckige"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Öffnung"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "des"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "KM271-Moduls"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "ein"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "(im"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Bild"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "neben"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "dem"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Flachsteckverbinder)."
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Wenn"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "du"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "das"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Modul"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "wieder"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "entfernen"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "möchtest,"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "entriegle"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "die"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Lasche"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "mit"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "einem"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Schraubendreher"
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Schließe"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "ggf."
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "weitere"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Sensoren"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "an:"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Abgastemperaturfühler,"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Ölzähler,"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "OneWire"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "usw."
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Setze"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "das"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Gehäuse"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "der"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Buderus-Steuerung"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "wieder"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "auf"
+                },
+                {
+                  "t": "LineBreak"
+                }
+              ]
+            }
+          ],
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Schalte"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "die"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "Steuerung"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "wieder"
+                },
+                {
+                  "t": "Space"
+                },
+                {
+                  "t": "Str",
+                  "c": "ein"
+                }
+              ]
+            }
+          ]
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Display"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Buderus-Steuerung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sollte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nun"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ein"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "neuer"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Eintrag"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "ABGAS"
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "EXHAUST"
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "erscheinen."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Falls"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nicht,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nutze"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Drehrad"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zur"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Navigation."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "einen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Abgastemperaturfühler"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "angeschlossen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "hast,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wird"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dessen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "aktuelle"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Temperatur"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "angezeigt."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Falls"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nicht,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "steht"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dort"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "---"
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "–"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "völlig"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ordnung."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Nun"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nimm"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dein"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Smartphone"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "einen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "PC"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "suche"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "WLAN"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "Fallback Hotspot"
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(bei"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ESPhome)"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "ESP-Buderus-KM271"
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(bei"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dewennis"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Firmware)."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Android"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "fragt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Gerät"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "10–20 Sekunden,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ob"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "verbunden"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bleiben"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "möchtest"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(da"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "keine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Internetverbindung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "vorhanden"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist)"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "–"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bestätige"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "mit"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Code",
+          "c": [
+            [
+              "",
+              [],
+              []
+            ],
+            "Ja"
+          ]
+        },
+        {
+          "t": "Str",
+          "c": "."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Öffne"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dann"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "den"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Browser"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "rufe"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Adresse"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "http://192.168.4.1"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auf."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Manchmal"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dauert"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "es"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "einige"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Minuten,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bis"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "eine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Verbindung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "aufgebaut"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Seite"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "geladen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(vermutlich"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ein"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Bug"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ESPhome)."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Bis"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zu"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "diesem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Punkt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Vorgehen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bei"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dewennis"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Firmware"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "identisch"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "–"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sie"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "reagiert"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "meist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nur"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "etwas"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "schneller."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Fahre"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "jetzt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "mit"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "passenden"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Kapitel"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zu"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "deiner"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Firmware"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "fort."
+        }
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        3,
+        [
+          "esphome-konfiguration",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "ESPhome-Konfiguration"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "solltest"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nun"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Seite"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "des"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Fallback-Hotspots"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sehen:"
+        }
+      ]
+    },
+    {
+      "t": "Figure",
+      "c": [
+        [
+          "",
+          [],
+          []
+        ],
+        [
+          null,
+          [
+            {
+              "t": "Plain",
+              "c": [
+                {
+                  "t": "Str",
+                  "c": "Fallback-Hotspot-Seite"
+                }
+              ]
+            }
+          ]
+        ],
+        [
+          {
+            "t": "Plain",
+            "c": [
+              {
+                "t": "Image",
+                "c": [
+                  [
+                    "",
+                    [
+                      "float-right"
+                    ],
+                    [
+                      [
+                        "width",
+                        "35%"
+                      ]
+                    ]
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "Fallback-Hotspot-Seite"
+                    }
+                  ],
+                  [
+                    "../IMG/esphome-fallback-page.png",
+                    ""
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Wähle"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dein"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "WLAN"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "gib"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Passwort"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ein."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "versehentlich"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "falsche"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "WLAN"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "gewählt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "hast,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "es"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "später"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "schwierig,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wieder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Zugriff"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Board"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zu"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bekommen."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "In"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "diesem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Fall"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "musst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "falsche"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "WLAN"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "deaktivieren"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Modul"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "außerhalb"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Reichweite"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bringen."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Alternativ"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kannst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Modul"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "aus"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Buderus-Steuerung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "entfernen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "per"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "USB"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "versorgen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "aus"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Empfangsbereich"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "rausgehen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(dazu"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "den"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "PWRSEL-Jumper"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "umsetzen)."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Danach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kannst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Einrichtung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "erneut"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "starten."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Seite"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "des"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Fallback-Hotspots"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kannst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auch"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "eine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "neue"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Firmware"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "flashen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "–"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "allerdings"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Strong",
+          "c": [
+            {
+              "t": "Str",
+              "c": "keine"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "andere"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Firmware"
+            }
+          ]
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(z. B."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "von"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dewenni)."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Einrichtung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sollte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Board"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "deinem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ESPhome-Addon"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Home"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Assistant"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "erscheinen."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kannst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nun"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "YAML-Konfiguration"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "anpassen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "oder"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "so"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "lassen,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wie"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sie"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "eine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "neue"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Firmware"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "verfügbar"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ist"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(z. B."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "durch"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ein"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Update"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "des"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Addons),"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kann"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "diese"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Regel"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "problemlos"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "eingespielt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "werden."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Gerät"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "und"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "seine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Sensoren,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Werte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "usw."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "findest"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "in"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Home"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Assistant"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "unter:"
+        },
+        {
+          "t": "LineBreak"
+        },
+        {
+          "t": "Strong",
+          "c": [
+            {
+              "t": "Str",
+              "c": "Einstellungen"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "→"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Geräte"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "&"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Dienste"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "→"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "ESPhome"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Weitere"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Informationen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "findest"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "hier:"
+        },
+        {
+          "t": "LineBreak"
+        },
+        {
+          "t": "Str",
+          "c": "https://github.com/the78mole/ESPhome-KM271-WiFi"
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Link",
+          "c": [
+            [
+              "",
+              [],
+              [
+                [
+                  "width",
+                  "40%"
+                ]
+              ]
+            ],
+            [
+              {
+                "t": "Image",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "QR"
+                    }
+                  ],
+                  [
+                    "https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fgithub.com%2Fthe78mole%2FESPhome-KM271-WiFi&size=150x150",
+                    ""
+                  ]
+                ]
+              }
+            ],
+            [
+              "https://github.com/the78mole/ESPhome-KM271-WiFi",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "t": "Header",
+      "c": [
+        3,
+        [
+          "dewennis-mqtt-konfiguration",
+          [],
+          []
+        ],
+        [
+          {
+            "t": "Str",
+            "c": "Dewennis"
+          },
+          {
+            "t": "Space"
+          },
+          {
+            "t": "Str",
+            "c": "MQTT-Konfiguration"
+          }
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Beim"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "ersten"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Zugriff"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auf"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dewennis"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Web-Oberfläche"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "solltest"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zunächst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "GPIOs"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "konfigurieren"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "–"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "insbesondere,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ethernet-Erweiterung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "(ETH-Ext)"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "verwenden"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "willst,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "um"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "KM271-WiFi"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "mit"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "deinem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Heimnetz"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zu"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "verbinden."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "GPIOs"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "sind"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wie"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "folgt:"
+        }
+      ]
+    },
+    {
+      "t": "Table",
+      "c": [
+        [
+          "",
+          [],
+          []
+        ],
+        [
+          null,
+          []
+        ],
+        [
+          [
+            {
+              "t": "AlignDefault"
+            },
+            {
+              "t": "ColWidthDefault"
+            }
+          ],
+          [
+            {
+              "t": "AlignDefault"
+            },
+            {
+              "t": "ColWidthDefault"
+            }
+          ],
+          [
+            {
+              "t": "AlignDefault"
+            },
+            {
+              "t": "ColWidthDefault"
+            }
+          ]
+        ],
+        [
+          [
+            "",
+            [],
+            []
+          ],
+          [
+            [
+              [
+                "",
+                [],
+                []
+              ],
+              [
+                [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  {
+                    "t": "AlignDefault"
+                  },
+                  1,
+                  1,
+                  [
+                    {
+                      "t": "Plain",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "Signal"
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  {
+                    "t": "AlignDefault"
+                  },
+                  1,
+                  1,
+                  [
+                    {
+                      "t": "Plain",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "GPIO"
+                        }
+                      ]
+                    }
+                  ]
+                ],
+                [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  {
+                    "t": "AlignDefault"
+                  },
+                  1,
+                  1,
+                  [
+                    {
+                      "t": "Plain",
+                      "c": [
+                        {
+                          "t": "Str",
+                          "c": "Pin"
+                        },
+                        {
+                          "t": "Space"
+                        },
+                        {
+                          "t": "Str",
+                          "c": "(J7)"
+                        }
+                      ]
+                    }
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            [
+              "",
+              [],
+              []
+            ],
+            0,
+            [],
+            [
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "VCC"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    []
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.2"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "GND"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    []
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.10"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "CLK"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "18"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.9"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "MOSI"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "23"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.7"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "MISO"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "19"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.5"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "CS"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "15"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.3"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "INT"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "14"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.8"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ],
+              [
+                [
+                  "",
+                  [],
+                  []
+                ],
+                [
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "RST"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "13"
+                          }
+                        ]
+                      }
+                    ]
+                  ],
+                  [
+                    [
+                      "",
+                      [],
+                      []
+                    ],
+                    {
+                      "t": "AlignDefault"
+                    },
+                    1,
+                    1,
+                    [
+                      {
+                        "t": "Plain",
+                        "c": [
+                          {
+                            "t": "Str",
+                            "c": "J7.6"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          [
+            "",
+            [],
+            []
+          ],
+          []
+        ]
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Abgesehen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "von"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "der"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Ethernet-Konfiguration"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kannst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "alle"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "weiteren"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Einstellungen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "auch"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "nach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "dem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Neustart"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "vornehmen."
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Danach"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "musst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "noch"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "GPIOs"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "für"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Verbindung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "zur"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Buderus-Steuerung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "konfigurieren."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Für"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "das"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "KM271-WiFi"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "gibt"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "es"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "eine"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "vordefinierte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Option"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "–"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "bitte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "wähle"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "diese"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "aus."
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Wenn"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "andere"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Hardware"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "anschließen"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "möchtest,"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "findest"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "hier"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "die"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "detaillierte"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Beschreibung:"
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Link",
+          "c": [
+            [
+              "",
+              [],
+              [
+                [
+                  "width",
+                  "40%"
+                ]
+              ]
+            ],
+            [
+              {
+                "t": "Image",
+                "c": [
+                  [
+                    "",
+                    [],
+                    []
+                  ],
+                  [
+                    {
+                      "t": "Str",
+                      "c": "QR"
+                    }
+                  ],
+                  [
+                    "https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fbit.ly%2F4jA7aHu&size=150x150",
+                    ""
+                  ]
+                ]
+              }
+            ],
+            [
+              "https://bit.ly/4jA7aHu",
+              ""
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "https://bit.ly/4jA7aHu"
+        }
+      ]
+    },
+    {
+      "t": "HorizontalRule"
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Str",
+          "c": "Für"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "weitere"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Unterstützung"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "kannst"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "du"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "meinem"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "Matrix-Kanal"
+        },
+        {
+          "t": "Space"
+        },
+        {
+          "t": "Str",
+          "c": "beitreten:"
+        },
+        {
+          "t": "LineBreak"
+        },
+        {
+          "t": "Str",
+          "c": "https://matrix.to/#/%23molesblog:matrix.org"
+        }
+      ]
+    },
+    {
+      "t": "HorizontalRule"
+    },
+    {
+      "t": "Para",
+      "c": [
+        {
+          "t": "Strong",
+          "c": [
+            {
+              "t": "Str",
+              "c": "Viel"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Spaß"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "mit"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "deinem"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Ölbrenner"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "–"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "bis"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "ihn"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "die"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Wärmepumpe"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "in"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "Rente"
+            },
+            {
+              "t": "Space"
+            },
+            {
+              "t": "Str",
+              "c": "schickt!"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

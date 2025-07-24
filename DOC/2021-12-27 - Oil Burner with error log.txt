@@ -1,0 +1,90 @@
+[16:17:02][D][sensor:113]: 'KM271 Updates': Sending state 128.00000  with 0 decimals of accuracy
+[16:17:03][D][KM271:103]: TCNT: 1460, CNT: 11
+[16:17:03][D][KM271:062]: Buffer (0001277085): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:17:03][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:17:03][D][KM271:131]: Oil Burner Error 0x04 00
+[16:17:07][D][KM271:103]: TCNT: 1461, CNT: 1
+[16:17:07][D][KM271:062]: Buffer (0001281008): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:17:07][D][KM271:126]: No checksum, just single byte: 0x00
+[16:17:07][D][KM271:134]: No message 0x02
+[16:17:10][D][KM271:169]: Counter cycle (49, 1000)...
+[16:17:12][D][sensor:113]: 'KM271 Updates': Sending state 129.00000  with 0 decimals of accuracy
+[16:17:13][D][KM271:103]: TCNT: 1472, CNT: 11
+[16:17:13][D][KM271:062]: Buffer (0001287102): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:17:13][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:17:13][D][KM271:131]: Oil Burner Error 0x04 00
+[16:17:15][D][adc:094]: 'KM217 ADC CH7': Got voltage=1.9780V
+[16:17:17][D][KM271:103]: TCNT: 1473, CNT: 1
+[16:17:17][D][KM271:062]: Buffer (0001291511): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:17:17][D][KM271:126]: No checksum, just single byte: 0x00
+[16:17:17][D][KM271:134]: No message 0x02
+[16:17:19][D][adc:094]: 'KM217 ADC CH6': Got voltage=1.9050V
+[16:17:22][D][sensor:113]: 'KM271 Updates': Sending state 130.00000  with 0 decimals of accuracy
+[16:17:23][D][KM271:103]: TCNT: 1484, CNT: 11
+[16:17:23][D][KM271:062]: Buffer (0001297079): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:17:23][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:17:23][D][KM271:131]: Oil Burner Error 0x04 00
+[16:17:27][D][sensor:113]: 'KM217 WiFi Signal Sensor': Sending state -52.00000 dBm with 0 decimals of accuracy
+[16:17:28][D][KM271:103]: TCNT: 1485, CNT: 1
+[16:17:28][D][KM271:062]: Buffer (0001302008): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:17:28][D][KM271:126]: No checksum, just single byte: 0x00
+[16:17:28][D][KM271:134]: No message 0x02
+[16:17:31][D][adc:094]: 'KM217 5V Supply': Got voltage=1.9780V
+[16:17:32][D][sensor:113]: 'KM271 Updates': Sending state 131.00000  with 0 decimals of accuracy
+[16:17:33][D][KM271:103]: TCNT: 1496, CNT: 11
+[16:17:33][D][KM271:062]: Buffer (0001307103): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:17:33][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:17:33][D][KM271:131]: Oil Burner Error 0x04 00
+[16:17:36][D][KM271:169]: Counter cycle (50, 1000)...
+[16:17:38][D][KM271:103]: TCNT: 1497, CNT: 1
+[16:17:38][D][KM271:062]: Buffer (0001312512): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:17:38][D][KM271:126]: No checksum, just single byte: 0x00
+[16:17:38][D][KM271:134]: No message 0x02
+[16:17:42][D][adc:094]: 'KM217 ADC CH5': Got voltage=1.9780V
+[16:17:42][D][adc:094]: 'KM217 ADC CH4': Got voltage=1.9780V
+[16:17:42][D][sensor:113]: 'KM271 Updates': Sending state 132.00000  with 0 decimals of accuracy
+[16:17:43][D][KM271:103]: TCNT: 1508, CNT: 11
+[16:17:43][D][KM271:062]: Buffer (0001317099): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:17:43][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:17:43][D][KM271:131]: Oil Burner Error 0x04 00
+[16:17:49][D][KM271:103]: TCNT: 1509, CNT: 1
+[16:17:49][D][KM271:062]: Buffer (0001323007): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:17:49][D][KM271:126]: No checksum, just single byte: 0x00
+[16:17:49][D][KM271:134]: No message 0x02
+[16:17:52][D][sensor:113]: 'KM271 Updates': Sending state 133.00000  with 0 decimals of accuracy
+[16:17:53][D][KM271:103]: TCNT: 1520, CNT: 11
+[16:17:53][D][KM271:062]: Buffer (0001327098): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:17:53][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:17:53][D][KM271:131]: Oil Burner Error 0x04 00
+[16:17:59][D][KM271:103]: TCNT: 1521, CNT: 1
+[16:17:59][D][KM271:062]: Buffer (0001333500): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:17:59][D][KM271:126]: No checksum, just single byte: 0x00
+[16:17:59][D][KM271:134]: No message 0x02
+[16:18:02][D][KM271:169]: Counter cycle (51, 1000)...
+[16:18:02][D][sensor:113]: 'KM271 Updates': Sending state 134.00000  with 0 decimals of accuracy
+[16:18:03][D][KM271:103]: TCNT: 1532, CNT: 11
+[16:18:03][D][KM271:062]: Buffer (0001337095): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:18:03][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:18:03][D][KM271:131]: Oil Burner Error 0x04 00
+[16:18:10][D][KM271:103]: TCNT: 1533, CNT: 1
+[16:18:10][D][KM271:062]: Buffer (0001344010): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:18:10][D][KM271:126]: No checksum, just single byte: 0x00
+[16:18:10][D][KM271:134]: No message 0x02
+[16:18:12][D][sensor:113]: 'KM271 Updates': Sending state 135.00000  with 0 decimals of accuracy
+[16:18:13][D][KM271:103]: TCNT: 1544, CNT: 11
+[16:18:13][D][KM271:062]: Buffer (0001347087): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:18:13][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:18:13][D][KM271:131]: Oil Burner Error 0x04 00
+[16:18:15][D][adc:094]: 'KM217 ADC CH7': Got voltage=1.9780V
+[16:18:19][D][adc:094]: 'KM217 ADC CH6': Got voltage=1.8720V
+[16:18:20][D][KM271:103]: TCNT: 1545, CNT: 1
+[16:18:20][D][KM271:062]: Buffer (0001354513): 0x02 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+[16:18:20][D][KM271:126]: No checksum, just single byte: 0x00
+[16:18:20][D][KM271:134]: No message 0x02
+[16:18:22][D][sensor:113]: 'KM271 Updates': Sending state 136.00000  with 0 decimals of accuracy
+[16:18:23][D][KM271:103]: TCNT: 1556, CNT: 11
+[16:18:23][D][KM271:062]: Buffer (0001357079): 0x04 00 07 01 C3 2C C0 79 10 03 47 00 00 00 00 00
+[16:18:23][D][KM271:119]: Checksum OK: 0x47 == 0x47
+[16:18:23][D][KM271:131]: Oil Burner Error 0x04 00
+[16:18:27][D][sensor:113]: 'KM217 WiFi Signal Sensor': Sending state -46.00000 dBm with 0 decimals of accuracy
+[16:18:28][D][KM271:169]: Counter cycle (52, 1000)...

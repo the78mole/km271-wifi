@@ -3,5 +3,127 @@ _autosave-*
 /KM217-WiFi/fp-info-cache
 /KM217-WiFi/*.zip
 /KM217-WiFi/Export
-/KM217-WiFi/KM217-WiFi.pdf
-/KM217-WiFi/2023-02-08 PCBway order
+
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/settings.json
+.vscode/launch.json
+.vscode/extensions.json
+.idea/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Firmware download cache
+tmpfw/
+FW/tmpfw/
+FW/.venv/
+FW/__pycache__/
+
+# Firmware Management Scripts - Additional ignores
+FW/*-factory.bin
+FW/scripts/__pycache__/
+FW/scripts/sources/__pycache__/
+*.factory.bin
+
+# ESPHome/PlatformIO artifacts that might end up in FW/
+FW/**/.pio/
+FW/**/.pioenvs/
+FW/**/.piolibdeps/
+
+# Sensitive Business Data
+# =======================
+
+# Orders and shipping data
+Orders/
+**/Orders/
+**/Versand/
+**/versand/
+#*.csv
+/Data/
+*DHL*
+*DHL*
+
+# PCB manufacturing orders (contain pricing, quantities, supplier data)
+*order*/
+*Order*/
+
+# BOM files with pricing and supplier information
+**/bom/**
+**/*BOM-Sort-Shipping*
+*BOM-Sort-Shipping*
+**/*pcbway_outside_bom*
+*pcbway_outside_bom*
+*T-*sets-*.xls
+*T-*sets-*.xlsx
+
+# Zoll/Customs documents
+*Zoll*.pdf
+*Zoll*.zip
+*AWB-*.pdf
+*AWB-*.zip
+
+# Business correspondence
+*Nachruf*
+*Nachforschung*
+/MM_DOC
+/KM271_005
+/KM217_WiFi_004
+3Dconnexion
+*_old.yml
+*.ZIP
+*Zoll*
+*zoll*
+.~*
+/LOGS/
+*.FCBak
+*-bak
+*.log
+*.fls
+*.aux
+*latexmk
+*.bin
+ARCHIV*/
+*.lck
+*.eml
