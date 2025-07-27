@@ -4,7 +4,7 @@
         "config:recommended"
     ],
     "dependencyDashboard": true,
-    "dependencyDashboardTitle": "📋 Dependency Dashboard",
+    "dependencyDashboardTitle": "📦 Dependency Dashboard",
     "packageRules": [
         {
             "matchManagers": [

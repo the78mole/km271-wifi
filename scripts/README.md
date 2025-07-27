@@ -26,30 +26,57 @@ Comprehensive analysis tool for Renovate configuration and dependency coverage.
 - Renovate manager coverage analysis
 - Coverage statistics
 
-*Note: Python dependencies and firmware version management have been moved to separate projects and are no longer tracked here.*
+### 🎯 `test-renovate-coverage.sh`
 
-### 📦 `update_firmwares.py`
+Final coverage test script that validates what dependencies Renovate will actually monitor.
 
-*(Currently empty - placeholder for future firmware update automation)*
+**Usage:**
+```bash
+./scripts/test-renovate-coverage.sh
+```
+
+**Features:**
+- Shows final overview of all monitored dependencies
+- Validates coverage for Python dependencies (pyproject.toml)
+- Checks Docker image monitoring (GitLab CI and DevContainer)
+- Verifies firmware version tracking
+- Provides coverage summary and statistics
 
 ## Project Dependencies Covered
 
-ℹ️ **Python Dependencies** 
-- Moved to separate project
-- No longer tracked in this repository
+✅ **Python Dependencies** 
+- Managed via pyproject.toml
+- Monitored by Renovate pip_setup manager
 
 ✅ **Docker Images** 
 - GitLab CI: `texlive/texlive:latest-full`
 - DevContainer: `ghcr.io/the78mole/kicaddev-docker:latest`
+- Monitored by Renovate dockerfile and devcontainer managers
 
-ℹ️ **Firmware Versions** 
-- Moved to separate firmware management project
-- No longer tracked in this repository
+✅ **Firmware Versions** 
+- ESP Buderus KM271 firmware from dewenni/ESP_Buderus_KM271
+- Monitored via Renovate regex manager from sources.yaml
 
 ## Renovate Configuration
 
 The project uses Renovate for automated dependency updates with:
 - Grouped updates by dependency type
 - DevContainer image monitoring  
+- Python dependency management via pyproject.toml
+- Firmware version tracking via regex patterns
 - Dependency dashboard with German timezone
-- Simplified configuration focused on core dependencies
+- Comprehensive coverage of all project dependencies
+
+## Usage
+
+To analyze the current Renovate coverage, run both scripts in sequence:
+
+```bash
+# Full analysis of project dependencies and Renovate configuration
+./scripts/analyze-renovate.sh
+
+# Final coverage validation  
+./scripts/test-renovate-coverage.sh
+```
+
+These scripts help ensure that all project dependencies are properly monitored by Renovate for automated updates.
