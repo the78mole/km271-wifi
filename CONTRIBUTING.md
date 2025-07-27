@@ -127,9 +127,12 @@ Contributors are recognized in several ways:
 ## 📞 Getting Help
 
 - **GitHub Discussions**: For general questions and community discussion
-  - [💬 General Discussion](https://github.com/the78mole/km271-wifi/discussions) - General questions and ideas
-  - [🆘 Help & Support](https://github.com/the78mole/km271-wifi/discussions/categories/q-a) - Get help with setup and troubleshooting
-  - [🏭 Show & Tell](https://github.com/the78mole/km271-wifi/discussions/categories/show-and-tell) - Share your successful productions
+  - [💬 General](https://github.com/the78mole/km271-wifi/discussions/categories/general) - General questions and discussions
+  - [🆘 Help & Support](https://github.com/the78mole/km271-wifi/discussions/categories/help-support) - Get help with setup and troubleshooting
+  - [🎉 Install Success](https://github.com/the78mole/km271-wifi/discussions/categories/install-success) - Share your successful installations
+  - [🏭 Show and tell](https://github.com/the78mole/km271-wifi/discussions/categories/show-and-tell) - Share your hardware productions
+  - [💡 Ideas](https://github.com/the78mole/km271-wifi/discussions/categories/ideas) - Share ideas and suggestions
+  - [❓ Q&A](https://github.com/the78mole/km271-wifi/discussions/categories/q-a) - Questions and answers
 - **GitHub Issues**: For specific bugs, feature requests, or hardware problems (use the appropriate templates)
 - **Email**: Contact the maintainer at the78mole for direct hardware production questions
 

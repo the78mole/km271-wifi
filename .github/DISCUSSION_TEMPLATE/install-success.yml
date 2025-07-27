@@ -1,0 +1,171 @@
+title: "🎉 Installation Success"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🎉 **Congratulations on your successful KM271-WiFi installation!** 
+        
+        Thanks for sharing your success! This helps other users and provides valuable feedback for the project.
+
+  - type: input
+    id: hardware_version
+    attributes:
+      label: "🏷️ Hardware Version"
+      description: "Which version of KM271-WiFi did you install?"
+      placeholder: "e.g., KM271-WiFi v0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: buderus_controller
+    attributes:
+      label: "🏠 Buderus Controller"
+      description: "Which Buderus heating controller are you using?"
+      placeholder: "e.g., Logamatic 2107M"
+    validations:
+      required: true
+
+  - type: input
+    id: heating_system
+    attributes:
+      label: "🔥 Heating System Type"
+      description: "What type of heating system do you have?"
+      placeholder: "e.g., Oil burner, Gas burner, Heat pump"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: installation_source
+    attributes:
+      label: "📦 Installation Source"
+      description: "Where did you get your KM271-WiFi?"
+      options:
+        - "Purchased from Tindie store"
+        - "Self-manufactured from GitHub files"
+        - "Built by local electronics service"
+        - "Received from community member"
+        - "Other source"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: installation_difficulty
+    attributes:
+      label: "🎯 Installation Difficulty"
+      description: "How would you rate the installation process?"
+      options:
+        - "Very easy - plug and play"
+        - "Easy - minimal configuration needed"
+        - "Moderate - some troubleshooting required"
+        - "Challenging - needed help from community"
+        - "Very difficult - required expert assistance"
+    validations:
+      required: true
+
+  - type: input
+    id: installation_time
+    attributes:
+      label: "⏱️ Installation Time"
+      description: "How long did the complete installation take?"
+      placeholder: "e.g., 2 hours including configuration"
+
+  - type: checkboxes
+    id: working_features
+    attributes:
+      label: "✅ Working Features"
+      description: "Which features are working correctly in your installation?"
+      options:
+        - label: "Basic heating control"
+        - label: "Temperature monitoring"
+        - label: "WiFi connectivity"
+        - label: "Web interface access"
+        - label: "Home Assistant integration"
+        - label: "Error reporting"
+        - label: "Scheduling functions"
+        - label: "OneWire temperature sensors"
+        - label: "I2C devices"
+        - label: "External extensions"
+
+  - type: textarea
+    id: esphome_version
+    attributes:
+      label: "💻 ESPHome Configuration"
+      description: "ESPHome version and any special configuration details"
+      placeholder: "e.g., ESPHome 2024.7.3, used standard YAML with minor WiFi adjustments"
+
+  - type: textarea
+    id: home_assistant_integration
+    attributes:
+      label: "📱 Home Assistant Integration"
+      description: "Details about Home Assistant integration (if applicable)"
+      placeholder: "e.g., HA version 2024.7.4, auto-discovery worked perfectly, all entities visible"
+
+  - type: textarea
+    id: challenges_faced
+    attributes:
+      label: "⚠️ Challenges During Installation"
+      description: "Any problems or challenges you encountered during installation"
+      placeholder: "Describe any issues you faced and how you solved them"
+
+  - type: textarea
+    id: helpful_resources
+    attributes:
+      label: "📚 Helpful Resources"
+      description: "Which documentation or resources were most helpful?"
+      placeholder: "e.g., Getting Started Guide, specific forum posts, community discussions"
+
+  - type: textarea
+    id: tips_for_others
+    attributes:
+      label: "💡 Tips for Other Users"
+      description: "What advice would you give to others installing KM271-WiFi?"
+      placeholder: "Share your lessons learned and recommendations for new users"
+
+  - type: checkboxes
+    id: next_steps
+    attributes:
+      label: "🚀 Next Steps"
+      description: "What are you planning to do next with your installation?"
+      options:
+        - label: "Add more temperature sensors"
+        - label: "Integrate with smart home automation"
+        - label: "Set up advanced scheduling"
+        - label: "Monitor energy usage"
+        - label: "Add extension boards"
+        - label: "Help others in the community"
+        - label: "Create custom dashboards"
+
+  - type: textarea
+    id: overall_experience
+    attributes:
+      label: "🌟 Overall Experience"
+      description: "How would you describe your overall experience with the KM271-WiFi?"
+      placeholder: "Share your thoughts about the project, community, and how it has improved your heating system control"
+
+  - type: dropdown
+    id: would_recommend
+    attributes:
+      label: "🤝 Would You Recommend?"
+      description: "Would you recommend KM271-WiFi to others?"
+      options:
+        - "Absolutely - without hesitation"
+        - "Yes - with some guidance"
+        - "Maybe - depends on technical skills"
+        - "Probably not - too complex"
+        - "No - had too many issues"
+    validations:
+      required: true
+
+  - type: textarea
+    id: photos_description
+    attributes:
+      label: "📷 Photos of Your Installation"
+      description: "Please share photos of your successful installation (attach files below)"
+      placeholder: "Describe what photos you're sharing: installed hardware, web interface, HA dashboard, etc."
+
+  - type: textarea
+    id: additional_comments
+    attributes:
+      label: "📋 Additional Comments"
+      description: "Any other thoughts or feedback you'd like to share"
+      placeholder: "Additional thoughts, suggestions, or experiences you'd like to share with the community"

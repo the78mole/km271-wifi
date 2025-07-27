@@ -1,0 +1,166 @@
+title: "🏭 Hardware Production Success"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🎉 **Congratulations on your successful hardware production!** 
+        
+        Thanks for sharing your success with the community. This information helps other makers and improves future hardware revisions.
+
+  - type: input
+    id: quantity
+    attributes:
+      label: "📊 Quantity Produced"
+      description: "How many boards did you produce?"
+      placeholder: "e.g., 5 boards"
+    validations:
+      required: true
+
+  - type: input
+    id: pcb_version
+    attributes:
+      label: "🏷️ PCB Version"
+      description: "Which version of the KM271-WiFi did you produce?"
+      placeholder: "e.g., KM271-WiFi v0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: manufacturer
+    attributes:
+      label: "🏭 Manufacturing Service"
+      description: "Which service did you use for PCB manufacturing?"
+      placeholder: "e.g., JLCPCB, OSH Park, local fab house"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: assembly_method
+    attributes:
+      label: "🛠️ Assembly Method"
+      description: "How did you assemble the boards?"
+      options:
+        - label: "Professional PCBA service"
+        - label: "Hand assembly (self-soldered)"
+        - label: "Hybrid (some components pre-assembled)"
+        - label: "Other method"
+
+  - type: input
+    id: assembly_time
+    attributes:
+      label: "⏱️ Assembly Time"
+      description: "How long did assembly take per board?"
+      placeholder: "e.g., 2 hours per board"
+
+  - type: dropdown
+    id: difficulty
+    attributes:
+      label: "🎯 Difficulty Level"
+      description: "How would you rate the assembly difficulty?"
+      options:
+        - "Easy - basic soldering skills sufficient"
+        - "Moderate - some experience needed"
+        - "Challenging - advanced skills required"
+        - "Expert level - professional skills needed"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: tools_required
+    attributes:
+      label: "🔧 Tools Required"
+      description: "What tools did you need for assembly?"
+      options:
+        - label: "Basic soldering iron"
+        - label: "Hot air station"
+        - label: "Reflow oven"
+        - label: "Microscope/magnification"
+        - label: "Flux and solder paste"
+        - label: "Tweezers for SMD components"
+
+  - type: input
+    id: special_tools
+    attributes:
+      label: "Special tools or equipment"
+      placeholder: "List any special tools not mentioned above"
+
+  - type: textarea
+    id: issues_encountered
+    attributes:
+      label: "⚠️ Issues Encountered"
+      description: "Any problems during manufacturing or assembly?"
+      placeholder: "Describe any challenges you faced during production"
+
+  - type: input
+    id: success_rate
+    attributes:
+      label: "🎯 Success Rate"
+      description: "How many boards are fully functional?"
+      placeholder: "e.g., 4 out of 5 boards working perfectly"
+    validations:
+      required: true
+
+  - type: input
+    id: total_cost
+    attributes:
+      label: "💰 Total Cost Per Board"
+      description: "Approximate cost per board (optional)"
+      placeholder: "e.g., $45 including PCB + components + assembly"
+
+  - type: textarea
+    id: cost_breakdown
+    attributes:
+      label: "Main cost drivers"
+      description: "What were the biggest cost factors?"
+      placeholder: "e.g., PCB manufacturing 40%, components 50%, assembly 10%"
+
+  - type: checkboxes
+    id: testing_results
+    attributes:
+      label: "🧪 Testing Results"
+      description: "What's the status of your boards?"
+      options:
+        - label: "All features working perfectly"
+        - label: "Basic functionality confirmed"
+        - label: "Some features need debugging"
+        - label: "Major issues found"
+
+  - type: textarea
+    id: testing_details
+    attributes:
+      label: "Testing details"
+      description: "Describe any specific testing you performed"
+      placeholder: "e.g., tested with Logamatic 2107M controller, WiFi connectivity working, all sensors responding"
+
+  - type: textarea
+    id: tips_for_others
+    attributes:
+      label: "💡 Tips for Others"
+      description: "What would you recommend to others attempting production?"
+      placeholder: "Share your lessons learned and recommendations for future makers"
+
+  - type: dropdown
+    id: would_produce_again
+    attributes:
+      label: "🔄 Would You Produce Again?"
+      options:
+        - "Yes, definitely - great experience"
+        - "Yes, with some modifications"
+        - "Probably not - too challenging"
+        - "No - prefer to buy ready-made"
+    validations:
+      required: true
+
+  - type: textarea
+    id: photos_description
+    attributes:
+      label: "📷 Photos"
+      description: "Please attach photos of your production run (use the file attachment feature below)"
+      placeholder: "Describe what photos you're sharing: assembled boards, production setup, final installation, etc."
+
+  - type: textarea
+    id: additional_notes
+    attributes:
+      label: "📋 Additional Notes"
+      description: "Any other information you'd like to share with the community"
+      placeholder: "Additional thoughts, suggestions, or experiences you'd like to share"

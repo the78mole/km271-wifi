@@ -1,0 +1,84 @@
+title: "💬 General Discussion"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for starting a discussion! This template helps structure general discussions about the KM271-WiFi project.
+
+  - type: input
+    id: topic
+    attributes:
+      label: "🎯 Discussion Topic"
+      description: "What would you like to discuss?"
+      placeholder: "Brief summary of your discussion topic"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: category
+    attributes:
+      label: "📋 Category"
+      description: "Check the most relevant category"
+      options:
+        - label: "🔧 Hardware Design"
+        - label: "💻 Software/Firmware"
+        - label: "📚 Documentation"
+        - label: "🏠 Integration with Heating Systems"
+        - label: "🏭 Manufacturing/Production"
+        - label: "🤝 Community/Project Direction"
+        - label: "🆘 Help/Support Request"
+        - label: "💡 Ideas/Brainstorming"
+
+  - type: textarea
+    id: background
+    attributes:
+      label: "🔍 Background/Context"
+      description: "Provide context for your discussion"
+      placeholder: "Share relevant background information that helps others understand your discussion topic"
+    validations:
+      required: true
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: "❓ Questions/Points for Discussion"
+      description: "What specific questions or points would you like to discuss?"
+      placeholder: |
+        1. Your first question or point
+        2. Your second question or point
+        3. Additional questions or discussion points
+    validations:
+      required: true
+
+  - type: textarea
+    id: thoughts
+    attributes:
+      label: "💭 Your Thoughts/Opinions"
+      description: "Share your perspective on the topic"
+      placeholder: "What are your initial thoughts or opinions on this topic?"
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "📚 References/Links"
+      description: "Any relevant links or documentation"
+      placeholder: "Include links to relevant documentation, similar projects, or resources"
+
+  - type: checkboxes
+    id: looking_for
+    attributes:
+      label: "🤝 Looking For"
+      description: "What kind of engagement are you seeking?"
+      options:
+        - label: "Community feedback"
+        - label: "Technical advice"
+        - label: "Collaboration partners"
+        - label: "Testing volunteers"
+        - label: "General discussion"
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: "📋 Additional Information"
+      description: "Any other relevant information"
+      placeholder: "Include any other details that might be helpful for the discussion"

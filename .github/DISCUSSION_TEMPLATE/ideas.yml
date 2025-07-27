@@ -1,0 +1,143 @@
+title: "💡 Ideas & Suggestions"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        💡 **Got an idea for the KM271-WiFi project?** 
+        
+        Share your ideas, suggestions, and creative thoughts with the community! Your input helps shape the future of the project.
+
+  - type: input
+    id: idea_title
+    attributes:
+      label: "🎯 Idea Title"
+      description: "Brief summary of your idea"
+      placeholder: "Give your idea a catchy title"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: idea_category
+    attributes:
+      label: "📋 Category"
+      description: "What area does your idea relate to?"
+      options:
+        - label: "🔧 Hardware Enhancement"
+        - label: "💻 Software/Firmware Feature"
+        - label: "📚 Documentation Improvement"
+        - label: "🏠 Heating System Integration"
+        - label: "🌐 Web Interface Enhancement"
+        - label: "📱 Home Assistant Integration"
+        - label: "🏭 Manufacturing/Production"
+        - label: "🤝 Community/Project Organization"
+        - label: "🔄 Process Improvement"
+
+  - type: textarea
+    id: idea_description
+    attributes:
+      label: "💭 Idea Description"
+      description: "Detailed description of your idea"
+      placeholder: "Explain your idea in detail - what it is, how it would work, and why it would be beneficial"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem_solved
+    attributes:
+      label: "🚀 Problem/Use Case"
+      description: "What problem does this solve? What's your use case?"
+      placeholder: "Describe the specific problem or need that your idea addresses"
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: "✨ Expected Benefits"
+      description: "What benefits would this bring to users?"
+      placeholder: "How would this improve the experience for KM271-WiFi users?"
+
+  - type: textarea
+    id: implementation_thoughts
+    attributes:
+      label: "🛠️ Implementation Thoughts"
+      description: "How do you envision this being implemented?"
+      placeholder: "Share any thoughts on how this could be technically implemented"
+
+  - type: checkboxes
+    id: implementation_considerations
+    attributes:
+      label: "🔍 Implementation Considerations"
+      description: "What aspects would this idea affect?"
+      options:
+        - label: "Requires PCB changes"
+        - label: "Needs new components"
+        - label: "Affects manufacturing cost"
+        - label: "Requires case/mechanical changes"
+        - label: "Impacts power consumption"
+        - label: "ESPHome configuration change"
+        - label: "Custom component needed"
+        - label: "Web interface change"
+        - label: "Home Assistant integration"
+        - label: "Firmware modification required"
+        - label: "Documentation updates needed"
+
+  - type: dropdown
+    id: impact_scope
+    attributes:
+      label: "📊 Impact Scope"
+      description: "Who would benefit from this idea?"
+      options:
+        - "Would benefit most users"
+        - "Useful for specific use cases"
+        - "Advanced users primarily"
+        - "New users mainly"
+        - "Everyone equally"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: complexity_estimate
+    attributes:
+      label: "⚙️ Complexity Estimate"
+      description: "How complex do you think this would be to implement?"
+      options:
+        - "Simple change - could be done quickly"
+        - "Moderate effort required"
+        - "Major project - significant work needed"
+        - "Research needed first"
+        - "Not sure about complexity"
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "🔄 Alternative Approaches"
+      description: "Have you considered other ways to achieve the same goal?"
+      placeholder: "Are there alternative solutions or approaches that might work?"
+
+  - type: textarea
+    id: references
+    attributes:
+      label: "📚 References/Examples"
+      description: "Links to similar implementations, specifications, or relevant documentation"
+      placeholder: "Include links to examples, standards, or similar projects that illustrate your idea"
+
+  - type: checkboxes
+    id: contribution_offer
+    attributes:
+      label: "🤝 Contribution Offer"
+      description: "How would you like to be involved in making this happen?"
+      options:
+        - label: "I would like to work on implementing this"
+        - label: "I can provide testing/validation"
+        - label: "I can help with documentation"
+        - label: "I can provide design input"
+        - label: "I need someone else to implement this"
+        - label: "Just sharing the idea for others to consider"
+
+  - type: textarea
+    id: additional_thoughts
+    attributes:
+      label: "📋 Additional Thoughts"
+      description: "Any other relevant information or thoughts about your idea"
+      placeholder: "Include any other details, concerns, or related ideas you'd like to share"

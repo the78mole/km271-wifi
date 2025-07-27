@@ -1,11 +1,17 @@
 blank_issues_enabled: false
 contact_links:
   - name: 💬 General Discussion
-    url: https://github.com/the78mole/km271-wifi/discussions
+    url: https://github.com/the78mole/km271-wifi/discussions/categories/general
     about: General questions, ideas, and community discussion
   - name: 🆘 Help & Support  
-    url: https://github.com/the78mole/km271-wifi/discussions/categories/q-a
+    url: https://github.com/the78mole/km271-wifi/discussions/categories/help-support
     about: Get help from the community with setup and troubleshooting
+  - name: 🎉 Installation Success
+    url: https://github.com/the78mole/km271-wifi/discussions/categories/install-success
+    about: Share your successful KM271-WiFi installation experiences
   - name: 🏭 Hardware Production Success
     url: https://github.com/the78mole/km271-wifi/discussions/categories/show-and-tell
-    about: Share your successful hardware production and experiences
+    about: Share your successful hardware production and manufacturing experiences
+  - name: 💡 Ideas & Suggestions
+    url: https://github.com/the78mole/km271-wifi/discussions/categories/ideas
+    about: Share your ideas and suggestions for improving the project

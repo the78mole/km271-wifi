@@ -1,0 +1,151 @@
+title: "🆘 Help & Support"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        🤝 **Need help with your KM271-WiFi?** 
+        
+        This template helps you provide the information needed for the community to assist you effectively.
+        
+        **Community Guidelines:**
+        - Be patient - volunteers help in their free time
+        - Provide clear information to get better help  
+        - Search existing discussions first
+        - Consider contributing back once your issue is resolved
+
+  - type: textarea
+    id: help_needed
+    attributes:
+      label: "🎯 What Do You Need Help With?"
+      description: "Clear description of what you're trying to achieve or the problem you're facing"
+      placeholder: "Describe your issue or what you're trying to accomplish"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: help_category
+    attributes:
+      label: "📋 Help Category"
+      description: "Select the primary area where you need assistance"
+      options:
+        - label: "🔧 Hardware Assembly"
+        - label: "⚡ Electrical Issues"
+        - label: "💻 Software Configuration"
+        - label: "🏠 Heating System Integration"
+        - label: "🔌 ESPHome Setup"
+        - label: "📱 Home Assistant Integration"
+        - label: "🌐 Network/WiFi Issues"
+        - label: "🛠️ Troubleshooting"
+
+  - type: input
+    id: hardware_version
+    attributes:
+      label: "🏷️ Hardware Version"
+      description: "Which version of KM271-WiFi are you using?"
+      placeholder: "e.g., KM271-WiFi v0.1.0"
+    validations:
+      required: true
+
+  - type: input
+    id: buderus_controller
+    attributes:
+      label: "🏠 Buderus Controller"
+      description: "What Buderus controller are you connecting to?"
+      placeholder: "e.g., Logamatic 2107M"
+    validations:
+      required: true
+
+  - type: input
+    id: esphome_version
+    attributes:
+      label: "💻 ESPHome Version"
+      description: "Which ESPHome version are you using?"
+      placeholder: "e.g., 2024.7.3"
+
+  - type: input
+    id: ha_version
+    attributes:
+      label: "📱 Home Assistant Version (if applicable)"
+      description: "Which Home Assistant version are you using?"
+      placeholder: "e.g., 2024.7.4"
+
+  - type: textarea
+    id: current_situation
+    attributes:
+      label: "🔍 Current Situation"
+      description: "Describe your current setup and what's working/not working"
+      placeholder: "Explain what you have set up so far and where you're encountering problems"
+    validations:
+      required: true
+
+  - type: textarea
+    id: specific_problem
+    attributes:
+      label: "❗ Specific Problem"
+      description: "What exactly isn't working?"
+      placeholder: "Be as specific as possible about the issue you're experiencing"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: steps_tried
+    attributes:
+      label: "🔄 Steps Already Tried"
+      description: "What have you already attempted?"
+      options:
+        - label: "Checked documentation"
+        - label: "Verified wiring/connections"
+        - label: "Checked power supply"
+        - label: "Reviewed logs/error messages"
+        - label: "Searched existing issues/discussions"
+        - label: "Restarted/power cycled the device"
+        - label: "Tried different network settings"
+
+  - type: textarea
+    id: other_steps
+    attributes:
+      label: "Other steps tried"
+      description: "Describe any other troubleshooting steps you've attempted"
+      placeholder: "List any other solutions you've tried that aren't mentioned above"
+
+  - type: textarea
+    id: error_messages
+    attributes:
+      label: "📊 Error Messages/Logs"
+      description: "Include any error messages, log files, or diagnostic information"
+      placeholder: "Paste error messages, ESPHome logs, or other diagnostic output here"
+      render: text
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: "🎯 Expected Behavior"
+      description: "What should happen instead?"
+      placeholder: "Describe what you expect to happen when everything is working correctly"
+
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: "⏰ Urgency"
+      description: "How urgent is this issue?"
+      options:
+        - "Not urgent - when you have time"
+        - "Moderately urgent - within a few days"
+        - "Urgent - heating system not working"
+        - "Emergency - no heat in winter!"
+    validations:
+      required: true
+
+  - type: textarea
+    id: photos_description
+    attributes:
+      label: "📷 Photos/Screenshots"
+      description: "Visual information often helps diagnose issues (attach files below)"
+      placeholder: "Describe what photos or screenshots you're sharing: wiring, error screens, device setup, etc."
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: "💡 Additional Context"
+      description: "Any other relevant information"
+      placeholder: "Include any other details that might help diagnose the issue: recent changes, environmental factors, related problems, etc."
