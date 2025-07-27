@@ -22,7 +22,6 @@ For more details, have a look in the:
 
 If you bought the board in my tindie store, you could find a how-to to get it running [here](https://the78mole.de/projects/km271-wifi-howto/)
 
-
 ![KM271-WiFi_0.1.0](IMG/KM271-WiFi-0.1.0.jpg)
 
 ## Extensions
@@ -30,6 +29,53 @@ If you bought the board in my tindie store, you could find a how-to to get it ru
 There is now an Extension to add wired Ethernet to the board. The prototype already works, availability in tindie store will still take some time...
 
 ![KM271-WiFi_0.1.0_ETH-Ext](IMG/KM271-WiFi-0.1.0-ETH-Ext.jpg)
+
+## Improvements / ToDo
+
+ * Add a OneWire temperature Sensor on the board itself
+ * Fix a minor bug with external I2C pull-up (tie them to PCA9306 selectable supply)
+
+## Firmware Management
+
+This project includes a comprehensive firmware management system for easy firmware updates and batch production:
+
+### 🚀 Quick Start
+
+```bash
+cd FW
+./setup-dev.sh                                    # Setup development environment
+uv run scripts/flash_firmware.py                  # List available firmware
+uv run scripts/flash_firmware.py blinkenlights    # Flash single device
+```
+
+### 📦 Available Firmware Options
+
+- **blinkenlights** - Local PlatformIO test project for hardware validation  
+- **km271-esphome** - ESPHome-based KM271 WiFi replacement ([the78mole/ESPhome-KM271-WiFi](https://github.com/the78mole/ESPhome-KM271-WiFi))
+- **dewenni-km271** - Feature-rich KM271 firmware ([dewenni/ESP_Buderus_KM271](https://github.com/dewenni/ESP_Buderus_KM271))
+
+All firmware images are automatically downloaded and prepared for flashing using the management scripts.
+
+### 🏭 Batch Production
+
+For manufacturing multiple units:
+
+```bash
+uv run scripts/flash_firmware.py blinkenlights --loop
+```
+
+- Flash device → Connect next device → Press any key to continue
+- Press 'n' to stop and show statistics
+- Supports both ESC and 'n' for stopping
+
+### 📖 Documentation
+
+See [`FW/README.md`](FW/README.md) for detailed firmware management documentation, including:
+
+- Setup instructions
+- Script usage examples  
+- Troubleshooting guide
+- Batch production workflows
 
 ## 5V Supply Calibration
 
@@ -54,7 +100,6 @@ Now look at the readout of your sensor, say it is 47.3V and measure the real vol
     4.9V / 47.3V * 28.1826 = 2.9196
 
 Replace the multiplier by the calculated value and you will get more exact values, close to the 5V.
-
 
 ## Additional Information
 

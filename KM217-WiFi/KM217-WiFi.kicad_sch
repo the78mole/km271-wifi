@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Buderus-KM217-WIFI")
-		(date "2025-01-13")
-		(rev "0.1.0")
+		(date "2025-07-27")
+		(rev "0.1.1")
 		(company "the78mole")
 		(comment 1 "Author: Daniel Glaser")
 	)
@@ -22956,7 +22956,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "8a545577-91e7-4a2d-903a-679e3be87f06")
 		(property "Reference" "U6"
 			(at 199.39 53.975 0)
@@ -28912,6 +28912,15 @@
 		)
 		(property "Price" "0,38"
 			(at 80.01 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Alternative" "Phoenix 1873058"
+			(at 80.01 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)

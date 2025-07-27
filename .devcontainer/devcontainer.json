@@ -1,17 +1,91 @@
 {
-  "name": "Asciidoctor Dev",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "asciidoctor.asciidoctor-vscode",
-        "tomoki1207.pdf"
-      ]
-    }
-  },
-  "mounts": [
-    "source=${localWorkspaceFolder},target=/documents,type=bind"
-  ]
+	"name": "KM217 Hardware Development Environment",
+	"image": "ghcr.io/the78mole/kicaddev-docker:latest",
+	"features": {
+		"ghcr.io/devcontainers/features/common-utils:2": {
+			"installZsh": true,
+			"configureZshAsDefaultShell": true,
+			"installOhMyZsh": true,
+			"username": "vscode",
+			"userUid": "automatic",
+			"userGid": "automatic",
+			"upgradePackages": false
+		}
+	},
+	"runArgs": [
+		"--privileged"
+	],
+	"mounts": [
+		"source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+		"source=/dev/dri,target=/dev/dri,type=bind"
+	],
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"XAUTHORITY": "${localEnv:XAUTHORITY}"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-python.pylint",
+				"ms-python.black-formatter",
+				"yzhang.markdown-all-in-one",
+				"yzane.markdown-pdf",
+				"bierner.markdown-mermaid",
+				"DavidAnson.vscode-markdownlint",
+				"ms-vscode.vscode-json",
+				"ms-vscode.vscode-yaml",
+				"redhat.vscode-xml",
+				"ms-toolsai.jupyter",
+				"ms-toolsai.vscode-jupyter-cell-tags",
+				"ms-toolsai.vscode-jupyter-slideshow"
+			],
+			"settings": {
+				"terminal.integrated.defaultProfile.linux": "zsh",
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.provider": "black",
+				"markdown-pdf.executablePath": "/usr/bin/chromium-browser",
+				"markdown-pdf.type": "pdf",
+				"markdown-pdf.quality": 100,
+				"markdown-pdf.clip.x": 0,
+				"markdown-pdf.clip.y": 0,
+				"markdown-pdf.clip.width": 1920,
+				"markdown-pdf.clip.height": 1080,
+				"markdown-pdf.omitBackground": false,
+				"markdown-pdf.includeBackground": true,
+				"markdown-pdf.format": "A4",
+				"markdown-pdf.border.top": "1.5cm",
+				"markdown-pdf.border.bottom": "1cm",
+				"markdown-pdf.border.right": "1cm",
+				"markdown-pdf.border.left": "1cm"
+			}
+		}
+	},
+	"forwardPorts": [
+		3000,
+		8000,
+		8080,
+		8888
+	],
+	"portsAttributes": {
+		"3000": {
+			"label": "Preview Server",
+			"onAutoForward": "notify"
+		},
+		"8000": {
+			"label": "Development Server",
+			"onAutoForward": "notify"
+		},
+		"8080": {
+			"label": "Web Server",
+			"onAutoForward": "notify"
+		},
+		"8888": {
+			"label": "Jupyter Server",
+			"onAutoForward": "notify"
+		}
+	},
+	"remoteUser": "vscode"
 }
