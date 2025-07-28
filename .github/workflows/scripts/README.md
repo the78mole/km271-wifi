@@ -18,7 +18,7 @@ These scripts contain the logic for GitHub Actions workflows and provide clean s
 ### `check-kicad-files-with-revision.sh`
 **Purpose**: Checks KiCad project files and validates revision compatibility
 **Parameters**: Same as `check-kicad-files.sh`
-**Special**: Supports both JSON (`"rev": "..."`) and S-expression (`(rev "...")`) formats
+**Special**: Supports JSON (`"rev": "..."`), S-expression (`(rev "...")`) and XML (`<rev>...</rev>`) formats. Ensures all files have matching revisions.
 
 ### `check-kicad-changes-since-release.sh`
 **Purpose**: Checks if KiCad files have changed since the last release
@@ -26,12 +26,12 @@ These scripts contain the logic for GitHub Actions workflows and provide clean s
 **Output**: Sets `CHANGED=true/false` in GitHub Actions output and creates status files
 
 ### `update-kicad-revision.sh`
-**Purpose**: Updates revision fields in KiCad schematic and PCB files
+**Purpose**: Updates revision fields in KiCad schematic, PCB, and XML files
 **Parameters**: 
 - `$1-$3`: Same as other hardware scripts
 - `$4`: New version (from semantic versioning)
 - `$5`: PR number
-**Special**: Supports both JSON and S-expression formats, creates revision like "1.2.3-pr42"
+**Special**: Supports JSON, S-expression, and XML formats. Creates revision like "1.2.3-pr42" in all files.
 
 ### `export-schematics.sh`
 **Purpose**: Exports schematics to PDF files

@@ -156,6 +156,7 @@ jobs:
         path: |
           revision-status/${{ matrix.project.name }}-revision.txt
         retention-days: 30
+        if-no-files-found: ignore
         
     - name: 📤 Upload Change Status
       uses: actions/upload-artifact@v4
@@ -164,6 +165,7 @@ jobs:
         path: |
           change-status/${{ matrix.project.name }}-changes.txt
         retention-days: 30
+        if-no-files-found: ignore
         
   documentation-build:
     name: 📚 Documentation Build

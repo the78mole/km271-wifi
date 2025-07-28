@@ -56,6 +56,21 @@ else
   echo "❌ PCB file not found: ${PROJECT_NAME}.kicad_pcb"
 fi
 
+# Update revision in XML export file
+if [ -f "${PROJECT_NAME}.xml" ]; then
+  echo "📄 Updating revision in XML file..."
+  
+  # XML format: <rev>0.1.0</rev>
+  if grep -q '<rev>[^<]*</rev>' "${PROJECT_NAME}.xml" 2>/dev/null; then
+    sed -i "s/<rev>[^<]*<\/rev>/<rev>${NEW_REV}<\/rev>/" "${PROJECT_NAME}.xml"
+    echo "✅ Updated XML format in export file"
+  else
+    echo "⚠️  No revision field found in XML - consider adding one"
+  fi
+else
+  echo "❌ XML file not found: ${PROJECT_NAME}.xml"
+fi
+
 # Verify the changes
 echo "🔍 Verifying revision updates..."
 if [ -f "${PROJECT_NAME}.kicad_sch" ]; then
@@ -68,6 +83,11 @@ if [ -f "${PROJECT_NAME}.kicad_pcb" ]; then
   PCB_REV=$(grep -o '(rev "[^"]*")' "${PROJECT_NAME}.kicad_pcb" 2>/dev/null | head -1 | sed 's/(rev "\([^"]*\)")/\1/' || \
             grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${PROJECT_NAME}.kicad_pcb" 2>/dev/null | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/' || echo "")
   echo "🔧 PCB revision: ${PCB_REV:-<not found>}"
+fi
+
+if [ -f "${PROJECT_NAME}.xml" ]; then
+  XML_REV=$(grep -o '<rev>[^<]*</rev>' "${PROJECT_NAME}.xml" 2>/dev/null | head -1 | sed 's/<rev>\([^<]*\)<\/rev>/\1/' || echo "")
+  echo "📄 XML revision: ${XML_REV:-<not found>}"
 fi
 
 echo "✅ Revision update completed!"

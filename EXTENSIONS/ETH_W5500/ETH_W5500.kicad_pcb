@@ -10,7 +10,7 @@
 	(title_block
 		(title "KM271-WiFi-ETHext")
 		(date "2025-01-13")
-		(rev "2.1.0-pr888")
+		(rev "0.0.3")
 		(company "the78mole")
 		(comment 1 "Author: Daniel Glaser")
 	)

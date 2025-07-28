@@ -13,6 +13,23 @@ LATEST_RELEASE=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
 if [ -z "$LATEST_RELEASE" ]; then
   echo "ℹ️  No previous releases found - all files considered changed"
   echo "CHANGED=true" >> "${GITHUB_OUTPUT:-/dev/stdout}"
+  
+  # Save change info even when no release is found
+  WORKSPACE_ROOT="${GITHUB_WORKSPACE:-$(pwd)}"
+  while [ ! -f "${WORKSPACE_ROOT}/.github/workflows/pr-check.yml" ] && [ "${WORKSPACE_ROOT}" != "/" ]; do
+    WORKSPACE_ROOT="$(dirname "${WORKSPACE_ROOT}")"
+  done
+  mkdir -p "${WORKSPACE_ROOT}/change-status"
+  echo "PROJECT=${PROJECT_NAME}" > "${WORKSPACE_ROOT}/change-status/${PROJECT_NAME}-changes.txt"
+  echo "LATEST_RELEASE=<none>" >> "${WORKSPACE_ROOT}/change-status/${PROJECT_NAME}-changes.txt"
+  echo "CHANGED=true" >> "${WORKSPACE_ROOT}/change-status/${PROJECT_NAME}-changes.txt"
+  
+  # Also create a revision status file
+  mkdir -p "${WORKSPACE_ROOT}/revision-status"
+  echo "PROJECT=${PROJECT_NAME}" > "${WORKSPACE_ROOT}/revision-status/${PROJECT_NAME}-revision.txt"
+  echo "STATUS=ℹ️ No previous releases" >> "${WORKSPACE_ROOT}/revision-status/${PROJECT_NAME}-revision.txt"
+  echo "DETAILS=No previous releases found - all files considered changed" >> "${WORKSPACE_ROOT}/revision-status/${PROJECT_NAME}-revision.txt"
+  
   exit 0
 fi
 
