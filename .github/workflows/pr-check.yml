@@ -56,6 +56,58 @@ jobs:
         # Check file permissions
         ls -la ${{ matrix.project.name }}.*
         
+        # Check if schematic and PCB have matching revisions
+        if [ -f "${{ matrix.project.name }}.kicad_sch" ] && [ -f "${{ matrix.project.name }}.kicad_pcb" ]; then
+          echo "🔄 Checking revision compatibility between schematic and PCB..."
+          
+          # Extract revision from schematic
+          SCH_REV=$(grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${{ matrix.project.name }}.kicad_sch" | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+          
+          # Extract revision from PCB
+          PCB_REV=$(grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${{ matrix.project.name }}.kicad_pcb" | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+          
+          echo "📋 Schematic revision: '${SCH_REV:-<not set>}'"
+          echo "📋 PCB revision: '${PCB_REV:-<not set>}'"
+          
+          # Save revision info for PR summary
+          mkdir -p ../revision-status
+          echo "PROJECT=${{ matrix.project.name }}" > "../revision-status/${{ matrix.project.name }}-revision.txt"
+          echo "SCH_REV=${SCH_REV:-<not set>}" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+          echo "PCB_REV=${PCB_REV:-<not set>}" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+          
+          # Compare revisions
+          if [ -n "$SCH_REV" ] && [ -n "$PCB_REV" ]; then
+            if [ "$SCH_REV" = "$PCB_REV" ]; then
+              echo "✅ Revisions match: $SCH_REV"
+              echo "STATUS=✅ Match" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+              echo "REVISION=$SCH_REV" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+            else
+              echo "❌ Error: Revision mismatch!"
+              echo "   Schematic: $SCH_REV"
+              echo "   PCB: $PCB_REV"
+              echo "⚠️  Please ensure schematic and PCB are synchronized before building."
+              echo "STATUS=❌ Mismatch" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+              echo "DETAILS=SCH: $SCH_REV, PCB: $PCB_REV" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+              exit 1
+            fi
+          elif [ -z "$SCH_REV" ] && [ -z "$PCB_REV" ]; then
+            echo "⚠️  No revision information found in either file (this is okay for new projects)"
+            echo "STATUS=⚠️ No revision info" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+            echo "DETAILS=No revision information in either file" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+          else
+            echo "⚠️  Warning: Only one file has revision information"
+            echo "   Consider adding matching revision information to both files"
+            echo "STATUS=⚠️ Partial revision info" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+            echo "DETAILS=SCH: ${SCH_REV:-<not set>}, PCB: ${PCB_REV:-<not set>}" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+          fi
+        else
+          echo "ℹ️  Skipping revision check - not all required files present"
+          mkdir -p ../revision-status
+          echo "PROJECT=${{ matrix.project.name }}" > "../revision-status/${{ matrix.project.name }}-revision.txt"
+          echo "STATUS=ℹ️ Files missing" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+          echo "DETAILS=Required files not present for revision check" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
+        fi
+        
     - name: 🧹 Clean Export Directory
       run: |
         echo "🧹 Cleaning export directories for ${{ matrix.project.description }}..."
@@ -293,6 +345,14 @@ jobs:
           ${{ matrix.project.path }}/Export/
         retention-days: 30
         
+    - name: 📤 Upload Revision Status
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.project.name }}-revision-status
+        path: |
+          revision-status/${{ matrix.project.name }}-revision.txt
+        retention-days: 30
+        
   documentation-build:
     name: 📚 Documentation Build
     runs-on: ubuntu-latest
@@ -484,23 +544,77 @@ jobs:
       run: |
         echo "📊 Generating PR summary..."
         
-        cat > pr_summary.md << EOF
+        # Function to extract revision information from status file
+        get_revision_info() {
+          local status_file="$1"
+          
+          if [ -f "$status_file" ]; then
+            local status=$(grep "^STATUS=" "$status_file" | cut -d'=' -f2-)
+            local revision=$(grep "^REVISION=" "$status_file" 2>/dev/null | cut -d'=' -f2-)
+            local details=$(grep "^DETAILS=" "$status_file" 2>/dev/null | cut -d'=' -f2-)
+            
+            if [ -n "$revision" ]; then
+              echo "- **Revision Status**: $status ($revision)"
+            elif [ -n "$details" ]; then
+              echo "- **Revision Status**: $status ($details)"
+            else
+              echo "- **Revision Status**: $status"
+            fi
+          else
+            echo "- **Revision Status**: ℹ️ Information not available"
+          fi
+        }
+        
+        # Start building the summary
+        cat > pr_summary.md << 'EOF'
         ## 🔧 Hardware Build Summary
         
-        ### ✅ KM217-WiFi Main Board Results
+        EOF
+        
+        # Process each project dynamically
+        for project_dir in artifacts/*-revision-status/; do
+          if [ -d "$project_dir" ]; then
+            # Extract project name from directory
+            project_name=$(basename "$project_dir" | sed 's/-revision-status$//')
+            
+            # Find the revision file
+            revision_file=$(find "$project_dir" -name "*.txt" | head -1)
+            
+            if [ -f "$revision_file" ]; then
+              # Get project details from revision file
+              project_info=$(grep "^PROJECT=" "$revision_file" | cut -d'=' -f2-)
+              revision_info=$(get_revision_info "$revision_file")
+              
+              # Determine project description based on name
+              case "$project_name" in
+                "KM217-WiFi")
+                  description="KM217-WiFi Main Board"
+                  ;;
+                "ETH_W5500")
+                  description="ETH_W5500 Extension Board"
+                  ;;
+                *)
+                  description="$project_name Board"
+                  ;;
+              esac
+              
+              # Add project section to summary
+              cat >> pr_summary.md << EOF
+        ### ✅ $description Results
         - **Gerber Files**: Generated successfully
         - **Drill Files**: Generated successfully  
         - **PDF Documentation**: Schematics and PCB layouts exported
         - **3D Models**: STEP file generated
         - **Assembly Images**: SVG/PNG diagrams created
+        $revision_info
         
-        ### ✅ ETH_W5500 Extension Board Results
-        - **Gerber Files**: Generated successfully
-        - **Drill Files**: Generated successfully  
-        - **PDF Documentation**: Schematics and PCB layouts exported
-        - **3D Models**: STEP file generated
-        - **Assembly Images**: SVG/PNG diagrams created
+        EOF
+            fi
+          fi
+        done
         
+        # Add the rest of the summary
+        cat >> pr_summary.md << 'EOF'
         ### 📚 Documentation Results
         - **Markdown Files**: Validated and checked
         - **AsciiDoc Build**: HTML and PDF generated
@@ -508,13 +622,12 @@ jobs:
         - **Statistics**: Generated
         
         ### 📦 Generated Artifacts
-        - \`KM217-WiFi-hardware-exports\`: Main board manufacturing files
-        - \`ETH_W5500-hardware-exports\`: Extension board manufacturing files
-        - \`km217-wifi-documentation\`: Complete documentation
+        - Hardware manufacturing files for each board
+        - Complete documentation package
         
         ### 🎯 Ready for Production
         All files have been validated and are ready for:
-        - PCB manufacturing (Gerber/Drill files for both boards)
+        - PCB manufacturing (Gerber/Drill files for all boards)
         - Assembly documentation (PDFs and images)
         - 3D visualization (STEP files)
         - End-user documentation (Markdown/HTML/PDF)
@@ -528,7 +641,7 @@ jobs:
         
     - name: 💬 Comment PR Summary
       uses: actions/github-script@v7
-      if: github.event_name == 'pull_request'
+      if: github.event_name == 'pull_request' && !env.ACT
       with:
         script: |
           const fs = require('fs');
