@@ -15,6 +15,16 @@ These scripts contain the logic for GitHub Actions workflows and provide clean s
 **Purpose**: Creates and cleans export directories for output files
 **Parameters**: Same as `check-kicad-files.sh`
 
+### `check-kicad-files-with-revision.sh`
+**Purpose**: Checks KiCad project files and validates revision compatibility
+**Parameters**: Same as `check-kicad-files.sh`
+**Special**: Supports both JSON (`"rev": "..."`) and S-expression (`(rev "...")`) formats
+
+### `check-kicad-changes-since-release.sh`
+**Purpose**: Checks if KiCad files have changed since the last release
+**Parameters**: Same as `check-kicad-files.sh`
+**Output**: Sets `CHANGED=true/false` in GitHub Actions output and creates status files
+
 ### `export-schematics.sh`
 **Purpose**: Exports schematics to PDF files
 **Parameters**: Same as `check-kicad-files.sh`

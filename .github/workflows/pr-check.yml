@@ -38,7 +38,16 @@ jobs:
       with:
         fetch-depth: 0
         
+    - name: 🔍 Check for KiCad Changes Since Last Release
+      id: check-changes
+      run: |
+        ./.github/workflows/scripts/check-kicad-changes-since-release.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
+      
     - name: 🔍 Check KiCad Project Files
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/check-kicad-files-with-revision.sh \
           "${{ matrix.project.name }}" \
@@ -46,6 +55,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 🧹 Clean Export Directory
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/clean-export-dirs.sh \
           "${{ matrix.project.name }}" \
@@ -53,6 +63,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 📐 Export Schematics PDF
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-schematics.sh \
           "${{ matrix.project.name }}" \
@@ -60,6 +71,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 🔧 Export Gerber Files
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-gerber.sh \
           "${{ matrix.project.name }}" \
@@ -67,6 +79,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 📄 Export PCB PDF
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-pcb-pdf.sh \
           "${{ matrix.project.name }}" \
@@ -74,6 +87,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 🖼️ Export PCB Images
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-pcb-images.sh \
           "${{ matrix.project.name }}" \
@@ -81,6 +95,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 🎯 Export 3D Models
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-3d-models.sh \
           "${{ matrix.project.name }}" \
@@ -88,6 +103,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 📊 Generate Production Summary
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/generate-production-summary-pr.sh \
           "${{ matrix.project.name }}" \
@@ -96,6 +112,7 @@ jobs:
           "${GITHUB_SHA}"
         
     - name: 🧪 Validate Export Files
+      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/validate-export-files.sh \
           "${{ matrix.project.name }}" \
@@ -103,6 +120,7 @@ jobs:
           "${{ matrix.project.description }}"
         
     - name: 📤 Upload Hardware Artifacts
+      if: steps.check-changes.outputs.CHANGED == 'true'
       uses: actions/upload-artifact@v4
       with:
         name: ${{ matrix.project.name }}-hardware-exports
@@ -116,6 +134,14 @@ jobs:
         name: ${{ matrix.project.name }}-revision-status
         path: |
           revision-status/${{ matrix.project.name }}-revision.txt
+        retention-days: 30
+        
+    - name: 📤 Upload Change Status
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.project.name }}-change-status
+        path: |
+          change-status/${{ matrix.project.name }}-changes.txt
         retention-days: 30
         
   documentation-build:
