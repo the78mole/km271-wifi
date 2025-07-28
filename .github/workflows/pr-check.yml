@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   load-config:
-    name: � Load Project Configuration
+    name: 📋 Load Project Configuration
     runs-on: ubuntu-latest
     outputs:
       matrix: ${{ steps.set-matrix.outputs.matrix }}
@@ -32,6 +32,7 @@ jobs:
       - name: 📋 Load KiCad Projects Matrix
         id: set-matrix
         run: |
+          chmod +x .github/workflows/scripts/load-kicad-projects.sh
           MATRIX=$(.github/workflows/scripts/load-kicad-projects.sh --filter enabled)
           echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
           echo "Loaded matrix: $MATRIX"
