@@ -49,8 +49,18 @@ jobs:
         
       - name: 🔧 Install yq
         run: |
-          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-          sudo chmod +x /usr/local/bin/yq
+          # Use GitHub's official method to install yq (architecture-agnostic)
+          sudo snap install yq || {
+            # Fallback: manual installation with architecture detection
+            ARCH=$(uname -m)
+            case $ARCH in
+              x86_64) YQ_ARCH="amd64" ;;
+              aarch64|arm64) YQ_ARCH="arm64" ;;
+              *) echo "Unsupported architecture: $ARCH" && exit 1 ;;
+            esac
+            sudo wget -qO /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${YQ_ARCH}"
+            sudo chmod +x /usr/local/bin/yq
+          }
           
       - name: 📋 Load KiCad Projects Matrix
         id: set-matrix
