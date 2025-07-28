@@ -155,6 +155,11 @@ ALL_PROJECTS=$($YQ_CMD eval '.projects' "$CONFIG_FILE" -o json)
 # Load global text variables if they exist
 GLOBAL_TEXT_VARS=$($YQ_CMD eval '.config.text_variables // {}' "$CONFIG_FILE" -o json 2>/dev/null || echo '{}')
 
+# Check if text_variables are at root level instead of config level
+if [ "$GLOBAL_TEXT_VARS" = "{}" ]; then
+    GLOBAL_TEXT_VARS=$($YQ_CMD eval '.text_variables // {}' "$CONFIG_FILE" -o json 2>/dev/null || echo '{}')
+fi
+
 # Then use jq for filtering and formatting
 PROJECTS=$(echo "$ALL_PROJECTS" | jq --arg filter "$FILTER" --arg type_filter "$TYPE_FILTER" '
     map(select(
@@ -162,8 +167,8 @@ PROJECTS=$(echo "$ALL_PROJECTS" | jq --arg filter "$FILTER" --arg type_filter "$
         ($type_filter == "all" or .type == $type_filter)
     ) | {name, path, description, type})')
 
-# Create final matrix JSON (compact format for GitHub Actions)
-MATRIX_JSON="{\"project\": $(echo "$PROJECTS" | jq -c .), \"text_variables\": $(echo "$GLOBAL_TEXT_VARS" | jq -c .)}"
+# Create final matrix JSON (GitHub Actions format)
+MATRIX_JSON="{\"include\": $(echo "$PROJECTS" | jq -c .), \"text_variables\": $(echo "$GLOBAL_TEXT_VARS" | jq -c .)}"
 echo "$MATRIX_JSON"
 
 echo "✅ Successfully loaded $(echo "$PROJECTS" | jq length) projects" >&2

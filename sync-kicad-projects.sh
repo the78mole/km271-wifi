@@ -143,9 +143,25 @@ fi
 print_info "Loading project configuration..."
 PROJECT_DATA=$("$LOAD_SCRIPT" --type "$TYPE_FILTER")
 
+if [ $? -ne 0 ]; then
+    print_error "Failed to load project configuration"
+    exit 1
+fi
+
 # Parse projects and text variables using jq
-PROJECTS=$(echo "$PROJECT_DATA" | jq -r '.project[] | @base64')
-TEXT_VARS=$(echo "$PROJECT_DATA" | jq -r '.text_variables')
+PROJECTS=$(echo "$PROJECT_DATA" | jq -r '.include[] | @base64' 2>/dev/null)
+TEXT_VARS=$(echo "$PROJECT_DATA" | jq -r '.text_variables // {}' 2>/dev/null)
+
+if [ -z "$TEXT_VARS" ] || [ "$TEXT_VARS" = "null" ]; then
+    print_warning "No text variables found in configuration, using defaults"
+    TEXT_VARS='{"COMPANY":"Unknown","AUTHOR":"Unknown"}'
+fi
+
+if [ "$VERBOSE" = true ]; then
+    print_info "Project data loaded:"
+    echo "$PROJECT_DATA" | jq '.' >&2 || echo "Invalid JSON: $PROJECT_DATA" >&2
+    echo ""
+fi
 
 if [ "$VERBOSE" = true ]; then
     print_info "Global text variables from kicad-projects.yml:"

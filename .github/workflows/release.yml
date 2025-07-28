@@ -80,74 +80,74 @@ jobs:
     - name: 🔍 Check KiCad Project Files
       run: |
         ./.github/workflows/scripts/check-kicad-files.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 🧹 Clean Export Directory
       run: |
         ./.github/workflows/scripts/clean-export-dirs.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 📐 Export Schematics PDF
       run: |
         ./.github/workflows/scripts/export-schematics.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 🔧 Export Gerber Files
       run: |
         ./.github/workflows/scripts/export-gerber.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 📄 Export PCB PDF
       run: |
         ./.github/workflows/scripts/export-pcb-pdf.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 🖼️ Export PCB Images
       run: |
         ./.github/workflows/scripts/export-pcb-images.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 🎯 Export 3D Models
       run: |
         ./.github/workflows/scripts/export-3d-models.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 📊 Generate Production Summary
       run: |
         ./.github/workflows/scripts/generate-production-summary.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}" \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}" \
           --sha "${GITHUB_SHA}" \
           --ref "${{ github.ref_name }}"
         
     - name: 🧪 Validate Export Files
       run: |
         ./.github/workflows/scripts/validate-export-files.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}"
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
         
     - name: 📦 Create Release Package
       run: |
         ./.github/workflows/scripts/create-release-package.sh \
-          --name "${{ matrix.project.name }}" \
-          --path "${{ matrix.project.path }}" \
-          --description "${{ matrix.project.description }}" \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}" \
           --sha "${GITHUB_SHA}" \
           --ref "${{ github.ref_name }}"
         
@@ -155,9 +155,9 @@ jobs:
       uses: actions/upload-artifact@v4
       if: ${{ ! env.ACT }}
       with:
-        name: ${{ matrix.project.name }}-release-${{ needs.version.outputs.version }}
+        name: ${{ matrix.name }}-release-${{ needs.version.outputs.version }}
         path: |
-          release-staging/${{ matrix.project.name }}/
+          release-staging/${{ matrix.name }}/
         retention-days: 90
         
   documentation-build:
