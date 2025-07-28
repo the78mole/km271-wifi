@@ -13,13 +13,33 @@ permissions:
   contents: write
   actions: read
 
-env:
-  RELEASE_TAG: v${{ github.run_number }}-$(date +'%Y%m%d')
-
 jobs:
+  version:
+    name: 🏷️ Generate Release Version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.semver.outputs.version }}
+      version_tag: ${{ steps.semver.outputs.version_tag }}
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 🏷️ Generate release version
+      id: semver
+      uses: paulhatch/semantic-version@v5.4.0
+      with:
+        branch: main
+        tag_prefix: "v"
+        major_pattern: "/^(feat|fix|refactor)!:/"
+        minor_pattern: "/^feat:/"
+        search_commit_body: true
+
   hardware-build:
     name: 🔧 Hardware Build & Export
     runs-on: ubuntu-latest
+    needs: [version]
     container:
       image: ghcr.io/the78mole/kicaddev-docker:latest
     
@@ -42,312 +62,83 @@ jobs:
         
     - name: 🔍 Check KiCad Project Files
       run: |
-        echo "🔍 Checking KiCad project files for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Check if required files exist
-        for file in "${{ matrix.project.name }}.kicad_pro" "${{ matrix.project.name }}.kicad_sch" "${{ matrix.project.name }}.kicad_pcb"; do
-          if [ ! -f "$file" ]; then
-            echo "❌ Error: Required file $file not found!"
-            exit 1
-          else
-            echo "✅ Found: $file"
-          fi
-        done
-        
-        # Check file permissions
-        ls -la ${{ matrix.project.name }}.*
+        ./.github/workflows/scripts/check-kicad-files.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🧹 Clean Export Directory
       run: |
-        echo "🧹 Cleaning export directories for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Create/clean export directories
-        mkdir -p Export/Gerbers
-        mkdir -p Export/Drill
-        mkdir -p Export/PDF
-        mkdir -p Export/Images
-        mkdir -p Export/3D
-        
-        # Clean old files
-        rm -f Export/Gerbers/*
-        rm -f Export/Drill/*
-        rm -f Export/PDF/*
-        rm -f Export/Images/*
-        rm -f Export/3D/*
+        ./.github/workflows/scripts/clean-export-dirs.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📐 Export Schematics PDF
       run: |
-        echo "📐 Exporting schematic to PDF for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        kicad-cli sch export pdf \
-          --output "Export/PDF/${{ matrix.project.name }}-Schematics.pdf" \
-          ${{ matrix.project.name }}.kicad_sch
-          
-        # Verify export
-        if [ -f "Export/PDF/${{ matrix.project.name }}-Schematics.pdf" ]; then
-          echo "✅ Schematic PDF exported successfully"
-          ls -lh Export/PDF/${{ matrix.project.name }}-Schematics.pdf
-        else
-          echo "❌ Error: Schematic PDF export failed!"
-          exit 1
-        fi
+        ./.github/workflows/scripts/export-schematics.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🔧 Export Gerber Files
       run: |
-        echo "🔧 Exporting Gerber files for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export Gerber files
-        kicad-cli pcb export gerbers \
-          --output Export/Gerbers/ \
-          --layers "F.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts" \
-          --precision 6 \
-          --no-x2 \
-          --use-drill-file-origin \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Export drill files separately for better control
-        kicad-cli pcb export drill \
-          --output Export/Drill/ \
-          --format gerber \
-          --drill-origin plot \
-          --gerber-precision 6 \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # List generated files
-        echo "📋 Generated Gerber files:"
-        ls -la Export/Gerbers/
-        echo "📋 Generated Drill files:"
-        ls -la Export/Drill/
+        ./.github/workflows/scripts/export-gerber.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📄 Export PCB PDF
       run: |
-        echo "📄 Exporting PCB layout to PDF for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export PCB top layer
-        kicad-cli pcb export pdf \
-          --output "Export/PDF/${{ matrix.project.name }}-PCB-Top.pdf" \
-          --layers "F.Cu,F.Silkscreen,F.Mask,Edge.Cuts" \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Export PCB bottom layer  
-        kicad-cli pcb export pdf \
-          --output "Export/PDF/${{ matrix.project.name }}-PCB-Bottom.pdf" \
-          --layers "B.Cu,B.Silkscreen,B.Mask,Edge.Cuts" \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Verify exports
-        for pdf in "Export/PDF/${{ matrix.project.name }}-PCB-Top.pdf" "Export/PDF/${{ matrix.project.name }}-PCB-Bottom.pdf"; do
-          if [ -f "$pdf" ]; then
-            echo "✅ $(basename $pdf) exported successfully"
-            ls -lh "$pdf"
-          else
-            echo "❌ Error: $(basename $pdf) export failed!"
-            exit 1
-          fi
-        done
+        ./.github/workflows/scripts/export-pcb-pdf.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🖼️ Export PCB Images
       run: |
-        echo "🖼️ Exporting PCB images for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export assembly diagram (top)
-        kicad-cli pcb export svg \
-          --output "Export/Images/${{ matrix.project.name }}-Assembly-Top.svg" \
-          --layers "F.Cu,F.Silkscreen,F.Mask,Edge.Cuts" \
-          --exclude-drawing-sheet \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Export assembly diagram (bottom)
-        kicad-cli pcb export svg \
-          --output "Export/Images/${{ matrix.project.name }}-Assembly-Bottom.svg" \
-          --layers "B.Cu,B.Silkscreen,B.Mask,Edge.Cuts" \
-          --exclude-drawing-sheet \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Convert SVGs to PNG for better compatibility
-        if command -v convert >/dev/null 2>&1; then
-          convert "Export/Images/${{ matrix.project.name }}-Assembly-Top.svg" "Export/Images/${{ matrix.project.name }}-Assembly-Top.png"
-          convert "Export/Images/${{ matrix.project.name }}-Assembly-Bottom.svg" "Export/Images/${{ matrix.project.name }}-Assembly-Bottom.png"
-          echo "✅ PNG images generated"
-        else
-          echo "⚠️ ImageMagick not available, skipping PNG conversion"
-        fi
-        
-        ls -la Export/Images/
+        ./.github/workflows/scripts/export-pcb-images.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🎯 Export 3D Models
       run: |
-        echo "🎯 Exporting 3D models for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export STEP file for 3D CAD (ignore warnings about missing 3D models)
-        kicad-cli pcb export step \
-          --output "Export/3D/${{ matrix.project.name }}.step" \
-          --drill-origin \
-          --grid-origin \
-          ${{ matrix.project.name }}.kicad_pcb || {
-            echo "⚠️ STEP export completed with warnings (missing 3D models)"
-            # Check if file was actually created despite warnings
-            if [ -f "Export/3D/${{ matrix.project.name }}.step" ]; then
-              echo "✅ STEP file created successfully despite warnings"
-            else
-              echo "❌ STEP export failed completely"
-              exit 1
-            fi
-          }
-          
-        echo "✅ STEP model exported"
-        ls -la Export/3D/
+        ./.github/workflows/scripts/export-3d-models.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📊 Generate Production Summary
       run: |
-        echo "📊 Generating production summary for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Create production summary
-        cat > Export/PRODUCTION_SUMMARY.md << EOF
-        # ${{ matrix.project.name }} Production Files
-        
-        Generated on: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
-        Git Commit: $(echo "${GITHUB_SHA}" | cut -c1-8)
-        Project: ${{ matrix.project.description }}
-        Release: ${{ github.ref_name }}
-        
-        ## 📐 Schematic Files
-        - \`${{ matrix.project.name }}-Schematics.pdf\` - Complete schematic documentation
-        
-        ## 🔧 Manufacturing Files
-        
-        ### Gerber Files (Export/Gerbers/)
-        $(ls -1 Export/Gerbers/ | sed 's/^/- /')
-        
-        ### Drill Files (Export/Drill/)
-        $(ls -1 Export/Drill/ | sed 's/^/- /')
-        
-        ## 📄 Documentation
-        - \`${{ matrix.project.name }}-PCB-Top.pdf\` - Top layer layout
-        - \`${{ matrix.project.name }}-PCB-Bottom.pdf\` - Bottom layer layout
-        
-        ## 🖼️ Assembly Images
-        $(ls -1 Export/Images/ | sed 's/^/- /')
-        
-        ## 🎯 3D Models
-        $(ls -1 Export/3D/ | sed 's/^/- /')
-        
-        ## 📋 File Sizes
-        \`\`\`
-        $(find Export/ -type f -exec ls -lh {} \; | awk '{print $5, $9}' | sort -k2)
-        \`\`\`
-        
-        ## ⚠️ Notes
-        - Gerber files are generated with 6-digit precision
-        - Drill files use Gerber format for better compatibility
-        - All files are ready for production use
-        - STEP file included for 3D visualization and mechanical design
-        
-        EOF
-        
-        echo "✅ Production summary generated"
+        ./.github/workflows/scripts/generate-production-summary.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}" \
+          "${GITHUB_SHA}" \
+          "${{ github.ref_name }}"
         
     - name: 🧪 Validate Export Files
       run: |
-        echo "🧪 Validating exported files for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}/Export"
-        
-        # Check if critical files exist and have reasonable sizes
-        critical_files="PDF/${{ matrix.project.name }}-Schematics.pdf PDF/${{ matrix.project.name }}-PCB-Top.pdf PDF/${{ matrix.project.name }}-PCB-Bottom.pdf 3D/${{ matrix.project.name }}.step"
-        
-        for file in $critical_files; do
-          if [ -f "$file" ]; then
-            size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
-            if [ "$size" -gt 1000 ]; then
-              echo "✅ $file ($size bytes)"
-            else
-              echo "⚠️ $file seems too small ($size bytes)"
-            fi
-          else
-            echo "❌ Missing: $file"
-            exit 1
-          fi
-        done
-        
-        # Check Gerber files
-        gerber_count=$(ls -1 Gerbers/*.g* 2>/dev/null | wc -l || echo "0")
-        if [ "$gerber_count" -lt 5 ]; then
-          echo "⚠️ Only $gerber_count Gerber files found, expected at least 5"
-        else
-          echo "✅ $gerber_count Gerber files generated"
-        fi
-        
-        echo "🎉 File validation completed"
+        ./.github/workflows/scripts/validate-export-files.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📦 Create Release Package
       run: |
-        echo "📦 Creating release package for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Create release directory structure
-        mkdir -p ../release-staging/${{ matrix.project.name }}
-        
-        # Copy all export files with proper structure
-        cp -r Export/* ../release-staging/${{ matrix.project.name }}/
-        
-        # Create a release-specific README
-        cat > ../release-staging/${{ matrix.project.name }}/README.md << EOF
-        # ${{ matrix.project.name }} Hardware Release
-        
-        **Generated**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')  
-        **Git Commit**: $(echo "${GITHUB_SHA}" | cut -c1-8)  
-        **Release**: ${{ github.ref_name }}  
-        **Project**: ${{ matrix.project.description }}
-        
-        ## 📁 Directory Structure
-        
-        - **Gerbers/**: PCB manufacturing files (Gerber format)
-        - **Drill/**: Drill files for PCB manufacturing  
-        - **PDF/**: Documentation (schematics and PCB layouts)
-        - **Images/**: Assembly diagrams (SVG/PNG format)
-        - **3D/**: 3D models (STEP format)
-        
-        ## 🏭 Manufacturing Instructions
-        
-        1. **PCB Manufacturing**: Upload all files from \`Gerbers/\` and \`Drill/\` directories to your PCB manufacturer
-        2. **Layer Stack**: Standard 2-layer PCB
-        3. **Drill Files**: Use Gerber format drill files for best compatibility
-        4. **Assembly**: Refer to PDF files and assembly images for component placement
-        
-        ## 📋 Quality Check
-        
-        All files have been automatically validated:
-        - ✅ Gerber files generated with 6-digit precision
-        - ✅ Drill files in Gerber format for compatibility
-        - ✅ PDF documentation includes schematics and PCB layouts
-        - ✅ 3D STEP file for mechanical verification
-        - ✅ Assembly images for production reference
-        
-        ## 🔧 Technical Specifications
-        
-        See \`PRODUCTION_SUMMARY.md\` for detailed file information and specifications.
-        
-        ---
-        
-        **Note**: This is an automated release build. All files are production-ready.
-        EOF
-        
-        echo "✅ Release package created"
-        ls -la ../release-staging/${{ matrix.project.name }}/
+        ./.github/workflows/scripts/create-release-package.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}" \
+          "${GITHUB_SHA}" \
+          "${{ github.ref_name }}"
         
     - name: 📤 Upload Release Artifacts
       uses: actions/upload-artifact@v4
       if: ${{ ! env.ACT }}
       with:
-        name: ${{ matrix.project.name }}-release-v${{ github.run_number }}
+        name: ${{ matrix.project.name }}-release-${{ needs.version.outputs.version }}
         path: |
           release-staging/${{ matrix.project.name }}/
         retention-days: 90
@@ -355,6 +146,7 @@ jobs:
   documentation-build:
     name: 📚 Documentation Build
     runs-on: ubuntu-latest
+    needs: [version]
     container:
       image: ghcr.io/the78mole/kicaddev-docker:latest
       
@@ -363,158 +155,24 @@ jobs:
       uses: actions/checkout@v4
       
     - name: 🔍 Check Documentation Files
-      run: |
-        echo "🔍 Checking documentation files..."
-        cd DOC
-        
-        # List all documentation files
-        echo "📋 Available documentation files:"
-        ls -la
-        
-        # Check critical documentation  
-        if [ -f "Getting_Started.md" ]; then
-          echo "✅ Found: Getting_Started.md"
-          wc -l "Getting_Started.md"
-        else
-          echo "⚠️ Missing: Getting_Started.md"
-        fi
-        
-        if [ -f "Erste_Schritte.md" ]; then
-          echo "✅ Found: Erste_Schritte.md"
-          wc -l "Erste_Schritte.md"
-        else
-          echo "⚠️ Missing: Erste_Schritte.md"
-        fi
-        
-        if [ -f "Hardware Description.md" ]; then
-          echo "✅ Found: Hardware Description.md"
-          wc -l "Hardware Description.md"
-        else
-          echo "⚠️ Missing: Hardware Description.md"
-        fi
+      run: ./.github/workflows/scripts/check-documentation.sh
         
     - name: 📖 Build AsciiDoc Documentation
-      run: |
-        echo "📖 Building AsciiDoc documentation..."
-        cd DOC
-        
-        # Build AsciiDoc documentation
-        for file in *.adoc; do
-          if [ -f "$file" ]; then
-            filename=$(basename "$file" .adoc)
-            echo "Building $file..."
-            
-            if command -v asciidoctor >/dev/null 2>&1; then
-              # Generate HTML
-              asciidoctor -b html5 -o "${filename}_Generated.html" "$file"
-              echo "✅ HTML generated: ${filename}_Generated.html"
-              
-              # Generate PDF if possible
-              if command -v asciidoctor-pdf >/dev/null 2>&1; then
-                asciidoctor-pdf -o "${filename}_Generated.pdf" "$file"
-                echo "✅ PDF generated: ${filename}_Generated.pdf"
-              else
-                echo "ℹ️ asciidoctor-pdf not available, skipping PDF generation"
-              fi
-            else
-              echo "ℹ️ asciidoctor not available, skipping AsciiDoc build"
-            fi
-          fi
-        done
-        
-        # List generated files
-        echo "📋 Generated AsciiDoc files:"
-        ls -la *_Generated.* 2>/dev/null || echo "No generated files found"
+      run: ./.github/workflows/scripts/build-asciidoc.sh
         
     - name: 📝 Generate LaTeX Documentation
-      run: |
-        echo "📝 Generating LaTeX documentation..."
-        cd DOC
-        
-        if [ -f "Erste_Schritte.tex" ]; then
-          echo "Building Erste_Schritte.tex..."
-          
-          # Build PDF (might need multiple passes)
-          if command -v pdflatex >/dev/null 2>&1; then
-            # Try to continue on errors to avoid workflow failure
-            pdflatex -interaction=nonstopmode Erste_Schritte.tex || echo "⚠️ LaTeX build encountered issues, continuing..."
-            pdflatex -interaction=nonstopmode Erste_Schritte.tex || echo "⚠️ LaTeX second pass encountered issues, continuing..."  # Second pass for references
-            
-            # Check if PDF was generated
-            if [ -f "Erste_Schritte.pdf" ]; then
-              echo "✅ LaTeX PDF generated successfully"
-            else
-              echo "⚠️ LaTeX PDF generation failed, but continuing workflow"
-            fi
-          else
-            echo "ℹ️ pdflatex not available, skipping LaTeX build"
-          fi
-        else
-          echo "ℹ️ No LaTeX files found"
-        fi
+      run: ./.github/workflows/scripts/build-latex.sh
         
     - name: 📦 Package Documentation for Release
       run: |
-        echo "📦 Packaging documentation for release..."
-        cd DOC
-        
-        # Create release documentation structure
-        mkdir -p ../release-staging/Documentation
-        
-        # Copy all documentation files
-        cp -r * ../release-staging/Documentation/ 2>/dev/null || true
-        
-        # Create documentation index
-        cat > ../release-staging/Documentation/README.md << EOF
-        # KM271-WiFi Documentation Release
-        
-        **Generated**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')  
-        **Git Commit**: $(echo "${GITHUB_SHA}" | cut -c1-8)  
-        **Release**: ${{ github.ref_name }}
-        
-        ## 📚 Available Documentation
-        
-        ### Getting Started Guides
-        - **Getting_Started.md** - English getting started guide
-        - **Getting_Started_Generated.html** - HTML version (if available)
-        - **Getting_Started_Generated.pdf** - PDF version (if available)
-        - **Erste_Schritte.md** - German getting started guide
-        - **Erste_Schritte.pdf** - LaTeX-generated PDF (if available)
-        
-        ### Technical Documentation
-        - **Hardware Description.md** - Detailed hardware documentation
-        - **Hardware Description.pdf** - PDF version
-        
-        ### Datasheets and References
-        - Various component datasheets (PDF format)
-        - Protocol specifications
-        - Technical references
-        
-        ## 📖 Format Information
-        
-        - **Markdown (.md)**: Raw documentation files
-        - **HTML**: Web-viewable documentation with enhanced formatting
-        - **PDF**: Print-ready documentation
-        - **AsciiDoc (.adoc)**: Source files for advanced documentation
-        
-        ## 🔗 Quick Links
-        
-        - [Getting Started (EN)](Getting_Started.md)
-        - [Erste Schritte (DE)](Erste_Schritte.md)
-        - [Hardware Description](Hardware%20Description.md)
-        
-        ---
-        
-        **Note**: This documentation package is automatically generated and synchronized with the hardware release.
-        EOF
-        
-        echo "✅ Documentation package created"
-        ls -la ../release-staging/Documentation/
+        ./.github/workflows/scripts/package-documentation.sh \
+          "${GITHUB_SHA}" \
+          "${{ github.ref_name }}"
         
     - name: 📤 Upload Documentation Release
       uses: actions/upload-artifact@v4
       with:
-        name: Documentation-release-v${{ github.run_number }}
+        name: Documentation-release-${{ needs.version.outputs.version }}
         path: |
           release-staging/Documentation/
         retention-days: 90
@@ -522,7 +180,7 @@ jobs:
   create-release:
     name: 🚀 Create GitHub Release
     runs-on: ubuntu-latest
-    needs: [hardware-build, documentation-build]
+    needs: [version, hardware-build, documentation-build]
     
     steps:
     - name: 📥 Checkout Repository
@@ -537,213 +195,31 @@ jobs:
         
     - name: 📦 Prepare Release Assets
       run: |
-        echo "📦 Preparing release assets..."
-        
-        # Create release directory
-        mkdir -p final-release
-        
-        # Package hardware releases dynamically
-        cd release-artifacts
-        
-        # Create ZIP files for each hardware project
-        for project_dir in *-release-v${{ github.run_number }}/; do
-          if [ -d "$project_dir" ]; then
-            project_name=$(basename "$project_dir" | sed 's/-release-v${{ github.run_number }}$//')
-            
-            # Skip documentation directory (handled separately)
-            if [ "$project_name" != "Documentation" ]; then
-              echo "Packaging ${project_name}..."
-              cd "$project_dir"
-              zip -r "../../final-release/${project_name}-HardwareRelease-v${{ github.run_number }}.zip" . -x "*.DS_Store"
-              cd ..
-            fi
-          fi
-        done
-        
-        # Package documentation
-        if [ -d "Documentation-release-v${{ github.run_number }}" ]; then
-          echo "Packaging Documentation..."
-          cd "Documentation-release-v${{ github.run_number }}"
-          zip -r "../../final-release/KM271-WiFi-Documentation-v${{ github.run_number }}.zip" . -x "*.DS_Store"
-          cd ..
-        fi
-        
-        cd ../final-release
-        echo "📋 Final release assets:"
-        ls -la
-        
-        # Calculate checksums
-        echo "🔐 Generating checksums..."
-        for file in *.zip; do
-          if [ -f "$file" ]; then
-            sha256sum "$file" >> checksums.txt
-          fi
-        done
-        
-        echo "📋 Checksums:"
-        cat checksums.txt
+        ./.github/workflows/scripts/prepare-release-assets.sh \
+          "${{ needs.version.outputs.version }}"
         
     - name: 🧪 Local Build Test Summary (act only)
       if: ${{ env.ACT }}
       run: |
-        echo "🧪 Local Build Test Summary (act environment)"
-        echo "=============================================="
-        echo ""
-        echo "✅ Hardware builds completed successfully!"
-        echo "✅ Documentation build completed successfully!"
-        echo ""
-        echo "📋 Build artifacts would be created in production:"
-        
-        # List hardware packages dynamically
-        if [ -d "release-artifacts" ]; then
-          for project_dir in release-artifacts/*-release-v${{ github.run_number }}/; do
-            if [ -d "$project_dir" ]; then
-              project_name=$(basename "$project_dir" | sed 's/-release-v${{ github.run_number }}$//')
-              if [ "$project_name" != "Documentation" ]; then
-                echo "- $project_name hardware release package"
-              fi
-            fi
-          done
-        else
-          echo "- Hardware release packages (artifacts not available in local test)"
-        fi
-        
-        echo "- Complete documentation package"
-        echo ""
-        echo "ℹ️  Note: Artifact upload/download skipped in local testing"
-        echo "ℹ️  Note: GitHub release creation skipped in local testing"
-        echo ""
-        echo "🎉 Local workflow test completed successfully!"
+        ./.github/workflows/scripts/local-test-summary.sh \
+          "${{ needs.version.outputs.version }}" \
+          "${{ github.repository }}"
         
     - name: 📝 Generate Release Notes
       run: |
-        echo "📝 Generating release notes..."
-        
-        # Get recent commits for changelog
-        CHANGELOG=$(git log --oneline -10 --pretty=format:"- %s" | head -5)
-        
-        # Start building release notes
-        cat > release-notes.md << EOF
-        # KM271-WiFi Hardware Release v${{ github.run_number }}
-        
-        **Release Date**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')  
-        **Git Commit**: $(echo "${GITHUB_SHA}" | cut -c1-8)  
-        **Branch**: ${{ github.ref_name }}
-        
-        ## 🔧 Hardware Components
-        
-        This release includes production-ready files for:
-        
-        EOF
-        
-        # Add hardware components dynamically
-        for zip_file in final-release/*-HardwareRelease-v${{ github.run_number }}.zip; do
-          if [ -f "$zip_file" ]; then
-            # Extract project name from ZIP filename
-            project_name=$(basename "$zip_file" | sed 's/-HardwareRelease-v${{ github.run_number }}\.zip$//')
-            
-            # Determine description based on project name
-            case "$project_name" in
-              "KM217-WiFi")
-                description="KM217-WiFi Main Board"
-                ;;
-              "KM271-WiFi")
-                description="KM271-WiFi Main Board"
-                ;;
-              "ETH_W5500")
-                description="ETH_W5500 Extension Board"
-                ;;
-              *)
-                description="$project_name Board"
-                ;;
-            esac
-            
-            cat >> release-notes.md << EOF
-        ### 📋 $description
-        - Complete Gerber files for PCB manufacturing
-        - Drill files in Gerber format
-        - Schematic and PCB layout documentation (PDF)
-        - 3D STEP model for mechanical integration
-        - Assembly diagrams and component placement guides
-        
-        EOF
-          fi
-        done
-        
-        # Continue with rest of release notes
-        cat >> release-notes.md << EOF
-        ## 📚 Documentation
-        
-        - Complete user documentation (English/German)
-        - Hardware description and technical specifications
-        - Getting started guides
-        - Component datasheets and references
-        
-        ## 📦 Release Assets
-        
-        | Asset | Description | Format |
-        |-------|-------------|---------|
-        EOF
-        
-        # Add asset table dynamically
-        for zip_file in final-release/*.zip; do
-          if [ -f "$zip_file" ]; then
-            filename=$(basename "$zip_file")
-            
-            # Determine description based on filename
-            if [[ "$filename" == *"Documentation"* ]]; then
-              description="Complete documentation package"
-            elif [[ "$filename" == *"HardwareRelease"* ]]; then
-              project_name=$(echo "$filename" | sed 's/-HardwareRelease-v${{ github.run_number }}\.zip$//')
-              description="$project_name manufacturing files"
-            else
-              description="Release package"
-            fi
-            
-            echo "        | \`$filename\` | $description | ZIP |" >> release-notes.md
-          fi
-        done
-        
-        # Finish release notes
-        cat >> release-notes.md << EOF
-        
-        ## 🔐 File Integrity
-        
-        All release assets include SHA256 checksums for integrity verification. See \`checksums.txt\` for details.
-        
-        ## 🏭 Manufacturing Ready
-        
-        All hardware files in this release are:
-        - ✅ Validated and tested
-        - ✅ Generated with production-grade settings
-        - ✅ Ready for PCB manufacturing
-        - ✅ Include complete documentation
-        
-        ## 📋 Recent Changes
-        
-        ${CHANGELOG}
-        
-        ## 🆘 Support
-        
-        For questions or issues with this release, please:
-        - Check the included documentation
-        - Review the hardware description files
-        - Open an issue on GitHub if problems persist
-        
-        ---
-        
-        **Automated Release** - Generated by GitHub Actions
-        EOF
-        
-        echo "Release Notes:"
-        cat release-notes.md
+        ./.github/workflows/scripts/generate-release-notes.sh \
+          "${{ needs.version.outputs.version }}" \
+          "${{ needs.version.outputs.version_tag }}" \
+          "${GITHUB_SHA}" \
+          "${{ github.ref_name }}" \
+          "${{ github.repository }}"
         
     - name: 🚀 Create GitHub Release
       uses: softprops/action-gh-release@v1
       if: ${{ ! env.ACT }}
       with:
-        tag_name: v${{ github.run_number }}-${{ github.run_id }}
-        name: KM271-WiFi Hardware Release v${{ github.run_number }}
+        tag_name: ${{ needs.version.outputs.version_tag }}
+        name: KM271-WiFi Hardware Release ${{ needs.version.outputs.version }}
         body_path: release-notes.md
         draft: false
         prerelease: false
@@ -757,10 +233,11 @@ jobs:
       run: |
         echo "📊 Release Summary"
         echo "=================="
-        echo "Release Tag: v${{ github.run_number }}-${{ github.run_id }}"
+        echo "Release Tag: ${{ needs.version.outputs.version_tag }}"
+        echo "Version: ${{ needs.version.outputs.version }}"
         echo "Commit: $(echo "${GITHUB_SHA}" | cut -c1-8)"
         echo "Assets:"
         ls -la final-release/
         echo ""
         echo "✅ Release created successfully!"
-        echo "🔗 Release URL: https://github.com/${{ github.repository }}/releases/tag/v${{ github.run_number }}-${{ github.run_id }}"
+        echo "🔗 Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ needs.version.outputs.version_tag }}"

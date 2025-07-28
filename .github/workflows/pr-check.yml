@@ -40,302 +40,67 @@ jobs:
         
     - name: 🔍 Check KiCad Project Files
       run: |
-        echo "🔍 Checking KiCad project files for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Check if required files exist
-        for file in "${{ matrix.project.name }}.kicad_pro" "${{ matrix.project.name }}.kicad_sch" "${{ matrix.project.name }}.kicad_pcb"; do
-          if [ ! -f "$file" ]; then
-            echo "❌ Error: Required file $file not found!"
-            exit 1
-          else
-            echo "✅ Found: $file"
-          fi
-        done
-        
-        # Check file permissions
-        ls -la ${{ matrix.project.name }}.*
-        
-        # Check if schematic and PCB have matching revisions
-        if [ -f "${{ matrix.project.name }}.kicad_sch" ] && [ -f "${{ matrix.project.name }}.kicad_pcb" ]; then
-          echo "🔄 Checking revision compatibility between schematic and PCB..."
-          
-          # Extract revision from schematic
-          SCH_REV=$(grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${{ matrix.project.name }}.kicad_sch" | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
-          
-          # Extract revision from PCB
-          PCB_REV=$(grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${{ matrix.project.name }}.kicad_pcb" | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
-          
-          echo "📋 Schematic revision: '${SCH_REV:-<not set>}'"
-          echo "📋 PCB revision: '${PCB_REV:-<not set>}'"
-          
-          # Save revision info for PR summary
-          mkdir -p ../revision-status
-          echo "PROJECT=${{ matrix.project.name }}" > "../revision-status/${{ matrix.project.name }}-revision.txt"
-          echo "SCH_REV=${SCH_REV:-<not set>}" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-          echo "PCB_REV=${PCB_REV:-<not set>}" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-          
-          # Compare revisions
-          if [ -n "$SCH_REV" ] && [ -n "$PCB_REV" ]; then
-            if [ "$SCH_REV" = "$PCB_REV" ]; then
-              echo "✅ Revisions match: $SCH_REV"
-              echo "STATUS=✅ Match" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-              echo "REVISION=$SCH_REV" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-            else
-              echo "❌ Error: Revision mismatch!"
-              echo "   Schematic: $SCH_REV"
-              echo "   PCB: $PCB_REV"
-              echo "⚠️  Please ensure schematic and PCB are synchronized before building."
-              echo "STATUS=❌ Mismatch" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-              echo "DETAILS=SCH: $SCH_REV, PCB: $PCB_REV" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-              exit 1
-            fi
-          elif [ -z "$SCH_REV" ] && [ -z "$PCB_REV" ]; then
-            echo "⚠️  No revision information found in either file (this is okay for new projects)"
-            echo "STATUS=⚠️ No revision info" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-            echo "DETAILS=No revision information in either file" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-          else
-            echo "⚠️  Warning: Only one file has revision information"
-            echo "   Consider adding matching revision information to both files"
-            echo "STATUS=⚠️ Partial revision info" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-            echo "DETAILS=SCH: ${SCH_REV:-<not set>}, PCB: ${PCB_REV:-<not set>}" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-          fi
-        else
-          echo "ℹ️  Skipping revision check - not all required files present"
-          mkdir -p ../revision-status
-          echo "PROJECT=${{ matrix.project.name }}" > "../revision-status/${{ matrix.project.name }}-revision.txt"
-          echo "STATUS=ℹ️ Files missing" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-          echo "DETAILS=Required files not present for revision check" >> "../revision-status/${{ matrix.project.name }}-revision.txt"
-        fi
+        ./.github/workflows/scripts/check-kicad-files-with-revision.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🧹 Clean Export Directory
       run: |
-        echo "🧹 Cleaning export directories for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Create/clean export directories
-        mkdir -p Export/Gerbers
-        mkdir -p Export/Drill
-        mkdir -p Export/PDF
-        mkdir -p Export/Images
-        mkdir -p Export/3D
-        
-        # Clean old files
-        rm -f Export/Gerbers/*
-        rm -f Export/Drill/*
-        rm -f Export/PDF/*
-        rm -f Export/Images/*
-        rm -f Export/3D/*
+        ./.github/workflows/scripts/clean-export-dirs.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📐 Export Schematics PDF
       run: |
-        echo "📐 Exporting schematic to PDF for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        kicad-cli sch export pdf \
-          --output "Export/PDF/${{ matrix.project.name }}-Schematics.pdf" \
-          ${{ matrix.project.name }}.kicad_sch
-          
-        # Verify export
-        if [ -f "Export/PDF/${{ matrix.project.name }}-Schematics.pdf" ]; then
-          echo "✅ Schematic PDF exported successfully"
-          ls -lh Export/PDF/${{ matrix.project.name }}-Schematics.pdf
-        else
-          echo "❌ Error: Schematic PDF export failed!"
-          exit 1
-        fi
+        ./.github/workflows/scripts/export-schematics.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🔧 Export Gerber Files
       run: |
-        echo "🔧 Exporting Gerber files for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export Gerber files
-        kicad-cli pcb export gerbers \
-          --output Export/Gerbers/ \
-          --layers "F.Cu,B.Cu,F.Paste,B.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts" \
-          --precision 6 \
-          --no-x2 \
-          --use-drill-file-origin \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Export drill files separately for better control
-        kicad-cli pcb export drill \
-          --output Export/Drill/ \
-          --format gerber \
-          --drill-origin plot \
-          --gerber-precision 6 \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # List generated files
-        echo "📋 Generated Gerber files:"
-        ls -la Export/Gerbers/
-        echo "📋 Generated Drill files:"
-        ls -la Export/Drill/
+        ./.github/workflows/scripts/export-gerber.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📄 Export PCB PDF
       run: |
-        echo "📄 Exporting PCB layout to PDF for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export PCB top layer
-        kicad-cli pcb export pdf \
-          --output "Export/PDF/${{ matrix.project.name }}-PCB-Top.pdf" \
-          --layers "F.Cu,F.Silkscreen,F.Mask,Edge.Cuts" \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Export PCB bottom layer  
-        kicad-cli pcb export pdf \
-          --output "Export/PDF/${{ matrix.project.name }}-PCB-Bottom.pdf" \
-          --layers "B.Cu,B.Silkscreen,B.Mask,Edge.Cuts" \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Verify exports
-        for pdf in "Export/PDF/${{ matrix.project.name }}-PCB-Top.pdf" "Export/PDF/${{ matrix.project.name }}-PCB-Bottom.pdf"; do
-          if [ -f "$pdf" ]; then
-            echo "✅ $(basename $pdf) exported successfully"
-            ls -lh "$pdf"
-          else
-            echo "❌ Error: $(basename $pdf) export failed!"
-            exit 1
-          fi
-        done
+        ./.github/workflows/scripts/export-pcb-pdf.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🖼️ Export PCB Images
       run: |
-        echo "🖼️ Exporting PCB images for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export assembly diagram (top)
-        kicad-cli pcb export svg \
-          --output "Export/Images/${{ matrix.project.name }}-Assembly-Top.svg" \
-          --layers "F.Cu,F.Silkscreen,F.Mask,Edge.Cuts" \
-          --exclude-drawing-sheet \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Export assembly diagram (bottom)
-        kicad-cli pcb export svg \
-          --output "Export/Images/${{ matrix.project.name }}-Assembly-Bottom.svg" \
-          --layers "B.Cu,B.Silkscreen,B.Mask,Edge.Cuts" \
-          --exclude-drawing-sheet \
-          ${{ matrix.project.name }}.kicad_pcb
-          
-        # Convert SVGs to PNG for better compatibility
-        if command -v convert >/dev/null 2>&1; then
-          convert "Export/Images/${{ matrix.project.name }}-Assembly-Top.svg" "Export/Images/${{ matrix.project.name }}-Assembly-Top.png"
-          convert "Export/Images/${{ matrix.project.name }}-Assembly-Bottom.svg" "Export/Images/${{ matrix.project.name }}-Assembly-Bottom.png"
-          echo "✅ PNG images generated"
-        else
-          echo "⚠️ ImageMagick not available, skipping PNG conversion"
-        fi
-        
-        ls -la Export/Images/
+        ./.github/workflows/scripts/export-pcb-images.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 🎯 Export 3D Models
       run: |
-        echo "🎯 Exporting 3D models for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Export STEP file for 3D CAD (ignore warnings about missing 3D models)
-        kicad-cli pcb export step \
-          --output "Export/3D/${{ matrix.project.name }}.step" \
-          --drill-origin \
-          --grid-origin \
-          ${{ matrix.project.name }}.kicad_pcb || {
-            echo "⚠️ STEP export completed with warnings (missing 3D models)"
-            # Check if file was actually created despite warnings
-            if [ -f "Export/3D/${{ matrix.project.name }}.step" ]; then
-              echo "✅ STEP file created successfully despite warnings"
-            else
-              echo "❌ STEP export failed completely"
-              exit 1
-            fi
-          }
-          
-        echo "✅ STEP model exported"
-        ls -la Export/3D/
+        ./.github/workflows/scripts/export-3d-models.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📊 Generate Production Summary
       run: |
-        echo "📊 Generating production summary for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}"
-        
-        # Create production summary
-        cat > Export/PRODUCTION_SUMMARY.md << EOF
-        # ${{ matrix.project.name }} Production Files
-        
-        Generated on: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
-        Git Commit: $(echo "${GITHUB_SHA:-local}" | cut -c1-8)
-        Project: ${{ matrix.project.description }}
-        
-        ## 📐 Schematic Files
-        - \`${{ matrix.project.name }}-Schematics.pdf\` - Complete schematic documentation
-        
-        ## 🔧 Manufacturing Files
-        
-        ### Gerber Files (Export/Gerbers/)
-        $(ls -1 Export/Gerbers/ | sed 's/^/- /')
-        
-        ### Drill Files (Export/Drill/)
-        $(ls -1 Export/Drill/ | sed 's/^/- /')
-        
-        ## 📄 Documentation
-        - \`${{ matrix.project.name }}-PCB-Top.pdf\` - Top layer layout
-        - \`${{ matrix.project.name }}-PCB-Bottom.pdf\` - Bottom layer layout
-        
-        ## 🖼️ Assembly Images
-        $(ls -1 Export/Images/ | sed 's/^/- /')
-        
-        ## 🎯 3D Models
-        $(ls -1 Export/3D/ | sed 's/^/- /')
-        
-        ## 📋 File Sizes
-        \`\`\`
-        $(find Export/ -type f -exec ls -lh {} \; | awk '{print $5, $9}' | sort -k2)
-        \`\`\`
-        
-        ## ⚠️ Notes
-        - Gerber files are generated with 6-digit precision
-        - Drill files use Gerber format for better compatibility
-        - All files are ready for production use
-        - STEP file included for 3D visualization and mechanical design
-        
-        EOF
-        
-        echo "✅ Production summary generated"
-        cat Export/PRODUCTION_SUMMARY.md
+        ./.github/workflows/scripts/generate-production-summary-pr.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}" \
+          "${GITHUB_SHA}"
         
     - name: 🧪 Validate Export Files
       run: |
-        echo "🧪 Validating exported files for ${{ matrix.project.description }}..."
-        cd "${{ matrix.project.path }}/Export"
-        
-        # Check if critical files exist and have reasonable sizes
-        critical_files="PDF/${{ matrix.project.name }}-Schematics.pdf PDF/${{ matrix.project.name }}-PCB-Top.pdf PDF/${{ matrix.project.name }}-PCB-Bottom.pdf 3D/${{ matrix.project.name }}.step"
-        
-        for file in $critical_files; do
-          if [ -f "$file" ]; then
-            size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
-            if [ "$size" -gt 1000 ]; then
-              echo "✅ $file ($size bytes)"
-            else
-              echo "⚠️ $file seems too small ($size bytes)"
-            fi
-          else
-            echo "❌ Missing: $file"
-            exit 1
-          fi
-        done
-        
-        # Check Gerber files
-        gerber_count=$(ls -1 Gerbers/*.g* 2>/dev/null | wc -l || echo "0")
-        if [ "$gerber_count" -lt 5 ]; then
-          echo "⚠️ Only $gerber_count Gerber files found, expected at least 5"
-        else
-          echo "✅ $gerber_count Gerber files generated"
-        fi
-        
-        echo "🎉 File validation completed"
+        ./.github/workflows/scripts/validate-export-files.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}"
         
     - name: 📤 Upload Hardware Artifacts
       uses: actions/upload-artifact@v4
@@ -364,161 +129,19 @@ jobs:
       uses: actions/checkout@v4
       
     - name: 🔍 Check Documentation Files
-      run: |
-        echo "🔍 Checking documentation files..."
-        cd DOC
-        
-        # List all documentation files
-        echo "📋 Available documentation files:"
-        ls -la
-        
-        # Check critical documentation  
-        if [ -f "Getting_Started.md" ]; then
-          echo "✅ Found: Getting_Started.md"
-          wc -l "Getting_Started.md"
-        else
-          echo "⚠️ Missing: Getting_Started.md"
-        fi
-        
-        if [ -f "Erste_Schritte.md" ]; then
-          echo "✅ Found: Erste_Schritte.md"
-          wc -l "Erste_Schritte.md"
-        else
-          echo "⚠️ Missing: Erste_Schritte.md"
-        fi
-        
-        if [ -f "Hardware Description.md" ]; then
-          echo "✅ Found: Hardware Description.md"
-          wc -l "Hardware Description.md"
-        else
-          echo "⚠️ Missing: Hardware Description.md"
-        fi
+      run: ./.github/workflows/scripts/check-documentation.sh
         
     - name: 📖 Build AsciiDoc Documentation
-      run: |
-        echo "📖 Building AsciiDoc documentation..."
-        cd DOC
-        
-        # Build AsciiDoc documentation
-        for file in *.adoc; do
-          if [ -f "$file" ]; then
-            filename=$(basename "$file" .adoc)
-            echo "Building $file..."
-            
-            if command -v asciidoctor >/dev/null 2>&1; then
-              # Generate HTML
-              asciidoctor -b html5 -o "${filename}_Generated.html" "$file"
-              echo "✅ HTML generated: ${filename}_Generated.html"
-              
-              # Generate PDF if possible
-              if command -v asciidoctor-pdf >/dev/null 2>&1; then
-                asciidoctor-pdf -o "${filename}_Generated.pdf" "$file"
-                echo "✅ PDF generated: ${filename}_Generated.pdf"
-              else
-                echo "ℹ️ asciidoctor-pdf not available, skipping PDF generation"
-              fi
-            else
-              echo "ℹ️ asciidoctor not available, skipping AsciiDoc build"
-            fi
-          fi
-        done
-        
-        # List generated files
-        echo "📋 Generated AsciiDoc files:"
-        ls -la *_Generated.* 2>/dev/null || echo "No generated files found"
+      run: ./.github/workflows/scripts/build-asciidoc.sh
         
     - name: 📝 Generate LaTeX Documentation
-      run: |
-        echo "📝 Generating LaTeX documentation..."
-        cd DOC
-        
-        if [ -f "Erste_Schritte.tex" ]; then
-          echo "Building Erste_Schritte.tex..."
-          
-          # Build PDF (might need multiple passes)
-          if command -v pdflatex >/dev/null 2>&1; then
-            # Try to continue on errors to avoid workflow failure
-            pdflatex -interaction=nonstopmode Erste_Schritte.tex || echo "⚠️ LaTeX build encountered issues, continuing..."
-            pdflatex -interaction=nonstopmode Erste_Schritte.tex || echo "⚠️ LaTeX second pass encountered issues, continuing..."  # Second pass for references
-            
-            # Check if PDF was generated
-            if [ -f "Erste_Schritte.pdf" ]; then
-              echo "✅ LaTeX PDF generated successfully"
-            else
-              echo "⚠️ LaTeX PDF generation failed, but continuing workflow"
-            fi
-          else
-            echo "ℹ️ pdflatex not available, skipping LaTeX build"
-          fi
-        else
-          echo "ℹ️ No LaTeX files found"
-        fi
+      run: ./.github/workflows/scripts/build-latex.sh
         
     - name: 🔗 Check Documentation Links
-      run: |
-        echo "🔗 Checking documentation links..."
-        cd DOC
-        
-        # Check for broken internal links in Markdown files
-        for file in *.md; do
-          if [ -f "$file" ]; then
-            echo "Checking links in $file..."
-            
-            # Extract markdown links and check if referenced files exist
-            grep -o '\[.*\](.*\.md)' "$file" | sed 's/.*(\(.*\))/\1/' | while read -r link; do
-              if [ ! -f "$link" ] && [ ! -f "../$link" ]; then
-                echo "⚠️ Potential broken link in $file: $link"
-              fi
-            done
-            
-            # Check image references
-            grep -o '!\[.*\](.*\.(jpg\|png\|gif\|svg))' "$file" | sed 's/.*(\(.*\))/\1/' | while read -r img; do
-              if [ ! -f "$img" ] && [ ! -f "../$img" ]; then
-                echo "⚠️ Missing image in $file: $img"
-              fi
-            done
-          fi
-        done
-        
-        echo "✅ Link check completed"
+      run: ./.github/workflows/scripts/check-documentation-links.sh
         
     - name: 📊 Documentation Statistics
-      run: |
-        echo "📊 Generating documentation statistics..."
-        cd DOC
-        
-        cat > DOC_STATISTICS.md << EOF
-        # Documentation Statistics
-        
-        Generated on: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
-        
-        ## 📄 File Count and Sizes
-        | File | Lines | Words | Size |
-        |------|-------|-------|------|
-        EOF
-        
-        for file in *.md *.adoc *.tex; do
-          if [ -f "$file" ]; then
-            lines=$(wc -l < "$file")
-            words=$(wc -w < "$file")
-            size=$(stat -f%z "$file" 2>/dev/null || stat -c%s "$file" 2>/dev/null || echo "0")
-            printf "| %-30s | %5d | %5d | %5d |\n" "$file" "$lines" "$words" "$size" >> DOC_STATISTICS.md
-          fi
-        done
-        
-        cat >> DOC_STATISTICS.md << EOF
-        
-        ## 🖼️ Images
-        $(find ../IMG -name "*.png" -o -name "*.jpg" -o -name "*.gif" -o -name "*.svg" 2>/dev/null | wc -l) image files found
-        
-        ## 📋 Summary
-        - Total documentation files: $(ls -1 *.md *.adoc *.tex 2>/dev/null | wc -l)
-        - Generated files ready for distribution
-        
-        EOF
-        
-        echo "✅ Documentation statistics generated"
-        cat DOC_STATISTICS.md
+      run: ./.github/workflows/scripts/generate-documentation-statistics.sh
         
     - name: 📤 Upload Documentation Artifacts
       uses: actions/upload-artifact@v4
@@ -535,99 +158,16 @@ jobs:
     if: ${{ github.event_name == 'pull_request' }}
     
     steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
     - name: 📥 Download Artifacts
       uses: actions/download-artifact@v4
       with:
         path: artifacts/
         
     - name: 📊 Generate PR Summary
-      run: |
-        echo "📊 Generating PR summary..."
-        
-        # Function to extract revision information from status file
-        get_revision_info() {
-          local status_file="$1"
-          
-          if [ -f "$status_file" ]; then
-            local status=$(grep "^STATUS=" "$status_file" | cut -d'=' -f2-)
-            local revision=$(grep "^REVISION=" "$status_file" 2>/dev/null | cut -d'=' -f2-)
-            local details=$(grep "^DETAILS=" "$status_file" 2>/dev/null | cut -d'=' -f2-)
-            
-            if [ -n "$revision" ]; then
-              echo "- **Revision Status**: $status ($revision)"
-            elif [ -n "$details" ]; then
-              echo "- **Revision Status**: $status ($details)"
-            else
-              echo "- **Revision Status**: $status"
-            fi
-          else
-            echo "- **Revision Status**: ℹ️ Information not available"
-          fi
-        }
-        
-        # Start building the summary
-        cat > pr_summary.md << 'EOF'
-        ## 🔧 Hardware Build Summary
-        
-        EOF
-        
-        # Process each project dynamically
-        for project_dir in artifacts/*-revision-status/; do
-          if [ -d "$project_dir" ]; then
-            # Extract project name from directory
-            project_name=$(basename "$project_dir" | sed 's/-revision-status$//')
-            
-            # Find the revision file
-            revision_file=$(find "$project_dir" -name "*.txt" | head -1)
-            
-            if [ -f "$revision_file" ]; then
-              # Get project details from revision file
-              project_info=$(grep "^PROJECT=" "$revision_file" | cut -d'=' -f2-)
-              revision_info=$(get_revision_info "$revision_file")
-              
-              # Determine project description based on name
-              description="$project_name Board"
-                            
-              # Add project section to summary
-              cat >> pr_summary.md << EOF
-        ### ✅ $description Results
-        - **Gerber Files**: Generated successfully
-        - **Drill Files**: Generated successfully  
-        - **PDF Documentation**: Schematics and PCB layouts exported
-        - **3D Models**: STEP file generated
-        - **Assembly Images**: SVG/PNG diagrams created
-        $revision_info
-        
-        EOF
-            fi
-          fi
-        done
-        
-        # Add the rest of the summary
-        cat >> pr_summary.md << 'EOF'
-        ### 📚 Documentation Results
-        - **Markdown Files**: Validated and checked
-        - **AsciiDoc Build**: HTML and PDF generated
-        - **Link Validation**: Completed
-        - **Statistics**: Generated
-        
-        ### 📦 Generated Artifacts
-        - Hardware manufacturing files for each board
-        - Complete documentation package
-        
-        ### 🎯 Ready for Production
-        All files have been validated and are ready for:
-        - PCB manufacturing (Gerber/Drill files for all boards)
-        - Assembly documentation (PDFs and images)
-        - 3D visualization (STEP files)
-        - End-user documentation (Markdown/HTML/PDF)
-        
-        ---
-        *Automated build completed successfully* ✅
-        EOF
-        
-        echo "PR Summary:"
-        cat pr_summary.md
+      run: ./.github/workflows/scripts/generate-pr-summary.sh
         
     - name: 💬 Comment PR Summary
       uses: actions/github-script@v7
@@ -646,31 +186,4 @@ jobs:
           
     - name: 🧪 Local Test Summary (act only)
       if: env.ACT == 'true'
-      run: |
-        echo "🧪 Local PR Check Test Summary (act environment)"
-        echo "==============================================="
-        echo ""
-        echo "✅ Hardware builds completed successfully!"
-        echo "✅ Documentation build completed successfully!"
-        echo ""
-        echo "📋 In production, this would create:"
-        
-        # List hardware export artifacts dynamically
-        if [ -d "artifacts" ]; then
-          for project_dir in artifacts/*-hardware-exports/; do
-            if [ -d "$project_dir" ]; then
-              project_name=$(basename "$project_dir" | sed 's/-hardware-exports$//')
-              echo "- $project_name hardware export artifacts"
-            fi
-          done
-        else
-          echo "- Hardware export artifacts (artifacts directory not available in local test)"
-        fi
-        
-        echo "- Complete documentation artifacts"
-        echo "- PR summary comment"
-        echo ""
-        echo "ℹ️  Note: Artifact upload/download skipped in local testing"
-        echo "ℹ️  Note: PR comment creation skipped in local testing"
-        echo ""
-        echo "🎉 Local PR check workflow test completed successfully!"
+      run: ./.github/workflows/scripts/local-pr-test-summary.sh
