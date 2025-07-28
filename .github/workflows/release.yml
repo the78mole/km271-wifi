@@ -1,0 +1,276 @@
+name: KM217-WiFi Hardware Release
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'KM217-WiFi/**'
+      - 'EXTENSIONS/ETH_W5500/**'
+      - 'DOC/**'
+      - '.github/workflows/release.yml'
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  version:
+    name: 🏷️ Generate Release Version
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.semver.outputs.version }}
+      version_tag: ${{ steps.semver.outputs.version_tag }}
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 🏷️ Generate release version
+      id: semver
+      uses: paulhatch/semantic-version@v5.4.0
+      with:
+        branch: main
+        tag_prefix: "v"
+        version_format: "${major}.${minor}.${patch}"
+        major_pattern: "/^(feat|fix|refactor)!:/"
+        minor_pattern: "/^feat:/"
+        bump_each_commit: true
+        search_commit_body: true
+
+  load-config:
+    name: 📋 Load Project Configuration
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Install yq
+        run: |
+          # Use GitHub's official method to install yq (architecture-agnostic)
+          sudo snap install yq || {
+            # Fallback: manual installation with architecture detection
+            ARCH=$(uname -m)
+            case $ARCH in
+              x86_64) YQ_ARCH="amd64" ;;
+              aarch64|arm64) YQ_ARCH="arm64" ;;
+              *) echo "Unsupported architecture: $ARCH" && exit 1 ;;
+            esac
+            sudo wget -qO /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${YQ_ARCH}"
+            sudo chmod +x /usr/local/bin/yq
+          }
+          
+      - name: 📋 Load KiCad Projects Matrix
+        id: set-matrix
+        run: |
+          chmod +x .github/workflows/scripts/load-kicad-projects.sh
+          MATRIX=$(.github/workflows/scripts/load-kicad-projects.sh --filter enabled)
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          echo "Loaded matrix: $MATRIX"
+
+  hardware-build:
+    name: 🔧 Hardware Build & Export
+    runs-on: ubuntu-latest
+    needs: [version, load-config]
+    container:
+      image: ghcr.io/the78mole/kicaddev-docker:latest
+    
+    strategy:
+      matrix: 
+        include: ${{ fromJson(needs.load-config.outputs.matrix).include }}
+      fail-fast: false
+      
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 🔍 Check KiCad Project Files
+      run: |
+        ./.github/workflows/scripts/check-kicad-files.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🧹 Clean Export Directory
+      run: |
+        ./.github/workflows/scripts/clean-export-dirs.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📐 Export Schematics PDF
+      run: |
+        ./.github/workflows/scripts/export-schematics.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🔧 Export Gerber Files
+      run: |
+        ./.github/workflows/scripts/export-gerber.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📄 Export PCB PDF
+      run: |
+        ./.github/workflows/scripts/export-pcb-pdf.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🖼️ Export PCB Images
+      run: |
+        ./.github/workflows/scripts/export-pcb-images.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🎯 Export 3D Models
+      run: |
+        ./.github/workflows/scripts/export-3d-models.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📊 Generate Production Summary
+      run: |
+        ./.github/workflows/scripts/generate-production-summary.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}" \
+          --sha "${GITHUB_SHA}" \
+          --ref "${{ github.ref_name }}"
+        
+    - name: 🧪 Validate Export Files
+      run: |
+        ./.github/workflows/scripts/validate-export-files.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📦 Create Release Package
+      run: |
+        ./.github/workflows/scripts/create-release-package.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}" \
+          --sha "${GITHUB_SHA}" \
+          --ref "${{ github.ref_name }}"
+        
+    - name: 📤 Upload Release Artifacts
+      uses: actions/upload-artifact@v4
+      if: ${{ ! env.ACT }}
+      with:
+        name: ${{ matrix.name }}-release-${{ needs.version.outputs.version }}
+        path: |
+          release-staging/${{ matrix.name }}/
+        retention-days: 90
+        
+  documentation-build:
+    name: 📚 Documentation Build
+    runs-on: ubuntu-latest
+    needs: [version]
+    container:
+      image: ghcr.io/the78mole/kicaddev-docker:latest
+      
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Check Documentation Files
+      run: ./.github/workflows/scripts/check-documentation.sh
+        
+    - name: 📖 Build AsciiDoc Documentation
+      run: |
+        ./.github/workflows/scripts/build-asciidoc.sh \
+          --version "${{ needs.version.outputs.version }}"
+        
+    - name: 📝 Generate LaTeX Documentation
+      run: |
+        ./.github/workflows/scripts/build-latex.sh \
+          --version "${{ needs.version.outputs.version }}"
+        
+    - name: 📦 Package Documentation for Release
+      run: |
+        ./.github/workflows/scripts/package-documentation.sh \
+          "${GITHUB_SHA}" \
+          "${{ github.ref_name }}" \
+          "${{ needs.version.outputs.version }}"
+        
+    - name: 📤 Upload Documentation Release
+      uses: actions/upload-artifact@v4
+      with:
+        name: Documentation-release-${{ needs.version.outputs.version }}
+        path: |
+          release-staging/Documentation/
+        retention-days: 90
+        
+  create-release:
+    name: 🚀 Create GitHub Release
+    runs-on: ubuntu-latest
+    needs: [version, hardware-build, documentation-build]
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 📥 Download All Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: release-artifacts/
+        
+    - name: 📦 Prepare Release Assets
+      run: |
+        ./.github/workflows/scripts/prepare-release-assets.sh \
+          "${{ needs.version.outputs.version }}"
+        
+    - name: 🧪 Local Build Test Summary (act only)
+      if: ${{ env.ACT }}
+      run: |
+        ./.github/workflows/scripts/local-test-summary.sh \
+          "${{ needs.version.outputs.version }}" \
+          "${{ github.repository }}"
+        
+    - name: 📝 Generate Release Notes
+      run: |
+        ./.github/workflows/scripts/generate-release-notes.sh \
+          "${{ needs.version.outputs.version }}" \
+          "${{ needs.version.outputs.version_tag }}" \
+          "${GITHUB_SHA}" \
+          "${{ github.ref_name }}" \
+          "${{ github.repository }}"
+        
+    - name: 🚀 Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      if: ${{ ! env.ACT }}
+      with:
+        tag_name: ${{ needs.version.outputs.version_tag }}
+        name: KM271-WiFi Hardware Release ${{ needs.version.outputs.version }}
+        body_path: release-notes.md
+        draft: false
+        prerelease: false
+        files: |
+          final-release/*.zip
+          final-release/checksums.txt
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: 📊 Release Summary
+      run: |
+        echo "📊 Release Summary"
+        echo "=================="
+        echo "Release Tag: ${{ needs.version.outputs.version_tag }}"
+        echo "Version: ${{ needs.version.outputs.version }}"
+        echo "Commit: $(echo "${GITHUB_SHA}" | cut -c1-8)"
+        echo "Assets:"
+        ls -la final-release/
+        echo ""
+        echo "✅ Release created successfully!"
+        echo "🔗 Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ needs.version.outputs.version_tag }}"

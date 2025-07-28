@@ -6,10 +6,10 @@
 	(paper "A4")
 	(title_block
 		(title "Buderus-KM217-WIFI")
-		(date "2025-07-27")
-		(rev "0.1.1")
-		(company "the78mole")
-		(comment 1 "Author: Daniel Glaser")
+		(date "${CREATION_DATE}")
+		(rev "${REVISION}")
+		(company "${COMPANY}")
+		(comment 1 "Author: ${AUTHOR}")
 	)
 	(lib_symbols
 		(symbol "Connector:Screw_Terminal_01x02"

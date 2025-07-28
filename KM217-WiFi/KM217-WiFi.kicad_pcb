@@ -9,10 +9,10 @@
 	(paper "A4")
 	(title_block
 		(title "Buderus-KM217-WIFI")
-		(date "2025-07-27")
-		(rev "0.1.1")
-		(company "the78mole")
-		(comment 1 "Author: Daniel Glaser")
+		(date "${CREATION_DATE}")
+		(rev "${REVISION}")
+		(company "${COMPANY}")
+		(comment 1 "Author: ${AUTHOR}")
 	)
 	(layers
 		(0 "F.Cu" signal)
@@ -118,6 +118,7 @@
 			(outputdirectory "Export")
 		)
 	)
+	(property "REVISION" "v1.0.0")
 	(net 0 "")
 	(net 1 "GND")
 	(net 2 "+3V3")

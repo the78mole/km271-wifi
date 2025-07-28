@@ -6,10 +6,10 @@
 	(paper "A4")
 	(title_block
 		(title "KM271-WiFi-ETHext")
-		(date "2025-01-13")
-		(rev "0.0.3")
-		(company "the78mole")
-		(comment 1 "Author: Daniel Glaser")
+		(date "${CREATION_DATE}")
+		(rev "${REVISION}")
+		(company "${COMPANY}")
+		(comment 1 "Author: ${AUTHOR}")
 	)
 	(lib_symbols
 		(symbol "Connector:RJ45_LED_Shielded"

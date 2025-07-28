@@ -1,0 +1,291 @@
+name: KM217-WiFi Build & Documentation Check
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'KM217-WiFi/**'
+      - 'EXTENSIONS/ETH_W5500/**'
+      - 'DOC/**'
+      - '.github/workflows/pr-check.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: write
+
+jobs:
+  load-config:
+    name: 📋 Load Project Configuration
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Install yq
+        run: |
+          # Use GitHub's official method to install yq (architecture-agnostic)
+          sudo snap install yq || {
+            # Fallback: manual installation with architecture detection
+            ARCH=$(uname -m)
+            case $ARCH in
+              x86_64) YQ_ARCH="amd64" ;;
+              aarch64|arm64) YQ_ARCH="arm64" ;;
+              *) echo "Unsupported architecture: $ARCH" && exit 1 ;;
+            esac
+            sudo wget -qO /usr/local/bin/yq "https://github.com/mikefarah/yq/releases/latest/download/yq_linux_${YQ_ARCH}"
+            sudo chmod +x /usr/local/bin/yq
+          }
+          
+      - name: 📋 Load KiCad Projects Matrix
+        id: set-matrix
+        run: |
+          chmod +x .github/workflows/scripts/load-kicad-projects.sh
+          MATRIX=$(.github/workflows/scripts/load-kicad-projects.sh --filter enabled)
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          echo "Loaded matrix: $MATRIX"
+
+  hardware-build:
+    name: 🔧 Hardware Build & Export
+    runs-on: ubuntu-latest
+    needs: load-config
+    container:
+      image: ghcr.io/the78mole/kicaddev-docker:latest
+    
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.load-config.outputs.matrix).include }}
+      fail-fast: false
+      
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        
+    - name: 🏷️ Generate Semantic Version
+      id: semver
+      uses: paulhatch/semantic-version@v5.4.0
+      with:
+        branch: main
+        tag_prefix: "v"
+        version_format: "${major}.${minor}.${patch}"
+        major_pattern: "/^(feat|fix|refactor)!:/"
+        minor_pattern: "/^feat:/"
+        bump_each_commit: false
+        search_commit_body: true
+        
+    - name: 🔍 Check for KiCad Changes Since Last Release
+      id: check-changes
+      run: |
+        ./.github/workflows/scripts/check-kicad-changes-since-release.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+      
+    - name: 🔄 Update KiCad Revision
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/update-kicad-revision.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}" \
+          --version "${{ steps.semver.outputs.version }}" \
+          --pr "${{ github.event.pull_request.number || '0' }}"
+      
+    - name: 🔍 Check KiCad Project Files
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/check-kicad-files-with-revision.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🧹 Clean Export Directory
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/clean-export-dirs.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📐 Export Schematics PDF
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/export-schematics.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🔧 Export Gerber Files
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/export-gerber.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📄 Export PCB PDF
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/export-pcb-pdf.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🖼️ Export PCB Images
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/export-pcb-images.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 🎯 Export 3D Models
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/export-3d-models.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📊 Generate Production Summary
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/generate-production-summary-pr.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}" \
+          --sha "${GITHUB_SHA}"
+        
+    - name: 🧪 Validate Export Files
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/validate-export-files.sh \
+          --name "${{ matrix.name }}" \
+          --path "${{ matrix.path }}" \
+          --description "${{ matrix.description }}"
+        
+    - name: 📤 Upload Hardware Artifacts
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.name }}-hardware-exports
+        path: |
+          ${{ matrix.path }}/Export/
+        retention-days: 30
+        
+    - name: 📤 Upload Revision Status
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.name }}-revision-status
+        path: |
+          revision-status/${{ matrix.name }}-revision.txt
+        retention-days: 30
+        if-no-files-found: ignore
+        
+    - name: 📤 Upload Change Status
+      uses: actions/upload-artifact@v4
+      with:
+        name: ${{ matrix.name }}-change-status
+        path: |
+          change-status/${{ matrix.name }}-changes.txt
+        retention-days: 30
+        if-no-files-found: ignore
+        
+  documentation-build:
+    name: 📚 Documentation Build
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/the78mole/kicaddev-docker:latest
+      
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 🔍 Check Documentation Files
+      run: ./.github/workflows/scripts/check-documentation.sh
+        
+    - name: 📖 Build AsciiDoc Documentation
+      run: ./.github/workflows/scripts/build-asciidoc.sh
+        
+    - name: 📝 Generate LaTeX Documentation
+      run: ./.github/workflows/scripts/build-latex.sh
+        
+    - name: 🔗 Check Documentation Links
+      run: ./.github/workflows/scripts/check-documentation-links.sh
+        
+    - name: 📊 Documentation Statistics
+      run: ./.github/workflows/scripts/generate-documentation-statistics.sh
+        
+    - name: 📤 Upload Documentation Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: km217-wifi-documentation
+        path: |
+          DOC/
+        retention-days: 30
+        
+  pr-summary:
+    name: 📋 PR Summary
+    runs-on: ubuntu-latest
+    needs: [hardware-build, documentation-build]
+    if: always()  # Always run, even if some jobs fail
+    
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: 📥 Download Artifacts
+      uses: actions/download-artifact@v4
+      with:
+        path: artifacts/
+        
+    - name: 📊 Generate PR Summary
+      run: ./.github/workflows/scripts/generate-pr-summary.sh
+        
+    - name: 💬 Update PR Summary Comment
+      uses: actions/github-script@v7
+      if: github.event_name == 'pull_request' && !env.ACT
+      with:
+        script: |
+          const fs = require('fs');
+          const summary = fs.readFileSync('pr_summary.md', 'utf8');
+          
+          // Look for existing bot comment
+          const comments = await github.rest.issues.listComments({
+            issue_number: context.issue.number,
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+          });
+          
+          const botComment = comments.data.find(comment => 
+            comment.user.type === 'Bot' && 
+            comment.body.includes('🔧 KM217-WiFi Hardware Build Summary')
+          );
+          
+          if (botComment) {
+            // Update existing comment
+            await github.rest.issues.updateComment({
+              comment_id: botComment.id,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+            console.log('Updated existing PR summary comment');
+          } else {
+            // Create new comment
+            await github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: summary
+            });
+            console.log('Created new PR summary comment');
+          }
+          
+    - name: 🧪 Local Test Summary (act only)
+      if: env.ACT == 'true'
+      run: ./.github/workflows/scripts/local-pr-test-summary.sh

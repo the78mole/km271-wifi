@@ -1,0 +1,33 @@
+name: Test Matrix Job
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test-matrix:
+    name: Test Matrix
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        include:
+          - name: "KM217-WiFi"
+            path: "KM217-WiFi" 
+            description: "Main KM217-WiFi Board"
+            type: "main"
+          - name: "ETH_W5500"
+            path: "EXTENSIONS/ETH_W5500"
+            description: "Ethernet Extension Board"
+            type: "extension"
+      fail-fast: false
+      
+    steps:
+    - name: 📥 Checkout Repository
+      uses: actions/checkout@v4
+      
+    - name: Test Matrix Variables
+      run: |
+        echo "Name: ${{ matrix.name }}"
+        echo "Path: ${{ matrix.path }}"
+        echo "Description: ${{ matrix.description }}"
+        echo "Type: ${{ matrix.type }}"

@@ -7,3 +7,5 @@ _autosave-*
 /.devcontainer_old/
 *.xls?
 *.zip
+/revision-status/
+/change-status/
