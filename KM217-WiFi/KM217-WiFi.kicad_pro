@@ -721,5 +721,10 @@
       "Root"
     ]
   ],
-  "text_variables": {}
+  "text_variables": {
+    "REVISION": "v1.0.0",
+    "COMPANY": "the78mole",
+    "AUTHOR": "Daniel Glaser",
+    "CREATION_DATE": "2025-07-28"
+  }
 }
