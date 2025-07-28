@@ -68,7 +68,8 @@ jobs:
       image: ghcr.io/the78mole/kicaddev-docker:latest
     
     strategy:
-      matrix: ${{ fromJson(needs.load-config.outputs.matrix) }}
+      matrix:
+        include: ${{ fromJson(needs.load-config.outputs.matrix).include }}
       fail-fast: false
       
     steps:

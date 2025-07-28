@@ -142,7 +142,7 @@ if [ -z "$YQ_CMD" ]; then
     }
     ' "$CONFIG_FILE")
     
-    echo "{\"project\": $projects_json, \"text_variables\": $text_vars}"
+    echo "{\"include\": $projects_json, \"text_variables\": $text_vars}"
     exit 0
 fi
 

@@ -1,52 +1,37 @@
-name: KM217-WiFi Build & Documentation Check
+name: KM217-WiFi Build & Documentation Check (ACT Local Test)
 
 on:
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main, workflow-setup ]
     paths:
       - 'KM217-WiFi/**'
       - 'EXTENSIONS/ETH_W5500/**'
       - 'DOC/**'
-      - '.github/workflows/pr-check.yml'
+      - '.github/workflows/**'
 
 permissions:
   contents: read
+  actions: read
   pull-requests: write
-  issues: write
 
 jobs:
-  load-config:
-    name: 📋 Load Project Configuration
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - name: 📥 Checkout Repository
-        uses: actions/checkout@v4
-        
-      - name: 🔧 Install yq
-        run: |
-          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
-          sudo chmod +x /usr/local/bin/yq
-          
-      - name: 📋 Load KiCad Projects Matrix
-        id: set-matrix
-        run: |
-          chmod +x .github/workflows/scripts/load-kicad-projects.sh
-          MATRIX=$(.github/workflows/scripts/load-kicad-projects.sh --filter enabled)
-          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
-          echo "Loaded matrix: $MATRIX"
-
   hardware-build:
     name: 🔧 Hardware Build & Export
     runs-on: ubuntu-latest
-    needs: load-config
     container:
       image: ghcr.io/the78mole/kicaddev-docker:latest
     
     strategy:
       matrix:
-        include: ${{ fromJson(needs.load-config.outputs.matrix).include }}
+        include:
+          - name: "KM217-WiFi"
+            path: "KM217-WiFi" 
+            description: "Main KM217-WiFi Board"
+            type: "main"
+          - name: "ETH_W5500"
+            path: "EXTENSIONS/ETH_W5500"
+            description: "Ethernet Extension Board"
+            type: "extension"
       fail-fast: false
       
     steps:
@@ -64,37 +49,23 @@ jobs:
         version_format: "${major}.${minor}.${patch}"
         major_pattern: "/^(feat|fix|refactor)!:/"
         minor_pattern: "/^feat:/"
-        bump_each_commit: false
+        bump_each_commit: true
         search_commit_body: true
-        
+
     - name: 🔍 Check for KiCad Changes Since Last Release
-      id: check-changes
       run: |
         ./.github/workflows/scripts/check-kicad-changes-since-release.sh \
-          --name "${{ matrix.name }}" \
-          --path "${{ matrix.path }}" \
-          --description "${{ matrix.description }}"
-      
-    - name: 🔄 Update KiCad Revision
-      if: steps.check-changes.outputs.CHANGED == 'true'
+          --sha "${GITHUB_SHA}" \
+          --ref "${{ github.ref_name }}"
+        
+    - name: 🗂️ Check KiCad Project Files  
       run: |
-        ./.github/workflows/scripts/update-kicad-revision.sh \
-          --name "${{ matrix.name }}" \
-          --path "${{ matrix.path }}" \
-          --description "${{ matrix.description }}" \
-          --version "${{ steps.semver.outputs.version }}" \
-          --pr "${{ github.event.pull_request.number || '0' }}"
-      
-    - name: 🔍 Check KiCad Project Files
-      if: steps.check-changes.outputs.CHANGED == 'true'
-      run: |
-        ./.github/workflows/scripts/check-kicad-files-with-revision.sh \
+        ./.github/workflows/scripts/check-kicad-files.sh \
           --name "${{ matrix.name }}" \
           --path "${{ matrix.path }}" \
           --description "${{ matrix.description }}"
         
     - name: 🧹 Clean Export Directory
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/clean-export-dirs.sh \
           --name "${{ matrix.name }}" \
@@ -102,7 +73,6 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 📐 Export Schematics PDF
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-schematics.sh \
           --name "${{ matrix.name }}" \
@@ -110,7 +80,6 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 🔧 Export Gerber Files
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-gerber.sh \
           --name "${{ matrix.name }}" \
@@ -118,7 +87,6 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 📄 Export PCB PDF
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-pcb-pdf.sh \
           --name "${{ matrix.name }}" \
@@ -126,7 +94,6 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 🖼️ Export PCB Images
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-pcb-images.sh \
           --name "${{ matrix.name }}" \
@@ -134,7 +101,6 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 🎯 Export 3D Models
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-3d-models.sh \
           --name "${{ matrix.name }}" \
@@ -142,16 +108,15 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 📊 Generate Production Summary
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/generate-production-summary-pr.sh \
           --name "${{ matrix.name }}" \
           --path "${{ matrix.path }}" \
           --description "${{ matrix.description }}" \
-          --sha "${GITHUB_SHA}"
+          --sha "${GITHUB_SHA}" \
+          --ref "${{ github.ref_name }}"
         
     - name: 🧪 Validate Export Files
-      if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/validate-export-files.sh \
           --name "${{ matrix.name }}" \
@@ -159,31 +124,12 @@ jobs:
           --description "${{ matrix.description }}"
         
     - name: 📤 Upload Hardware Artifacts
-      if: steps.check-changes.outputs.CHANGED == 'true'
       uses: actions/upload-artifact@v4
       with:
-        name: ${{ matrix.name }}-hardware-exports
+        name: ${{ matrix.name }}-hardware-pr-${{ steps.semver.outputs.version }}
         path: |
           ${{ matrix.path }}/Export/
-        retention-days: 30
-        
-    - name: 📤 Upload Revision Status
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ matrix.name }}-revision-status
-        path: |
-          revision-status/${{ matrix.name }}-revision.txt
-        retention-days: 30
-        if-no-files-found: ignore
-        
-    - name: 📤 Upload Change Status
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ matrix.name }}-change-status
-        path: |
-          change-status/${{ matrix.name }}-changes.txt
-        retention-days: 30
-        if-no-files-found: ignore
+        retention-days: 5
         
   documentation-build:
     name: 📚 Documentation Build
@@ -212,45 +158,9 @@ jobs:
         
     - name: 📤 Upload Documentation Artifacts
       uses: actions/upload-artifact@v4
+      if: env.ACT != 'true'
       with:
-        name: km217-wifi-documentation
+        name: Documentation-pr-build
         path: |
-          DOC/
-        retention-days: 30
-        
-  pr-summary:
-    name: 📋 PR Summary
-    runs-on: ubuntu-latest
-    needs: [hardware-build, documentation-build]
-    if: always()  # Always run, even if some jobs fail
-    
-    steps:
-    - name: 📥 Checkout Repository
-      uses: actions/checkout@v4
-      
-    - name: 📥 Download Artifacts
-      uses: actions/download-artifact@v4
-      with:
-        path: artifacts/
-        
-    - name: 📊 Generate PR Summary
-      run: ./.github/workflows/scripts/generate-pr-summary.sh
-        
-    - name: 💬 Comment PR Summary
-      uses: actions/github-script@v7
-      if: github.event_name == 'pull_request' && !env.ACT
-      with:
-        script: |
-          const fs = require('fs');
-          const summary = fs.readFileSync('pr_summary.md', 'utf8');
-          
-          github.rest.issues.createComment({
-            issue_number: context.issue.number,
-            owner: context.repo.owner,
-            repo: context.repo.repo,
-            body: summary
-          });
-          
-    - name: 🧪 Local Test Summary (act only)
-      if: env.ACT == 'true'
-      run: ./.github/workflows/scripts/local-pr-test-summary.sh
+          DOC/Output/
+        retention-days: 5
