@@ -38,6 +38,17 @@ jobs:
       with:
         fetch-depth: 0
         
+    - name: 🏷️ Generate Semantic Version
+      id: version
+      uses: paulhatch/semantic-version@v5.4.0
+      with:
+        tag_prefix: ""
+        major_pattern: "BREAKING CHANGE:"
+        minor_pattern: "feat:"
+        version_format: "${major}.${minor}.${patch}"
+        bump_each_commit: false
+        search_commit_body: true
+        
     - name: 🔍 Check for KiCad Changes Since Last Release
       id: check-changes
       run: |
@@ -45,6 +56,16 @@ jobs:
           "${{ matrix.project.name }}" \
           "${{ matrix.project.path }}" \
           "${{ matrix.project.description }}"
+      
+    - name: 🔄 Update KiCad Revision
+      if: steps.check-changes.outputs.CHANGED == 'true'
+      run: |
+        ./.github/workflows/scripts/update-kicad-revision.sh \
+          "${{ matrix.project.name }}" \
+          "${{ matrix.project.path }}" \
+          "${{ matrix.project.description }}" \
+          "${{ steps.version.outputs.version }}" \
+          "${{ github.event.pull_request.number }}"
       
     - name: 🔍 Check KiCad Project Files
       if: steps.check-changes.outputs.CHANGED == 'true'

@@ -25,6 +25,14 @@ These scripts contain the logic for GitHub Actions workflows and provide clean s
 **Parameters**: Same as `check-kicad-files.sh`
 **Output**: Sets `CHANGED=true/false` in GitHub Actions output and creates status files
 
+### `update-kicad-revision.sh`
+**Purpose**: Updates revision fields in KiCad schematic and PCB files
+**Parameters**: 
+- `$1-$3`: Same as other hardware scripts
+- `$4`: New version (from semantic versioning)
+- `$5`: PR number
+**Special**: Supports both JSON and S-expression formats, creates revision like "1.2.3-pr42"
+
 ### `export-schematics.sh`
 **Purpose**: Exports schematics to PDF files
 **Parameters**: Same as `check-kicad-files.sh`
