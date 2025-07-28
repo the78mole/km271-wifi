@@ -1,11 +1,35 @@
 #!/bin/bash
 set -e
 
-PROJECT_NAME="$1"
-PROJECT_PATH="$2"
-PROJECT_DESCRIPTION="$3"
-GITHUB_SHA="$4"
-GITHUB_REF_NAME="$5"
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --name)
+            PROJECT_NAME="$2"
+            shift 2
+            ;;
+        --path)
+            PROJECT_PATH="$2"
+            shift 2
+            ;;
+        --description)
+            PROJECT_DESCRIPTION="$2"
+            shift 2
+            ;;
+        --sha)
+            GITHUB_SHA="$2"
+            shift 2
+            ;;
+        --ref)
+            GITHUB_REF_NAME="$2"
+            shift 2
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            exit 1
+            ;;
+    esac
+done
 
 echo "📦 Creating release package for ${PROJECT_DESCRIPTION}..."
 cd "${PROJECT_PATH}"

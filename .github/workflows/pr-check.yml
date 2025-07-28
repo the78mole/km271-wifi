@@ -44,9 +44,9 @@ jobs:
       with:
         branch: main
         tag_prefix: "v"
+        version_format: "${major}.${minor}.${patch}"
         major_pattern: "/^(feat|fix|refactor)!:/"
         minor_pattern: "/^feat:/"
-        version_format: "${major}.${minor}.${patch}"
         bump_each_commit: false
         search_commit_body: true
         
@@ -54,92 +54,92 @@ jobs:
       id: check-changes
       run: |
         ./.github/workflows/scripts/check-kicad-changes-since-release.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
       
     - name: 🔄 Update KiCad Revision
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/update-kicad-revision.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}" \
-          "${{ steps.version.outputs.version }}" \
-          "${{ github.event.pull_request.number }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}" \
+          --version "${{ steps.semver.outputs.version }}" \
+          --pr "${{ github.event.pull_request.number || '0' }}"
       
     - name: 🔍 Check KiCad Project Files
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/check-kicad-files-with-revision.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 🧹 Clean Export Directory
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/clean-export-dirs.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 📐 Export Schematics PDF
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-schematics.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 🔧 Export Gerber Files
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-gerber.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 📄 Export PCB PDF
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-pcb-pdf.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 🖼️ Export PCB Images
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-pcb-images.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 🎯 Export 3D Models
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/export-3d-models.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 📊 Generate Production Summary
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/generate-production-summary-pr.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}" \
-          "${GITHUB_SHA}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}" \
+          --sha "${GITHUB_SHA}"
         
     - name: 🧪 Validate Export Files
       if: steps.check-changes.outputs.CHANGED == 'true'
       run: |
         ./.github/workflows/scripts/validate-export-files.sh \
-          "${{ matrix.project.name }}" \
-          "${{ matrix.project.path }}" \
-          "${{ matrix.project.description }}"
+          --name "${{ matrix.project.name }}" \
+          --path "${{ matrix.project.path }}" \
+          --description "${{ matrix.project.description }}"
         
     - name: 📤 Upload Hardware Artifacts
       if: steps.check-changes.outputs.CHANGED == 'true'
@@ -205,7 +205,7 @@ jobs:
     name: 📋 PR Summary
     runs-on: ubuntu-latest
     needs: [hardware-build, documentation-build]
-    if: ${{ github.event_name == 'pull_request' }}
+    if: always()  # Always run, even if some jobs fail
     
     steps:
     - name: 📥 Checkout Repository

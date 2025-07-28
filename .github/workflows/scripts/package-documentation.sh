@@ -3,8 +3,12 @@ set -e
 
 GITHUB_SHA="$1"
 GITHUB_REF_NAME="$2"
+VERSION="$3"
 
 echo "📦 Packaging documentation for release..."
+if [ -n "$VERSION" ]; then
+    echo "📋 Using version: $VERSION"
+fi
 cd DOC
 
 # Create release documentation structure
@@ -17,6 +21,7 @@ cp -r * ../release-staging/Documentation/ 2>/dev/null || true
 cat > ../release-staging/Documentation/README.md << EOF
 # KM271-WiFi Documentation Release
 
+**Version**: ${VERSION:-"Unknown"}  
 **Generated**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')  
 **Git Commit**: $(echo "${GITHUB_SHA}" | cut -c1-8)  
 **Release**: ${GITHUB_REF_NAME}

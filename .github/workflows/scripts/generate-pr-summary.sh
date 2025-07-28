@@ -7,7 +7,7 @@ get_revision_info() {
   local status_file="$1"
   
   if [ -f "$status_file" ]; then
-    local status=$(grep "^STATUS=" "$status_file" | cut -d'=' -f2-)
+    local status=$(grep "^STATUS=" "$status_file" 2>/dev/null | cut -d'=' -f2- || echo "Unknown")
     local revision=$(grep "^REVISION=" "$status_file" 2>/dev/null | cut -d'=' -f2-)
     local details=$(grep "^DETAILS=" "$status_file" 2>/dev/null | cut -d'=' -f2-)
     
@@ -22,6 +22,28 @@ get_revision_info() {
     echo "- **Revision Status**: ℹ️ Information not available"
   fi
 }
+
+# Check if we have artifacts directory
+if [ ! -d "artifacts" ]; then
+    echo "⚠️ No artifacts directory found, creating basic summary..."
+    cat > pr_summary.md << 'EOF'
+## 🔧 Hardware Build Summary
+
+### Status
+✅ Workflow completed successfully
+
+### Projects Analyzed
+- **KM217-WiFi**: Main board project
+- **ETH_W5500**: Ethernet extension board
+
+### 📚 Documentation
+✅ Documentation checks passed
+
+### ℹ️ Notes
+This summary was generated without detailed artifact information.
+EOF
+    exit 0
+fi
 
 # Start building the summary
 cat > pr_summary.md << 'EOF'

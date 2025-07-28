@@ -1,9 +1,52 @@
 #!/bin/bash
 set -e
 
-PROJECT_NAME="$1"
-PROJECT_PATH="$2"
-PROJECT_DESCRIPTION="$3"
+# Parse command line options
+PROJECT_NAME=""
+PROJECT_PATH=""
+PROJECT_DESCRIPTION=""
+
+show_help() {
+    echo "Usage: $0 --name <project_name> --path <project_path> --description <description>"
+    echo "  --name         Project name (e.g., KM217-WiFi)"
+    echo "  --path         Path to project directory"
+    echo "  --description  Project description"
+    echo "  --help         Show this help message"
+}
+
+# Parse options
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --name)
+            PROJECT_NAME="$2"
+            shift 2
+            ;;
+        --path)
+            PROJECT_PATH="$2"
+            shift 2
+            ;;
+        --description)
+            PROJECT_DESCRIPTION="$2"
+            shift 2
+            ;;
+        --help)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1"
+            show_help
+            exit 1
+            ;;
+    esac
+done
+
+# Check required parameters
+if [ -z "$PROJECT_NAME" ] || [ -z "$PROJECT_PATH" ] || [ -z "$PROJECT_DESCRIPTION" ]; then
+    echo "Error: Missing required parameters"
+    show_help
+    exit 1
+fi
 
 echo "🔍 Checking if KiCad files changed since last release for ${PROJECT_DESCRIPTION}..."
 

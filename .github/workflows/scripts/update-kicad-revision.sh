@@ -1,11 +1,85 @@
 #!/bin/bash
 set -e
 
-PROJECT_NAME="$1"
-PROJECT_PATH="$2"
-PROJECT_DESCRIPTION="$3"
-NEW_VERSION="$4"
-PR_NUMBER="$5"
+# Script: update-kicad-revision.sh
+# Purpose: Updates revision fields in KiCad schematic, PCB, and XML files
+# Usage: update-kicad-revision.sh --name PROJECT_NAME --path PROJECT_PATH --description PROJECT_DESCRIPTION --version NEW_VERSION --pr PR_NUMBER
+
+show_help() {
+    cat << EOF
+Usage: $0 [OPTIONS]
+
+Updates revision fields in KiCad schematic, PCB, and XML files.
+Supports JSON, S-expression, and XML formats.
+
+OPTIONS:
+    -n, --name PROJ_NAME        Project name (e.g. "KM217-WiFi")
+    -p, --path PROJ_PATH        Project path (e.g. "KM217-WiFi")
+    -d, --description DESC      Project description (e.g. "Main KM217-WiFi Board")
+    -v, --version VERSION       New version from semantic versioning (e.g. "1.2.3")
+    --pr PR_NUMBER              Pull Request number (e.g. "42")
+    -h, --help                  Show this help message
+
+EXAMPLES:
+    $0 --name "KM217-WiFi" --path "KM217-WiFi" --description "Main Board" --version "1.2.3" --pr "42"
+    $0 -n "ETH_W5500" -p "EXTENSIONS/ETH_W5500" -d "Ethernet Extension" -v "1.2.3" --pr "42"
+
+OUTPUT FORMAT:
+    Creates revision like "1.2.3-pr42" in all supported file formats.
+
+EOF
+}
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -n|--name)
+            PROJECT_NAME="$2"
+            shift 2
+            ;;
+        -p|--path)
+            PROJECT_PATH="$2"
+            shift 2
+            ;;
+        -d|--description)
+            PROJECT_DESCRIPTION="$2"
+            shift 2
+            ;;
+        -v|--version)
+            NEW_VERSION="$2"
+            shift 2
+            ;;
+        --pr)
+            PR_NUMBER="$2"
+            shift 2
+            ;;
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "❌ Error: Unknown option $1"
+            show_help
+            exit 1
+            ;;
+    esac
+done
+
+# Fallback to positional arguments for backward compatibility
+if [[ -z "$PROJECT_NAME" && -n "$1" ]]; then
+    PROJECT_NAME="$1"
+    PROJECT_PATH="$2"
+    PROJECT_DESCRIPTION="$3"
+    NEW_VERSION="$4"
+    PR_NUMBER="$5"
+fi
+
+# Validate required parameters
+if [[ -z "$PROJECT_NAME" || -z "$PROJECT_PATH" || -z "$PROJECT_DESCRIPTION" || -z "$NEW_VERSION" || -z "$PR_NUMBER" ]]; then
+    echo "❌ Error: Missing required parameters"
+    show_help
+    exit 1
+fi
 
 echo "🔄 Updating KiCad revision for ${PROJECT_DESCRIPTION}..."
 
