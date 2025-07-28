@@ -15,21 +15,36 @@ permissions:
   issues: write
 
 jobs:
+  load-config:
+    name: � Load Project Configuration
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: 🔧 Install yq
+        run: |
+          sudo wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+          sudo chmod +x /usr/local/bin/yq
+          
+      - name: 📋 Load KiCad Projects Matrix
+        id: set-matrix
+        run: |
+          MATRIX=$(.github/workflows/scripts/load-kicad-projects.sh --filter enabled)
+          echo "matrix=$MATRIX" >> $GITHUB_OUTPUT
+          echo "Loaded matrix: $MATRIX"
+
   hardware-build:
     name: 🔧 Hardware Build & Export
     runs-on: ubuntu-latest
+    needs: load-config
     container:
       image: ghcr.io/the78mole/kicaddev-docker:latest
     
     strategy:
-      matrix:
-        project:
-          - name: "KM217-WiFi"
-            path: "KM217-WiFi"
-            description: "Main KM217-WiFi Board"
-          - name: "ETH_W5500"
-            path: "EXTENSIONS/ETH_W5500"
-            description: "Ethernet Extension Board"
+      matrix: ${{ fromJson(needs.load-config.outputs.matrix) }}
       fail-fast: false
       
     steps:

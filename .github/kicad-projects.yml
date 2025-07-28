@@ -1,0 +1,43 @@
+# KiCad Projects Configuration
+# This file defines all KiCad projects in the repository for automated workflows
+
+projects:
+  - name: "KM217-WiFi"
+    path: "KM217-WiFi"
+    description: "Main KM217-WiFi Board"
+    type: "main"
+    enabled: true
+    
+  - name: "ETH_W5500"
+    path: "EXTENSIONS/ETH_W5500"
+    description: "Ethernet Extension Board"
+    type: "extension"
+    enabled: true
+
+# Configuration for workflow behavior
+config:
+  # Default export settings
+  export:
+    gerber: true
+    pdf: true
+    images: true
+    3d_models: true
+    bom: false  # Bill of Materials export (if needed later)
+    
+  # Validation settings
+  validation:
+    check_drc: true
+    check_erc: true
+    validate_exports: true
+    
+  # Release settings
+  release:
+    create_packages: true
+    generate_summary: true
+    upload_artifacts: true
+    
+  # Global text variables (applied to all projects if not overridden)
+  text_variables:
+    COMPANY: "the78mole"
+    AUTHOR: "Daniel Glaser"
+    CREATION_DATE: "2025-07-28"
