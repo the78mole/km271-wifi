@@ -39,12 +39,13 @@ jobs:
         fetch-depth: 0
         
     - name: 🏷️ Generate Semantic Version
-      id: version
+      id: semver
       uses: paulhatch/semantic-version@v5.4.0
       with:
-        tag_prefix: ""
-        major_pattern: "BREAKING CHANGE:"
-        minor_pattern: "feat:"
+        branch: main
+        tag_prefix: "v"
+        major_pattern: "/^(feat|fix|refactor)!:/"
+        minor_pattern: "/^feat:/"
         version_format: "${major}.${minor}.${patch}"
         bump_each_commit: false
         search_commit_body: true
