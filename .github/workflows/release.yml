@@ -9,6 +9,10 @@ on:
       - 'DOC/**'
       - '.github/workflows/release.yml'
 
+permissions:
+  contents: write
+  actions: read
+
 env:
   RELEASE_TAG: v${{ github.run_number }}-$(date +'%Y%m%d')
 
