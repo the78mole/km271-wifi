@@ -282,7 +282,6 @@ jobs:
         
     - name: 📤 Upload Hardware Artifacts
       uses: actions/upload-artifact@v4
-      if: ${{ always() }}
       with:
         name: ${{ matrix.project.name }}-hardware-exports
         path: |
@@ -458,7 +457,6 @@ jobs:
         
     - name: 📤 Upload Documentation Artifacts
       uses: actions/upload-artifact@v4
-      if: ${{ always() }}
       with:
         name: km217-wifi-documentation
         path: |
@@ -525,7 +523,7 @@ jobs:
         
     - name: 💬 Comment PR Summary
       uses: actions/github-script@v7
-      if: ${{ github.event_name == 'pull_request' }}
+      if: ${{ github.event_name == 'pull_request' && !env.ACT }}
       with:
         script: |
           const fs = require('fs');
@@ -537,3 +535,23 @@ jobs:
             repo: context.repo.repo,
             body: summary
           });
+          
+    - name: 🧪 Local Test Summary (act only)
+      if: ${{ env.ACT }}
+      run: |
+        echo "🧪 Local PR Check Test Summary (act environment)"
+        echo "==============================================="
+        echo ""
+        echo "✅ Hardware builds completed successfully!"
+        echo "✅ Documentation build completed successfully!"
+        echo ""
+        echo "📋 In production, this would create:"
+        echo "- KM217-WiFi hardware export artifacts"
+        echo "- ETH_W5500 hardware export artifacts"
+        echo "- Complete documentation artifacts"
+        echo "- PR summary comment"
+        echo ""
+        echo "ℹ️  Note: Artifact upload/download skipped in local testing"
+        echo "ℹ️  Note: PR comment creation skipped in local testing"
+        echo ""
+        echo "🎉 Local PR check workflow test completed successfully!"

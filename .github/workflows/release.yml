@@ -341,6 +341,7 @@ jobs:
         
     - name: 📤 Upload Release Artifacts
       uses: actions/upload-artifact@v4
+      if: ${{ ! env.ACT }}
       with:
         name: ${{ matrix.project.name }}-release-v${{ github.run_number }}
         path: |
@@ -572,6 +573,25 @@ jobs:
         
         echo "📋 Checksums:"
         cat checksums.txt
+        
+    - name: 🧪 Local Build Test Summary (act only)
+      if: ${{ env.ACT }}
+      run: |
+        echo "🧪 Local Build Test Summary (act environment)"
+        echo "=============================================="
+        echo ""
+        echo "✅ Hardware builds completed successfully!"
+        echo "✅ Documentation build completed successfully!"
+        echo ""
+        echo "📋 Build artifacts would be created in production:"
+        echo "- KM217-WiFi hardware release package"
+        echo "- ETH_W5500 hardware release package" 
+        echo "- Complete documentation package"
+        echo ""
+        echo "ℹ️  Note: Artifact upload/download skipped in local testing"
+        echo "ℹ️  Note: GitHub release creation skipped in local testing"
+        echo ""
+        echo "🎉 Local workflow test completed successfully!"
         
     - name: 📝 Generate Release Notes
       run: |
