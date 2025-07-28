@@ -586,18 +586,8 @@ jobs:
               revision_info=$(get_revision_info "$revision_file")
               
               # Determine project description based on name
-              case "$project_name" in
-                "KM217-WiFi")
-                  description="KM217-WiFi Main Board"
-                  ;;
-                "ETH_W5500")
-                  description="ETH_W5500 Extension Board"
-                  ;;
-                *)
-                  description="$project_name Board"
-                  ;;
-              esac
-              
+              description="$project_name Board"
+                            
               # Add project section to summary
               cat >> pr_summary.md << EOF
         ### ✅ $description Results
@@ -664,8 +654,19 @@ jobs:
         echo "✅ Documentation build completed successfully!"
         echo ""
         echo "📋 In production, this would create:"
-        echo "- KM217-WiFi hardware export artifacts"
-        echo "- ETH_W5500 hardware export artifacts"
+        
+        # List hardware export artifacts dynamically
+        if [ -d "artifacts" ]; then
+          for project_dir in artifacts/*-hardware-exports/; do
+            if [ -d "$project_dir" ]; then
+              project_name=$(basename "$project_dir" | sed 's/-hardware-exports$//')
+              echo "- $project_name hardware export artifacts"
+            fi
+          done
+        else
+          echo "- Hardware export artifacts (artifacts directory not available in local test)"
+        fi
+        
         echo "- Complete documentation artifacts"
         echo "- PR summary comment"
         echo ""

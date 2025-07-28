@@ -542,16 +542,21 @@ jobs:
         # Create release directory
         mkdir -p final-release
         
-        # Package hardware releases
+        # Package hardware releases dynamically
         cd release-artifacts
         
         # Create ZIP files for each hardware project
-        for project in KM217-WiFi ETH_W5500; do
-          if [ -d "${project}-release-v${{ github.run_number }}" ]; then
-            echo "Packaging ${project}..."
-            cd "${project}-release-v${{ github.run_number }}"
-            zip -r "../../final-release/${project}-HardwareRelease-v${{ github.run_number }}.zip" . -x "*.DS_Store"
-            cd ..
+        for project_dir in *-release-v${{ github.run_number }}/; do
+          if [ -d "$project_dir" ]; then
+            project_name=$(basename "$project_dir" | sed 's/-release-v${{ github.run_number }}$//')
+            
+            # Skip documentation directory (handled separately)
+            if [ "$project_name" != "Documentation" ]; then
+              echo "Packaging ${project_name}..."
+              cd "$project_dir"
+              zip -r "../../final-release/${project_name}-HardwareRelease-v${{ github.run_number }}.zip" . -x "*.DS_Store"
+              cd ..
+            fi
           fi
         done
         
@@ -588,8 +593,21 @@ jobs:
         echo "✅ Documentation build completed successfully!"
         echo ""
         echo "📋 Build artifacts would be created in production:"
-        echo "- KM217-WiFi hardware release package"
-        echo "- ETH_W5500 hardware release package" 
+        
+        # List hardware packages dynamically
+        if [ -d "release-artifacts" ]; then
+          for project_dir in release-artifacts/*-release-v${{ github.run_number }}/; do
+            if [ -d "$project_dir" ]; then
+              project_name=$(basename "$project_dir" | sed 's/-release-v${{ github.run_number }}$//')
+              if [ "$project_name" != "Documentation" ]; then
+                echo "- $project_name hardware release package"
+              fi
+            fi
+          done
+        else
+          echo "- Hardware release packages (artifacts not available in local test)"
+        fi
+        
         echo "- Complete documentation package"
         echo ""
         echo "ℹ️  Note: Artifact upload/download skipped in local testing"
@@ -604,6 +622,7 @@ jobs:
         # Get recent commits for changelog
         CHANGELOG=$(git log --oneline -10 --pretty=format:"- %s" | head -5)
         
+        # Start building release notes
         cat > release-notes.md << EOF
         # KM271-WiFi Hardware Release v${{ github.run_number }}
         
@@ -615,20 +634,44 @@ jobs:
         
         This release includes production-ready files for:
         
-        ### 📋 KM217-WiFi Main Board
+        EOF
+        
+        # Add hardware components dynamically
+        for zip_file in final-release/*-HardwareRelease-v${{ github.run_number }}.zip; do
+          if [ -f "$zip_file" ]; then
+            # Extract project name from ZIP filename
+            project_name=$(basename "$zip_file" | sed 's/-HardwareRelease-v${{ github.run_number }}\.zip$//')
+            
+            # Determine description based on project name
+            case "$project_name" in
+              "KM217-WiFi")
+                description="KM217-WiFi Main Board"
+                ;;
+              "KM271-WiFi")
+                description="KM271-WiFi Main Board"
+                ;;
+              "ETH_W5500")
+                description="ETH_W5500 Extension Board"
+                ;;
+              *)
+                description="$project_name Board"
+                ;;
+            esac
+            
+            cat >> release-notes.md << EOF
+        ### 📋 $description
         - Complete Gerber files for PCB manufacturing
         - Drill files in Gerber format
         - Schematic and PCB layout documentation (PDF)
         - 3D STEP model for mechanical integration
         - Assembly diagrams and component placement guides
         
-        ### 📋 ETH_W5500 Extension Board
-        - Complete Gerber files for PCB manufacturing
-        - Drill files in Gerber format
-        - Schematic and PCB layout documentation (PDF)
-        - 3D STEP model for mechanical integration
-        - Assembly diagrams and component placement guides
+        EOF
+          fi
+        done
         
+        # Continue with rest of release notes
+        cat >> release-notes.md << EOF
         ## 📚 Documentation
         
         - Complete user documentation (English/German)
@@ -640,9 +683,29 @@ jobs:
         
         | Asset | Description | Format |
         |-------|-------------|---------|
-        | \`KM217-WiFi-HardwareRelease-v${{ github.run_number }}.zip\` | Main board manufacturing files | ZIP |
-        | \`ETH_W5500-HardwareRelease-v${{ github.run_number }}.zip\` | Extension board manufacturing files | ZIP |
-        | \`KM271-WiFi-Documentation-v${{ github.run_number }}.zip\` | Complete documentation package | ZIP |
+        EOF
+        
+        # Add asset table dynamically
+        for zip_file in final-release/*.zip; do
+          if [ -f "$zip_file" ]; then
+            filename=$(basename "$zip_file")
+            
+            # Determine description based on filename
+            if [[ "$filename" == *"Documentation"* ]]; then
+              description="Complete documentation package"
+            elif [[ "$filename" == *"HardwareRelease"* ]]; then
+              project_name=$(echo "$filename" | sed 's/-HardwareRelease-v${{ github.run_number }}\.zip$//')
+              description="$project_name manufacturing files"
+            else
+              description="Release package"
+            fi
+            
+            echo "        | \`$filename\` | $description | ZIP |" >> release-notes.md
+          fi
+        done
+        
+        # Finish release notes
+        cat >> release-notes.md << EOF
         
         ## 🔐 File Integrity
         
