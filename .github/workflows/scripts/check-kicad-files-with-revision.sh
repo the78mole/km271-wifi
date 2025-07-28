@@ -25,11 +25,17 @@ ls -la ${PROJECT_NAME}.*
 if [ -f "${PROJECT_NAME}.kicad_sch" ] && [ -f "${PROJECT_NAME}.kicad_pcb" ]; then
   echo "🔄 Checking revision compatibility between schematic and PCB..."
   
-  # Extract revision from schematic
+  # Extract revision from schematic (support both JSON and S-expression formats)
   SCH_REV=$(grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${PROJECT_NAME}.kicad_sch" | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+  if [ -z "$SCH_REV" ]; then
+    SCH_REV=$(grep -o '(rev "[^"]*")' "${PROJECT_NAME}.kicad_sch" | head -1 | sed 's/(rev "\([^"]*\)")/\1/')
+  fi
   
-  # Extract revision from PCB
+  # Extract revision from PCB (support both JSON and S-expression formats)
   PCB_REV=$(grep -o '"rev"[[:space:]]*:[[:space:]]*"[^"]*"' "${PROJECT_NAME}.kicad_pcb" | head -1 | sed 's/.*"rev"[[:space:]]*:[[:space:]]*"\([^"]*\)".*/\1/')
+  if [ -z "$PCB_REV" ]; then
+    PCB_REV=$(grep -o '(rev "[^"]*")' "${PROJECT_NAME}.kicad_pcb" | head -1 | sed 's/(rev "\([^"]*\)")/\1/')
+  fi
   
   echo "📋 Schematic revision: '${SCH_REV:-<not set>}'"
   echo "📋 PCB revision: '${PCB_REV:-<not set>}'"
