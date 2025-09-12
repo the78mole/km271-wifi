@@ -6,7 +6,7 @@ This DevContainer provides a complete hardware development environment for the K
 
 1. Open this folder in VS Code
 2. Click "Reopen in Container" when prompted
-3. Container starts in ~30 seconds using `ghcr.io/the78mole/kicaddev-docker:latest`
+3. Container starts in ~30 seconds using `ghcr.io/the78mole/kicaddev:1.3.0`
 
 ## ✨ Features Included
 
