@@ -50,7 +50,7 @@ Final coverage test script that validates what dependencies Renovate will actual
 
 ✅ **Docker Images** 
 - GitLab CI: `texlive/texlive:latest-full`
-- DevContainer: `ghcr.io/the78mole/kicaddev:1.5.0`
+- DevContainer: `ghcr.io/the78mole/kicaddev:1.6.0`
 - Monitored by Renovate dockerfile and devcontainer managers
 
 ✅ **Firmware Versions** 

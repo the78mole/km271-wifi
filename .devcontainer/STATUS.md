@@ -6,7 +6,7 @@ The DevContainer environment for the KM217 hardware project is fully configured 
 
 ### 🚀 What has been implemented:
 
-1. **Pre-built Docker Image**: Using `ghcr.io/the78mole/kicaddev:1.5.0`
+1. **Pre-built Docker Image**: Using `ghcr.io/the78mole/kicaddev:1.6.0`
 2. **Performance**: Startup time of ~30 seconds
 3. **Simplified Structure**: Only essential configuration files
 4. **Optimized Documentation**: Focus on essential features
