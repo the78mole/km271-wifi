@@ -722,9 +722,9 @@
     ]
   ],
   "text_variables": {
-    "REVISION": "v1.0.0",
+    "REVISION": "v1.0.2",
     "COMPANY": "the78mole",
     "AUTHOR": "Daniel Glaser",
-    "CREATION_DATE": "2025-07-29"
+    "CREATION_DATE": "2025-09-28"
   }
 }
