@@ -1,6 +1,6 @@
 {
 	"name": "KM217 Hardware Development Environment",
-	"image": "ghcr.io/the78mole/kicaddev:1.3.0",
+	"image": "ghcr.io/the78mole/kicaddev:1.5.0",
 	"features": {
 		"ghcr.io/devcontainers/features/common-utils:2": {
 			"installZsh": true,

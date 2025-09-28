@@ -75,7 +75,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [version, load-config]
     container:
-      image: ghcr.io/the78mole/kicaddev:1.3.0
+      image: ghcr.io/the78mole/kicaddev:1.5.0
     
     strategy:
       matrix: 
@@ -176,7 +176,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: [version]
     container:
-      image: ghcr.io/the78mole/kicaddev:1.3.0
+      image: ghcr.io/the78mole/kicaddev:1.5.0
       
     steps:
     - name: 📥 Checkout Repository
