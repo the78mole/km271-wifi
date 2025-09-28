@@ -5,7 +5,7 @@ echo "=====================================  "
 
 echo ""
 echo "✅ Docker Image Check:"
-docker images | grep "ghcr.io/the78mole/kicaddev-docker" | head -1
+docker images | grep "ghcr.io/the78mole/kicaddev" | head -1
 
 echo ""
 echo "📋 DevContainer Configuration Check:"
@@ -28,7 +28,7 @@ fi
 echo ""
 echo "🐳 Container Quick Test:"
 echo "Testing if container can start and run basic commands..."
-docker run --rm ghcr.io/the78mole/kicaddev-docker:latest bash -c "
+docker run --rm ghcr.io/the78mole/kicaddev:1.5.0 bash -c "
 echo 'Container startup: ✅'
 echo 'KiCad version:' \$(kicad-cli version 2>/dev/null | head -1 || echo 'KiCad CLI not found')
 echo 'Python version:' \$(python3 --version)

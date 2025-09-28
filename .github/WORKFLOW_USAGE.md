@@ -170,4 +170,4 @@ Add custom steps in the workflow:
 - [GitHub Actions Documentation](https://docs.github.com/en/actions)
 - [act - Local GitHub Actions](https://github.com/nektos/act)
 - [KiCad CLI Documentation](https://docs.kicad.org/master/en/cli/cli.html)
-- [KiCad Docker Image](https://github.com/the78mole/kicaddev-docker)
+- [KiCad Docker Image](https://github.com/the78mole/docker-images)
