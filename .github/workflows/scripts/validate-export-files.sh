@@ -76,7 +76,7 @@ echo "🧪 Validating exported files for ${PROJECT_DESCRIPTION}..."
 cd "${PROJECT_PATH}/Export"
 
 # Check if critical files exist and have reasonable sizes
-critical_files="PDF/${PROJECT_NAME}-Schematics.pdf PDF/${PROJECT_NAME}-PCB-Top.pdf PDF/${PROJECT_NAME}-PCB-Bottom.pdf 3D/${PROJECT_NAME}.step"
+critical_files="PDF/${PROJECT_NAME}-Schematics.pdf PDF/${PROJECT_NAME}-PCB-Complete.pdf 3D/${PROJECT_NAME}.step"
 
 for file in $critical_files; do
   if [ -f "$file" ]; then

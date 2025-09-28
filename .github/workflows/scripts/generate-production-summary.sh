@@ -55,8 +55,7 @@ $(ls -1 Export/Gerbers/ | sed 's/^/- /')
 $(ls -1 Export/Drill/ | sed 's/^/- /')
 
 ## 📄 Documentation
-- \`${PROJECT_NAME}-PCB-Top.pdf\` - Top layer layout
-- \`${PROJECT_NAME}-PCB-Bottom.pdf\` - Bottom layer layout
+- \`${PROJECT_NAME}-PCB-Complete.pdf\` - Complete PCB layout (5 pages: User drawings, Front copper, Back copper, Front assembly, Back assembly)
 
 ## 🖼️ Assembly Images
 $(ls -1 Export/Images/ | sed 's/^/- /')
