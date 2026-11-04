@@ -16707,7 +16707,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1b406388-f6e8-413f-99b9-e7f42164ab8d")
 		(property "Reference" "U2"
 			(at 88.9 212.09 0)
@@ -17057,7 +17057,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1d4acc83-c51e-4cab-a146-30249bd02af2")
 		(property "Reference" "C4"
 			(at 100.33 222.8849 0)

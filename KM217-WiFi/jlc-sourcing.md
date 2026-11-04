@@ -191,8 +191,15 @@ source found for this specific USB-UART part._
 - **C2, C5, C14** (2u2, 0603) — already has `JLC=C2167142`. Note: C14 was missing this value
   even though it's the identical value+footprint as C2/C5 — looks like an oversight, will be
   filled in with the same part unless you say otherwise.
-- All **DNP** ("Nicht bestücken") groups — D5, J4, J5, J6 (already has JLC), R7/R8/R33-40/etc
-  (0Ω, DNP), R10/R13-15/etc ("np", DNP), R20-22/etc (22Ω, DNP), SW1, SW2.
+- All **DNP** parts — C4, D5, J4, J5, J6 (already has JLC), J8, R10/R13-R15/R18/R31/R41-R44/
+  R52/R53/R58 ("np"), R67, R68 (22Ω), R79 (0Ω), SW1, SW2, U2 (LDO, replaced by the U8 buck).
+
+> **Correction (2026-11-04):** an earlier version of this list and of `KM217-WiFi_BOM_JLC.csv`
+> wrongly treated the whole 0Ω group (R7, R8, R33-R40, R57, R59, R64, R65, R78) and the whole
+> 22Ω group (R20-R22, R45-R48, R54-R56, R60, R80) as DNP, because one DNP part (R79 resp.
+> R67/R68) was grouped with them. These parts **must be populated** (R33 feeds the Buderus 5V,
+> R78 connects the buck output, R22/R80 connect EN/IO0 to pull-ups and buttons). They still need
+> an LCSC number. Regenerate the BOM with `scripts/export-jlc-bom.sh`.
 
 ## Summary of remaining gaps after this round
 

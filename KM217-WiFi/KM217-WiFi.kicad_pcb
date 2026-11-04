@@ -27177,7 +27177,7 @@
 		(path "/1d4acc83-c51e-4cab-a146-30249bd02af2")
 		(sheetname "/")
 		(sheetfile "KM217-WiFi.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.146267 -0.51)
@@ -27832,7 +27832,7 @@
 		(path "/1b406388-f6e8-413f-99b9-e7f42164ab8d")
 		(sheetname "/")
 		(sheetfile "KM217-WiFi.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.85 -3.41)
