@@ -36629,7 +36629,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_Wuerth_WE-TPC-3816"
+		(property "Footprint" "Inductor_SMD:L_Wuerth_MAPI-4020"
 			(at 93.98 191.77 0)
 			(hide yes)
 			(show_name no)
@@ -36662,7 +36662,7 @@
 				)
 			)
 		)
-		(property "WE_MPN" "744031002"
+		(property "WE_MPN" "74438356022"
 			(at 93.98 191.77 90)
 			(hide yes)
 			(show_name no)
