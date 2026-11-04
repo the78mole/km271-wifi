@@ -11048,6 +11048,17 @@
 				)
 			)
 		)
+		(property "MPN" "TPS62162DSGR"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "725aeeda-accc-4c31-a983-7c212b7ea360")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(path "/fdb3dc03-e52c-47de-b5f5-660731c88421")
 		(sheetname "/")
 		(sheetfile "KM217-WiFi.kicad_sch")

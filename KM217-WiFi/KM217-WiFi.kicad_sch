@@ -38554,6 +38554,17 @@
 				)
 			)
 		)
+		(property "MPN" "TPS62162DSGR"
+			(at 82.55 196.85 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "28eac966-8348-428e-9ae3-76659ef70fdc")
 		)
