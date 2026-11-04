@@ -15,13 +15,15 @@ First, check if everything is present as ordered (from left to right):
 
 - **J5** is the connector for the exhaust temperature sensor (the counterpart was included in the package; colors may vary: black or green)
 - **J6** is the connector for sensor lines
-- **J4** is the debug interface for programming via a serial connection
+- **J4** is the debug interface for programming via a serial connection (boards up to v1.x; from v2.0 the board is flashed via the USB port, J4 is no longer populated)
 
 Depending on your order and selected options, some connectors may not be populated. The Ethernet extension in the second image is a separate module, also available in my Tindie store.
 
 ![KM271-WiFi with Ethernet Extension](../IMG/KM271-WiFi-0.1.0-ETH-Ext.jpg)
 
-Now **check if the PWRSEL header** is configured as shown in the image. The middle and bottom jumpers should be in place. This is the correct setup for **powering via the Buderus control unit**. If you want to **power the module via USB**, you need to move the bottom jumper (blue in the image) to the top. Use the label under the capacitor as orientation. The black jumper must only be removed when flashing via the serial interface.
+**Boards from v2.0** (USB-serial converter next to the USB socket, no PWRSEL header): there is nothing to configure. The board is powered from the Buderus control unit and/or USB at the same time, a diode selects the source automatically. Continue with the installation.
+
+**Boards up to v1.x:** Now **check if the PWRSEL header** is configured as shown in the image. The middle and bottom jumpers should be in place. This is the correct setup for **powering via the Buderus control unit**. If you want to **power the module via USB**, you need to move the bottom jumper (blue in the image) to the top. Use the label under the capacitor as orientation. The black jumper must only be removed when flashing via the serial interface.
 
 For the Ethernet extension, check: J5 is closed, J4 is open, and jumpers J1 to J3 are set to positions 2–3.
 
@@ -48,7 +50,7 @@ You should now see the fallback hotspot page:
 
 ![Fallback Hotspot Page](../IMG/esphome-fallback-page.png)
 
-Select your Wi-Fi and enter the password. If you accidentally choose the wrong network, it can be difficult to regain access to the board. In that case, you need to disable the wrong Wi-Fi. Alternatively, you can remove the module from the Buderus unit, move out of WiFi range and power it via USB (set the PWRSEL jumper accordingly). Then you can restart the setup process.
+Select your Wi-Fi and enter the password. If you accidentally choose the wrong network, it can be difficult to regain access to the board. In that case, you need to disable the wrong Wi-Fi. Alternatively, you can remove the module from the Buderus unit, move out of WiFi range and power it via USB (up to v1.x: set the PWRSEL jumper accordingly). Then you can restart the setup process.
 
 You can also flash a new firmware on the fallback hotspot page – but **not a different firmware** (e.g., the one by dewenni).
 
@@ -84,6 +86,16 @@ Next, you need to configure the GPIOs for communication with the Buderus control
 https://bit.ly/4jA7aHu
 
 [![QR](https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fbit.ly%2F4jA7aHu&size=150x150)](https://bit.ly/4jA7aHu)
+
+## Flashing via USB (boards from v2.0)
+
+From v2.0 the board has a USB-serial converter (Silicon Labs CP2102N) with automatic reset/boot circuit, so you can flash any firmware directly over the USB port, without an ESP-PROG and without pressing BOOT/RESET:
+
+1. Connect the board to your PC with a USB Mini-B cable. It can stay in the Buderus control unit or be powered by USB alone.
+2. Linux and macOS ship with a driver. On Windows, the driver usually installs automatically, otherwise install the [CP210x VCP driver](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers) from Silicon Labs.
+3. Open the [KM271-WiFi WebTools](https://the78mole.github.io/ESPhome-KM271-WiFi/) in Chrome or Edge, click *Connect*, select the serial port (`CP2102N USB to UART Bridge`) and flash the firmware. Alternatively, use `esptool.py` or the ESPhome dashboard.
+
+Boards up to v1.x have no USB-serial converter. They are flashed via J4 (DEBUG) with an external USB-serial adapter such as an ESP-PROG, see the [hardware description](Hardware%20Description.md).
 
 ---
 

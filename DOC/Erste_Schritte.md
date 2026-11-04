@@ -14,14 +14,16 @@ Dies ist eine kurze Anleitung zur Inbetriebnahme des KM271-WiFi-Moduls.
 
 - **J5** ist der Anschluss für den Abgastemperatursensor (das Gegenstück lag dem Paket bei, Farben können abweichen: schwarz oder grün)
 - **J6** ist der Anschluss für Sensorleitungen
-- **J4** ist der Debug-Anschluss zur Programmierung über eine serielle Verbindung
+- **J4** ist der Debug-Anschluss zur Programmierung über eine serielle Verbindung (Boards bis v1.x; ab v2.0 wird über die USB-Buchse geflasht, J4 ist nicht mehr bestückt)
 
 Je nach Bestellung und gewählten Optionen sind einige Anschlüsse möglicherweise nicht bestückt. Die Ethernet-Erweiterung auf dem zweiten Bild ist ein separates Modul, das ebenfalls in meinem Tindie-Shop erhältlich ist.
 
 
 ![KM271-WiFi mit Ethernet-Erweiterung](../IMG/KM271-WiFi-0.1.0-ETH-Ext.jpg)
 
-Nun **prüfe, ob der PWRSEL-Header** wie im Bild gezeigt bestückt ist. Der mittlere und der untere Jumper sollten gesteckt sein. Dies ist die korrekte Variante für die **Versorgung über die Buderus-Steuerung**. Wenn du das Modul **über USB versorgen** willst, musst du den unteren Jumper (blau im Bild) nach oben versetzen. Orientiere dich dabei an der Beschriftung unter dem Kondensator. Der schwarze Jumper darf nur zum Flashen über die serielle Schnittstelle entfernt werden.
+**Boards ab v2.0** (USB-Seriell-Wandler neben der USB-Buchse, kein PWRSEL-Header): Hier ist nichts einzustellen. Das Board wird aus der Buderus-Steuerung und/oder über USB versorgt, auch gleichzeitig. Eine Diode wählt die Quelle automatisch. Weiter mit dem Einbau.
+
+**Boards bis v1.x:** Nun **prüfe, ob der PWRSEL-Header** wie im Bild gezeigt bestückt ist. Der mittlere und der untere Jumper sollten gesteckt sein. Dies ist die korrekte Variante für die **Versorgung über die Buderus-Steuerung**. Wenn du das Modul **über USB versorgen** willst, musst du den unteren Jumper (blau im Bild) nach oben versetzen. Orientiere dich dabei an der Beschriftung unter dem Kondensator. Der schwarze Jumper darf nur zum Flashen über die serielle Schnittstelle entfernt werden.
 
 Für die Ethernet-Erweiterung prüfe: J5 ist geschlossen, J4 ist offen, und die Jumper J1 bis J3 sitzen auf den Positionen 2–3.
 
@@ -48,7 +50,7 @@ Du solltest nun die Seite des Fallback-Hotspots sehen:
 
 ![Fallback-Hotspot-Seite](../IMG/esphome-fallback-page.png)
 
-Wähle dein WLAN und gib das Passwort ein. Wenn du versehentlich das falsche WLAN gewählt hast, ist es später schwierig, wieder Zugriff auf das Board zu bekommen. In diesem Fall musst du das falsche WLAN deaktivieren. Alternativ kannst du das Modul aus der Buderus-Steuerung entfernen, aus dem Empfangsbereich rausgehen und das Modul per USB versorgen (dazu den PWRSEL-Jumper umsetzen). Danach kannst du die Einrichtung erneut starten.
+Wähle dein WLAN und gib das Passwort ein. Wenn du versehentlich das falsche WLAN gewählt hast, ist es später schwierig, wieder Zugriff auf das Board zu bekommen. In diesem Fall musst du das falsche WLAN deaktivieren. Alternativ kannst du das Modul aus der Buderus-Steuerung entfernen, aus dem Empfangsbereich rausgehen und das Modul per USB versorgen (bis v1.x dazu den PWRSEL-Jumper umsetzen). Danach kannst du die Einrichtung erneut starten.
 
 Auf der Seite des Fallback-Hotspots kannst du auch eine neue Firmware flashen – allerdings **keine andere Firmware** (z. B. nicht die von dewenni).
 
@@ -85,6 +87,16 @@ https://bit.ly/4jA7aHu
 
 [![QR](https://api.qrserver.com/v1/create-qr-code/?data=https%3A%2F%2Fbit.ly%2F4jA7aHu&size=150x150)](https://bit.ly/4jA7aHu)
 
+
+## Flashen über USB (Boards ab v2.0)
+
+Ab v2.0 hat das Board einen USB-Seriell-Wandler (Silicon Labs CP2102N) mit automatischer Reset-/Boot-Schaltung. Du kannst damit jede Firmware direkt über die USB-Buchse flashen, ohne ESP-PROG und ohne BOOT/RESET zu drücken:
+
+1. Verbinde das Board mit einem USB-Mini-B-Kabel mit deinem PC. Es kann dabei in der Buderus-Steuerung stecken bleiben oder nur über USB versorgt werden.
+2. Linux und macOS bringen den Treiber mit. Unter Windows wird er meist automatisch installiert, sonst installiere den [CP210x-VCP-Treiber](https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers) von Silicon Labs.
+3. Öffne die [KM271-WiFi WebTools](https://the78mole.github.io/ESPhome-KM271-WiFi/) in Chrome oder Edge, klicke auf *Connect*, wähle die serielle Schnittstelle (`CP2102N USB to UART Bridge`) und flashe die Firmware. Alternativ geht es mit `esptool.py` oder dem ESPhome-Dashboard.
+
+Boards bis v1.x haben keinen USB-Seriell-Wandler. Sie werden über J4 (DEBUG) mit einem externen USB-Seriell-Adapter wie dem ESP-PROG geflasht, siehe [Hardware-Beschreibung](Hardware%20Description.md).
 
 ---
 

@@ -24,6 +24,12 @@ If you bought the board in my tindie store, you could find a how-to to get it ru
 
 ![KM271-WiFi_0.1.0](IMG/KM271-WiFi-0.1.0.jpg)
 
+## Hardware v2.0 (in preparation)
+
+The next revision replaces the 3.3V LDO by a step-down converter and adds a USB-serial converter (CP2102N) with auto-reset to the USB port. The board can then be flashed directly over USB, e.g. with the [KM271-WiFi WebTools](https://the78mole.github.io/ESPhome-KM271-WiFi/), and USB and Buderus power can be connected at the same time. The power select header J3 is gone. Details are in the [hardware description](DOC/Hardware%20Description.md) and the [changelog](KM217-WiFi/CHANGELOG.md).
+
+The JLCPCB BOM is generated from the schematic with `scripts/export-jlc-bom.sh` (needs `kicad-cli` 10).
+
 ## Extensions
 
 There is now an Extension to add wired Ethernet to the board. The prototype already works, availability in tindie store will still take some time...
@@ -34,6 +40,8 @@ There is now an Extension to add wired Ethernet to the board. The prototype alre
 
  * Add a OneWire temperature Sensor on the board itself
  * Fix a minor bug with external I2C pull-up (tie them to PCA9306 selectable supply)
+ * ~~Flash over USB without external programmer~~ (v2.0)
+ * ~~Replace the LDO by a step-down converter~~ (v2.0)
 
 ## Firmware Management
 
@@ -94,6 +102,8 @@ To calibrate the Buderus 5V voltage monitor, you need to first find out the YAML
       - multiply: 28.1826
       - throttle_average: 60s
 ```
+
+From v2.0, the 5V is measured behind the supply selection diodes (D8/D9), so expect about 0.3 to 0.4 V less than the voltage of the Buderus or USB supply.
 
 Now look at the readout of your sensor, say it is 47.3V and measure the real voltage of the 5V supply (e.g. Pin 1 to 7 on the sensor header), say you measure 4.9V. Use the multiplier from your YAML and do the following calculation:
 
