@@ -16231,7 +16231,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "0"
+		(property "Value" "2R2"
 			(at 0 -1.43 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -16337,7 +16337,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLC" "C21189"
+		(property "JLC" ""
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(hide yes)
@@ -16345,6 +16345,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -17859,7 +17860,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 3.556 0 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -17950,7 +17951,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLC" "C2167142"
+		(property "JLC" "C19666"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -21191,7 +21192,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "2K2"
+		(property "Value" "1K"
 			(at 0 -1.43 0)
 			(layer "B.Fab")
 			(hide yes)
@@ -21295,6 +21296,18 @@
 					(thickness 0.15)
 				)
 				(justify mirror)
+			)
+		)
+		(property "JLC" "C21190"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "35f4cbb3-a2cc-4240-a207-804feabc823f")
+			(effects
+				(font
+					(size 1.27 1.27)
+					(thickness 0.15)
+				)
 			)
 		)
 		(property ki_fp_filters "R_*")
@@ -30098,7 +30111,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "0"
+		(property "Value" "2R2"
 			(at 0 -1.43 90)
 			(layer "B.Fab")
 			(hide yes)
@@ -30204,7 +30217,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLC" "C21189"
+		(property "JLC" ""
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(hide yes)
@@ -30212,6 +30225,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)

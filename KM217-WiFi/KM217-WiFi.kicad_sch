@@ -19714,7 +19714,7 @@
 				)
 			)
 		)
-		(property "Value" "0"
+		(property "Value" "2R2"
 			(at 38.1 117.856 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19757,7 +19757,7 @@
 				)
 			)
 		)
-		(property "JLC" "C21189"
+		(property "JLC" ""
 			(at 35.56 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -27400,7 +27400,7 @@
 				)
 			)
 		)
-		(property "Value" "2K2"
+		(property "Value" "1K"
 			(at 66.04 100.076 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27433,6 +27433,17 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 66.04 97.79 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLC" "C21190"
 			(at 66.04 97.79 0)
 			(hide yes)
 			(show_name no)
@@ -28267,7 +28278,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2u2"
+		(property "Value" "4u7"
 			(at 110.49 225.552 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -28355,7 +28366,7 @@
 				)
 			)
 		)
-		(property "JLC" "C2167142"
+		(property "JLC" "C19666"
 			(at 107.95 223.52 0)
 			(hide yes)
 			(show_name no)
@@ -30799,7 +30810,7 @@
 				)
 			)
 		)
-		(property "Value" "0"
+		(property "Value" "2R2"
 			(at 38.1 111.252 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30842,7 +30853,7 @@
 				)
 			)
 		)
-		(property "JLC" "C21189"
+		(property "JLC" ""
 			(at 35.56 113.03 0)
 			(hide yes)
 			(show_name no)
