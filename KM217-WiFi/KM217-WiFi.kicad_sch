@@ -34297,6 +34297,17 @@
 				)
 			)
 		)
+		(property "JLC" "C964632"
+			(at 82.55 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a51ad534-5c32-4091-ae92-b68f28558b3d")
 		)
@@ -36700,7 +36711,7 @@
 				)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C5521727"
 			(at 93.98 191.77 90)
 			(hide yes)
 			(show_name no)
@@ -38570,7 +38581,7 @@
 				)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C40256"
 			(at 82.55 196.85 0)
 			(hide yes)
 			(show_name no)

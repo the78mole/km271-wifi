@@ -973,7 +973,7 @@
 				)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C5521727"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -11229,7 +11229,7 @@
 				)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C40256"
 			(at 0 0 0)
 			(layer "F.SilkS")
 			(hide yes)
@@ -24749,6 +24749,17 @@
 					(thickness 0.15)
 				)
 				(justify mirror)
+			)
+		)
+		(property "JLC" "C964632"
+			(at 0 0 0)
+			(layer "B.SilkS")
+			(hide yes)
+			(uuid "ca8d0d2d-d0a6-4339-8ac5-7f059eeb8ad8")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(property ki_fp_filters "QFN*1EP*5x5mm*P0.5mm*")
