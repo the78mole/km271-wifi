@@ -23942,6 +23942,17 @@
 				)
 			)
 		)
+		(property "JLC" "C15850"
+			(at 48.26 195.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(property "Manufacturer" "multipart"
 			(at 48.26 195.58 0)
 			(hide yes)
@@ -29594,6 +29605,17 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 104.14 205.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLC" "C45783"
 			(at 104.14 205.74 0)
 			(hide yes)
 			(show_name no)

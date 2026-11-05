@@ -3865,6 +3865,17 @@
 				)
 			)
 		)
+		(property "JLC" "C15850"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "bed33baa-98be-4467-ae42-968436fa2407")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(path "/80097e2c-97c2-4251-90ac-5680284a5154")
 		(sheetname "/")
 		(sheetfile "KM217-WiFi.kicad_sch")
@@ -5054,6 +5065,17 @@
 				(font
 					(size 1.27 1.27)
 					(thickness 0.15)
+				)
+			)
+		)
+		(property "JLC" "C45783"
+			(at 0 0 0)
+			(layer "F.SilkS")
+			(hide yes)
+			(uuid "d953ec3d-8573-4429-ac26-aa478a7237c2")
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -24759,6 +24781,7 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
 				)
 			)
 		)
