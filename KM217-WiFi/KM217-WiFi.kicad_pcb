@@ -11521,7 +11521,7 @@
 			(uuid "a8b7c369-3021-4ad9-acbf-b44a000bf104")
 		)
 		(embedded_fonts no)
-		(model "${KICAD10_3DMODEL_DIR}/Package_SON.3dshapes/Texas_DSG0008A_WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm.step"
+		(model "${KICAD10_3DMODEL_DIR}/Package_SON.3dshapes/WSON-8-1EP_2x2mm_P0.5mm_EP0.9x1.6mm.step"
 			(offset
 				(xyz 0 0 0)
 			)
