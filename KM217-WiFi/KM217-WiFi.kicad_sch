@@ -7972,12 +7972,6 @@
 		(uuid "01952b08-49ee-436c-a238-7a896fb089f2")
 	)
 	(junction
-		(at 50.8 91.44)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "03ced9cd-33c7-460b-87ec-497bfcba118f")
-	)
-	(junction
 		(at 124.46 27.94)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -10860,13 +10854,13 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 91.44) (xy 80.01 91.44)
+			(xy 80.01 91.44) (xy 82.55 91.44)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6b1960ee-f97c-4643-b7c8-e273578e33ce")
+		(uuid "3c4b0217-0056-4e7d-b02d-c9c56a297086")
 	)
 	(wire
 		(pts
@@ -19720,7 +19714,7 @@
 				)
 			)
 		)
-		(property "Value" "2R2"
+		(property "Value" "0"
 			(at 38.1 117.856 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -19753,6 +19747,17 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 35.56 115.57 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLC" "C21189"
 			(at 35.56 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -30794,7 +30799,7 @@
 				)
 			)
 		)
-		(property "Value" "2R2"
+		(property "Value" "0"
 			(at 38.1 111.252 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30827,6 +30832,17 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 35.56 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLC" "C21189"
 			(at 35.56 113.03 0)
 			(hide yes)
 			(show_name no)
