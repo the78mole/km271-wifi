@@ -19757,7 +19757,7 @@
 				)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C22939"
 			(at 35.56 115.57 0)
 			(hide yes)
 			(show_name no)
@@ -30853,7 +30853,7 @@
 				)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C22939"
 			(at 35.56 113.03 0)
 			(hide yes)
 			(show_name no)

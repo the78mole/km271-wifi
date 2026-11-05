@@ -16337,7 +16337,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C22939"
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(hide yes)
@@ -30217,7 +30217,7 @@
 				(justify mirror)
 			)
 		)
-		(property "JLC" ""
+		(property "JLC" "C22939"
 			(at 0 0 0)
 			(layer "B.SilkS")
 			(hide yes)
