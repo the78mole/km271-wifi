@@ -43844,6 +43844,471 @@
 			)
 		)
 	)
+	(table
+		(column_count 5)
+		(border
+			(external yes)
+			(header yes)
+			(stroke
+				(width 0.254)
+				(type solid)
+			)
+		)
+		(separators
+			(rows yes)
+			(cols yes)
+			(stroke
+				(width 0.127)
+				(type solid)
+			)
+		)
+		(column_widths 6.35 6.35 5.08 5.08 8.89)
+		(row_heights 3.81 3.81 3.81 3.81 3.81)
+		(cells
+			(table_cell "nDTR"
+				(exclude_from_sim no)
+				(at 147.32 99.06 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "32931ab9-6702-4b34-b9b1-79d014579002")
+			)
+			(table_cell "nRTS"
+				(exclude_from_sim no)
+				(at 153.67 99.06 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "5a904c63-b9c4-467c-8945-5bd0e892970a")
+			)
+			(table_cell "EN"
+				(exclude_from_sim no)
+				(at 160.02 99.06 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "70892131-e270-4da8-9b31-4e02c895634d")
+			)
+			(table_cell "IO0"
+				(exclude_from_sim no)
+				(at 165.1 99.06 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "9a2628d2-3059-4ae8-af06-3e77ee029611")
+			)
+			(table_cell "Modus"
+				(exclude_from_sim no)
+				(at 170.18 99.06 0)
+				(size 8.89 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(bold yes)
+					)
+					(justify left top)
+				)
+				(uuid "8e3bdfe8-b1ed-4859-b48b-4a5ada5f4d43")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 147.32 102.87 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "cf214e84-eb09-4bd8-8518-8dfaef8271cc")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 153.67 102.87 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "575bd18f-02a8-40f8-9716-adfbce378756")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 160.02 102.87 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "7b9fb9d3-e531-429c-a41c-806cf74b34d5")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 165.1 102.87 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "3d02f698-9b7d-4963-a29d-65854846397e")
+			)
+			(table_cell "Run"
+				(exclude_from_sim no)
+				(at 170.18 102.87 0)
+				(size 8.89 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "73c5e4d7-630f-4248-b25c-05dcad8fe3de")
+			)
+			(table_cell "0"
+				(exclude_from_sim no)
+				(at 147.32 106.68 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "dd482ba1-8ee9-4f88-9af9-2227fad5857b")
+			)
+			(table_cell "0"
+				(exclude_from_sim no)
+				(at 153.67 106.68 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "6fd53421-df09-461f-a6a7-acfdbd4cd602")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 160.02 106.68 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "fa44f00e-d985-4455-958b-994c6bbdb8f4")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 165.1 106.68 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "a477ba28-983b-4a2e-9a35-a2fc7d47ef72")
+			)
+			(table_cell "Run"
+				(exclude_from_sim no)
+				(at 170.18 106.68 0)
+				(size 8.89 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "509f5d87-9994-43c5-98d9-f498ef1298d4")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 147.32 110.49 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "06a4350f-4817-4ce8-99ef-930042148d54")
+			)
+			(table_cell "0"
+				(exclude_from_sim no)
+				(at 153.67 110.49 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "442bf1df-6c55-4a4c-9fd5-555e1ebc829a")
+			)
+			(table_cell "0"
+				(exclude_from_sim no)
+				(at 160.02 110.49 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "68d9e68a-4493-4a9a-8cf8-78b531b5d700")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 165.1 110.49 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "caf8d82c-8cbb-4750-be65-30c577aae3d8")
+			)
+			(table_cell "Reset"
+				(exclude_from_sim no)
+				(at 170.18 110.49 0)
+				(size 8.89 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "95c0f773-7005-4fc3-afd0-0019345739f5")
+			)
+			(table_cell "0"
+				(exclude_from_sim no)
+				(at 147.32 114.3 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "771dcfeb-980a-47c2-93fb-6cef7afed9be")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 153.67 114.3 0)
+				(size 6.35 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "7c3d5a57-4acb-4dfb-be13-3acb62088c8f")
+			)
+			(table_cell "1"
+				(exclude_from_sim no)
+				(at 160.02 114.3 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "3eba624c-8b38-41a8-8a08-55c264ea4549")
+			)
+			(table_cell "0"
+				(exclude_from_sim no)
+				(at 165.1 114.3 0)
+				(size 5.08 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "75911063-9a11-4d93-aa81-69f479219dc3")
+			)
+			(table_cell "Boot"
+				(exclude_from_sim no)
+				(at 170.18 114.3 0)
+				(size 8.89 3.81)
+				(margins 0.5 0.5 0.5 0.5)
+				(span 1 1)
+				(fill
+					(type none)
+				)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+				(uuid "c87c07f1-2d00-45b9-bff9-12f2c7560249")
+			)
+		)
+	)
+	(text "Auto-Reset (Pegel an U10)\n0 = Low, 1 = High"
+		(exclude_from_sim no)
+		(at 147.32 97.79 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "116a4b33-e3ff-4860-a55e-f4e657c5023e")
+	)
+
 	(sheet_instances
 		(path "/"
 			(page "1")
