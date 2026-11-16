@@ -26,6 +26,23 @@ Comprehensive analysis tool for Renovate configuration and dependency coverage.
 - Renovate manager coverage analysis
 - Coverage statistics
 
+### 🧾 `jlc-bom-report.py`
+
+BOM report for JLCPCB assembly: price for N boards, part type and library check.
+
+**Usage:**
+```bash
+./scripts/jlc-bom-report.py [KM217-WiFi] [-n 10] [--extended-fee 3] [--include-tht] [--var THE78MOLE_LIBS=~/GIT/Libraries/KiCad/userlibs]
+```
+
+**Features:**
+- Groups the schematic BOM (kicad-cli) by value, footprint, LCSC number and DNP
+- Looks up every LCSC number in the JLC API: Basic, Extended or Promotional Extended, stock, price tier
+- Line price for N boards (default 10) incl. JLC attrition and minimum order; the same part in several lines is priced as one order
+- Extended loading fee per unique Extended part (default 3 USD), only SMD parts are priced unless `--include-tht`
+- Checks that each footprint exists in the configured footprint libraries and that every 3D model file on the board exists (KiCad path variables from `kicad_common.json`, `--var` overrides)
+- Writes `<project>_BOM_report.csv` and `<project>_BOM_report.md`, open points on stdout
+
 ### 🎯 `test-renovate-coverage.sh`
 
 Final coverage test script that validates what dependencies Renovate will actually monitor.
