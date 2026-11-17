@@ -74,13 +74,11 @@ These scripts contain the logic for GitHub Actions workflows and provide clean s
 **Purpose**: Verifies the presence of documentation files
 **Parameters**: None
 
-### `build-asciidoc.sh`
-**Purpose**: Builds HTML/PDF from AsciiDoc files
-**Parameters**: None
-
-### `build-latex.sh`
-**Purpose**: Builds PDF from LaTeX files
-**Parameters**: None
+### `build-markdown-pdf.sh`
+**Purpose**: Converts all Markdown files in `DOC/` (except `DOC/sources/`) to PDF with pandoc + WeasyPrint, styled by `DOC/pdf.css`. `DOC/<dir>/README.md` becomes `<dir>.pdf`.
+**Parameters**:
+- `--version X.Y.Z`: shown in the title block
+- `--out DIR`: output folder (default `build/docs-pdf`)
 
 ### `package-documentation.sh`
 **Purpose**: Packages all documentation for release

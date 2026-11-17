@@ -34,13 +34,22 @@ if [ -d "Documentation-release-${VERSION}" ]; then
   cd ..
 fi
 
+# Attach the generated PDF manuals as individual release assets
+for pdf in "Documentation-release-${VERSION}"/pdf/*.pdf; do
+  if [ -f "$pdf" ]; then
+    name=$(basename "$pdf" .pdf)
+    cp "$pdf" "../final-release/${name}-${VERSION}.pdf"
+    echo "Attached ${name}-${VERSION}.pdf"
+  fi
+done
+
 cd ../final-release
 echo "📋 Final release assets:"
 ls -la
 
 # Calculate checksums
 echo "🔐 Generating checksums..."
-for file in *.zip; do
+for file in *.zip *.pdf; do
   if [ -f "$file" ]; then
     sha256sum "$file" >> checksums.txt
   fi

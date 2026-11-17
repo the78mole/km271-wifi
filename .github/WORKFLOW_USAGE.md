@@ -25,8 +25,7 @@ This repository contains a GitHub Actions workflow for automated KiCad hardware 
 
 #### 2. 📚 Documentation Build
 - Validates Markdown documentation
-- Builds AsciiDoc files (if present)
-- Generates LaTeX PDFs (if present)
+- Converts all Markdown files in `DOC/` to PDF (pandoc + WeasyPrint, `DOC/pdf.css`)
 - Checks for broken links
 - Creates documentation statistics
 - Uploads documentation artifacts

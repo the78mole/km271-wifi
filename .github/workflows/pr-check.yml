@@ -198,22 +198,22 @@ jobs:
   documentation-build:
     name: 📚 Documentation Build
     runs-on: ubuntu-latest
-    container:
-      image: ghcr.io/the78mole/kicaddev:1.6.0
-      
+
     steps:
     - name: 📥 Checkout Repository
       uses: actions/checkout@v4
-      
+
+    - name: 🧰 Install pandoc and WeasyPrint
+      run: |
+        sudo apt-get update -qq
+        sudo apt-get install -y -qq pandoc weasyprint fonts-dejavu
+
     - name: 🔍 Check Documentation Files
       run: ./.github/workflows/scripts/check-documentation.sh
-        
-    - name: 📖 Build AsciiDoc Documentation
-      run: ./.github/workflows/scripts/build-asciidoc.sh
-        
-    - name: 📝 Generate LaTeX Documentation
-      run: ./.github/workflows/scripts/build-latex.sh
-        
+
+    - name: 📝 Convert Markdown to PDF
+      run: ./.github/workflows/scripts/build-markdown-pdf.sh --version "0.0.0-pr${{ github.event.pull_request.number }}" --out build/docs-pdf
+
     - name: 🔗 Check Documentation Links
       run: ./.github/workflows/scripts/check-documentation-links.sh
         
@@ -225,7 +225,7 @@ jobs:
       with:
         name: km217-wifi-documentation
         path: |
-          DOC/
+          build/docs-pdf/
         retention-days: 30
         
   pr-summary:

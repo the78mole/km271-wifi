@@ -10,3 +10,4 @@ _autosave-*
 /revision-status/
 /change-status/
 __pycache__/
+build/

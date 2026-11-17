@@ -87,7 +87,7 @@ done
 cat >> pr_summary.md << 'EOF'
 ### 📚 Documentation Results
 - **Markdown Files**: Validated and checked
-- **AsciiDoc Build**: HTML and PDF generated
+- **Markdown → PDF**: Generated (pandoc + WeasyPrint)
 - **Link Validation**: Completed
 - **Statistics**: Generated
 

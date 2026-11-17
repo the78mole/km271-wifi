@@ -10,6 +10,8 @@ If you just received a module, you can find help with installation here:
   - [Getting Started Guide](DOC/Getting_Started.md)
   - [Erste Schritte](DOC/Erste_Schritte.md)
 
+PDF versions of all guides are attached to every [release](https://github.com/the78mole/km271-wifi/releases/latest). Original Buderus documents (service manuals, 3964R protocol) are in [DOC/sources](DOC/sources/README.md).
+
 This piece of hardware is a direct replacement for the Buderus KM271 to control a buderus heating system with Logamatic 2107 controller board. Maybe other controllers are supported. Please file an issue (or better a PR) if you have my module running in other Buderus heating controllers, so I can add them here.
 
 This hardware and its documentation is released under the *TAPR Open Hardware License* Version 1.0 (May 25, 2007). 

@@ -1,0 +1,29 @@
+/* Stylesheet for the Markdown -> PDF build (pandoc + WeasyPrint), see .github/workflows/scripts/build-markdown-pdf.sh */
+@page {
+  size: A4;
+  margin: 18mm 16mm 20mm 16mm;
+  @bottom-left  { content: string(doctitle); font-size: 8pt; color: #666; }
+  @bottom-right { content: counter(page) " / " counter(pages); font-size: 8pt; color: #666; }
+}
+html { font-family: "DejaVu Sans", "Liberation Sans", Arial, sans-serif; font-size: 10pt; line-height: 1.4; color: #222; }
+body { margin: 0; }
+header#title-block-header { margin-bottom: 1.5em; border-bottom: 1px solid #ccc; }
+header#title-block-header .title, h1:first-of-type { string-set: doctitle content(); }
+header#title-block-header .title { font-size: 20pt; margin: 0 0 .2em 0; }
+header#title-block-header .author, header#title-block-header .date { margin: 0; color: #555; }
+h1 { font-size: 17pt; margin: 1.2em 0 .5em; }
+h2 { font-size: 13.5pt; margin: 1.2em 0 .4em; border-bottom: 1px solid #ddd; }
+h3 { font-size: 11.5pt; margin: 1em 0 .3em; }
+h1, h2, h3 { page-break-after: avoid; }
+img { max-width: 100%; max-height: 120mm; height: auto; display: block; margin: .8em auto; page-break-inside: avoid; }
+p > a > img, td img { display: inline; margin: 0; }
+figure { margin: 1em 0; page-break-inside: avoid; }
+figcaption { text-align: center; font-size: 8.5pt; color: #555; }
+table { border-collapse: collapse; margin: .8em 0; font-size: 9pt; page-break-inside: avoid; }
+th, td { border: 1px solid #ccc; padding: 3px 6px; vertical-align: top; }
+th { background: #f0f0f0; }
+code { font-family: "DejaVu Sans Mono", monospace; font-size: 8.5pt; background: #f4f4f4; padding: 0 2px; }
+pre { background: #f4f4f4; padding: 6px 8px; font-size: 8pt; white-space: pre-wrap; page-break-inside: avoid; }
+pre code { background: none; padding: 0; }
+a { color: #0b5394; text-decoration: none; }
+blockquote { margin: .8em 0; padding-left: 1em; border-left: 3px solid #ccc; color: #555; }

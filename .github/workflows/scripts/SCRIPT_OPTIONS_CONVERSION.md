@@ -55,8 +55,6 @@ This document tracks the conversion of workflow scripts from positional argument
 - [ ] `export-pcb-pdf.sh` - Export PCB layouts to PDF
 
 ### Documentation Scripts  
-- [ ] `build-asciidoc.sh` - Build AsciiDoc documentation
-- [ ] `build-latex.sh` - Build LaTeX documentation
 - [ ] `check-documentation.sh` - Validate documentation files
 - [ ] `check-documentation-links.sh` - Check documentation links
 - [ ] `package-documentation.sh` - Package documentation files
