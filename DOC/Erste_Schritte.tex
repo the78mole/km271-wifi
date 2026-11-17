@@ -122,7 +122,8 @@ rechts):
   \textbf{J6} ist der Anschluss für Sensorleitungen
 \item
   \textbf{J4} ist der Debug-Anschluss zur Programmierung über eine
-  serielle Verbindung
+  serielle Verbindung (Boards bis v1.x; ab v2.0 wird über die
+  USB-Buchse geflasht, J4 ist nicht mehr bestückt)
 \end{itemize}
 
 Je nach Bestellung und gewählten Optionen sind einige Anschlüsse
@@ -137,7 +138,12 @@ erhältlich ist.
   \end{wrapfigure}
   
 
-Nun \textbf{prüfe, ob der PWRSEL-Header} wie im Bild gezeigt bestückt
+\textbf{Boards ab v2.0} (USB-Seriell-Wandler neben der USB-Buchse, kein
+PWRSEL-Header): Hier ist nichts einzustellen. Das Board wird aus der
+Buderus-Steuerung und/oder über USB versorgt, auch gleichzeitig. Eine
+Diode wählt die Quelle automatisch. Weiter mit dem Einbau.
+
+\textbf{Boards bis v1.x:} Nun \textbf{prüfe, ob der PWRSEL-Header} wie im Bild gezeigt bestückt
 ist. Der mittlere und der untere Jumper sollten gesteckt sein. Dies ist
 die korrekte Variante für die \textbf{Versorgung über die
 Buderus-Steuerung}. Wenn du das Modul \textbf{über USB versorgen}
@@ -215,8 +221,8 @@ falsche WLAN gewählt hast, ist es später schwierig, wieder Zugriff auf
 das Board zu bekommen. In diesem Fall musst du das falsche WLAN
 deaktivieren oder das Modul außerhalb der Reichweite bringen. Alternativ
 kannst du das Modul aus der Buderus-Steuerung entfernen und per USB
-versorgen und aus dem Empfangsbereich rausgehen (dazu den PWRSEL-Jumper
-umsetzen). Danach kannst du die Einrichtung erneut starten.
+versorgen und aus dem Empfangsbereich rausgehen (bis v1.x dazu den
+PWRSEL-Jumper umsetzen). Danach kannst du die Einrichtung erneut starten.
 
 Auf der Seite des Fallback-Hotspots kannst du auch eine neue Firmware
 flashen -- allerdings \textbf{keine andere Firmware} (z.\,B. die von
@@ -273,6 +279,36 @@ findest du hier die detaillierte Beschreibung:
 \href{https://bit.ly/4jA7aHu}{\pandocbounded{\includegraphics[keepaspectratio]{https://api.qrserver.com/v1/create-qr-code/?data=https\%3A\%2F\%2Fbit.ly\%2F4jA7aHu&size=150x150}}}
 
 https://bit.ly/4jA7aHu
+
+\subsection{Flashen über USB (Boards ab v2.0)}\label{flashen-usb}
+
+Ab v2.0 hat das Board einen USB-Seriell-Wandler (Silicon Labs CP2102N)
+mit automatischer Reset-/Boot-Schaltung. Du kannst damit jede Firmware
+direkt über die USB-Buchse flashen, ohne ESP-PROG und ohne BOOT/RESET zu
+drücken:
+
+\begin{enumerate}
+\tightlist
+\item
+  Verbinde das Board mit einem USB-Mini-B-Kabel mit deinem PC. Es kann
+  dabei in der Buderus-Steuerung stecken bleiben oder nur über USB
+  versorgt werden.
+\item
+  Linux und macOS bringen den Treiber mit. Unter Windows wird er meist
+  automatisch installiert, sonst installiere den CP210x-VCP-Treiber von
+  Silicon Labs:\\
+  \url{https://www.silabs.com/developer-tools/usb-to-uart-bridge-vcp-drivers}
+\item
+  Öffne die KM271-WiFi WebTools in Chrome oder Edge
+  (\url{https://the78mole.github.io/ESPhome-KM271-WiFi/}), klicke auf \emph{Connect},
+  wähle die serielle Schnittstelle (\texttt{CP2102N USB to UART Bridge})
+  und flashe die Firmware. Alternativ geht es mit \texttt{esptool.py}
+  oder dem ESPhome-Dashboard.
+\end{enumerate}
+
+Boards bis v1.x haben keinen USB-Seriell-Wandler. Sie werden über J4
+(DEBUG) mit einem externen USB-Seriell-Adapter wie dem ESP-PROG
+geflasht, siehe Hardware-Beschreibung.
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
