@@ -20,7 +20,7 @@ Generated on: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
 |------|-------|-------|------|
 EOF
 
-for file in *.md *.adoc *.tex; do
+for file in *.md */*.md; do
   if [ -f "$file" ]; then
     lines=$(wc -l < "$file" 2>/dev/null || echo "0")
     words=$(wc -w < "$file" 2>/dev/null || echo "0")
@@ -38,8 +38,6 @@ cat >> DOC_STATISTICS.md << EOF
 ## 📊 Summary
 - 📄 Markdown files: $(find . -name "*.md" -type f | wc -l)
 - 📑 PDF files: $pdf_count
-- 📝 AsciiDoc files: $(find . -name "*.adoc" -type f | wc -l)
-- 📄 LaTeX files: $(find . -name "*.tex" -type f | wc -l)
 - 🖼️ Image files: $img_count
 - 💾 Total directory size: $(du -sh . 2>/dev/null | cut -f1 || echo "unknown")
 
@@ -55,7 +53,7 @@ echo "✅ Documentation statistics generated in DOC_STATISTICS.md"
 $(find ../IMG -name "*.png" -o -name "*.jpg" -o -name "*.gif" -o -name "*.svg" 2>/dev/null | wc -l) image files found
 
 ## 📋 Summary
-- Total documentation files: $(ls -1 *.md *.adoc *.tex 2>/dev/null | wc -l)
+- Total documentation files: $(ls -1 *.md */*.md 2>/dev/null | wc -l)
 - Generated files ready for distribution
 
 EOF

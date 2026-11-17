@@ -4,63 +4,49 @@ set -e
 GITHUB_SHA="$1"
 GITHUB_REF_NAME="$2"
 VERSION="$3"
+PDF_DIR="${4:-build/docs-pdf}"
 
 echo "📦 Packaging documentation for release..."
 if [ -n "$VERSION" ]; then
     echo "📋 Using version: $VERSION"
 fi
-cd DOC
 
-# Create release documentation structure
-mkdir -p ../release-staging/Documentation
+STAGE=release-staging/Documentation
+mkdir -p "$STAGE/pdf"
 
-# Copy all documentation files
-cp -r * ../release-staging/Documentation/ 2>/dev/null || true
+# Markdown sources, images, scripts and third-party documents (DOC/sources)
+cp -r DOC/. "$STAGE/" 2>/dev/null || true
 
-# Create documentation index
-cat > ../release-staging/Documentation/README.md << EOF
+# PDFs generated from Markdown by build-markdown-pdf.sh
+if compgen -G "$PDF_DIR/*.pdf" >/dev/null; then
+  cp "$PDF_DIR"/*.pdf "$STAGE/pdf/"
+else
+  echo "⚠️ No generated PDFs found in $PDF_DIR"
+fi
+
+PDF_LIST=$(cd "$STAGE/pdf" && ls -1 *.pdf 2>/dev/null | sed 's/^/- pdf\//' || true)
+
+cat > "$STAGE/README.md" << EOT
 # KM271-WiFi Documentation Release
 
-**Version**: ${VERSION:-"Unknown"}  
-**Generated**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')  
-**Git Commit**: $(echo "${GITHUB_SHA}" | cut -c1-8)  
+**Version**: ${VERSION:-"Unknown"}
+**Generated**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+**Git Commit**: $(echo "${GITHUB_SHA}" | cut -c1-8)
 **Release**: ${GITHUB_REF_NAME}
 
-## 📚 Available Documentation
+## 📚 PDF documentation (generated from Markdown)
 
-### Getting Started Guides
-- **Getting_Started.md** - English getting started guide
-- **Getting_Started_Generated.html** - HTML version (if available)
-- **Getting_Started_Generated.pdf** - PDF version (if available)
-- **Erste_Schritte.md** - German getting started guide
-- **Erste_Schritte.pdf** - LaTeX-generated PDF (if available)
+${PDF_LIST}
 
-### Technical Documentation
-- **Hardware Description.md** - Detailed hardware documentation
-- **Hardware Description.pdf** - PDF version
+## 📝 Sources
 
-### Datasheets and References
-- Various component datasheets (PDF format)
-- Protocol specifications
-- Technical references
-
-## 📖 Format Information
-
-- **Markdown (.md)**: Raw documentation files
-- **HTML**: Web-viewable documentation with enhanced formatting
-- **PDF**: Print-ready documentation
-- **AsciiDoc (.adoc)**: Source files for advanced documentation
-
-## 🔗 Quick Links
-
-- [Getting Started (EN)](Getting_Started.md)
-- [Erste Schritte (DE)](Erste_Schritte.md)
-- [Hardware Description](Hardware%20Description.md)
+- \`*.md\`, \`*/README.md\`: Markdown sources of the PDFs above
+- \`sources/\`: third-party documents (Buderus manuals, 3964R protocol), see \`sources/README.md\`
 
 ---
 
-**Note**: This documentation package is automatically generated and synchronized with the hardware release.
-EOF
+**Note**: This documentation package is generated automatically by the release workflow.
+EOT
 
 echo "✅ Documentation package created"
-ls -la ../release-staging/Documentation/
+ls -la "$STAGE" "$STAGE/pdf"

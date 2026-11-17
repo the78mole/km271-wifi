@@ -75,9 +75,8 @@ km271-wifi/
 - **3D Modeling**: For visualizations and mechanical parts
 
 ### Documentation
-- **Markdown**: For most documentation
-- **LaTeX**: For PDF generation (Getting Started guides)
-- **AsciiDoc**: Alternative documentation format
+- **Markdown**: For all documentation in `DOC/`. The CI converts every Markdown file to PDF (pandoc + WeasyPrint) and attaches the PDFs to the release; generated PDFs are not committed.
+- **Third-party documents** (Buderus manuals, protocol specs) go to `DOC/sources/`.
 
 ## 📄 License Requirements
 
