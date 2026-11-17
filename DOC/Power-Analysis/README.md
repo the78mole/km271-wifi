@@ -158,7 +158,7 @@ Gerendert mit `kicad-cli pcb render` (KiCad 10). Alt = `main` (v0.1.0), neu = ak
 
 ![Neu oben](img/new_top_power.jpg)
 
-**Neu, Unterseite:** D9 und der Platz für U2 (DNP)
+**Neu, Unterseite:** D8/D9 (Diode-OR USB/Buderus), unbestückter Platz für U2 (DNP), C5 sowie der USB-UART U10 (CP2102N)
 
 ![Neu unten](img/new_bottom_power.jpg)
 
