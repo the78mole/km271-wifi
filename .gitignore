@@ -7,6 +7,7 @@ _autosave-*
 /.devcontainer_old/
 *.xls?
 *.zip
+*.lck
 /revision-status/
 /change-status/
 __pycache__/

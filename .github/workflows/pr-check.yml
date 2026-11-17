@@ -52,7 +52,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: load-config
     container:
-      image: ghcr.io/the78mole/kicaddev:1.6.0
+      image: ghcr.io/the78mole/kicaddev:1.7.0
     
     strategy:
       matrix:

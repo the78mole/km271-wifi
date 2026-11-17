@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "konnect": {
+      "command": "/home/daniel/.local/bin/konnect",
+      "args": ["--config", "/home/daniel/.config/konnect/config.toml"]
+    }
+  }
+}
