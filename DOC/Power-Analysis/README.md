@@ -8,6 +8,7 @@ Stand: 2026-11-17. Simulation mit ngspice und Verhaltensmodellen, Skript: [`sim.
 - **Das alte Design hat aber wenig Reserve.** Ab etwa **1,8 Ω** fällt der LDO aus der Regelung, und +3V3 sinkt linear mit Ri. Unter 3,0 V (ESP32-Minimum) geht es ab etwa **2,5 Ω**, der Brown-out wird bei etwa **4 Ω** erreicht.
 - **Der Buck (TPS62162 hinter D9) ist deutlich robuster.** Er regelt bis etwa **3 Ω** sauber auf 3,30 V, fällt erst ab etwa 4,2 Ω unter 3,0 V und erreicht bis 6 Ω keinen Brown-out. Der Einbruch am Lastsprung beträgt nur etwa 5 mV.
 - **Der Buck zieht weniger Strom aus der Buderus:** 292 mA statt 365 mA bei 360 mA Last an +3V3. Dadurch fällt auch an Ri weniger ab, obwohl D9 zusätzlich etwa 0,38 V kostet.
+- **ESP32-S3-Worst-Case mit +400 mA (60 → 460 mA):** Der Buck hält +3V3 bei 1 Ω weiterhin auf 3,29 V und zieht 386 mA aus der Buderus. Er regelt bis etwa **2,25 Ω** sauber, der Brown-out kommt erst bei etwa **4,6 Ω** ([Details](#neu-mit-400-ma-sprung-esp32-s3-worst-case)).
 
 Die Vermutung, dass 1 Ω allein den ESP32 an den Brown-out bringt, bestätigt die Simulation also **nicht**. Damit Nutzer mit dem alten Board Resets sehen, muss die effektive Quellimpedanz zeitweise deutlich größer sein (≥ 2…4 Ω) oder die Leerlaufspannung niedriger. Mögliche Ursachen siehe [Diskussion](#diskussion).
 
@@ -66,6 +67,24 @@ U2 (AZ1117) und R79 sind im neuen Stand DNP und nicht modelliert.
 - Strom aus der Buderus: **292 mA** bei 360 mA an +3V3 (Wirkungsgrad im Modell: Buck ≈ 94 %, inklusive D9 ≈ 86 %)
 - +3V3: Einbruch **< 5 mV**. Die 220-µF-Polymer-Elkos glätten den Sprung fast vollständig.
 
+## Neu mit 400-mA-Sprung (ESP32-S3-Worst-Case)
+
+Der S3 zieht beim Senden bis zu 355 mA, dazu kommen CPU und Peripherie (siehe [ESP32 vs. ESP32-S3](#esp32-vs-esp32-s3-stromaufnahme)). Deshalb wurde das neue Design zusätzlich mit einem Sprung von **+400 mA** simuliert (60 → 460 mA an +3V3), bei sonst gleichen Bedingungen (V0 = 5,0 V, Ri = 1 Ω).
+
+![Buck 400 mA](buck_1ohm_400mA.png)
+
+| Größe | +300 mA | +400 mA |
+|---|---|---|
+| Strom aus der Buderus | 292 mA | 386 mA |
+| Steckplatz J1 min. | 4,71 V | 4,61 V |
+| +5V hinter D9 min. | 4,32 V | 4,20 V |
+| +3V3 Einbruch | < 5 mV | < 7 mV |
+| Regelt sauber bis Ri ≈ | 3,0 Ω | 2,25 Ω |
+| unter 3,0 V ab Ri ≈ | 4,2 Ω | 3,1 Ω |
+| Brown-out ab Ri ≈ | > 6 Ω | 4,6 Ω |
+
+Auch mit 400 mA bleibt der Buck bei 1 Ω weit von jeder Grenze entfernt. Er zieht dann etwa so viel Strom aus der Buderus (386 mA) wie das alte LDO-Board bei nur 300 mA (365 mA). Die Reserve gegenüber Ri ist aber kleiner: Ab etwa 2,25 Ω läuft der Buck in den 100-%-Modus, und ab etwa 4,6 Ω erreicht +3V3 den Brown-out. Das sind immer noch gut 0,5 Ω mehr als beim alten Board mit dem kleineren Sprung.
+
 ## Flanken im Detail
 
 ![Zoom](zoom_edges.png)
@@ -76,14 +95,15 @@ Das Überschwingen des LDO stammt zum Teil vom einfachen Regelkreismodell. Die G
 
 ![Sweep](sweep_ri.png)
 
-| Ri | min. +3V3 alt (LDO) | min. +3V3 neu (Buck) |
-|---|---|---|
-| 1,0 Ω | 3,24 V | 3,30 V |
-| 2,0 Ω | 3,18 V | 3,30 V |
-| 3,0 Ω | 2,81 V | 3,30 V |
-| 4,0 Ω | 2,45 V (Brown-out-Grenze) | 3,06 V |
-| 5,0 Ω | 2,10 V | 2,79 V |
-| 6,0 Ω | 1,77 V | 2,55 V |
+| Ri | alt (LDO), +300 mA | neu (Buck), +300 mA | neu (Buck), +400 mA |
+|---|---|---|---|
+| 1,0 Ω | 3,24 V | 3,30 V | 3,29 V |
+| 2,0 Ω | 3,18 V | 3,30 V | 3,29 V |
+| 2,5 Ω | 2,99 V | 3,30 V | 3,19 V |
+| 3,0 Ω | 2,81 V | 3,30 V | 3,03 V |
+| 4,0 Ω | 2,45 V (Brown-out-Grenze) | 3,06 V | 2,64 V |
+| 5,0 Ω | 2,10 V | 2,79 V | 2,30 V |
+| 6,0 Ω | 1,77 V | 2,55 V | 2,01 V |
 
 Faustformel alt: Der LDO regelt, solange `V0 − Ri·I ≥ 3,3 V + 1,0 V + 0,25 Ω·I`. Bei 360 mA heißt das Ri ≤ (5,0 − 4,39) / 0,365 ≈ 1,7 Ω.
 

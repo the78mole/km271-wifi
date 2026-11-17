@@ -18,6 +18,7 @@ V0     = 5.0      # Buderus 5 V rail, no-load (issue dewenni#57: 5.0..5.1 V meas
 RI     = 1.0      # assumed source impedance of the Buderus 5 V incl. slot contact
 I_BASE = 0.060    # ESP32 idle / WiFi RX, at 3V3
 I_STEP = 0.300    # load step (WiFi TX burst), at 3V3
+I_STEP_S3 = 0.400 # ESP32-S3 worst case: 355 mA TX peak + CPU/peripherals, at 3V3
 T_ON, T_OFF, T_END = 1e-3, 6e-3, 9e-3
 TR = 1e-6         # edge time of the load step
 BOD = 2.43        # ESP32 / ESP32-S3 brown-out level 0 / 7 (~2.43 / 2.44 V)
@@ -151,16 +152,19 @@ def zoom(results, fname):
         for i, (t0, lab) in enumerate([(T_ON, "Lastsprung +300 mA"), (T_OFF, "Lastabwurf −300 mA")]):
             m = (t > t0 - 50e-6) & (t < t0 + 400e-6)
             ax[i].plot((t[m] - t0) * 1e6, c[m, 2], label=k)
-            ax[i].set_title(lab); ax[i].set_xlabel("Zeit ab Flanke [µs]"); ax[i].grid(alpha=.3)
+            ax[i].set_title(lab.replace('300 mA', 'Sprung')); ax[i].set_xlabel("Zeit ab Flanke [µs]"); ax[i].grid(alpha=.3)
     ax[0].set_ylabel("+3V3 [V]"); ax[0].legend()
     fig.tight_layout(); fig.savefig(os.path.join(HERE, fname), dpi=110); plt.close(fig)
 
 def sweep(fname):
     ris = np.round(np.arange(0.5, 6.01, 0.25), 2)
-    res = {"alt (LDO)": [], "neu (Buck)": []}
+    cases = (("alt (LDO), +300 mA", old_circuit, I_STEP),
+             ("neu (Buck), +300 mA", new_circuit, I_STEP),
+             ("neu (Buck), +400 mA", new_circuit, I_STEP_S3))
+    res = {k: [] for k, _, _ in cases}
     for ri in ris:
-        for k, f in (("alt (LDO)", old_circuit), ("neu (Buck)", new_circuit)):
-            t, c = run(f(V0, ri))
+        for k, f, i_step in cases:
+            t, c = run(f(V0, ri, i_step))
             res[k].append(c[(t > T_ON), 2].min())
     fig, ax = plt.subplots(figsize=(9, 4.5))
     for k, v in res.items():
@@ -168,8 +172,8 @@ def sweep(fname):
     ax.axhline(VMIN_SPEC, color="#999", ls="--", lw=1, label="ESP32 min. 3,0 V")
     ax.axhline(BOD, color="#d62728", ls="--", lw=1, label="Brown-out ~2,43 V")
     ax.axvline(RI, color="#555", ls=":", lw=1)
-    ax.set_xlabel("Innenwiderstand Buderus-5V Ri [Ω]"); ax.set_ylabel("min. +3V3 bei 360 mA [V]")
-    ax.set_title(f"Empfindlichkeit: V0 = {V0} V, Last 60 mA → 360 mA")
+    ax.set_xlabel("Innenwiderstand Buderus-5V Ri [Ω]"); ax.set_ylabel("min. +3V3 [V]")
+    ax.set_title(f"Empfindlichkeit: V0 = {V0} V, Grundlast 60 mA + Sprung")
     ax.grid(alpha=.3); ax.legend(fontsize=8)
     fig.tight_layout(); fig.savefig(os.path.join(HERE, fname), dpi=110); plt.close(fig)
     return ris, res
@@ -181,9 +185,14 @@ if __name__ == "__main__":
     t2, c2 = run(new_circuit())
     s2 = plot_case(t2, c2, f"NEU: D9 + TPS62162-Buck, V0 = {V0} V, Ri = {RI} Ω, Last 60 → 360 mA",
                    "buck_1ohm.png", extra=c2[:, 5])
-    zoom({"alt (LDO)": (t1, c1), "neu (Buck)": (t2, c2)}, "zoom_edges.png")
+    t3, c3 = run(new_circuit(V0, RI, I_STEP_S3))
+    s3 = plot_case(t3, c3, f"NEU: D9 + TPS62162-Buck, V0 = {V0} V, Ri = {RI} Ω, Last 60 → 460 mA (S3)",
+                   "buck_1ohm_400mA.png", extra=c3[:, 5])
+    zoom({"alt (LDO), +300 mA": (t1, c1), "neu (Buck), +300 mA": (t2, c2),
+          "neu (Buck), +400 mA": (t3, c3)}, "zoom_edges.png")
     ris, res = sweep("sweep_ri.png")
     print("OLD", {k: round(float(v), 3) for k, v in s1.items()})
     print("NEW", {k: round(float(v), 3) for k, v in s2.items()})
+    print("NEW400", {k: round(float(v), 3) for k, v in s3.items()})
     for k, v in res.items():
         print(k, " ".join(f"{r}:{x:.2f}" for r, x in zip(ris, v)))
