@@ -109,7 +109,7 @@ Was das für die Versorgung bedeutet:
 - Der **S3 sendet mit bis zu 1 dB mehr Leistung** und zieht dabei Spitzen von etwa 355 mA. Das entspricht ziemlich genau dem simulierten Sprung auf 360 mA. Mit CPU-Last und Peripherie (+40…60 mA) sind etwa 400…420 mA realistisch.
 - Mit dem alten LDO wäre das kritischer. Bei 420 mA braucht der AZ1117 etwa 4,41 V am Eingang, die Ri-Grenze sinkt damit von 1,7 Ω auf etwa **1,4 Ω**. Eine S3-Variante mit LDO hätte also weniger Reserve als das bisherige Board.
 - Mit dem Buck zieht der S3 bei 420 mA an +3V3 nur etwa 340 mA aus der Buderus. Das liegt in der Größenordnung, die das alte Board schon mit dem ESP32 gezogen hat.
-- Wenn Spitzen kritisch werden, lässt sich die Sendeleistung in der Firmware begrenzen. ESPHome hat dafür `output_power`, Arduino `WiFi.setTxPower()`. Mit 17 dBm statt 20 dBm sinkt der Spitzenstrom laut Tabelle um etwa 60 mA.
+- Wenn Spitzen kritisch werden, lässt sich die Sendeleistung in der Firmware begrenzen. ESPHome hat dafür `output_power`, Arduino `WiFi.setTxPower()`. Der Spitzenstrom sinkt mit der Sendeleistung, der genaue Wert ist aber nicht im Datenblatt angegeben.
 - Im Leerlauf (Modem-sleep, RX) liegen beide Chips etwa gleich. Der S3 ist im Light-sleep sparsamer, was im Dauerbetrieb am Buderus-Steckplatz aber keine Rolle spielt.
 
 ## Diskussion
