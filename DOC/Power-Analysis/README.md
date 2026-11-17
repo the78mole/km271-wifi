@@ -87,6 +87,31 @@ Das Überschwingen des LDO stammt zum Teil vom einfachen Regelkreismodell. Die G
 
 Faustformel alt: Der LDO regelt, solange `V0 − Ri·I ≥ 3,3 V + 1,0 V + 0,25 Ω·I`. Bei 360 mA heißt das Ri ≤ (5,0 − 4,39) / 0,365 ≈ 1,7 Ω.
 
+## ESP32 vs. ESP32-S3: Stromaufnahme
+
+Werte aus den Espressif-Datenblättern (3,3 V, 25 °C):
+
+| Betriebsart | ESP32 (Chip-DB v5.3, WROOM-32D) | ESP32-S3-WROOM-1 (DB v1.8) |
+|---|---|---|
+| TX 802.11b 1 Mbps | 240 mA @ 19,5 dBm | **355 mA** @ 20,5 dBm |
+| TX 802.11g 54 Mbps | 190 mA @ 16 dBm | 297 mA @ 18 dBm |
+| TX 802.11n MCS7 | 180 mA @ 14 dBm | 286 mA @ 17,5 dBm |
+| RX / Listen | 95…100 mA | 95…97 mA |
+| BLE TX | 130 mA @ 0 dBm | 187 mA @ 0 dBm, 344 mA @ 20 dBm |
+| Modem-sleep 240 MHz | 30…68 mA | 33…108 mA |
+| Light-sleep | 0,8 mA | 0,24 mA |
+| Empfohlene Versorgung | ≥ 500 mA (WROOM-32D-DB) | ≥ 500 mA |
+
+Die Zahlen sind **nicht direkt vergleichbar.** Espressif gibt die ESP32-TX-Ströme als typische Werte bei 50 % Tastgrad an, die des S3 als Spitzenwerte bei 100 % Tastgrad und mit höherer Sendeleistung. Die tatsächlichen Spitzen des alten ESP32 liegen daher ebenfalls deutlich über 240 mA. Espressif empfiehlt für beide Module eine Versorgung, die mindestens 500 mA liefert.
+
+Was das für die Versorgung bedeutet:
+
+- Der **S3 sendet mit bis zu 1 dB mehr Leistung** und zieht dabei Spitzen von etwa 355 mA. Das entspricht ziemlich genau dem simulierten Sprung auf 360 mA. Mit CPU-Last und Peripherie (+40…60 mA) sind etwa 400…420 mA realistisch.
+- Mit dem alten LDO wäre das kritischer. Bei 420 mA braucht der AZ1117 etwa 4,41 V am Eingang, die Ri-Grenze sinkt damit von 1,7 Ω auf etwa **1,4 Ω**. Eine S3-Variante mit LDO hätte also weniger Reserve als das bisherige Board.
+- Mit dem Buck zieht der S3 bei 420 mA an +3V3 nur etwa 340 mA aus der Buderus. Das liegt in der Größenordnung, die das alte Board schon mit dem ESP32 gezogen hat.
+- Wenn Spitzen kritisch werden, lässt sich die Sendeleistung in der Firmware begrenzen. ESPHome hat dafür `output_power`, Arduino `WiFi.setTxPower()`. Mit 17 dBm statt 20 dBm sinkt der Spitzenstrom laut Tabelle um etwa 60 mA.
+- Im Leerlauf (Modem-sleep, RX) liegen beide Chips etwa gleich. Der S3 ist im Light-sleep sparsamer, was im Dauerbetrieb am Buderus-Steckplatz aber keine Rolle spielt.
+
 ## Diskussion
 
 Warum sehen dann manche Nutzer Brown-outs mit dem alten Board?
