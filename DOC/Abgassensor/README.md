@@ -76,6 +76,10 @@ Der Fehler ist berechnet als die Temperatur, die eine auf die Kurve ohne D5 kali
 | Einbaulänge | 50 mm |
 | Schutzart | IP54 |
 
+Maße laut Zeichnung: Gewinde G1/4", Schutzrohr Ø 6 mm, Schlüsselweite SW 19, Einbaulänge EL = 50 mm (gewählt).
+
+<img src="sensorshop24_masszeichnung_g14.png" width="400" alt="Maßzeichnung Einschraubfühler G1/4">
+
 Maximale Einsatztemperatur je nach Leitung (Herstellerangabe): PVC 105 °C, Silikon 180 °C, **PFA 260 °C**, Glasseide 400 °C. PFA ist die kleinste Variante, die über der maximalen Abgasschwelle von 250 °C liegt. Glasseide bringt mehr Reserve, falls die Leitung nahe am Abgasrohr verläuft.
 
 <img src="sensorshop24_ef3t.png" width="320" alt="Einschraubfühler G1/4 mit PFA-Leitung"> <img src="sensorshop24_varianten.png" width="320" alt="Leitungsvarianten mit Temperaturgrenzen"> <img src="sensorshop24_leitungen.png" width="400" alt="Maßzeichnung Leitungsvarianten"><br>
