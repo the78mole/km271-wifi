@@ -105,3 +105,57 @@ cd DOC/Step-Down-Inductor
 python3 sim.py        # Plots, Zahlen auf stdout (numpy, matplotlib, ~10 s)
 python3 schematic.py  # Schaltbild als SVG (schemdraw); das PNG ist daraus gerendert
 ```
+
+## Gegenprobe mit dem TI-PSpice-Modell
+
+Zur Kontrolle des vereinfachten Modells oben wurde dieselbe Schaltung zusätzlich mit dem Transientenmodell von Texas Instruments gerechnet (TPS62162 PSpice Unencrypted Transient Model, SLVM430B, „TPS62162_TRANS“). Es läuft in ngspice im PSpice-Kompatibilitätsmodus. Quelle, Eingangs- und Ausgangskondensatoren sind wie oben. U8 ist durch das TI-Modell ersetzt (EN an VIN, FB an GND für die Festspannung, PG über 100 kΩ an +3V3), und L1 ist dieselbe nichtlineare Drossel L(I) mit DCR. Das TI-Modell selbst liegt wegen der TI-Lizenz nicht im Repository, das Skript lädt es beim ersten Lauf von ti.com.
+
+Jeder Lauf enthält nacheinander den Anlauf mit 60 mA Last, bei 1,2 ms den Lastsprung auf 460 mA, bei 1,6 ms den Sprung zurück auf 60 mA und ab 1,9 ms einen Kurzschluss von 0,1 Ω an +3V3. Gerechnet wurden beide Drosseln, jeweils mit nominaler Induktivität und mit −20 %.
+
+![Ablauf TI-Modell](Step-Down-Inductor/ti_ablauf.png)
+
+![Details TI-Modell](Step-Down-Inductor/ti_details.png)
+
+### Ergebnisse
+
+| | alt | neu | alt, L −20 % | neu, L −20 % |
+|---|---:|---:|---:|---:|
+| Anlauf: größter Spulenstrom | 1,87 A | 1,78 A | 1,88 A | 1,80 A |
+| Anlauf: kleinste VIN an U8 | 3,72 V | 3,71 V | 3,72 V | 3,71 V |
+| 460 mA: Schaltfrequenz | 1,01 MHz | 1,00 MHz | 1,01 MHz | 1,00 MHz |
+| 460 mA: Rippelstrom Spitze-Spitze | 299 mA | 299 mA | 374 mA | 373 mA |
+| 460 mA: Spitzenstrom | 607 mA | 607 mA | 644 mA | 643 mA |
+| 460 mA: Ausgangsrippel | 1,18 mV | 1,19 mV | 1,48 mV | 1,49 mV |
+| 460 mA: Verlust in der DCR | 6,4 mW | 12,1 mW | 6,5 mW | 12,3 mW |
+| Lastsprung: Minimum +3V3 | 3,294 V | 3,294 V | 3,294 V | 3,294 V |
+| Lastabwurf: Maximum +3V3 | 3,305 V | 3,305 V | 3,305 V | 3,305 V |
+| Kurzschluss: größter Spulenstrom | 1,77 A | 1,77 A | 1,79 A | 1,79 A |
+
+- **Auch mit dem TI-Modell verhalten sich beide Drosseln im Betrieb gleich.** Spannungen, Rippel und Lastsprung unterscheiden sich nur in der dritten Nachkommastelle. Der einzige messbare Unterschied ist der DCR-Verlust von 12,1 statt 6,4 mW bei 460 mA.
+- **Höchster Spulenstrom überhaupt sind 1,88 A beim Anlauf.** Der TPS62162 lädt dann die gut 250 µF am Ausgang in etwa 0,7 ms mit seiner Strombegrenzung auf. Bei diesem Strom ist die Induktivität beider Drosseln nur um etwa 6,5 % gesunken, und auch im Kurzschluss bleibt der Strom bei höchstens 1,79 A. Beide Werte liegen weit unter Isat (3,8 bzw. 4,05 A).
+- **Beim Anlauf bricht VIN an U8 auf etwa 3,7 V ein.** Das liegt an Ri und D9, nicht an der Drossel, und ist für beide Varianten gleich. +3V3 läuft trotzdem sauber hoch und schwingt nur leicht über, auf 3,36 V (alt) bzw. 3,38 V (neu).
+
+### Vergleich mit dem vereinfachten Modell
+
+| | vereinfachtes Modell (oben) | TI-Modell |
+|---|---:|---:|
+| Schaltfrequenz bei 460 mA | ≈2,4 MHz | ≈1,0 MHz |
+| Rippelstrom bei 460 mA | 116 bis 118 mA | 299 mA |
+| Spitzenstrom bei 460 mA | 0,52 A | 0,61 A |
+| Minimum beim Lastsprung | 3,290 V | 3,294 V |
+| Spitzenstrom im Kurzschluss | 2,50 A (Grenze auf 2,45 A gesetzt) | 1,77 A (typische Grenze) |
+| DCR-Verlust alt / neu bei 460 mA | 6,2 / 11,7 mW | 6,4 / 12,1 mW |
+
+Das TI-Modell schaltet bei 4,3 V Eingangsspannung nur mit etwa 1 MHz. Das passt zum Datenblatt: Die DCS-Control-Regelung senkt die Frequenz, wenn die Eingangsspannung nahe an der Ausgangsspannung liegt. Das vereinfachte Modell hält dagegen etwa 2,4 MHz und unterschätzt deshalb den Rippelstrom um den Faktor 2,5. Der Kurzschluss im vereinfachten Modell war absichtlich mit der oberen Stromgrenze von 2,45 A gerechnet und ist damit der strengere Fall.
+
+Die Schlussfolgerung bleibt in beiden Modellen dieselbe. Der Spitzenstrom im Betrieb liegt höchstens bei etwa 0,65 A, im Anlauf und im Kurzschluss bei unter 1,9 A. Beide Drosseln sind dafür reichlich ausgelegt, und die neue cjiang FTC252012S2R2MBCA kostet nur 5 bis 6 mW mehr Kupferverluste.
+
+### Reproduzieren
+
+```bash
+cd DOC/Step-Down-Inductor
+python3 ti_spice.py          # lädt das TI-Modell, 4 ngspice-Läufe parallel (~20 min, ~1,5 GB temporär)
+python3 ti_spice.py --plot   # nur neu auswerten und plotten
+```
+
+Benötigt ngspice ab Version 39 (PSpice-Kompatibilität `set ngbehavior=psa`, schreibt das Skript selbst in `ti_work/.spiceinit`).
