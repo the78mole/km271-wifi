@@ -42102,6 +42102,28 @@
 				)
 			)
 		)
+		(property "Alternative" "XR XRIM252012S2R2MBCA (LCSC C22471111)"
+			(at 95.25 190.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Alternative2" "MetalLions MTQH252012S2R2MBT (LCSC C17701218)"
+			(at 95.25 190.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "525d4b7f-8b49-4cf7-a411-971b46ffbecd")
 		)

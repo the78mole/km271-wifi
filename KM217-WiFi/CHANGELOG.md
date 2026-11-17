@@ -4,7 +4,7 @@
 
     - Power supply
 	  * U8 TPS62162DSG step-down converter (1 A, 3.3 V fixed, WSON-8, LCSC C40256) replaces the AZ1117 LDO
-	  * L1 2.2 µH cjiang FTC252012S2R2MBCA (molded 2520, ISAT 3.8 A, 55 mOhm, LCSC C5832372; replaces WE-MAPI 4020 74438356022), C28 10u input, C29 22u output
+	  * L1 2.2 µH cjiang FTC252012S2R2MBCA (molded 2520, ISAT 3.8 A, 55 mOhm, LCSC C5832372; replaces WE-MAPI 4020 74438356022; alternatives XR XRIM252012S2R2MBCA C22471111, MetalLions MTQH252012S2R2MBT C17701218), C28 10u input, C29 22u output
 	  * U2 (LDO) and C4 kept as DNP alternative, selected by R78 (SMPS, populated) / R79 (LDO, DNP)
 	  * J3 power select header removed, USB VBUS and Buderus 5V combined by D8/D9 (BAT760)
 	  * D10 SMAJ5.0A TVS on the Buderus 5V input

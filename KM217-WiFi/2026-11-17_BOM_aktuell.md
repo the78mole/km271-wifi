@@ -77,6 +77,8 @@ Preise in USD für **10 Platinen**, inklusive JLC-Ausschuss und Mindestmenge. Di
 
 Beide liegen weit über dem Bedarf des TPS62162 (Spitzenstrom etwa 0,6 A bei 460 mA Last, Stromgrenze höchstens 2,45 A). Der höhere DCR kostet bei 0,46 A etwa 6 mW und 12 mV.
 
+Als Alternativen mit gleichen Daten (2520, 2,2 µH, Isat 3,8 A, DCR 55 mΩ) stehen im Schaltplan an L1 in den Feldern `Alternative` und `Alternative2`: XR XRIM252012S2R2MBCA (C22471111, ca. 59.000 Stück, 0,031 USD) und MetalLions MTQH252012S2R2MBT (C17701218, ca. 17.000 Stück, 0,030 USD). Vor einem Tausch Pads gegen das jeweilige Datenblatt prüfen.
+
 ## Auffälligkeiten
 
 - **U1 ESP32-S3-WROOM-1-N8R2 (C2913204)** ist mit 4,01 USD das teuerste Teil. Der Bestand reicht derzeit für rund 11.000 Platinen.
