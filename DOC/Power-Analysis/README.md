@@ -15,13 +15,13 @@ Die Vermutung, dass 1 Ω allein den ESP32 an den Brown-out bringt, bestätigt di
 
 **Alt** (bis v0.1.0)
 
-![Schaltplan alt](schematic_ldo.svg)
+![Schaltplan alt](schematic_ldo.png)
 
 **Neu** (S3-Stand)
 
-![Schaltplan neu](schematic_buck.svg)
+![Schaltplan neu](schematic_buck.png)
 
-Die Schaltpläne zeigen die simulierten Netzwerke. Die 100-nF-Kondensatoren sind zusammengefasst, und D10 (SMAJ5.0A) ist weggelassen.
+Die Schaltpläne zeigen die simulierten Netzwerke. Die 100-nF-Kondensatoren sind zusammengefasst, und D10 (SMAJ5.0A) ist weggelassen. Vektorversionen: [schematic_ldo.svg](schematic_ldo.svg), [schematic_buck.svg](schematic_buck.svg).
 
 | Größe | Wert | Herkunft |
 |---|---|---|
