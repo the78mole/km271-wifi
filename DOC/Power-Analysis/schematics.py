@@ -3,7 +3,53 @@
 Run: python3 schematics.py  ->  schematic_ldo.svg/.png, schematic_buck.svg/.png"""
 import os
 import schemdraw
+import math
 import schemdraw.elements as elm
+from schemdraw.elements import Element2Term
+from schemdraw.elements.sources import Source
+from schemdraw.segments import Segment, SegmentPoly, SegmentText
+
+# --- IEC 60617 / DIN EN 60617 symbols ------------------------------------
+GAP = (math.nan, math.nan)
+H = 0.25  # half plate height
+
+
+class SourceVIEC(Source):
+    """Ideal voltage source (IEC): circle, line along the conductor."""
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.segments.append(Segment([(0, 0), (1, 0)]))
+
+
+class SourceIIEC(Source):
+    """Ideal current source (IEC): circle, line across the conductor."""
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.segments.append(Segment([(0.5, -0.5), (0.5, 0.5)]))
+
+
+class InductorIEC(Element2Term):
+    """Inductor (IEC): filled rectangle."""
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        w, h = 1.0, 0.14
+        self.segments.append(Segment([(0, 0), GAP, (w, 0)]))
+        self.segments.append(SegmentPoly([(0, -h), (0, h), (w, h), (w, -h)], fill='black'))
+
+
+class CapacitorIEC(Element2Term):
+    """Capacitor (IEC); polar=True: electrolytic, positive plate as open rectangle."""
+    def __init__(self, polar=False, **kwargs):
+        super().__init__(**kwargs)
+        g = 0.2
+        if polar:
+            t = 0.1
+            self.segments.append(Segment([(0, 0), GAP, (g + t, 0)]))
+            self.segments.append(SegmentPoly([(0, -H), (0, H), (t, H), (t, -H)]))
+            self.segments.append(Segment([(g + t, H), (g + t, -H)]))
+            self.segments.append(SegmentText((-0.12, -H - 0.12), '+', fontsize=11))
+        else:
+            self.segments.append(Segment([(0, 0), GAP, (0, H), (0, -H), GAP, (g, H), (g, -H), GAP, (g, 0)]))
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 schemdraw.config(fontsize=11, lw=1.3)
@@ -13,10 +59,10 @@ def shunt_cap(d, label, esr=None, polar=False):
     """Vertical C (+ optional ESR) from current point down to GND, cursor stays on the rail."""
     d.push()
     if esr:
-        elm.Capacitor(polar=polar).down().length(1.5).label(label, loc="bottom", ofst=0.15)
-        elm.Resistor().down().length(1.5).label(esr, loc="bottom", ofst=0.15).scale(0.8)
+        CapacitorIEC(polar=polar).down().length(1.5).label(label, loc="bottom", ofst=0.15)
+        elm.ResistorIEC().down().length(1.5).label(esr, loc="bottom", ofst=0.15).scale(0.8)
     else:
-        elm.Capacitor(polar=polar).down().length(3).label(label, loc="bottom", ofst=0.15)
+        CapacitorIEC(polar=polar).down().length(3).label(label, loc="bottom", ofst=0.15)
     elm.Ground()
     d.pop()
 
@@ -24,15 +70,15 @@ def shunt_cap(d, label, esr=None, polar=False):
 def source(d):
     """V0 + Ri, returns with cursor at J1 node."""
     elm.Ground()
-    elm.SourceV().up().length(3).label("V0\n5,0 V", loc="bottom")
-    elm.Resistor().right().length(2.5).label("Ri 1 Ω", loc="top").label("Buderus\n(LM317 + Leitung + Kontakt)", loc="bottom", fontsize=8)
+    SourceVIEC().up().length(3).label("V0\n5,0 V", loc="bottom")
+    elm.ResistorIEC().right().length(2.5).label("Ri 1 Ω", loc="top").label("Buderus\n(LM317 + Leitung + Kontakt)", loc="bottom", fontsize=8)
     elm.Dot(open=True).label("J1", loc="top")
 
 
 def load(d):
     elm.Line().right().length(2.4)
     d.push()
-    elm.SourceI().down().length(3).reverse().label("Last\n60 mA\n+300 mA", loc="bottom")
+    SourceIIEC().down().length(3).reverse().label("Last\n60 mA\n+300 mA", loc="bottom")
     elm.Ground()
     d.pop()
 
@@ -102,7 +148,7 @@ def draw_buck():
         d.move_from(bk.GND); elm.Line().down().length(0.6); elm.Ground()
         d.pop()
         d.move_from(bk.SW)
-        L = elm.Inductor2().right().length(2.2).label("L1 2µ2\n29 mΩ", loc="top", fontsize=9)
+        L = InductorIEC().right().length(2.2).label("L1 2µ2\n29 mΩ", loc="top", fontsize=9)
         elm.Dot()
         out = d.here
         d.push()
