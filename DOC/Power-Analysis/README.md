@@ -104,7 +104,6 @@ Der Buck ist auch gegen diese Effekte die bessere Wahl: weniger Eingangsstrom un
 - Verhaltensmodelle, keine Herstellermodelle. Es gibt keine Schaltwelligkeit (2,25 MHz) und keinen PFM-Betrieb bei Kleinlast.
 - ESR der Al-Elkos (0,7 Ω) und DC-Bias der MLCCs sind geschätzt.
 - Buderus-Seite nur als V0 + Ri, ohne 100-Hz-Welligkeit und ohne Dropout des LM317.
-- Nächster sinnvoller Schritt: Ri und V0 an einer echten Logamatic messen (Lastsprung mit 25 Ω an J1, Oszi direkt am Stecker) und hier eintragen.
 
 ## Reproduzieren
 
@@ -117,3 +116,54 @@ python3 schematics.py          # erzeugt schematic_*.svg/.png
 ```
 
 Parameter (V0, RI, I_STEP …) stehen oben in `sim.py`.
+
+## Notizen und Bilder
+
+### Was über das Buderus-Netzteil bekannt ist
+
+| Aussage | Status | Quelle |
+|---|---|---|
+| Netzteil und Relais sitzen auf der hinteren Platine der Logamatic 2107. | belegt | [heizungsforum.de](https://www.heizungsforum.de/threads/buderus-steuerung-logamatic-2107-einstellungen-speichern-puffern.9176/) |
+| Die Netz-/Relaiskarte heißt **NM 282**. Einer der Spannungsregler darauf ist ein **LM317T**, die Primärsicherung hat 400 mAT. | belegt (Reparaturbericht) | [elektrikforen.de](https://www.elektrikforen.de/threads/buderus-logomatic-2107.16101/) |
+| Am Modulsteckplatz K4 liegen 5 V und 24 V an. | belegt, Pinbelegung unsicher | [mikrocontroller.net](https://www.mikrocontroller.net/topic/141831) |
+| Am Board gemessen: 5,0…5,1 V statisch, unter Last Einbrüche von mehreren 100 mV. 1000 µF an C7 helfen teilweise. | belegt (Nutzermessung) | [dewenni#57](https://github.com/dewenni/ESP_Buderus_KM271/issues/57) |
+| Brown-outs und Bootprobleme verschwinden mit USB-Versorgung. | belegt (mehrere Berichte) | [dewenni#99](https://github.com/dewenni/ESP_Buderus_KM271/issues/99), [km271-wifi#6](https://github.com/the78mole/km271-wifi/issues/6) |
+| Kette Trafo → Gleichrichter → Ladeelko → Längsregler für die 5 V | plausibel, nicht belegt | – |
+| Strombudget des Steckplatzes in mA | unbekannt | – |
+
+Der in manchen Forenbeiträgen genannte Trafo mit 3 bis 4 Sekundärwicklungen gehört zu einer Buderus **MC10**, nicht zur 2107.
+
+### Designentscheidungen der neuen Versorgung
+
+- **D9 (1N5819WS)** entkoppelt die Buderus-5V vom USB-VBUS (Diode-OR mit D8). Sie kostet bei 290 mA etwa 0,38 V. Der Buck gleicht das aus, weil er bis etwa 3,5 V Eingang regelt.
+- **TPS62162 statt AZ1117:** Der Eingangsstrom sinkt um etwa 20 % (292 statt 365 mA bei 360 mA Last), weil der Buck Spannung in Strom umsetzt statt sie zu verheizen. Am Buderus-Ri fällt dadurch weniger ab, und der Regler wird kaum warm.
+- **220-µF-Polymer-Elkos (C7/C8):** Der ESR sinkt von etwa 0,7 Ω auf etwa 25 mΩ. Das glättet die Lastsprünge an +5V und +3V3 deutlich, die Ladeströme kommen sanfter am Steckplatz an.
+- **D10 (SMAJ5.0A)** begrenzt Transienten am Buderus-Eingang. In der Simulation ist sie nicht berücksichtigt.
+- **UVLO** des TPS62162: 2,7 V (fallend). Darüber arbeitet der Regler im 100-%-Modus weiter, +3V3 folgt dann der Eingangsspannung abzüglich etwa 0,45 Ω · I.
+- **Brown-out-Schwelle:** Der ESP32 (Level 0) und der ESP32-S3 (Level 7) liegen beide bei etwa 2,43 V. Das Modul ist aber nur ab 3,0 V spezifiziert, und der Flash braucht mindestens etwa 2,7 V. Kritisch ist daher schon der Bereich unter 3,0 V.
+
+### 3D-Ansichten
+
+Gerendert mit `kicad-cli pcb render` (KiCad 10). Alt = `main` (v0.1.0), neu = aktueller S3-Stand.
+
+**Alt, Oberseite (Versorgungsbereich):** J3-Jumperleiste (PWRSEL), C7/C8 100 µF Al-Elko
+
+![Alt oben](img/old_top_power.jpg)
+
+**Alt, Unterseite:** AZ1117 (U2, SOT-223) mit C2–C5
+
+![Alt unten](img/old_bottom_power.jpg)
+
+**Neu, Oberseite:** C7/C8 220 µF Polymer, U8 TPS62162 mit L1, C28/C29, D10
+
+![Neu oben](img/new_top_power.jpg)
+
+**Neu, Unterseite:** D9 und der Platz für U2 (DNP)
+
+![Neu unten](img/new_bottom_power.jpg)
+
+**Gesamtansichten**
+
+![Alt isometrisch](img/old_iso.jpg)
+
+![Neu isometrisch](img/new_iso.jpg)
