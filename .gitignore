@@ -9,3 +9,4 @@ _autosave-*
 *.zip
 /revision-status/
 /change-status/
+__pycache__/
