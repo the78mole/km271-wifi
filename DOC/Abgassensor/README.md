@@ -65,6 +65,17 @@ Der Fehler ist berechnet als die Temperatur, die eine auf die Kurve ohne D5 kali
 
 ## Vergleich mit dem 100k-NTC von sensorshop24
 
+**Passender Fühler:** [Einschraubtemperaturfühler mit G1/4"-Gewinde](https://www.sensorshop24.de/temperaturfuehler-passiv/einschraubtemperaturfuehler-mit-g1-4-gewinde), Artikel-Nr. `EF-3-EF3T-NTC100k-2L-2.0-50` (Stand 2026-11-17: 17,05 € netto, 20,29 € brutto). Diese Optionen müssen ausgewählt werden:
+
+| Option | Auswahl |
+|---|---|
+| Leitungsmaterial | PFA (hitzebeständig) |
+| Sensor | NTC 100 kΩ |
+| Schaltungsart | 2-Draht |
+| Kabellänge PFA 2-Leiter | 2 m |
+| Einbaulänge | 50 mm |
+| Schutzart | IP54 |
+
 Tabelle: [sensorshop24 NTC 100k](https://www.sensorshop24.de/kennlinien/ntc-100k-tabelle), übernommen in [`ntc100k_sensorshop24.csv`](ntc100k_sensorshop24.csv) (10-K-Schritte bis 160 °C, danach nur noch 250 °C). Die Spalte „Anzeige“ ist die Temperatur, die eine Logamatic mit FG-Kennlinie aus dem Widerstand des sensorshop24-Fühlers ermitteln würde.
 
 | T [°C] | R sensorshop24 [kΩ] | R FG [kΩ] | Anzeigefehler [K] |
