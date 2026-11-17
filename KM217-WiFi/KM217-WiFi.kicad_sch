@@ -42003,7 +42003,7 @@
 				)
 			)
 		)
-		(property "Footprint" "KM217-WiFi:L_Wuerth_MAPI-4020"
+		(property "Footprint" "KM217-WiFi:L_Changjiang_FTC252012S"
 			(at 95.25 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -42014,7 +42014,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.lcsc.com/product-detail/C5832372.html"
 			(at 95.25 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -42025,7 +42025,7 @@
 				)
 			)
 		)
-		(property "Description" "Inductor, small symbol"
+		(property "Description" "Inductor 2.2uH, molded, shielded, Isat 3.8A, DCR 55mOhm, 2.5x2.0x1.2mm"
 			(at 95.25 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -42036,7 +42036,7 @@
 				)
 			)
 		)
-		(property "WE_MPN" "74438356022"
+		(property "MPN" "FTC252012S2R2MBCA"
 			(at 95.25 190.5 90)
 			(hide yes)
 			(show_name no)
@@ -42047,7 +42047,7 @@
 				)
 			)
 		)
-		(property "JLC" "C5521727"
+		(property "Manufacturer" "cjiang (Changjiang Microelectronics)"
 			(at 95.25 190.5 90)
 			(hide yes)
 			(show_name no)
@@ -42058,7 +42058,18 @@
 				)
 			)
 		)
-		(property "LCSC" "C5521727"
+		(property "JLC" "C5832372"
+			(at 95.25 190.5 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C5832372"
 			(at 95.25 190.5 0)
 			(hide yes)
 			(show_name no)
@@ -42069,7 +42080,7 @@
 				)
 			)
 		)
-		(property "LCSCstock" "1449"
+		(property "LCSCstock" "1060537"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
@@ -42080,7 +42091,7 @@
 				)
 			)
 		)
-		(property "LCSCprice" "2.036"
+		(property "LCSCprice" "0.0354"
 			(at 0 0 0)
 			(hide yes)
 			(show_name no)
