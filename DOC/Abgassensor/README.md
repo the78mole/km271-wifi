@@ -65,22 +65,22 @@ Der Fehler ist berechnet als die Temperatur, die eine auf die Kurve ohne D5 kali
 
 ## Vergleich mit dem 100k-NTC von sensorshop24
 
-**Passender Fühler:** [Einschraubtemperaturfühler mit G1/4"-Gewinde](https://www.sensorshop24.de/temperaturfuehler-passiv/einschraubtemperaturfuehler-mit-g1-4-gewinde), Artikel-Nr. `EF-3-EF3T-NTC100k-2L-2.0-50` (Stand 2026-11-17: 17,05 € netto, 20,29 € brutto). Diese Optionen müssen ausgewählt werden:
+**Passender Fühler:** [Einschraubtemperaturfühler mit G1/4"-Gewinde](https://www.sensorshop24.de/temperaturfuehler-passiv/einschraubtemperaturfuehler-mit-g1-4-gewinde) von sensorshop24. Beispielkonfiguration: Artikel-Nr. `EF-3-EF3T-NTC100k-2L-2.0-50`, Stand 2026-11-17 für 17,05 € netto bzw. 20,29 € brutto. Zu den Optionen:
 
 | Option | Auswahl |
 |---|---|
-| Leitungsmaterial | PFA (hitzebeständig) |
-| Sensor | NTC 100 kΩ |
+| Sensor | **NTC 100 kΩ (Pflicht)** |
+| Leitungsmaterial | PFA (bis 260 °C) oder Glasseide (bis 400 °C) |
 | Schaltungsart | 2-Draht |
-| Kabellänge PFA 2-Leiter | 2 m |
-| Einbaulänge | 50 mm |
-| Schutzart | IP54 |
+| Kabellänge | nach Gegebenheiten im Heizungskeller (Beispiel: 2 m) |
+| Einbaulänge | 50 mm passt zu einem Abgasrohr mit 100 mm Durchmesser |
+| Schutzart | IP54 genügt, IP67 ist besser |
 
-Maße laut Zeichnung: Gewinde G1/4", Schutzrohr Ø 6 mm, Schlüsselweite SW 19, Einbaulänge EL = 50 mm (gewählt).
+Maße laut Zeichnung: Gewinde G1/4", Schutzrohr Ø 6 mm, Schlüsselweite SW 19, Einbaulänge EL (z. B. 50 mm).
 
 <img src="sensorshop24_masszeichnung_g14.png" width="400" alt="Maßzeichnung Einschraubfühler G1/4">
 
-Maximale Einsatztemperatur je nach Leitung (Herstellerangabe): PVC 105 °C, Silikon 180 °C, **PFA 260 °C**, Glasseide 400 °C. PFA ist die kleinste Variante, die über der maximalen Abgasschwelle von 250 °C liegt. Glasseide bringt mehr Reserve, falls die Leitung nahe am Abgasrohr verläuft.
+Maximale Einsatztemperatur je nach Leitung (Herstellerangabe): PVC 105 °C, Silikon 180 °C, **PFA 260 °C**, Glasseide 400 °C. Geeignet sind deshalb nur PFA und Glasseide, denn die Abgasschwelle lässt sich bis 250 °C einstellen.
 
 <img src="sensorshop24_ef3t.png" width="320" alt="Einschraubfühler G1/4 mit PFA-Leitung"> <img src="sensorshop24_varianten.png" width="320" alt="Leitungsvarianten mit Temperaturgrenzen"> <img src="sensorshop24_leitungen.png" width="400" alt="Maßzeichnung Leitungsvarianten"><br>
 <sub>Bilder: © sensorshop24. Mitte die Varianten mit Temperaturgrenze, rechts die Leitungsvarianten (PVC, Silikon, PFA, Glasseide) mit 50 mm abisolierten Adern und Aderendhülsen; gewählt ist PFA.</sub>
