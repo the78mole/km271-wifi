@@ -13,12 +13,15 @@ Die Vermutung, dass 1 Ω allein den ESP32 an den Brown-out bringt, bestätigt di
 
 ## Modell
 
-```
- V0 = 5,0 V ──[ Ri = 1 Ω ]──● J1 (Steckplatz)
-                            │
-           alt:  J3-Jumper ─┴─ +5V ─ AZ1117 ─ +3V3 ─ Last
-           neu:  D9 1N5819WS ─ +5V ─ TPS62162 + L1 ─ +3V3 ─ Last
-```
+**Alt** (bis v0.1.0)
+
+![Schaltplan alt](schematic_ldo.svg)
+
+**Neu** (S3-Stand)
+
+![Schaltplan neu](schematic_buck.svg)
+
+Die Schaltpläne zeigen die simulierten Netzwerke. Die 100-nF-Kondensatoren sind zusammengefasst, und D10 (SMAJ5.0A) ist weggelassen.
 
 | Größe | Wert | Herkunft |
 |---|---|---|
@@ -108,7 +111,9 @@ Der Buck ist auch gegen diese Effekte die bessere Wahl: weniger Eingangsstrom un
 ```bash
 sudo apt install ngspice
 pip install numpy matplotlib
-python3 sim.py   # erzeugt die PNGs und gibt die Tabellenwerte aus
+pip install schemdraw          # nur für die Schaltpläne
+python3 sim.py                 # erzeugt die Plots und gibt die Tabellenwerte aus
+python3 schematics.py          # erzeugt schematic_*.svg/.png
 ```
 
 Parameter (V0, RI, I_STEP …) stehen oben in `sim.py`.
