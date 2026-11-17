@@ -76,10 +76,10 @@ Der Fehler ist berechnet als die Temperatur, die eine auf die Kurve ohne D5 kali
 | Einbaulänge | 50 mm |
 | Schutzart | IP54 |
 
-Fühler bis 260 °C einsetzbar (Herstellerangabe), also oberhalb der Abgasschwelle von maximal 250 °C.
+Maximale Einsatztemperatur je nach Leitung (Herstellerangabe): PVC 105 °C, Silikon 180 °C, **PFA 260 °C**, Glasseide 400 °C. PFA ist die kleinste Variante, die über der maximalen Abgasschwelle von 250 °C liegt. Glasseide bringt mehr Reserve, falls die Leitung nahe am Abgasrohr verläuft.
 
-<img src="sensorshop24_ef3t.png" width="320" alt="Einschraubfühler G1/4 mit PFA-Leitung"> <img src="sensorshop24_leitungen.png" width="400" alt="Maßzeichnung Leitungsvarianten"><br>
-<sub>Bilder: © sensorshop24. Rechts die Leitungsvarianten (PVC, Silikon, PFA, Glasseide) mit 50 mm abisolierten Adern und Aderendhülsen; gewählt ist PFA.</sub>
+<img src="sensorshop24_ef3t.png" width="320" alt="Einschraubfühler G1/4 mit PFA-Leitung"> <img src="sensorshop24_varianten.png" width="320" alt="Leitungsvarianten mit Temperaturgrenzen"> <img src="sensorshop24_leitungen.png" width="400" alt="Maßzeichnung Leitungsvarianten"><br>
+<sub>Bilder: © sensorshop24. Mitte die Varianten mit Temperaturgrenze, rechts die Leitungsvarianten (PVC, Silikon, PFA, Glasseide) mit 50 mm abisolierten Adern und Aderendhülsen; gewählt ist PFA.</sub>
 
 Tabelle: [sensorshop24 NTC 100k](https://www.sensorshop24.de/kennlinien/ntc-100k-tabelle), übernommen in [`ntc100k_sensorshop24.csv`](ntc100k_sensorshop24.csv) (10-K-Schritte bis 160 °C, danach nur noch 250 °C). Die Spalte „Anzeige“ ist die Temperatur, die eine Logamatic mit FG-Kennlinie aus dem Widerstand des sensorshop24-Fühlers ermitteln würde.
 
