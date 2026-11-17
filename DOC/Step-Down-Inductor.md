@@ -1,6 +1,6 @@
 # L1 im 3V3-Wandler: alte gegen neue Speicherdrossel
 
-Diese Seite vergleicht per Simulation die bisherige und die neue Speicherdrossel L1 des Abwärtswandlers U8 (TPS62162, 5 V → 3,3 V). Trotz des Dateinamens geht es um den Step-down-Wandler, einen Step-up-Wandler gibt es auf dem Board nicht.
+Diese Seite vergleicht per Simulation die bisherige und die neue Speicherdrossel L1 des Abwärtswandlers U8 (TPS62162, 5 V → 3,3 V).
 
 | | alt | neu |
 |---|---|---|
@@ -23,9 +23,9 @@ Die neue Drossel ist damit für diese Anwendung ohne Einschränkung geeignet.
 
 ## Simulierte Schaltung
 
-![Schaltbild](Step-Up-Inductors/schematic_l1.png)
+![Schaltbild](Step-Down-Inductor/schematic_l1.png)
 
-Die Quelle ist dieselbe wie in der [Versorgungsanalyse](Power-Analysis/README.md): Buderus-5V mit 5,0 V Leerlauf und 1 Ω Innenwiderstand, dahinter D9. Die Kondensatoren sind zusammengefasst (Vektorfassung: [schematic_l1.svg](Step-Up-Inductors/schematic_l1.svg)).
+Die Quelle ist dieselbe wie in der [Versorgungsanalyse](Power-Analysis/README.md): Buderus-5V mit 5,0 V Leerlauf und 1 Ω Innenwiderstand, dahinter D9. Die Kondensatoren sind zusammengefasst (Vektorfassung: [schematic_l1.svg](Step-Down-Inductor/schematic_l1.svg)).
 
 | Teil | Modell |
 |---|---|
@@ -38,13 +38,13 @@ Die Quelle ist dieselbe wie in der [Versorgungsanalyse](Power-Analysis/README.md
 
 Das Modell schaltet Zyklus für Zyklus und wird mit 1 ns Schrittweite gerechnet. Herstellermodelle werden nicht verwendet. Die Sättigungskennlinie ist angenommen, weil die Datenblätter nur Isat bei 30 % Abfall angeben. Die Form gilt für geformte Metallpulver-Drosseln, die weich sättigen, und beide Drosseln gehören zu dieser Bauart.
 
-![Kennlinie](Step-Up-Inductors/l_kennlinie.png)
+![Kennlinie](Step-Down-Inductor/l_kennlinie.png)
 
 Im Betrieb (≈0,6 A) liegen beide Kurven aufeinander. Erst in der Strombegrenzung (≈2,5 A) wird der Unterschied von 4,05 zu 3,8 A Isat sichtbar, und auch dort beträgt er nur etwa 1,5 %.
 
 ## Dauerlast 460 mA
 
-![Dauerlast](Step-Up-Inductors/dauerlast_460mA.png)
+![Dauerlast](Step-Down-Inductor/dauerlast_460mA.png)
 
 | | alt | neu |
 |---|---:|---:|
@@ -58,7 +58,7 @@ Mit −20 % Induktivität (Toleranzgrenze, gilt für beide Typen gleich) steigt 
 
 ## Lastsprung
 
-![Lastsprung](Step-Up-Inductors/lastsprung.png)
+![Lastsprung](Step-Down-Inductor/lastsprung.png)
 
 | | alt | neu |
 |---|---:|---:|
@@ -70,7 +70,7 @@ Bei 60 mA arbeitet der Wandler im Power-Save-Modus (lückender Strom). Die Sprun
 
 ## Kurzschluss und Strombegrenzung
 
-![Kurzschluss](Step-Up-Inductors/ueberlast.png)
+![Kurzschluss](Step-Down-Inductor/ueberlast.png)
 
 Die Strombegrenzung ist auf den oberen Datenblattwert ILIMF = 2,45 A gesetzt. Dazu kommen 30 ns Abschaltverzug. Nach dem Abschalten bleibt der High-Side-Schalter aus, bis der Strom unter 1,2 A gefallen ist.
 
@@ -85,7 +85,7 @@ Der Spitzenstrom wird von der Strombegrenzung und nicht von der Drossel bestimmt
 
 ## Verluste und Wirkungsgrad
 
-![Verluste](Step-Up-Inductors/verluste.png)
+![Verluste](Step-Down-Inductor/verluste.png)
 
 | Last an +3V3 | DCR-Verlust alt | DCR-Verlust neu | Wandler alt | Wandler neu | ab Buderus alt | ab Buderus neu |
 |---:|---:|---:|---:|---:|---:|---:|
@@ -101,7 +101,7 @@ Der Mehrverlust von 5,5 mW bei 460 mA ändert den Strom aus der Buderus um etwa 
 ## Reproduzieren
 
 ```bash
-cd DOC/Step-Up-Inductors
+cd DOC/Step-Down-Inductor
 python3 sim.py        # Plots, Zahlen auf stdout (numpy, matplotlib, ~10 s)
 python3 schematic.py  # Schaltbild als SVG (schemdraw); das PNG ist daraus gerendert
 ```
