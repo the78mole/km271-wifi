@@ -76,6 +76,11 @@ Der Fehler ist berechnet als die Temperatur, die eine auf die Kurve ohne D5 kali
 | Einbaulänge | 50 mm |
 | Schutzart | IP54 |
 
+Fühler bis 260 °C einsetzbar (Herstellerangabe), also oberhalb der Abgasschwelle von maximal 250 °C.
+
+<img src="sensorshop24_ef3t.png" width="320" alt="Einschraubfühler G1/4 mit PFA-Leitung"><br>
+<sub>Bild: sensorshop24</sub>
+
 Tabelle: [sensorshop24 NTC 100k](https://www.sensorshop24.de/kennlinien/ntc-100k-tabelle), übernommen in [`ntc100k_sensorshop24.csv`](ntc100k_sensorshop24.csv) (10-K-Schritte bis 160 °C, danach nur noch 250 °C). Die Spalte „Anzeige“ ist die Temperatur, die eine Logamatic mit FG-Kennlinie aus dem Widerstand des sensorshop24-Fühlers ermitteln würde.
 
 | T [°C] | R sensorshop24 [kΩ] | R FG [kΩ] | Anzeigefehler [K] |
