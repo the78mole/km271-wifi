@@ -63,6 +63,23 @@ Der Fehler ist berechnet als die Temperatur, die eine auf die Kurve ohne D5 kali
 
 ![Fehler](abgas_fehler_d5.png)
 
+## Vergleich mit dem 100k-NTC von sensorshop24
+
+Tabelle: [sensorshop24 NTC 100k](https://www.sensorshop24.de/kennlinien/ntc-100k-tabelle), übernommen in [`ntc100k_sensorshop24.csv`](ntc100k_sensorshop24.csv) (10-K-Schritte bis 160 °C, danach nur noch 250 °C). Die Spalte „Anzeige“ ist die Temperatur, die eine Logamatic mit FG-Kennlinie aus dem Widerstand des sensorshop24-Fühlers ermitteln würde.
+
+| T [°C] | R sensorshop24 [kΩ] | R FG [kΩ] | Anzeigefehler [K] |
+|---|---|---|---|
+| 25 | 100,0 | 97,3 | −0,6 |
+| 50 | 35,56 | 35,69 | +0,1 |
+| 80 | 12,41 | 12,64 | +0,6 |
+| 100 | 6,66 | 6,84 | +0,9 |
+| 120 | 3,79 | 3,89 | +1,0 |
+| 150 | 1,78 | 1,82 | +1,0 |
+| 160 | 1,42 | 1,45 | +0,8 |
+| 250 | 0,26 | 0,27 | 0,0 |
+
+Laut den Tabellen passen beide Kennlinien bis 250 °C auf etwa ±1 K (B25/100 ≈ 4019 K, B25/250 ≈ 4126 K beim sensorshop24-Fühler). Zwischen 160 und 250 °C hat die sensorshop24-Tabelle keine Stützstellen, dort ist nur interpoliert. Eine Abweichung von 10…20 K in der Praxis lässt sich aus den Nennkennlinien nicht erklären. Wahrscheinlicher sind Einbau und Wärmeankopplung im Abgasrohr, die Exemplarstreuung (B-Toleranz wirkt bei hohen Temperaturen am stärksten) oder die Umrechnung in der Logamatic.
+
 ## Modell und Grenzen
 
 - **Statische Rechnung (DC).** C11/C12 spielen für die Kennlinie keine Rolle. Gelöst wird der Knoten ATS+ numerisch (Bisektion).
