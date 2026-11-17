@@ -83,9 +83,9 @@ Maße laut Zeichnung: Gewinde G1/4", Schutzrohr Ø 6 mm, Schlüsselweite SW 19, 
 Maximale Einsatztemperatur je nach Leitung (Herstellerangabe): PVC 105 °C, Silikon 180 °C, **PFA 260 °C**, Glasseide 400 °C. Geeignet sind deshalb nur PFA und Glasseide, denn die Abgasschwelle lässt sich bis 250 °C einstellen.
 
 <img src="sensorshop24_ef3t.png" width="320" alt="Einschraubfühler G1/4 mit PFA-Leitung"> <img src="sensorshop24_varianten.png" width="320" alt="Leitungsvarianten mit Temperaturgrenzen"> <img src="sensorshop24_leitungen.png" width="400" alt="Maßzeichnung Leitungsvarianten"><br>
-<sub>Bilder: © sensorshop24. Mitte die Varianten mit Temperaturgrenze, rechts die Leitungsvarianten (PVC, Silikon, PFA, Glasseide) mit 50 mm abisolierten Adern und Aderendhülsen; gewählt ist PFA.</sub>
+<sub>Bilder: © sensorshop24. Mitte die Varianten mit Temperaturgrenze, rechts die Leitungsvarianten (PVC, Silikon, PFA, Glasseide) mit 50 mm abisolierten Adern und Aderendhülsen; geeignet sind PFA und Glasseide.</sub>
 
-Tabelle: [sensorshop24 NTC 100k](https://www.sensorshop24.de/kennlinien/ntc-100k-tabelle), übernommen in [`ntc100k_sensorshop24.csv`](ntc100k_sensorshop24.csv) (10-K-Schritte bis 160 °C, danach nur noch 250 °C). Die Spalte „Anzeige“ ist die Temperatur, die eine Logamatic mit FG-Kennlinie aus dem Widerstand des sensorshop24-Fühlers ermitteln würde.
+Tabelle: [sensorshop24 NTC 100k](https://www.sensorshop24.de/kennlinien/ntc-100k-tabelle), übernommen in [`ntc100k_sensorshop24.csv`](ntc100k_sensorshop24.csv) (10-K-Schritte bis 160 °C, danach nur noch 250 °C). Der Anzeigefehler ist die Abweichung der Temperatur, die eine Logamatic mit FG-Kennlinie aus dem Widerstand des sensorshop24-Fühlers ermitteln würde.
 
 | T [°C] | R sensorshop24 [kΩ] | R FG [kΩ] | Anzeigefehler [K] |
 |---|---|---|---|
