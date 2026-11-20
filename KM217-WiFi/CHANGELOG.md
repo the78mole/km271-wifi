@@ -15,6 +15,10 @@
 	  * U3 WE-TVS 82400102 ESD protection on the USB data lines, R69/R70 (2R2) in series for EMC
 	  * D6/D7 TX/RX LEDs on the CP2102N
 	  * J4 DEBUG header no longer populated by default
+	  * JP1 (D+) / JP2 (D-) 3-pad solder jumpers select the USB data path: 1-2 (default, bridged) = ESP32-S3 native USB (GPIO19/20), 2-3 = CP2102N (recovery). With the S3 path only, U10, Q1/Q2 and their parts can stay unpopulated
+	  * S3_D+/S3_D- routed as coupled pair (0.2 mm, 0.4 mm pitch) to U1 pads 14/13; GND stitching vias along the route moved, GND via added in U10 exposed pad
+	  * Fix: SRV05-4 (U3) is not flow-through; D+/D- now connect to both pins of each channel (3/4, 1/6) directly behind J2 instead of passing through U3 pin 4 -> 3
+	  * Solder jumper footprint: pin-1 marker moved left of pad 1 so stacked jumpers do not overlap on silkscreen
     - Removed: I2C EEPROM (old U3), I2C-OneWire bridge DS2484 (U7), test points TP1-TP4
     - OneWire on IO32 populated by default (R49 1K pull-up via R57)
     - BOM: generated with scripts/export-jlc-bom.sh (DNP-aware grouping)
