@@ -8057,12 +8057,6 @@
 		(uuid "099096e4-8c2a-4d84-a16f-06b4b6330e7a")
 	)
 	(junction
-		(at 41.91 127)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0aeadb5f-5c8b-47ec-861d-e2797f1bf508")
-	)
-	(junction
 		(at 35.56 252.73)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8273,7 +8267,7 @@
 		(uuid "6ede6114-51e5-4d04-a756-342dd1673cf9")
 	)
 	(junction
-		(at 27.94 127)
+		(at 27.94 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "704821b3-86d2-4870-b858-9f0a0188703d")
@@ -8295,12 +8289,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "77fc008f-94a4-43af-92f8-4acf7aa04b31")
-	)
-	(junction
-		(at 41.91 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7937b1db-285c-49b1-beab-74e81195fcb8")
 	)
 	(junction
 		(at 353.06 129.54)
@@ -8339,22 +8327,10 @@
 		(uuid "82be7aae-5d06-4178-8c3e-98760c41b054")
 	)
 	(junction
-		(at 50.8 107.95)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "853cad04-f563-4714-8c53-9b55b822666e")
-	)
-	(junction
 		(at 226.06 31.75)
 		(diameter 0.9144)
 		(color 0 0 0 0)
 		(uuid "87febb17-4b85-424b-9d03-cf8acb66a372")
-	)
-	(junction
-		(at 41.91 115.57)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8863640f-d583-4b0b-8bcc-eea084935021")
 	)
 	(junction
 		(at 96.52 22.86)
@@ -8367,12 +8343,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "8c475bb3-3502-4a84-8d9d-ce278703b11b")
-	)
-	(junction
-		(at 60.96 127)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "90c35130-feef-4928-8b3a-bba2828eccc0")
 	)
 	(junction
 		(at 107.95 227.33)
@@ -8713,15 +8683,11 @@
 		(uuid "ac2d7cf9-c7e0-4a62-a6fc-8a9476d05203")
 	)
 	(no_connect
-		(at 344.17 191.77)
-		(uuid "ac9d5fba-08b7-4e08-a25d-f714795a21d8")
-	)
-	(no_connect
 		(at 344.17 224.79)
 		(uuid "ad0aabbe-24ea-4711-bcfc-03a9eee0147d")
 	)
 	(no_connect
-		(at 30.48 118.11)
+		(at 30.48 143.51)
 		(uuid "b38c3d1d-1723-450e-8766-9934f245e54a")
 	)
 	(no_connect
@@ -8739,10 +8705,6 @@
 	(no_connect
 		(at 110.49 16.51)
 		(uuid "d4232d04-d50b-4471-9bc0-7b830b7d3cd5")
-	)
-	(no_connect
-		(at 344.17 194.31)
-		(uuid "d78fc7a3-8006-4b64-a69e-1a19ffcbb030")
 	)
 	(no_connect
 		(at 95.25 148.59)
@@ -9126,7 +9088,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 127) (xy 27.94 128.27)
+			(xy 27.94 152.4) (xy 27.94 153.67)
 		)
 		(stroke
 			(width 0)
@@ -9306,16 +9268,6 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 107.95) (xy 41.91 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1cbb7a42-8c91-4967-b188-57a006b06a25")
-	)
-	(wire
-		(pts
 			(xy 72.39 264.16) (xy 73.66 264.16)
 		)
 		(stroke
@@ -9323,16 +9275,6 @@
 			(type default)
 		)
 		(uuid "1da9cd62-e318-4f5b-9c2a-ec51ca951040")
-	)
-	(wire
-		(pts
-			(xy 58.42 115.57) (xy 60.96 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1db90da6-1cd3-4d84-ae95-1cdfb272b76b")
 	)
 	(wire
 		(pts
@@ -9706,16 +9648,6 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 118.11) (xy 40.64 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "30a7835e-cf10-4786-9650-a2f01aa94503")
-	)
-	(wire
-		(pts
 			(xy 372.11 127) (xy 372.11 118.11)
 		)
 		(stroke
@@ -9723,16 +9655,6 @@
 			(type default)
 		)
 		(uuid "3158e545-496c-4d68-b1c3-2133a4431358")
-	)
-	(wire
-		(pts
-			(xy 41.91 107.95) (xy 41.91 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3210e862-b178-4369-9615-9d8b2362f6fb")
 	)
 	(wire
 		(pts
@@ -9986,16 +9908,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 110.49) (xy 68.58 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3af30d04-9a81-48f2-8a17-bf68ed13c966")
-	)
-	(wire
-		(pts
 			(xy 92.71 195.58) (xy 92.71 209.55)
 		)
 		(stroke
@@ -10076,16 +9988,6 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 114.3) (xy 67.31 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3dcaccfe-6413-4c81-841a-b8abab6e07c4")
-	)
-	(wire
-		(pts
 			(xy 140.97 139.7) (xy 140.97 140.97)
 		)
 		(stroke
@@ -10126,7 +10028,7 @@
 	)
 	(wire
 		(pts
-			(xy 20.32 123.19) (xy 20.32 127)
+			(xy 20.32 148.59) (xy 20.32 152.4)
 		)
 		(stroke
 			(width 0)
@@ -10276,16 +10178,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 107.95) (xy 68.58 110.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "48ee05fa-f286-4ad5-a4e2-d514ea3f278b")
-	)
-	(wire
-		(pts
 			(xy 160.02 158.75) (xy 133.35 158.75)
 		)
 		(stroke
@@ -10323,26 +10215,6 @@
 			(type default)
 		)
 		(uuid "4aacbab7-82ce-416c-8cc9-8485359db681")
-	)
-	(wire
-		(pts
-			(xy 30.48 113.03) (xy 33.02 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4bfd2102-77fc-4d40-9775-0295939989c9")
-	)
-	(wire
-		(pts
-			(xy 30.48 115.57) (xy 33.02 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4c2379ce-5379-4479-ad77-f65fdfbcc300")
 	)
 	(wire
 		(pts
@@ -10413,16 +10285,6 @@
 			(type default)
 		)
 		(uuid "517f52f9-b7c3-43a4-9697-3d90d70b62a8")
-	)
-	(wire
-		(pts
-			(xy 67.31 113.03) (xy 69.85 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "51ae2dac-dd15-4bb3-979c-1271622d0e40")
 	)
 	(wire
 		(pts
@@ -10506,16 +10368,6 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 118.11) (xy 64.77 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5880706a-77fa-4d65-a499-0cee61a390ff")
-	)
-	(wire
-		(pts
 			(xy 248.92 49.53) (xy 248.92 53.34)
 		)
 		(stroke
@@ -10553,16 +10405,6 @@
 			(type default)
 		)
 		(uuid "5ad280ef-e12c-4db9-8ead-86a3a08bb957")
-	)
-	(wire
-		(pts
-			(xy 41.91 115.57) (xy 41.91 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5b131a8d-3cc2-42e9-90fe-8bf9f7ae4496")
 	)
 	(wire
 		(pts
@@ -10663,16 +10505,6 @@
 			(type default)
 		)
 		(uuid "5fe63136-85e4-4e55-8dd7-b642922f5b35")
-	)
-	(wire
-		(pts
-			(xy 60.96 127) (xy 68.58 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "608faf50-16b0-4ce3-85a3-09ee8fb473fc")
 	)
 	(wire
 		(pts
@@ -11166,16 +10998,6 @@
 	)
 	(wire
 		(pts
-			(xy 38.1 115.57) (xy 40.64 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7b636a7a-cc8f-40d0-9c34-49d4cfe8fd40")
-	)
-	(wire
-		(pts
 			(xy 129.54 125.73) (xy 129.54 127)
 		)
 		(stroke
@@ -11406,16 +11228,6 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 127) (xy 60.96 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8744e901-6336-43cc-8397-29a5c6e52516")
-	)
-	(wire
-		(pts
 			(xy 120.65 106.68) (xy 121.92 106.68)
 		)
 		(stroke
@@ -11546,7 +11358,7 @@
 	)
 	(wire
 		(pts
-			(xy 21.59 127) (xy 20.32 127)
+			(xy 21.59 152.4) (xy 20.32 152.4)
 		)
 		(stroke
 			(width 0)
@@ -11646,16 +11458,6 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 115.57) (xy 60.96 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "90c284e7-5f3a-4d71-986f-4ee0f689dafd")
-	)
-	(wire
-		(pts
 			(xy 82.55 91.44) (xy 86.36 91.44)
 		)
 		(stroke
@@ -11663,16 +11465,6 @@
 			(type default)
 		)
 		(uuid "91f147c0-293b-4e17-b696-b22476f8ea9d")
-	)
-	(wire
-		(pts
-			(xy 67.31 107.95) (xy 68.58 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "925d0c7e-98af-45db-9dff-839b6919c01a")
 	)
 	(wire
 		(pts
@@ -11763,16 +11555,6 @@
 			(type default)
 		)
 		(uuid "9681cd5a-a53a-4611-862a-701bc2a653c4")
-	)
-	(wire
-		(pts
-			(xy 50.8 87.63) (xy 50.8 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "97e04498-d88e-41bb-a1f0-866305c40c24")
 	)
 	(wire
 		(pts
@@ -11916,7 +11698,7 @@
 	)
 	(wire
 		(pts
-			(xy 26.67 127) (xy 27.94 127)
+			(xy 26.67 152.4) (xy 27.94 152.4)
 		)
 		(stroke
 			(width 0)
@@ -12196,16 +11978,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 113.03) (xy 66.04 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a8c3a876-ebb2-439a-8c9a-e51b2e1602c1")
-	)
-	(wire
-		(pts
 			(xy 96.52 218.44) (xy 97.79 218.44)
 		)
 		(stroke
@@ -12396,16 +12168,6 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 113.03) (xy 66.04 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b11a2cc2-5eab-436e-a9f7-ab60381775dc")
-	)
-	(wire
-		(pts
 			(xy 377.19 113.03) (xy 364.49 113.03)
 		)
 		(stroke
@@ -12446,16 +12208,6 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 114.3) (xy 64.77 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b35f688c-4607-4f79-9ea2-f1c8912927eb")
-	)
-	(wire
-		(pts
 			(xy 135.89 161.29) (xy 135.89 163.83)
 		)
 		(stroke
@@ -12463,16 +12215,6 @@
 			(type solid)
 		)
 		(uuid "b44a77f1-36fc-4790-8a27-207dff9d55fb")
-	)
-	(wire
-		(pts
-			(xy 38.1 113.03) (xy 43.18 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b4514021-b1b6-4d6b-bd53-033b14e08ee8")
 	)
 	(wire
 		(pts
@@ -12766,7 +12508,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 124.46) (xy 27.94 124.46)
+			(xy 22.86 149.86) (xy 27.94 149.86)
 		)
 		(stroke
 			(width 0)
@@ -12826,16 +12568,6 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 124.46) (xy 41.91 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ca6a3717-b213-4739-93fb-7f77e302b2fe")
-	)
-	(wire
-		(pts
 			(xy 153.67 146.05) (xy 153.67 151.13)
 		)
 		(stroke
@@ -12863,26 +12595,6 @@
 			(type default)
 		)
 		(uuid "cb38d112-9890-4244-8345-15f11dd962f5")
-	)
-	(wire
-		(pts
-			(xy 40.64 118.11) (xy 40.64 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb57fa15-04f3-4955-b4fa-aa55d7adc9aa")
-	)
-	(wire
-		(pts
-			(xy 27.94 127) (xy 41.91 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb79658f-dda9-4713-9235-70b89bffd7a7")
 	)
 	(wire
 		(pts
@@ -12966,7 +12678,7 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 123.19) (xy 22.86 124.46)
+			(xy 22.86 148.59) (xy 22.86 149.86)
 		)
 		(stroke
 			(width 0)
@@ -13093,26 +12805,6 @@
 			(type default)
 		)
 		(uuid "d41a04e1-630a-44ef-ad1c-64b4ddc32ce6")
-	)
-	(wire
-		(pts
-			(xy 67.31 114.3) (xy 67.31 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d42f11c2-bec8-41db-ba78-281c8dac2c91")
-	)
-	(wire
-		(pts
-			(xy 66.04 115.57) (xy 69.85 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d552731e-117b-43a7-8dc7-e6651f496f49")
 	)
 	(wire
 		(pts
@@ -13256,16 +12948,6 @@
 	)
 	(wire
 		(pts
-			(xy 41.91 115.57) (xy 43.18 115.57)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0f93b37-529f-45a3-9a25-2411d8ab93fc")
-	)
-	(wire
-		(pts
 			(xy 353.06 90.17) (xy 353.06 87.63)
 		)
 		(stroke
@@ -13313,16 +12995,6 @@
 			(type default)
 		)
 		(uuid "e6e31496-4b06-4a4e-aade-5e7f70812d95")
-	)
-	(wire
-		(pts
-			(xy 41.91 107.95) (xy 62.23 107.95)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e6e50a3e-3e2f-42ce-bcbc-1cb20648153b")
 	)
 	(wire
 		(pts
@@ -13706,7 +13378,7 @@
 	)
 	(wire
 		(pts
-			(xy 27.94 124.46) (xy 27.94 127)
+			(xy 27.94 149.86) (xy 27.94 152.4)
 		)
 		(stroke
 			(width 0)
@@ -13773,16 +13445,6 @@
 			(type default)
 		)
 		(uuid "f66bb402-6372-4706-8590-ce8e09ae177a")
-	)
-	(wire
-		(pts
-			(xy 68.58 123.19) (xy 68.58 127)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f68b87de-3876-4a84-b3be-b6b937fbe7dd")
 	)
 	(wire
 		(pts
@@ -16808,8 +16470,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:R_Small")
-		(at 68.58 120.65 0)
-		(mirror y)
+		(at 64.77 110.49 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -16817,31 +16478,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "10c2d494-5f4f-4104-b49c-58f5e572a63f")
+		(uuid "a1fa67dc-4df8-4fd3-a078-2a00d6cdf03f")
 		(property "Reference" "R72"
-			(at 67.31 120.0149 0)
+			(at 64.77 108.458 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "47K"
-			(at 67.31 122.5549 0)
+			(at 64.77 112.522 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16852,7 +16511,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16863,7 +16522,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16874,7 +16533,7 @@
 			)
 		)
 		(property "JLC" "C25819"
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16885,7 +16544,7 @@
 			)
 		)
 		(property "MPN" "0603WAF4702T5E"
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16896,7 +16555,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16907,7 +16566,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16918,7 +16577,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16929,7 +16588,7 @@
 			)
 		)
 		(property "LCSC" "C25819"
-			(at 68.58 120.65 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16940,7 +16599,7 @@
 			)
 		)
 		(property "LCSCstock" "2563072"
-			(at 0 0 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16951,7 +16610,7 @@
 			)
 		)
 		(property "LCSCprice" "0.002"
-			(at 0 0 0)
+			(at 64.77 110.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -16962,10 +16621,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "fc3bef31-6dfa-461f-a1c0-ed4fd2660d63")
+			(uuid "e3bbe577-30b1-46fb-91a9-10921061c4fa")
 		)
 		(pin "2"
-			(uuid "3f7d1fb4-d5da-4c3f-be3b-e28f03a2244f")
+			(uuid "00abb73a-47ac-40aa-b358-2d9673178f10")
 		)
 		(instances
 			(project "KM217-WiFi"
@@ -19821,7 +19480,7 @@
 			)
 		)
 		(property "Value" "680"
-			(at 359.41 195.58 90)
+			(at 359.41 198.374 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20304,7 +19963,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:WE-TVS-82400102")
-		(at 50.8 115.57 180)
+		(at 50.8 143.51 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -20314,7 +19973,7 @@
 		(dnp no)
 		(uuid "2ff6f6fe-0f08-4ec5-a79d-2d66a0b30e6e")
 		(property "Reference" "U3"
-			(at 46.99 121.158 0)
+			(at 50.8 152.4 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20324,7 +19983,7 @@
 			)
 		)
 		(property "Value" "SRV05-4"
-			(at 51.816 109.982 0)
+			(at 50.8 150.495 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -20334,7 +19993,7 @@
 			)
 		)
 		(property "Footprint" "KM217-WiFi:SOT-23-6"
-			(at 50.8 110.49 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20345,7 +20004,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/product-detail/C7420376.html"
-			(at 50.8 109.22 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20356,7 +20015,7 @@
 			)
 		)
 		(property "Description" "4-channel low capacitance TVS diode array, 5V, SOT-23-6"
-			(at 50.8 115.57 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20367,7 +20026,7 @@
 			)
 		)
 		(property "JLC" "C7420376"
-			(at 50.8 115.57 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20378,7 +20037,7 @@
 			)
 		)
 		(property "LCSC" "C7420376"
-			(at 50.8 115.57 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20389,7 +20048,7 @@
 			)
 		)
 		(property "LCSCstock" "562867"
-			(at 0 0 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -20400,7 +20059,7 @@
 			)
 		)
 		(property "LCSCprice" "0.0851"
-			(at 0 0 0)
+			(at 50.8 143.51 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21303,7 +20962,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:R_Small")
-		(at 35.56 115.57 90)
+		(at 60.96 151.13 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -21311,29 +20970,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "36074767-9851-42b6-b9b0-e718bebc45db")
+		(uuid "63f01ea2-f024-46af-a0cf-ca67a48f0aa6")
 		(property "Reference" "R70"
-			(at 33.782 117.856 90)
+			(at 59.69 151.13 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "2R2"
-			(at 38.1 117.856 90)
+			(at 59.69 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21344,7 +21005,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21355,7 +21016,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21366,7 +21027,7 @@
 			)
 		)
 		(property "JLC" "C22939"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21377,7 +21038,7 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21388,7 +21049,7 @@
 			)
 		)
 		(property "MPN" "R0603_0"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21399,7 +21060,7 @@
 			)
 		)
 		(property "Price" "0,001"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21410,7 +21071,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21421,7 +21082,7 @@
 			)
 		)
 		(property "LCSC" "C22939"
-			(at 35.56 115.57 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21432,7 +21093,7 @@
 			)
 		)
 		(property "LCSCstock" "245383"
-			(at 0 0 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21443,7 +21104,7 @@
 			)
 		)
 		(property "LCSCprice" "0.003"
-			(at 0 0 0)
+			(at 60.96 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -21454,10 +21115,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4214c53a-742d-4f89-a8a0-850275bb0e7c")
+			(uuid "618de7a4-a440-429d-bc65-47c8047c7f4a")
 		)
 		(pin "2"
-			(uuid "4956788e-f2d1-4bde-abf0-8fade534d83c")
+			(uuid "2dfb06c0-175c-41e4-9339-b22ab284f51a")
 		)
 		(instances
 			(project "KM217-WiFi"
@@ -24390,7 +24051,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:GND")
-		(at 27.94 128.27 0)
+		(at 27.94 153.67 0)
 		(mirror y)
 		(unit 1)
 		(body_style 1)
@@ -24401,7 +24062,7 @@
 		(dnp no)
 		(uuid "48efe79d-3314-482b-b084-b9afb8b2d4af")
 		(property "Reference" "#PWR029"
-			(at 27.94 134.62 0)
+			(at 27.94 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24412,7 +24073,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 27.94 133.35 0)
+			(at 27.94 158.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -24422,7 +24083,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 27.94 128.27 0)
+			(at 27.94 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24433,7 +24094,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 27.94 128.27 0)
+			(at 27.94 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -24444,7 +24105,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 27.94 128.27 0)
+			(at 27.94 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25540,8 +25201,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:C_Small")
-		(at 41.91 121.92 0)
-		(mirror x)
+		(at 46.99 133.35 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -25551,29 +25211,27 @@
 		(dnp no)
 		(uuid "5172727e-529a-4fb9-af99-d1ef728e5dba")
 		(property "Reference" "C19"
-			(at 41.148 123.698 0)
+			(at 46.99 128.905 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Value" "100n"
-			(at 41.148 125.73 0)
+			(at 46.99 130.81 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" "KM217-WiFi:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25584,7 +25242,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25595,7 +25253,7 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25606,7 +25264,7 @@
 			)
 		)
 		(property "JLC" "C14663"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25617,7 +25275,7 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25628,7 +25286,7 @@
 			)
 		)
 		(property "MPN" "C0603_100n"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25639,7 +25297,7 @@
 			)
 		)
 		(property "Price" "0,002"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25650,7 +25308,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25661,7 +25319,7 @@
 			)
 		)
 		(property "LCSC" "C14663"
-			(at 41.91 121.92 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25672,7 +25330,7 @@
 			)
 		)
 		(property "LCSCstock" "36552897"
-			(at 0 0 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -25683,7 +25341,7 @@
 			)
 		)
 		(property "LCSCprice" "0.01"
-			(at 0 0 0)
+			(at 46.99 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -29028,83 +28686,6 @@
 		)
 	)
 	(symbol
-		(lib_id "KM217-WiFi:VBUS")
-		(at 50.8 87.63 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "6c4735b5-4642-45b0-8acf-4f5c780a69f4")
-		(property "Reference" "#PWR030"
-			(at 50.8 91.44 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VBUS"
-			(at 50.8 83.82 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 50.8 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 50.8 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VBUS\""
-			(at 50.8 87.63 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "79b7591a-39c4-42e6-b699-e10bb1122f1b")
-		)
-		(instances
-			(project "KM217-WiFi"
-				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
-					(reference "#PWR030")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "KM217-WiFi:LED")
 		(at 378.46 207.01 0)
 		(unit 1)
@@ -30265,8 +29846,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:R_Small")
-		(at 64.77 107.95 90)
-		(mirror x)
+		(at 68.58 104.14 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -30274,29 +29854,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "77f16cd6-dd6d-4e75-98bd-9dd906642f66")
+		(uuid "a59b0175-492e-4a7c-a8b1-2462621b9df6")
 		(property "Reference" "R71"
-			(at 64.77 105.918 90)
+			(at 67.31 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Value" "22K"
-			(at 64.77 110.236 90)
+			(at 67.31 105.41 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30307,7 +29889,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30318,7 +29900,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30329,7 +29911,7 @@
 			)
 		)
 		(property "JLC" "C31850"
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30340,7 +29922,7 @@
 			)
 		)
 		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30351,7 +29933,7 @@
 			)
 		)
 		(property "MPN" "0603WAF2202T5E"
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30362,7 +29944,7 @@
 			)
 		)
 		(property "Price" ""
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30373,7 +29955,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30384,7 +29966,7 @@
 			)
 		)
 		(property "LCSC" "C31850"
-			(at 64.77 107.95 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30395,7 +29977,7 @@
 			)
 		)
 		(property "LCSCstock" "2724185"
-			(at 0 0 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30406,7 +29988,7 @@
 			)
 		)
 		(property "LCSCprice" "0.004"
-			(at 0 0 0)
+			(at 68.58 104.14 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -30417,10 +29999,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "ae04e880-6f95-4c56-8903-db119bc87792")
+			(uuid "c892ef24-9261-4665-9df9-e3e1b5e05e34")
 		)
 		(pin "2"
-			(uuid "80cb782c-fdc6-4736-b5fe-2e14b8754dbd")
+			(uuid "30184ff3-977f-4fad-8a85-826c766929de")
 		)
 		(instances
 			(project "KM217-WiFi"
@@ -31663,7 +31245,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:USB_B_Mini")
-		(at 22.86 113.03 0)
+		(at 22.86 138.43 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -31673,7 +31255,7 @@
 		(dnp no)
 		(uuid "806127aa-7c46-4b77-840b-34fe242b8043")
 		(property "Reference" "J2"
-			(at 20.066 101.6 0)
+			(at 20.066 127.0 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -31684,7 +31266,7 @@
 			)
 		)
 		(property "Value" "USB_B_Mini"
-			(at 28.702 103.886 0)
+			(at 28.702 129.29 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -31695,7 +31277,7 @@
 			)
 		)
 		(property "Footprint" "KM217-WiFi:USB_Mini-B_Wuerth_65100516121_Horizontal"
-			(at 26.67 114.3 0)
+			(at 26.67 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31706,7 +31288,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/65100516121.pdf"
-			(at 26.67 114.3 0)
+			(at 26.67 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31717,7 +31299,7 @@
 			)
 		)
 		(property "Description" "USB Mini Type B connector"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31728,7 +31310,7 @@
 			)
 		)
 		(property "MPN" "65100516121"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31739,7 +31321,7 @@
 			)
 		)
 		(property "Manufacturer" "Wuerth"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31750,7 +31332,7 @@
 			)
 		)
 		(property "Reichelt" "USB BWM SMD"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31761,7 +31343,7 @@
 			)
 		)
 		(property "Price" "1,728"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31772,7 +31354,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31783,7 +31365,7 @@
 			)
 		)
 		(property "JLC" "C5120592"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31794,7 +31376,7 @@
 			)
 		)
 		(property "LCSC" "C5120592"
-			(at 22.86 113.03 0)
+			(at 22.86 138.43 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31805,7 +31387,7 @@
 			)
 		)
 		(property "LCSCstock" "1063"
-			(at 0 0 0)
+			(at 0 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -31816,7 +31398,7 @@
 			)
 		)
 		(property "LCSCprice" "2.047"
-			(at 0 0 0)
+			(at 0 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33895,7 +33477,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:R_Small")
-		(at 24.13 127 90)
+		(at 24.13 152.4 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -33905,7 +33487,7 @@
 		(dnp no)
 		(uuid "975b2ba2-4ceb-446d-be73-34838d46bbe1")
 		(property "Reference" "R60"
-			(at 23.495 129.54 90)
+			(at 23.495 154.94 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -33915,7 +33497,7 @@
 			)
 		)
 		(property "Value" "22"
-			(at 23.495 131.445 90)
+			(at 23.495 156.84 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -33925,7 +33507,7 @@
 			)
 		)
 		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33936,7 +33518,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33947,7 +33529,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33958,7 +33540,7 @@
 			)
 		)
 		(property "JLC" "C23345"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33969,7 +33551,7 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33980,7 +33562,7 @@
 			)
 		)
 		(property "MPN" "R0603_22"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -33991,7 +33573,7 @@
 			)
 		)
 		(property "Price" "0,001"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34002,7 +33584,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34013,7 +33595,7 @@
 			)
 		)
 		(property "LCSC" "C23345"
-			(at 24.13 127 0)
+			(at 24.13 152.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34024,7 +33606,7 @@
 			)
 		)
 		(property "LCSCstock" "6174575"
-			(at 0 0 0)
+			(at 0 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34035,7 +33617,7 @@
 			)
 		)
 		(property "LCSCprice" "0.002"
-			(at 0 0 0)
+			(at 0 25.4 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34669,8 +34251,7 @@
 	)
 	(symbol
 		(lib_id "KM217-WiFi:R_Small")
-		(at 35.56 113.03 90)
-		(mirror x)
+		(at 60.96 133.35 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -34678,29 +34259,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "9ee3c275-8618-4a43-8834-755d5f430a5e")
+		(uuid "f23d64a1-7628-48f4-a277-225a1cb389e5")
 		(property "Reference" "R69"
-			(at 33.782 111.252 90)
+			(at 59.69 132.08 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "2R2"
-			(at 38.1 111.252 90)
+			(at 59.69 134.62 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34711,7 +34294,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34722,7 +34305,7 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34733,7 +34316,7 @@
 			)
 		)
 		(property "JLC" "C22939"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34744,7 +34327,7 @@
 			)
 		)
 		(property "Manufacturer" "multipart"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34755,7 +34338,7 @@
 			)
 		)
 		(property "MPN" "R0603_0"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34766,7 +34349,7 @@
 			)
 		)
 		(property "Price" "0,001"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34777,7 +34360,7 @@
 			)
 		)
 		(property "Digikey" ""
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34788,7 +34371,7 @@
 			)
 		)
 		(property "LCSC" "C22939"
-			(at 35.56 113.03 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34799,7 +34382,7 @@
 			)
 		)
 		(property "LCSCstock" "245383"
-			(at 0 0 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34810,7 +34393,7 @@
 			)
 		)
 		(property "LCSCprice" "0.003"
-			(at 0 0 0)
+			(at 60.96 133.35 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -34821,10 +34404,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "846a2c76-7cea-4fef-b963-dfc5ae365a81")
+			(uuid "cf03b0df-813c-4286-adcc-50f7807c727d")
 		)
 		(pin "2"
-			(uuid "d1590118-e3ad-40fa-8615-f9c6d660c7cc")
+			(uuid "82af8400-db0d-4eb1-b36b-5ea601e09fd2")
 		)
 		(instances
 			(project "KM217-WiFi"
@@ -44460,10 +44043,1199 @@
 			)
 		)
 	)
+	(wire
+		(pts
+			(xy 67.31 113.03) (xy 69.85 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e31ab135-4f44-4d6a-a53c-d14d509e4ea3")
+	)
+	(wire
+		(pts
+			(xy 344.17 191.77) (xy 351.79 191.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4fecbf15-7d59-47a2-95e5-7f7becb0e7e2")
+	)
+	(wire
+		(pts
+			(xy 344.17 194.31) (xy 351.79 194.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6eec27c0-fdcd-4979-b79b-ba86bdbb94d6")
+	)
 	(sheet_instances
 		(path "/"
 			(page "1")
 		)
 	)
 	(embedded_fonts no)
+	(symbol
+		(lib_id "KM217-WiFi:R_Small")
+		(at 64.77 124.46 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp yes)
+		(uuid "a4b537c4-0359-42e0-89d3-6f52c1f21311")
+		(property "Reference" "R87"
+			(at 63.5 123.19 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "2R2"
+			(at 63.5 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLC" "C22939"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "multipart"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "R0603_0"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" "0,001"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey" ""
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22939"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSCstock" "245383"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSCprice" "0.003"
+			(at 64.77 124.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "230c7f0f-81de-4d40-a83b-3f06b87d1526")
+		)
+		(pin "2"
+			(uuid "b3c5b2ff-59fe-45ff-b1b6-e313b0934ed8")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "R87")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KM217-WiFi:R_Small")
+		(at 64.77 148.59 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp yes)
+		(uuid "a879fed4-e129-412d-8639-ff3752b3d4a4")
+		(property "Reference" "R88"
+			(at 64.77 150.876 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "2R2"
+			(at 64.77 152.654 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "KM217-WiFi:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLC" "C22939"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Manufacturer" "multipart"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MPN" "R0603_0"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" "0,001"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Digikey" ""
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC" "C22939"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSCstock" "245383"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSCprice" "0.003"
+			(at 64.77 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5b17c184-1a82-4d1f-ad2b-b2595e57e007")
+		)
+		(pin "2"
+			(uuid "9f161b87-60e3-4100-82ef-d6e418ec1498")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "R88")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KM217-WiFi:GND")
+		(at 58.42 143.51 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "65dac6ed-2835-4ffc-9f1f-babecf8e45e9")
+		(property "Reference" "#PWR203"
+			(at 64.77 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 62.23 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 58.42 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 58.42 143.51 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 27.94 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "677c8166-6ad4-4e9e-ae3a-f8e85776cd79")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "#PWR203")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KM217-WiFi:GND")
+		(at 62.23 110.49 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0bc6266a-1cfa-458c-af40-9f9bf94aef83")
+		(property "Reference" "#PWR204"
+			(at 62.23 116.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 62.23 114.3 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 62.23 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 62.23 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 27.94 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6e794a6c-94b2-462b-8d4b-3767bb2ef359")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "#PWR204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KM217-WiFi:VBUS")
+		(at 41.91 133.35 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d3c56381-9b1f-4c6d-bcdd-505bebab4556")
+		(property "Reference" "#PWR030"
+			(at 41.91 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VBUS"
+			(at 41.91 129.54 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 41.91 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 41.91 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBUS\""
+			(at 50.8 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1ad9be10-b98e-4a62-a0e4-7a686bacdb83")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "#PWR030")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "KM217-WiFi:VBUS")
+		(at 68.58 101.6 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "9c850eaa-801b-4c97-87d5-9dccfeb210f3")
+		(property "Reference" "#PWR205"
+			(at 68.58 105.41 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VBUS"
+			(at 70.104 100.33 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 68.58 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 68.58 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"VBUS\""
+			(at 50.8 87.63 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a2c737e7-6312-49ae-8a6f-645f46b62d28")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "#PWR205")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 64.77 121.92) (xy 64.77 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea3d065b-6ab9-41d4-b58d-413344ff5264")
+	)
+	(wire
+		(pts
+			(xy 64.77 115.57) (xy 69.85 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebe57fdc-e90d-4a9d-9458-2efadb169aa0")
+	)
+	(wire
+		(pts
+			(xy 60.96 130.81) (xy 60.96 127.0)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "82278c19-a575-490d-8e9b-18560266f7d9")
+	)
+	(wire
+		(pts
+			(xy 60.96 127.0) (xy 58.42 127.0)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4468b13f-304d-4012-9ea1-35c6dd4e05c0")
+	)
+	(wire
+		(pts
+			(xy 60.96 153.67) (xy 60.96 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8eb191c9-38c3-4792-87f7-e84cbf0de0fa")
+	)
+	(wire
+		(pts
+			(xy 60.96 156.21) (xy 58.42 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8546c90e-980f-4b8b-acaf-20bfa4ec93a1")
+	)
+	(wire
+		(pts
+			(xy 68.58 106.68) (xy 68.58 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "654d7eec-f6aa-4fd4-85a6-629218f0fbc7")
+	)
+	(wire
+		(pts
+			(xy 67.31 110.49) (xy 68.58 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5102e699-cee2-4851-83df-a15b9ede1508")
+	)
+	(global_label "S3_D+"
+		(shape output)
+		(at 58.42 127.0 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "66c06d41-5e8c-44f7-a42c-02ea1dac7e5a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 58.42 127.0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "S3_D-"
+		(shape output)
+		(at 58.42 156.21 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "ba562852-96b1-4ffe-abb3-cb432b763ce1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 58.42 156.21 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "S3_D-"
+		(shape input)
+		(at 351.79 191.77 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3667d9a5-0d85-4b0c-b2d0-345ad7c5e5b2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 351.79 191.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(global_label "S3_D+"
+		(shape input)
+		(at 351.79 194.31 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a2b1181e-85de-4fac-9578-34bf957b71c9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 351.79 194.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+	)
+	(text "USB-Datenpfad über Bestückung wählen:\nR69/R70 (2R2) bestückt: USB an ESP32-S3 (GPIO19/20), ab Werk\nR87/R88 (2R2) bestückt: USB an CP2102N (Notfall/Recovery)\nNie beide Paare gleichzeitig bestücken.\nNur S3-Pfad: U10, Q1/Q2 und Beschaltung können entfallen."
+		(exclude_from_sim no)
+		(at 17.78 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "c63c9816-f801-405a-b4c7-59f274cf13de")
+	)
+	(symbol
+		(lib_id "KM217-WiFi:GND")
+		(at 49.53 133.35 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "eb54264b-b8f8-48ad-84c3-1e3d92d3ed6b")
+		(property "Reference" "#PWR206"
+			(at 49.53 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 49.53 137.16 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 49.53 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 49.53 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 27.94 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6f19d7fe-dfe5-4fc5-a9ee-6f17d5b5574a")
+		)
+		(instances
+			(project "KM217-WiFi"
+				(path "/9538e4ed-27e6-4c37-b989-9859dc0d49e8"
+					(reference "#PWR206")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 30.48 133.35) (xy 41.91 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b56507fd-6c5f-4dcc-bfa1-55074f79cfd6")
+	)
+	(wire
+		(pts
+			(xy 41.91 133.35) (xy 41.91 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d2fde77-0005-4bf7-8713-edb5a16e100f")
+	)
+	(wire
+		(pts
+			(xy 41.91 143.51) (xy 43.18 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "19788e7d-aeee-4e72-a367-1a6eb4e1d08b")
+	)
+	(wire
+		(pts
+			(xy 41.91 133.35) (xy 44.45 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a556521-b416-4a24-b0b0-4c98e87aefa0")
+	)
+	(wire
+		(pts
+			(xy 30.48 138.43) (xy 43.18 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9a2ce14-cf89-4eca-8e59-b9dbc0ae0f85")
+	)
+	(wire
+		(pts
+			(xy 43.18 138.43) (xy 58.42 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cad0d32-b1b3-4c8f-b30f-03d5c9647580")
+	)
+	(wire
+		(pts
+			(xy 58.42 138.43) (xy 60.96 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a65c139-6b3d-449c-81dc-645feb862796")
+	)
+	(wire
+		(pts
+			(xy 43.18 140.97) (xy 43.18 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7f7f85b-c66d-4b2d-901e-53556e5eac28")
+	)
+	(wire
+		(pts
+			(xy 58.42 140.97) (xy 58.42 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bae4bd1d-35f0-4024-b631-2b7429fd8ea3")
+	)
+	(wire
+		(pts
+			(xy 60.96 138.43) (xy 60.96 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4403e5ec-5b49-43b4-8bed-49736d7022cf")
+	)
+	(wire
+		(pts
+			(xy 60.96 138.43) (xy 64.77 138.43)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8e7ca1e2-0092-4a15-8b46-e4854d9777a9")
+	)
+	(wire
+		(pts
+			(xy 64.77 138.43) (xy 64.77 127.0)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "71f83ff0-adf6-4989-9153-65d5cd17c5c3")
+	)
+	(wire
+		(pts
+			(xy 30.48 140.97) (xy 35.56 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6461fc0-df0d-4ba1-92ea-3de3fbc22e52")
+	)
+	(wire
+		(pts
+			(xy 35.56 140.97) (xy 35.56 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65d8a1b0-da2c-4309-9e5d-4dfb8ded241d")
+	)
+	(wire
+		(pts
+			(xy 35.56 148.59) (xy 43.18 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f9a5833-4486-415f-aa22-da43d9a76967")
+	)
+	(wire
+		(pts
+			(xy 43.18 148.59) (xy 58.42 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c37d169-69bb-4e57-8a16-bed52397e2d9")
+	)
+	(wire
+		(pts
+			(xy 58.42 148.59) (xy 60.96 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fa230fb7-c14c-41f3-82c9-92312a147983")
+	)
+	(wire
+		(pts
+			(xy 43.18 146.05) (xy 43.18 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81878dce-e1dc-49a9-b4bd-d210f69df617")
+	)
+	(wire
+		(pts
+			(xy 58.42 146.05) (xy 58.42 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4823c225-3dda-494f-811c-cec8f822af23")
+	)
+	(wire
+		(pts
+			(xy 60.96 148.59) (xy 62.23 148.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8d0f4e8-0db1-4725-b439-c504496cbb4b")
+	)
+	(wire
+		(pts
+			(xy 67.31 148.59) (xy 67.31 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fec351c9-6a5f-4bae-a606-867c578e73cf")
+	)
+	(junction
+		(at 41.91 133.35)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a79c351d-25cb-4a21-ab25-de41a8a05173")
+	)
+	(junction
+		(at 43.18 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "928a5f66-aae5-4ef4-a1fc-8afc18aa1fe8")
+	)
+	(junction
+		(at 58.42 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b27b9961-2db7-4ca0-be0f-78a021d94166")
+	)
+	(junction
+		(at 60.96 138.43)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ef6b1f16-6099-4d26-97b1-10e9bc226636")
+	)
+	(junction
+		(at 43.18 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "3ab6193d-cf6b-4155-be5c-eaafe3207f2a")
+	)
+	(junction
+		(at 58.42 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aef8ec04-b966-4233-b331-2a6f74ac0579")
+	)
+	(junction
+		(at 60.96 148.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6ecc63a9-9e94-46c1-a608-4c9aef18441c")
+	)
 )
