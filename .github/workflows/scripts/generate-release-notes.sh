@@ -91,7 +91,7 @@ for zip_file in final-release/*.zip; do
       description="Release package"
     fi
     
-    echo "        | \`$filename\` | $description | ZIP |" >> release-notes.md
+    echo "| \`$filename\` | $description | ZIP |" >> release-notes.md
   fi
 done
 
