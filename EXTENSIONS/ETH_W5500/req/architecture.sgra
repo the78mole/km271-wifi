@@ -1,0 +1,104 @@
+[GRAMMAR]
+ELEMENTS:
+- TAG: TEXT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: False
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+- TAG: SECTION
+  PROPERTIES:
+    IS_COMPOSITE: True
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: False
+  - TITLE: LEVEL
+    TYPE: String
+    REQUIRED: False
+  - TITLE: PREFIX
+    TYPE: String
+    REQUIRED: False
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+- TAG: BLOCK
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: SingleChoice(Draft, Proposed, Approved, Obsolete)
+    REQUIRED: True
+  - TITLE: KIND
+    TYPE: SingleChoice(System, Subsystem, Module, Circuit, Component, Software, External)
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: DESCRIPTION
+    TYPE: String
+    REQUIRED: True
+  - TITLE: REALIZATION
+    HUMAN_TITLE: Realized by
+    TYPE: String
+    REQUIRED: False
+  - TITLE: VARIANTS
+    HUMAN_TITLE: Assembly variants
+    TYPE: String
+    REQUIRED: False
+  - TITLE: COMMENT
+    TYPE: String
+    REQUIRED: False
+  RELATIONS:
+  - TYPE: Parent
+- TAG: INTERFACE
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: SingleChoice(Draft, Proposed, Approved, Obsolete)
+    REQUIRED: True
+  - TITLE: KIND
+    TYPE: SingleChoice(Power, Electrical, Data, Mechanical, User, RF)
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: DESCRIPTION
+    TYPE: String
+    REQUIRED: True
+  - TITLE: SIGNALS
+    HUMAN_TITLE: Signals / pin assignment
+    TYPE: String
+    REQUIRED: False
+  - TITLE: COMMENT
+    TYPE: String
+    REQUIRED: False
+  RELATIONS:
+  - TYPE: Parent
+- TAG: DECISION
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: SingleChoice(Proposed, Accepted, Superseded, Rejected)
+    REQUIRED: True
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: CONTEXT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: DECISION
+    TYPE: String
+    REQUIRED: True
+  - TITLE: CONSEQUENCES
+    TYPE: String
+    REQUIRED: False
+  RELATIONS:
+  - TYPE: Parent

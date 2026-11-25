@@ -1,0 +1,427 @@
+[DOCUMENT]
+TITLE: ETH-W5500 Extension Hardware Requirements
+UID: ETH-HW
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: requirements.sgra
+
+[TEXT]
+STATEMENT: >>>
+Hardware requirements of the W5500 Ethernet extension. Design compliance
+refers to the repository state 2025-09-28 and the production review of
+2026-11-25 (simulations S1-S4, rule based EMC analysis).
+<<<
+
+[[SECTION]]
+TITLE: Host interface and power
+
+[REQUIREMENT]
+UID: ETH-HW-001
+STATUS: Draft
+TYPE: Mechanical
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Mating connector
+STATEMENT: >>>
+The extension shall mate with J7 of the main board with a 2x5 2.54 mm SMD
+socket with a stack height that clears the ESP32 module.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-002
+- TYPE: Parent
+  VALUE: ETH-SYS-020
+- TYPE: Parent
+  VALUE: ETH-SYA-100
+
+[REQUIREMENT]
+UID: ETH-HW-002
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Not met
+TITLE: Supply selection
+STATEMENT: >>>
+The supply source shall be selectable by solder jumpers, and the default
+assembly shall have the 3.3 V jumper (JP4) closed.
+<<<
+COMMENT: >>>
+JP4/JP5 are open ex works. Proposal: SolderJumper_2_Bridged for JP4, U2 and
+JP5 as option.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-010
+- TYPE: Parent
+  VALUE: ETH-SYA-012
+- TYPE: Parent
+  VALUE: ETH-SYA-201
+
+[REQUIREMENT]
+UID: ETH-HW-003
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation
+COMPLIANCE: Met
+TITLE: Supply voltage of the W5500
+STATEMENT: >>>
+The W5500 supply shall stay within 2.97-3.63 V during ESP32-S3 load steps at a
+slot source resistance of up to 2 Ohm.
+<<<
+SOURCE: ETH review 2026-11-25 (S1)
+COMMENT: With JP4.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-011
+- TYPE: Parent
+  VALUE: ETH-SYA-012
+
+[REQUIREMENT]
+UID: ETH-HW-004
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Analog supply filtering
+STATEMENT: >>>
+The analog supply of the W5500 shall be separated from the digital supply by a
+ferrite bead and decoupled within 3 mm of each AVDD pin.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-012
+
+[REQUIREMENT]
+UID: ETH-HW-005
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Reset and interrupt
+STATEMENT: >>>
+RSTn and INTn of the W5500 shall be connected to J1 pins 6 and 8. RSTn shall
+be high (inactive) when the host does not drive it.
+<<<
+COMMENT: >>>
+High level via W5500 internal pull-up and the SDA pull-up R4 of the main
+board.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-100
+- TYPE: Parent
+  VALUE: ETH-SYA-202
+
+[REQUIREMENT]
+UID: ETH-HW-006
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Not met
+TITLE: Unused pins
+STATEMENT: Reserved W5500 pins shall be connected as the datasheet requires.
+SOURCE: ETH review 2026-11-25
+COMMENT: Pin 23 (RSVD) is open; datasheet requires GND.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-010
+
+[REQUIREMENT]
+UID: ETH-HW-007
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: PHY mode straps
+STATEMENT: >>>
+PMODE0-2 shall be configurable by solder jumpers and default to "all capable,
+auto-negotiation enabled".
+<<<
+COMMENT: JP1-JP3 (open = internal pull-up = 111).
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-010
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Clock
+
+[REQUIREMENT]
+UID: ETH-HW-010
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Analysis
+COMPLIANCE: Not met
+TITLE: Clock accuracy
+STATEMENT: >>>
+The 25 MHz clock shall stay within +-50 ppm including tolerance, temperature
+drift, ageing and load capacitance mismatch.
+<<<
+SOURCE: ETH review 2026-11-25 (S2)
+COMMENT: >>>
+18 pF load capacitors give about 13 pF effective load; HC-49 crystals with CL
+18-20 pF run 120-150 ppm fast. Proposal: 3225 crystal C9006 (CL 12 pF) with 15
+pF.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYA-010
+
+[REQUIREMENT]
+UID: ETH-HW-011
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Review
+COMPLIANCE: Not met
+TITLE: Crystal placement
+STATEMENT: >>>
+Crystal and load capacitors shall be placed close to XI/XO over an
+uninterrupted GND area without other signals below.
+<<<
+COMMENT: Crystal 7-10 mm from the pins, +3V3/5VBUD traces on B.Cu below it.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-022
+- TYPE: Parent
+  VALUE: ETH-SYA-010
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Network front end
+
+[REQUIREMENT]
+UID: ETH-HW-020
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation
+COMPLIANCE: Met
+TITLE: MDI termination
+STATEMENT: >>>
+TX and RX pairs shall be terminated so that the return loss at the RJ45 meets
+IEEE 802.3 (100BASE-TX) up to 80 MHz.
+<<<
+SOURCE: ETH review 2026-11-25 (S3)
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYA-011
+
+[REQUIREMENT]
+UID: ETH-HW-021
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: TX amplitude
+STATEMENT: >>>
+The transmit amplitude shall be within 950-1050 mV. The EXRES1 resistor shall
+be 12.4 kOhm 1 %.
+<<<
+COMMENT: 12 kOhm (Basic part) would give +3.3 % and little margin.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-011
+
+[REQUIREMENT]
+UID: ETH-HW-022
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Pair routing
+STATEMENT: >>>
+Each differential pair shall be length matched within 1 mm and routed with 45
+degree corners.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-011
+
+[REQUIREMENT]
+UID: ETH-HW-023
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Simulation, Inspection
+COMPLIANCE: Partially met
+TITLE: Common mode termination
+STATEMENT: >>>
+The Bob Smith termination capacitors shall be rated for the common mode surge
+they see (at least 100 V for 0603, or 2 kV), and the capacitor to
+chassis/shield shall be rated 2 kV and placed close to the shield pin.
+<<<
+SOURCE: ETH review 2026-11-25 (S4)
+COMMENT: >>>
+C28/C31/C32/C34 4.7 nF are 50 V; C33 1 nF 2 kV is 44 mm away from the shield
+pad.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-021
+- TYPE: Parent
+  VALUE: ETH-SYS-022
+- TYPE: Parent
+  VALUE: ETH-SYA-011
+
+[REQUIREMENT]
+UID: ETH-HW-024
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Partially met
+TITLE: Transformer
+STATEMENT: >>>
+The magnetics shall provide 1500 V rms isolation, a 1:1 ratio with centre taps
+and be available at LCSC.
+<<<
+COMMENT: >>>
+Würth 749013011A is expensive; H1102NLT (C18584) is pad and pin compatible.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-021
+- TYPE: Parent
+  VALUE: ETH-SYS-030
+- TYPE: Parent
+  VALUE: ETH-SYA-011
+
+[REQUIREMENT]
+UID: ETH-HW-025
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Not met
+TITLE: RJ45 jack
+STATEMENT: >>>
+The RJ45 jack shall be SMD, have link and activity LEDs and be stocked at LCSC
+for at least 150 boards.
+<<<
+COMMENT: Würth 634008137521: 47 pcs. Proposal HC-RJ45-5JAS-1-5-01.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-004
+- TYPE: Parent
+  VALUE: ETH-SYS-030
+- TYPE: Parent
+  VALUE: ETH-SYA-101
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Layout
+
+[REQUIREMENT]
+UID: ETH-HW-030
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Review
+COMPLIANCE: Not met
+TITLE: Continuous reference for SPI
+STATEMENT: >>>
+SPI lines shall run over a continuous GND reference. Supply traces shall not
+cut the GND plane below them.
+<<<
+SOURCE: ETH review 2026-11-25
+COMMENT: SCLK 59 %, nCS 61 % of their length without reference.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-022
+- TYPE: Parent
+  VALUE: ETH-SYA-010
+
+[REQUIREMENT]
+UID: ETH-HW-031
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Review
+COMPLIANCE: Not met
+TITLE: Line side clearance
+STATEMENT: >>>
+Copper of the line side (after the transformer, PoE pairs, Bob Smith node,
+shield) shall keep at least 2 mm to primary side copper, and the area between
+transformer and jack shall be free of GND.
+<<<
+COMMENT: 0.2 mm everywhere; GND under J2 and TR1.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-021
+- TYPE: Parent
+  VALUE: ETH-SYA-011
+
+[REQUIREMENT]
+UID: ETH-HW-032
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Design rules
+STATEMENT: >>>
+Traces at 45 degrees, GND pads with thermal reliefs, copper to edge at least
+0.4 mm, edge stitching.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-030
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Production
+
+[REQUIREMENT]
+UID: ETH-HW-040
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Not met
+TITLE: LCSC part numbers
+STATEMENT: Every assembled part shall have an LCSC part number in the schematic.
+COMMENT: Candidates selected in the review; JLC field not yet in the schematic.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-030
+
+[REQUIREMENT]
+UID: ETH-HW-041
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Should
+VERIFICATION: Inspection
+COMPLIANCE: Not met
+TITLE: Optional parts not assembled
+STATEMENT: The PoE connector J3 and the LDO U2 shall not be assembled by default.
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-031
+- TYPE: Parent
+  VALUE: ETH-SYA-013
+- TYPE: Parent
+  VALUE: ETH-SYA-201
+
+[[/SECTION]]

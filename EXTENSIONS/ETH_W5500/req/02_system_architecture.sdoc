@@ -1,0 +1,221 @@
+[DOCUMENT]
+TITLE: ETH-W5500 Extension System Architecture
+UID: ETH-SYA
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: architecture.sgra
+
+[TEXT]
+STATEMENT: >>>
+Architecture of the W5500 Ethernet extension. The W5500 contains MAC,
+PHY and a hardwired TCP/IP stack and is driven over SPI, so the host
+needs no Ethernet MAC (important for the ESP32-S3, which has none).
+<<<
+
+[[SECTION]]
+TITLE: Blocks
+
+[BLOCK]
+UID: ETH-SYA-001
+STATUS: Draft
+KIND: System
+TITLE: ETH-W5500 extension
+DESCRIPTION: >>>
+Plug-on board for J7 of the KM271-WiFi with W5500, magnetics and RJ45 jack.
+<<<
+REALIZATION: EXTENSIONS/ETH_W5500/ETH_W5500.kicad_sch
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYS-002
+
+[BLOCK]
+UID: ETH-SYA-010
+STATUS: Draft
+KIND: Subsystem
+TITLE: Ethernet controller
+DESCRIPTION: >>>
+WIZnet W5500 with 25 MHz crystal, SPI slave, interrupt and reset from the
+host.
+<<<
+REALIZATION: U3, Y1
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYS-003
+
+[BLOCK]
+UID: ETH-SYA-011
+STATUS: Draft
+KIND: Subsystem
+TITLE: Network front end
+DESCRIPTION: >>>
+Transformer, MDI termination, Bob Smith common mode termination and RJ45 jack
+with LEDs.
+<<<
+REALIZATION: TR1, J2, R11-R23, C20-C34
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYS-004
+- TYPE: Parent
+  VALUE: ETH-SYS-021
+- TYPE: Parent
+  VALUE: ETH-SYS-022
+
+[BLOCK]
+UID: ETH-SYA-012
+STATUS: Draft
+KIND: Subsystem
+TITLE: Power
+DESCRIPTION: >>>
+Supply selection by solder jumpers: JP4 3.3 V from the main board, or JP5 5 V
+from the main board through LDO U2. Ferrite L2 separates the analog supply.
+<<<
+REALIZATION: JP4, JP5, U2, L2
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-010
+- TYPE: Parent
+  VALUE: ETH-SYS-011
+
+[BLOCK]
+UID: ETH-SYA-013
+STATUS: Draft
+KIND: Subsystem
+TITLE: PoE option
+DESCRIPTION: >>>
+Connector for an external PoE converter module that takes the spare pairs and
+returns 5 V or 3.3 V.
+<<<
+REALIZATION: J3
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-005
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Interfaces
+
+[INTERFACE]
+UID: ETH-SYA-100
+STATUS: Draft
+KIND: Electrical
+TITLE: Host connector (J1)
+DESCRIPTION: 2x5 socket mating with J7 of the main board.
+SIGNALS: >>>
+- 1: 5VBUD (+5V of the main board, to JP5)
+- 2: 3V3BUD (+3V3 of the main board, to JP4)
+- 3: nCS (GPIO10)
+- 4: SCL_X (GPIO9, not used by the W5500)
+- 5: MISO (GPIO13)
+- 6: SDA_X = W5500 RSTn (GPIO16)
+- 7: MOSI (GPIO11)
+- 8: nINT (GPIO14)
+- 9: SCLK (GPIO12)
+- 10: GND
+<<<
+COMMENT: >>>
+GPIO numbers for the v2.0 ESP32-S3 board. On v1.x (ESP32): nCS 15, MISO 19,
+RST 13, MOSI 23, INT 14, SCLK 18.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+
+[INTERFACE]
+UID: ETH-SYA-101
+STATUS: Draft
+KIND: Electrical
+TITLE: Network port (J2)
+DESCRIPTION: >>>
+RJ45 with link (green) and activity LEDs, 10/100 Mbit/s, auto-negotiation.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYS-004
+
+[INTERFACE]
+UID: ETH-SYA-102
+STATUS: Draft
+KIND: Power
+TITLE: PoE module connector (J3)
+DESCRIPTION: 2x4 Micro-MaTch, 1.27 mm.
+SIGNALS: 1/2: POE_A1/A2, 3/4: POE_B1/B2, 5: +3.3V, 6: +5V, 7/8: GND
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-005
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Architecture decisions
+
+[DECISION]
+UID: ETH-SYA-200
+STATUS: Accepted
+TITLE: SPI Ethernet controller W5500
+CONTEXT: ESP32-S3 has no EMAC/RMII. J7 only offers SPI.
+DECISION: Use the W5500 (SPI, integrated PHY and TCP/IP offload).
+CONSEQUENCES: >>>
+Supported by ESPHome and Arduino ETH. Throughput limited by SPI, sufficient
+for the application.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: ETH-SYS-003
+
+[DECISION]
+UID: ETH-SYA-201
+STATUS: Proposed
+TITLE: Supply from the main board 3.3 V
+CONTEXT: >>>
+The AMS1117 path (JP5) needs about 1 V headroom behind the diode OR and drops
+out at about 0.9 Ohm slot resistance.
+<<<
+DECISION: >>>
+Use JP4 (3.3 V from the main board step-down converter) as default; U2 becomes
+an assembly option.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-010
+- TYPE: Parent
+  VALUE: ETH-SYS-011
+
+[DECISION]
+UID: ETH-SYA-202
+STATUS: Accepted
+TITLE: W5500 reset on J7 pin 6
+CONTEXT: >>>
+J7 has no dedicated reset pin. v1.x routed pin 6 through the PCA9306, which
+gated the reset with I2C_EXT_EN.
+<<<
+DECISION: >>>
+Use J7 pin 6 (SDA) as W5500 RSTn. With the PCA9306 removed in v2.0 the host
+drives it directly from GPIO16.
+<<<
+CONSEQUENCES: >>>
+I2C on J7 cannot be used together with the extension (I2C traffic would pulse
+RSTn).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-204
+
+[[/SECTION]]

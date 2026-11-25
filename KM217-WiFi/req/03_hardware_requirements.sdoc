@@ -1,0 +1,927 @@
+[DOCUMENT]
+TITLE: KM271-WiFi Hardware Requirements
+UID: KM271-HW
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: requirements.sgra
+
+[TEXT]
+STATEMENT: >>>
+Hardware requirements of the KM271-WiFi main board, revision v2.0. They
+refine the system requirements (KM271-SYS-xxx) and are allocated to the
+subsystems of the system architecture (KM271-SYA-xxx). Design compliance
+refers to the schematic and layout state of 2026-11-24 (ESP32-S3, JP1/JP2
+USB path selection, PCA9306 removed).
+<<<
+
+[[SECTION]]
+TITLE: Power supply
+
+[REQUIREMENT]
+UID: KM271-HW-001
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Slot supply input
+STATEMENT: >>>
+The board shall take its main supply from pin 1 (+5 V) and pin 2 (GND) of the
+Logamatic slot connector J1.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-010
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+- TYPE: Parent
+  VALUE: KM271-SYA-100
+
+[REQUIREMENT]
+UID: KM271-HW-002
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection, Test
+COMPLIANCE: Met
+TITLE: Decoupled supply sources
+STATEMENT: >>>
+USB VBUS and the slot 5 V shall be combined such that no current flows from
+one source into the other, with a forward drop of at most 0.45 V at 400 mA.
+<<<
+COMMENT: D8/D9 1N5819WS: about 0.38 V at 290 mA.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-013
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[REQUIREMENT]
+UID: KM271-HW-003
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Transient protection of the slot input
+STATEMENT: >>>
+The slot 5 V input shall be protected against transients by a TVS diode with a
+stand-off voltage of at least 5.0 V.
+<<<
+COMMENT: D10 SMAJ5.0A.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[REQUIREMENT]
+UID: KM271-HW-004
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Analysis, Test
+COMPLIANCE: Met
+TITLE: 3.3 V rail
+STATEMENT: >>>
+The board shall provide a 3.3 V rail with a tolerance of +-3 % for a
+continuous load of at least 600 mA (ESP32-S3 with WiFi peaks, extension).
+<<<
+COMMENT: U8 TPS62162 (1 A, fixed 3.3 V).
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[REQUIREMENT]
+UID: KM271-HW-005
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: Regulation with weak source
+STATEMENT: >>>
+The 3.3 V rail shall stay above 3.0 V during a load step from 60 mA to 460 mA
+at a slot source resistance of up to 2 Ohm.
+<<<
+SOURCE: DOC/Power-Analysis/README.md
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[REQUIREMENT]
+UID: KM271-HW-006
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Should
+VERIFICATION: Simulation
+COMPLIANCE: Met
+TITLE: Efficient conversion
+STATEMENT: >>>
+The 3.3 V regulator should be a switching converter so that the current drawn
+from the slot is lower than the 3.3 V load current.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-012
+- TYPE: Parent
+  VALUE: KM271-SYA-201
+
+[REQUIREMENT]
+UID: KM271-HW-007
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Bulk capacitance
+STATEMENT: >>>
+The 5 V and 3.3 V rails shall each be buffered with low-ESR bulk capacitance
+of at least 200 uF to cover WiFi transmit bursts.
+<<<
+COMMENT: C7/C8 220 uF / 16 V polymer.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[REQUIREMENT]
+UID: KM271-HW-008
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Should
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: LDO assembly alternative
+STATEMENT: >>>
+The layout shall keep an LDO as not-fitted alternative to the step-down
+converter. Selection shall be done by 0 Ohm resistors that cannot both be
+required at the same time.
+<<<
+COMMENT: R78 (buck, fitted) / R79 (LDO, DNP), U2 and C4 DNP.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-201
+
+[REQUIREMENT]
+UID: KM271-HW-009
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Could
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: External 3.3 V feed
+STATEMENT: >>>
+It shall be possible to supply the board with 3.3 V through J6 or J7 after
+separating the on-board regulator by removing one resistor.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[REQUIREMENT]
+UID: KM271-HW-010
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection, Test
+COMPLIANCE: Met
+TITLE: 5 V supply monitor
+STATEMENT: >>>
+The +5V rail shall be measurable by an ADC1 input of the controller. The
+divider shall keep the ADC input below 2.0 V at 6 V on +5V.
+<<<
+COMMENT: R5 100 kOhm / R12 47 kOhm to GPIO4 (ADC1_CH3): 1.92 V at 6 V.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYA-012
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Logamatic interface
+
+[REQUIREMENT]
+UID: KM271-HW-020
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection, Test
+COMPLIANCE: Met
+TITLE: Serial level translation
+STATEMENT: >>>
+The serial lines to and from the Logamatic shall be translated between 3.3 V
+logic of the controller and 5 V logic of the Logamatic in both directions.
+<<<
+COMMENT: U4 (LM_TX to GPIO18), U5 (GPIO17 to LM_RX), SN74LV1T34.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-011
+- TYPE: Parent
+  VALUE: KM271-SYA-101
+
+[REQUIREMENT]
+UID: KM271-HW-021
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Defined idle level
+STATEMENT: >>>
+The serial line coming from the Logamatic shall have a defined idle (high)
+level when the Logamatic does not drive it.
+<<<
+COMMENT: R2 10 kOhm to +5V.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-011
+
+[REQUIREMENT]
+UID: KM271-HW-022
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Serial port of the controller
+STATEMENT: >>>
+The KM271 serial line shall use a hardware UART of the controller other than
+UART0, on GPIO17 (TX) and GPIO18 (RX).
+<<<
+RATIONALE: >>>
+Pins agreed with the firmware community (Discussion #20); UART0 remains free
+for logging and the CP2102N.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+- TYPE: Parent
+  VALUE: KM271-SYA-011
+
+[REQUIREMENT]
+UID: KM271-HW-023
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Should
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Configurable slot pins
+STATEMENT: >>>
+Every slot pin shall be connected through a 0 Ohm resistor footprint so that
+the assignment can be adapted by assembly.
+<<<
+COMMENT: R33-R44; pins 9-12 not fitted.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-100
+
+[REQUIREMENT]
+UID: KM271-HW-024
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: Exhaust gas sensor conditioning
+STATEMENT: >>>
+The board shall connect the FG exhaust gas sensor to the Logamatic with the
+same supply, filter and detection circuit as the original KM271 so that the
+Logamatic detects the sensor without software support.
+<<<
+SOURCE: DOC/Abgassensor/README.md
+COMMENT: R17 3.3 kOhm, R11 100 kOhm, C11 100 nF, C12 33 nF, R32 10 kOhm.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-020
+- TYPE: Parent
+  VALUE: KM271-SYA-011
+- TYPE: Parent
+  VALUE: KM271-SYA-105
+
+[REQUIREMENT]
+UID: KM271-HW-025
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation
+COMPLIANCE: Met
+TITLE: Exhaust gas reading below 80 degC
+STATEMENT: >>>
+The sensor circuit shall not distort the sensor voltage by more than 1 K
+equivalent between 25 and 250 degC in the default assembly.
+<<<
+RATIONALE: >>>
+With the clamping diode D5 fitted the Logamatic shows +21 K at 25 degC.
+<<<
+COMMENT: D5 BZX84C5V1 is DNP by default.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-020
+- TYPE: Parent
+  VALUE: KM271-SYA-011
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Controller
+
+[REQUIREMENT]
+UID: KM271-HW-030
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Microcontroller module
+STATEMENT: >>>
+The controller shall be an ESP32-S3 module with integrated antenna, at least 8
+MB flash and without octal PSRAM.
+<<<
+COMMENT: U1 ESP32-S3-WROOM-1-N8R2 (LCSC C2913204).
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-010
+- TYPE: Parent
+  VALUE: KM271-SYA-200
+
+[REQUIREMENT]
+UID: KM271-HW-031
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Antenna placement
+STATEMENT: >>>
+The antenna area of the module shall overhang the board edge with no copper
+below or beside it.
+<<<
+SOURCE: EMC review 2026-11-24
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-004
+- TYPE: Parent
+  VALUE: KM271-SYA-107
+
+[REQUIREMENT]
+UID: KM271-HW-032
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Reliable power-on reset
+STATEMENT: >>>
+The EN input shall have an RC delay (pull-up and at least 1 uF) so that the
+controller starts reliably on slow supply ramps.
+<<<
+COMMENT: R29 10 kOhm, C30 1 uF.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYA-010
+
+[REQUIREMENT]
+UID: KM271-HW-033
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Boot mode selection
+STATEMENT: >>>
+IO0 shall be pulled up and be switchable to GND by a BOOT button and by the
+auto-reset circuit. EN shall be switchable by a RESET button.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-024
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYA-016
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: USB and programming
+
+[REQUIREMENT]
+UID: KM271-HW-034
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Selectable USB data path
+STATEMENT: >>>
+The USB data lines shall be connectable either to the native USB of the
+controller or to a USB-UART bridge by changing solder jumpers only. The
+default shall be the native USB.
+<<<
+COMMENT: JP1/JP2 SolderJumper_3_Bridged12: 1 = ESP32-S3 GPIO19/20, 3 = CP2102N.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+- TYPE: Parent
+  VALUE: KM271-SYA-203
+
+[REQUIREMENT]
+UID: KM271-HW-035
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: ESD protection in the signal path
+STATEMENT: >>>
+D+ and D- shall pass over the pads of an ESD protection array directly behind
+the USB connector, before any branch, jumper or series element.
+<<<
+RATIONALE: A TVS connected by a stub is ineffective at fast ESD edges.
+COMMENT: >>>
+U3 SRV05-4 is not flow-through: both pins of each channel are connected.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-013
+
+[REQUIREMENT]
+UID: KM271-HW-036
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Should
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Series resistors in the USB lines
+STATEMENT: >>>
+D+ and D- shall have series resistors of 2.2 Ohm to limit ESD current and damp
+ringing.
+<<<
+COMMENT: R69/R70.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-013
+
+[REQUIREMENT]
+UID: KM271-HW-037
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Partially met
+TITLE: USB signal routing
+STATEMENT: >>>
+D+ and D- shall be routed as a coupled, length-matched pair with a continuous
+reference plane and at least 1.3 mm distance to the board edge.
+<<<
+SOURCE: EMC review 2026-11-24
+COMMENT: >>>
+Length matched with KiCad tuning patterns; 1.6 mm near the J2 shield pad,
+otherwise >= 1.3 mm.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-013
+
+[REQUIREMENT]
+UID: KM271-HW-038
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: USB-UART bridge
+STATEMENT: >>>
+The USB-UART bridge shall be self-powered from +3V3, detect the USB host via a
+VBUS divider and connect to UART0 of the controller through series resistors
+that let an external adapter on J4 override it.
+<<<
+COMMENT: U10 CP2102N, R71/R72 VBUS divider, R76/R77 220 Ohm.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+- TYPE: Parent
+  VALUE: KM271-SYA-013
+
+[REQUIREMENT]
+UID: KM271-HW-039
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Auto-reset into the bootloader
+STATEMENT: >>>
+With the USB-UART bridge path, DTR and RTS shall drive EN and IO0 through the
+classic two-transistor circuit so that flashing tools can enter the bootloader
+without user action.
+<<<
+COMMENT: Q1/Q2 SS8050.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYA-013
+
+[REQUIREMENT]
+UID: KM271-HW-040
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Exposed pad of the USB-UART bridge
+STATEMENT: >>>
+The exposed pad of the bridge shall be connected to GND with vias in the pad.
+<<<
+COMMENT: Two vias since 2026-11-25.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-013
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Sensor inputs
+
+[REQUIREMENT]
+UID: KM271-HW-050
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Analog inputs
+STATEMENT: >>>
+Three sensor inputs shall be connected to ADC1 channels of the controller and
+each have an RC filter (100 nF) and a fitting position for a pull-up and a
+pull-down.
+<<<
+RATIONALE: ADC2 cannot be used while WiFi is active.
+COMMENT: J6 pins 2/4/6 to GPIO8/7/6.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+- TYPE: Parent
+  VALUE: KM271-SYA-014
+- TYPE: Parent
+  VALUE: KM271-SYA-104
+
+[REQUIREMENT]
+UID: KM271-HW-051
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Oil meter input
+STATEMENT: >>>
+One input shall accept a 5 V pulse signal (e.g. reed contact of an oil meter)
+without exceeding 3.3 V at the controller pin.
+<<<
+COMMENT: J6 pin 2: R9 series resistor, R16 1 kOhm pull-down.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+- TYPE: Parent
+  VALUE: KM271-SYA-014
+
+[REQUIREMENT]
+UID: KM271-HW-052
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: OneWire bus
+STATEMENT: >>>
+The board shall provide a OneWire bus with a fitted pull-up resistor and a
+series resistor at the controller pin.
+<<<
+COMMENT: GPIO15, R6 10 Ohm, R49 1 kOhm via R57.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+- TYPE: Parent
+  VALUE: KM271-SYA-014
+
+[REQUIREMENT]
+UID: KM271-HW-053
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Sensor supply outputs
+STATEMENT: >>>
+The sensor terminal shall provide GND, +3V3 and +5V for external sensors.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-014
+- TYPE: Parent
+  VALUE: KM271-SYA-104
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Extension header
+
+[REQUIREMENT]
+UID: KM271-HW-060
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Extension header pinout
+STATEMENT: >>>
+The extension header J7 shall keep the 2x5 pin assignment of v1.x (power, SPI,
+I2C, nINT) so that existing extensions remain mechanically and electrically
+compatible.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-022
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+
+[REQUIREMENT]
+UID: KM271-HW-061
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: SPI series termination
+STATEMENT: >>>
+The SPI lines on J7 shall have series resistors (22 Ohm) at the controller
+side.
+<<<
+COMMENT: R45-R48.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+
+[REQUIREMENT]
+UID: KM271-HW-062
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: I2C pull-ups
+STATEMENT: >>>
+SDA and SCL shall each have exactly one pull-up resistor to +3V3 on the main
+board.
+<<<
+COMMENT: R4/R30 4.7 kOhm.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+- TYPE: Parent
+  VALUE: KM271-SYA-204
+
+[REQUIREMENT]
+UID: KM271-HW-063
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Analysis
+COMPLIANCE: Met
+TITLE: Supply capability of J7
+STATEMENT: >>>
+J7 shall be able to supply an extension with at least 200 mA from +3V3 in
+addition to the controller load.
+<<<
+COMMENT: W5500 extension draws about 130-150 mA.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-005
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: User interface
+
+[REQUIREMENT]
+UID: KM271-HW-070
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Status LEDs
+STATEMENT: >>>
+The board shall have four LEDs driven by GPIOs: green (network), green
+(heartbeat), yellow (Logamatic communication), red (error), each with a
+current of about 2 mA.
+<<<
+COMMENT: D1 GPIO21, D2 GPIO38, D3 GPIO39, D4 GPIO40, 680 Ohm.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-023
+- TYPE: Parent
+  VALUE: KM271-SYA-016
+
+[REQUIREMENT]
+UID: KM271-HW-071
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Could
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: User buttons
+STATEMENT: Two optional user buttons shall be connected to GPIO41 and GPIO42.
+COMMENT: SW1/SW2 DNP by default.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-024
+- TYPE: Parent
+  VALUE: KM271-SYA-016
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: PCB, EMC and production
+
+[REQUIREMENT]
+UID: KM271-HW-080
+STATUS: Draft
+TYPE: Mechanical
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Guide rail clearance
+STATEMENT: >>>
+Components and copper (except the card edge contacts) shall keep at least 1.3
+mm distance to the board edges that run in the guide rails of the slot.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-040
+- TYPE: Parent
+  VALUE: KM271-SYA-018
+
+[REQUIREMENT]
+UID: KM271-HW-081
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Review
+COMPLIANCE: Partially met
+TITLE: Continuous ground return
+STATEMENT: >>>
+Fast signals (SPI, USB, UART, switching node) shall have a continuous GND
+reference on the adjacent layer. Traces on the GND layer shall not cut the
+plane below them.
+<<<
+SOURCE: EMC review 2026-11-24
+COMMENT: >>>
+Open: B.Cu bundle J4/Q1/Q2/+3V3 at x 140-146 cuts GND below the F.Cu bus (low
+priority, USB only used for service). Bottleneck at the J1 tongue is inherent
+to the shape.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-018
+
+[REQUIREMENT]
+UID: KM271-HW-082
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Review
+COMPLIANCE: Met
+TITLE: Compact power loop
+STATEMENT: >>>
+Input capacitor, converter IC and output capacitor of the step-down converter
+shall form a minimal loop with direct GND connection.
+<<<
+SOURCE: EMC review 2026-11-24 (rework 2026-11-24)
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-018
+- TYPE: Parent
+  VALUE: KM271-SYA-201
+
+[REQUIREMENT]
+UID: KM271-HW-083
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Should
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Edge stitching
+STATEMENT: >>>
+GND areas on both layers shall be stitched along the board edge with a via
+pitch of about 4 mm where both layers carry GND.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYA-018
+
+[REQUIREMENT]
+UID: KM271-HW-084
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Thermal reliefs
+STATEMENT: >>>
+GND pads of components shall be connected with thermal reliefs. Only exposed
+pads shall be fully connected.
+<<<
+RATIONALE: Solderability during production and repair.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+- TYPE: Parent
+  VALUE: KM271-SYA-018
+
+[REQUIREMENT]
+UID: KM271-HW-085
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Design rules of the PCB service
+STATEMENT: >>>
+The layout shall use vias of 0.6/0.3 mm, a minimum drill of 0.3 mm and a
+minimum clearance of 0.15 mm.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+- TYPE: Parent
+  VALUE: KM271-SYA-018
+
+[REQUIREMENT]
+UID: KM271-HW-086
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Sourcing
+STATEMENT: >>>
+Every SMD part shall have an LCSC part number in the schematic, and the JLCPCB
+BOM shall be generated from the schematic honoring DNP marks.
+<<<
+COMMENT: scripts/export-jlc-bom.sh; R10 (np) has no part number.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+
+[REQUIREMENT]
+UID: KM271-HW-087
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Unpopulated through-hole options
+STATEMENT: >>>
+Through-hole connectors (J4, J5, J6, J8) shall not be part of the assembly
+BOM.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+- TYPE: Parent
+  VALUE: KM271-SYA-205
+
+[[/SECTION]]

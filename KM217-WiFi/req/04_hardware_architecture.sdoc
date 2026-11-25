@@ -1,0 +1,410 @@
+[DOCUMENT]
+TITLE: KM271-WiFi Hardware Architecture
+UID: KM271-HWA
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: architecture.sgra
+
+[TEXT]
+STATEMENT: >>>
+Circuit level architecture of the KM271-WiFi main board v2.0. Each block
+names the schematic designators that realize it and traces to the
+hardware requirements (KM271-HW-xxx). Reference: KM217-WiFi.kicad_sch,
+state of 2026-11-24.
+<<<
+
+[[SECTION]]
+TITLE: Power
+
+[BLOCK]
+UID: KM271-HWA-001
+STATUS: Draft
+KIND: Circuit
+TITLE: Supply input and OR-ing
+DESCRIPTION: >>>
+Slot 5 V (J1 pin 1) enters via R33 (0 Ohm) as VPP, is clamped by D10 and
+passes D9 to +5V. USB VBUS passes D8 to +5V. C7 (220 uF polymer), C2 and 100
+nF capacitors buffer +5V.
+<<<
+REALIZATION: R33, R34, D8, D9, D10, C7, C2, C19
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-001
+- TYPE: Parent
+  VALUE: KM271-HW-002
+- TYPE: Parent
+  VALUE: KM271-HW-003
+- TYPE: Parent
+  VALUE: KM271-HW-007
+
+[BLOCK]
+UID: KM271-HWA-002
+STATUS: Draft
+KIND: Circuit
+TITLE: Step-down converter 3.3 V
+DESCRIPTION: >>>
+TPS62162DSG fixed 3.3 V (FB to GND) with L1 2.2 uH (cjiang FTC252012S), C28 10
+uF input, C29 22 uF output, C26 100 nF. Output to +3V3 via R78. +3V3 is
+buffered with C8 220 uF polymer, C13 22 uF and C14 2.2 uF.
+<<<
+REALIZATION: U8, L1, C26, C28, C29, R78, C8, C13, C14
+VARIANTS: R78 fitted (default). Remove R78 for an external 3.3 V supply.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-004
+- TYPE: Parent
+  VALUE: KM271-HW-005
+- TYPE: Parent
+  VALUE: KM271-HW-006
+- TYPE: Parent
+  VALUE: KM271-HW-007
+- TYPE: Parent
+  VALUE: KM271-HW-009
+- TYPE: Parent
+  VALUE: KM271-HW-082
+
+[BLOCK]
+UID: KM271-HWA-003
+STATUS: Draft
+KIND: Circuit
+TITLE: LDO alternative
+DESCRIPTION: AZ1117-3.3 in SOT-223 with C4, connected to +3V3 through R79.
+REALIZATION: U2, C3, C4, R79
+VARIANTS: >>>
+Not fitted. Fit U2, C4, R79 and remove R78 to use the LDO (only for the first
+prototype comparison).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-008
+
+[BLOCK]
+UID: KM271-HWA-004
+STATUS: Draft
+KIND: Circuit
+TITLE: 5 V monitor
+DESCRIPTION: Divider R5 100 kOhm / R12 47 kOhm from +5V to GPIO4 (ADC1_CH3).
+REALIZATION: R5, R12
+COMMENT: Measures behind D8/D9, so the reading is 0.3-0.4 V below the source.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-010
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Logamatic interface
+
+[BLOCK]
+UID: KM271-HWA-010
+STATUS: Draft
+KIND: Circuit
+TITLE: Slot connector
+DESCRIPTION: >>>
+2x6 card edge contact (J1). Each pin is routed through a 0 Ohm resistor
+(R33-R44) to its function.
+<<<
+REALIZATION: J1, R33-R44
+VARIANTS: R41-R44 (pins 9-12) not fitted.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-001
+- TYPE: Parent
+  VALUE: KM271-HW-023
+
+[BLOCK]
+UID: KM271-HWA-011
+STATUS: Draft
+KIND: Circuit
+TITLE: Serial level shifters
+DESCRIPTION: >>>
+Two single-gate translators SN74LV1T34. U4 (VCC 3.3 V) translates LM_TX (5 V)
+to GPIO18 via R3. U5 (VCC 5 V) translates GPIO17 to LM_RX via R1. R2 pulls
+LM_TX up to 5 V.
+<<<
+REALIZATION: U4, U5, R1, R2, R3, C9, C10
+VARIANTS: >>>
+R18/R31 (DNP) bypass the translators for tests. R10 (DNP) optional pull-up on
+GPIO17.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-020
+- TYPE: Parent
+  VALUE: KM271-HW-021
+- TYPE: Parent
+  VALUE: KM271-HW-022
+
+[BLOCK]
+UID: KM271-HWA-012
+STATUS: Draft
+KIND: Circuit
+TITLE: Exhaust gas sensor circuit
+DESCRIPTION: >>>
+J1-3 feeds the sensor via R17 3.3 kOhm (C11 100 nF to ATS-). The sensor
+voltage goes through R11 100 kOhm and C12 33 nF to J1-7. ATS- is J1-4. J1-8 is
+tied to ATS- through R32 10 kOhm. D5 clamps ATS+ when fitted.
+<<<
+REALIZATION: R17, R11, C11, C12, R32, D5, J5, J8, R35, R36, R39, R40
+VARIANTS: D5 DNP (default). J5/J8 buyer option.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-024
+- TYPE: Parent
+  VALUE: KM271-HW-025
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Controller
+
+[BLOCK]
+UID: KM271-HWA-020
+STATUS: Draft
+KIND: Component
+TITLE: ESP32-S3 module
+DESCRIPTION: >>>
+ESP32-S3-WROOM-1-N8R2 with decoupling C1 100 nF, C13/C14, EN RC (R29 10 kOhm,
+C30 1 uF), IO0 pull-up R27, BOOT SW3 and RESET SW4.
+<<<
+REALIZATION: U1, C1, C30, R27, R29, SW3, SW4
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-030
+- TYPE: Parent
+  VALUE: KM271-HW-031
+- TYPE: Parent
+  VALUE: KM271-HW-032
+- TYPE: Parent
+  VALUE: KM271-HW-033
+
+[INTERFACE]
+UID: KM271-HWA-021
+STATUS: Draft
+KIND: Electrical
+TITLE: GPIO allocation
+DESCRIPTION: Assignment of the ESP32-S3 GPIOs on the v2.0 board.
+SIGNALS: >>>
+- GPIO0: BOOT (SW3, auto-reset Q1/Q2)
+- GPIO2: free (former I2C_EXT_EN)
+- GPIO4: ADC1_CH3, 5 V monitor
+- GPIO5: VDRV, switchable sensor pull-up supply (via R53, DNP)
+- GPIO6/7/8: ADC1_CH5/CH6/CH7, J6 pins 6/4/2
+- GPIO9: SCL
+- GPIO10: nCS
+- GPIO11: MOSI
+- GPIO12: SCLK
+- GPIO13: MISO
+- GPIO14: nINT
+- GPIO15: OneWire
+- GPIO16: SDA (W5500 reset on the extension)
+- GPIO17: KM271 TX (to LM_RX)
+- GPIO18: KM271 RX (from LM_TX)
+- GPIO19/20: USB D-/D+ (native USB)
+- GPIO21: LED D1 green (network)
+- GPIO38: LED D2 green (heartbeat)
+- GPIO39: LED D3 yellow (Logamatic communication)
+- GPIO40: LED D4 red (error)
+- GPIO41/42: USER1 (SW2) / USER2 (SW1)
+- GPIO43/44: UART0 TXD0/RXD0 (CP2102N, J4)
+- EN: RESET (SW4, auto-reset Q1/Q2)
+<<<
+COMMENT: >>>
+GPIO35-37 are unused (octal PSRAM pins on other module variants). GPIO45/46
+are strapping pins and left unconnected.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-022
+- TYPE: Parent
+  VALUE: KM271-HW-030
+- TYPE: Parent
+  VALUE: KM271-HW-050
+- TYPE: Parent
+  VALUE: KM271-HW-052
+- TYPE: Parent
+  VALUE: KM271-HW-070
+- TYPE: Parent
+  VALUE: KM271-HW-071
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: USB
+
+[BLOCK]
+UID: KM271-HWA-030
+STATUS: Draft
+KIND: Circuit
+TITLE: USB front end
+DESCRIPTION: >>>
+Signal path J2 -> R69/R70 (2.2 Ohm) -> over the pads of U3 (SRV05-4) ->
+JP1/JP2. Shield to GND via R60 22 Ohm. VBUS to D8.
+<<<
+REALIZATION: J2, R69, R70, U3, R60, JP1, JP2
+VARIANTS: JP1/JP2 bridged 1-2 (default): ESP32-S3 USB. Bridged 2-3: CP2102N.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-034
+- TYPE: Parent
+  VALUE: KM271-HW-035
+- TYPE: Parent
+  VALUE: KM271-HW-036
+- TYPE: Parent
+  VALUE: KM271-HW-037
+
+[BLOCK]
+UID: KM271-HWA-031
+STATUS: Draft
+KIND: Circuit
+TITLE: USB-UART bridge with auto-reset
+DESCRIPTION: >>>
+CP2102N in QFN-28, VREGIN and VDD on +3V3, VBUS sense R71 22 kOhm / R72 47
+kOhm, RSTb pull-up R73 1 kOhm, C5 4.7 uF. TXD/RXD to UART0 via R76/R77 220
+Ohm. DTR/RTS drive Q1/Q2 (R82, R84-R86) for EN/IO0. D6/D7 show traffic.
+<<<
+REALIZATION: U10, R71-R77, C5, C18, C20, C21, Q1, Q2, R82, R84-R86, D6, D7
+VARIANTS: Can stay unpopulated when only the native USB path is used.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-038
+- TYPE: Parent
+  VALUE: KM271-HW-039
+- TYPE: Parent
+  VALUE: KM271-HW-040
+
+[BLOCK]
+UID: KM271-HWA-032
+STATUS: Draft
+KIND: Circuit
+TITLE: Debug header
+DESCRIPTION: J4 (DNP) with R80 to IO0 and pull-ups R27/R28/R29.
+REALIZATION: J4, R80, R28
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-038
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Sensor inputs and extension
+
+[BLOCK]
+UID: KM271-HWA-040
+STATUS: Draft
+KIND: Circuit
+TITLE: Sensor terminal circuits
+DESCRIPTION: >>>
+J6 inputs 2/4/6 via R9/R8/R7 to ADC1_CH7/CH6/CH5 with C15-C17 100 nF to GND,
+pull-ups R50-R52 and pull-downs R13-R16 positions. Pull-up rail R49-Pad2 is
+fed from +3V3 via R57 (or from GPIO5 via R53). OneWire from GPIO15 via R6 to
+J6-8 with R49 1 kOhm. +3V3 and +5V via R65/R64.
+<<<
+REALIZATION: J6, R6-R9, R13-R16, R49-R53, R57, R64, R65, C15-C17
+VARIANTS: >>>
+Default: R16 pull-down (oil meter on pin 2), R50/R51 1 kOhm pull-up on pins
+6/4, R52 and R13-R15 DNP.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-050
+- TYPE: Parent
+  VALUE: KM271-HW-051
+- TYPE: Parent
+  VALUE: KM271-HW-052
+- TYPE: Parent
+  VALUE: KM271-HW-053
+
+[BLOCK]
+UID: KM271-HWA-041
+STATUS: Draft
+KIND: Circuit
+TITLE: Extension header circuit
+DESCRIPTION: >>>
+J7 2x5 SMD header. SPI via R45-R48 22 Ohm, I2C via R54/R55 22 Ohm directly
+from GPIO9/GPIO16 with pull-ups R4/R30, nINT via R56 with pull-up R63 4.7
+kOhm.
+<<<
+REALIZATION: J7, R4, R30, R45-R48, R54-R56, R63
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-060
+- TYPE: Parent
+  VALUE: KM271-HW-061
+- TYPE: Parent
+  VALUE: KM271-HW-062
+- TYPE: Parent
+  VALUE: KM271-HW-063
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: User interface
+
+[BLOCK]
+UID: KM271-HWA-050
+STATUS: Draft
+KIND: Circuit
+TITLE: LEDs and buttons
+DESCRIPTION: >>>
+D1-D4 with R23-R26 680 Ohm to the GPIOs listed in KM271-HWA-021. SW1/SW2 user
+buttons to GND on GPIO42/41.
+<<<
+REALIZATION: D1-D4, R23-R26, SW1, SW2
+VARIANTS: SW1/SW2 DNP.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-070
+- TYPE: Parent
+  VALUE: KM271-HW-071
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: PCB
+
+[BLOCK]
+UID: KM271-HWA-060
+STATUS: Draft
+KIND: Module
+TITLE: PCB construction
+DESCRIPTION: >>>
+Two-layer board with card edge tongue, GND fill on both layers, edge stitching
+vias 0.6/0.3 mm and the ESP32-S3 antenna overhanging the edge.
+<<<
+REALIZATION: KM217-WiFi.kicad_pcb
+COMMENT: Detailed EMC findings: EMC layout review 2026-11-24.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-031
+- TYPE: Parent
+  VALUE: KM271-HW-080
+- TYPE: Parent
+  VALUE: KM271-HW-081
+- TYPE: Parent
+  VALUE: KM271-HW-083
+- TYPE: Parent
+  VALUE: KM271-HW-084
+- TYPE: Parent
+  VALUE: KM271-HW-085
+
+[BLOCK]
+UID: KM271-HWA-061
+STATUS: Draft
+KIND: Module
+TITLE: Production data
+DESCRIPTION: >>>
+JLCPCB BOM and placement files generated from the KiCad project with
+scripts/export-jlc-bom.sh. Through-hole parts excluded.
+<<<
+REALIZATION: KM217-WiFi_BOM_JLC.csv, scripts/export-jlc-bom.sh
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-HW-086
+- TYPE: Parent
+  VALUE: KM271-HW-087
+
+[[/SECTION]]

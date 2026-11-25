@@ -6,6 +6,8 @@ on:
     paths:
       - 'KM217-WiFi/**'
       - 'EXTENSIONS/ETH_W5500/**'
+      - '!KM217-WiFi/req/**'
+      - '!EXTENSIONS/ETH_W5500/req/**'
       - 'DOC/**'
       - '.github/workflows/release.yml'
 
@@ -274,3 +276,16 @@ jobs:
         echo ""
         echo "✅ Release created successfully!"
         echo "🔗 Release URL: https://github.com/${{ github.repository }}/releases/tag/${{ needs.version.outputs.version_tag }}"
+
+  requirements:
+    name: 📋 Publish Requirements to Pages
+    needs: [version, create-release]
+    if: ${{ ! github.event.act }}
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/requirements.yml
+    with:
+      version: ${{ needs.version.outputs.version }}
+      deploy: true

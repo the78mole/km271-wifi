@@ -1,0 +1,256 @@
+[DOCUMENT]
+TITLE: ETH-W5500 Extension System Requirements
+UID: ETH-SYS
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: requirements.sgra
+
+[TEXT]
+STATEMENT: >>>
+System requirements of the W5500 Ethernet extension for the KM271-WiFi.
+The extension is plugged onto the extension header J7 of the main board
+and adds wired 10/100 Mbit/s Ethernet. Its requirements refine the main
+board requirement KM271-SYS-005.
+
+Scope: EXTENSIONS/ETH_W5500, design state in the repository (2025-09-28),
+reviewed for production on 2026-11-25. Review findings are recorded as
+requirements with COMPLIANCE "Not met" or "Partially met".
+<<<
+
+[[SECTION]]
+TITLE: Function
+
+[REQUIREMENT]
+UID: ETH-SYS-001
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Wired Ethernet for the KM271-WiFi
+STATEMENT: >>>
+The extension shall provide a 10BASE-T/100BASE-TX Ethernet port for the
+KM271-WiFi.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-005
+
+[REQUIREMENT]
+UID: ETH-SYS-002
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Host interface
+STATEMENT: >>>
+The extension shall connect to the host only through the extension header J7
+of the main board (SPI, interrupt, reset, power).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-022
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+
+[REQUIREMENT]
+UID: ETH-SYS-003
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Met
+TITLE: Firmware independence
+STATEMENT: >>>
+The extension shall be usable by every supported firmware with standard
+drivers (ESPHome ethernet type W5500, Arduino ETH with W5500).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+
+[REQUIREMENT]
+UID: ETH-SYS-004
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Link indication
+STATEMENT: >>>
+The extension shall indicate link and activity by LEDs at the RJ45 jack.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-023
+
+[REQUIREMENT]
+UID: ETH-SYS-005
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Could
+VERIFICATION: Test
+COMPLIANCE: Not verified
+TITLE: Optional Power over Ethernet
+STATEMENT: >>>
+The extension may supply the KM271-WiFi from Power over Ethernet through an
+optional PoE converter module.
+<<<
+COMMENT: Connector J3 for a Traco TEC2 class module; not tested.
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Power
+
+[REQUIREMENT]
+UID: ETH-SYS-010
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Simulation, Inspection
+COMPLIANCE: Not met
+TITLE: Supply from the main board
+STATEMENT: >>>
+In the default assembly the extension shall be supplied from the 3.3 V rail of
+the main board, so that it benefits from its step-down converter.
+<<<
+SOURCE: ETH review 2026-11-25 (S1)
+COMMENT: >>>
+JP4 (3V3 from main board) and JP5 (5 V via LDO) are both open ex works, so the
+board is unpowered unless the user closes one.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYS-012
+
+[REQUIREMENT]
+UID: ETH-SYS-011
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: Weak slot supply
+STATEMENT: >>>
+With the extension fitted the system shall still operate at a slot source
+resistance of at least 2 Ohm.
+<<<
+SOURCE: ETH review 2026-11-25 (S1)
+COMMENT: >>>
+Met with JP4: W5500 supply stays above 2.97 V up to about 2.2 Ohm. With JP5
+only up to about 0.9 Ohm.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Environment, mechanics and safety
+
+[REQUIREMENT]
+UID: ETH-SYS-020
+STATUS: Draft
+TYPE: Mechanical
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Fit on the main board
+STATEMENT: >>>
+The extension shall fit on top of the ESP32 module of the main board inside
+the KM271 slot and be fixed mechanically and isolated electrically from it
+(e.g. by an adhesive pad).
+<<<
+SOURCE: EXTENSIONS/ETH_W5500/README.md
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-040
+
+[REQUIREMENT]
+UID: ETH-SYS-021
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Inspection, Analysis
+COMPLIANCE: Partially met
+TITLE: Galvanic isolation of the network port
+STATEMENT: >>>
+The network port shall be galvanically isolated from the board circuitry
+according to IEEE 802.3 (1500 V rms).
+<<<
+COMMENT: >>>
+Transformer is rated, but copper of the primary side is only 0.2 mm away from
+line side and shield (see ETH-HW-031).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-043
+
+[REQUIREMENT]
+UID: ETH-SYS-022
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Review, Test
+COMPLIANCE: Partially met
+TITLE: EMC of the network port
+STATEMENT: >>>
+The extension shall not degrade the EMC of the KM271-WiFi and shall withstand
+common mode surges on the network cable.
+<<<
+SOURCE: ETH review 2026-11-25
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Production
+
+[REQUIREMENT]
+UID: ETH-SYS-030
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Not met
+TITLE: Assembly by a PCB service
+STATEMENT: >>>
+The extension shall be producible and SMT assembled by JLCPCB with parts in
+stock at LCSC for a batch of 100 boards.
+<<<
+SOURCE: ETH review 2026-11-25
+COMMENT: >>>
+Würth RJ45 634008137521 only 47 pcs in stock; SMD alternative
+HC-RJ45-5JAS-1-5-01 (C20417896) needs a footprint change.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+
+[REQUIREMENT]
+UID: ETH-SYS-031
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Should
+VERIFICATION: Analysis
+COMPLIANCE: Not met
+TITLE: Parts cost target
+STATEMENT: >>>
+The cost of the assembled parts per board should not exceed 4 USD at 100
+boards, including the JLCPCB setup fees for extended parts and excluding the
+PCB itself and the assembly service.
+<<<
+SOURCE: ETH review 2026-11-25
+COMMENT: Current parts 10.02 USD, recommended variant 3.65 USD.
+
+[[/SECTION]]

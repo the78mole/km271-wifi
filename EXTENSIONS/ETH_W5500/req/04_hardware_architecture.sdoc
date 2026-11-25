@@ -1,0 +1,145 @@
+[DOCUMENT]
+TITLE: ETH-W5500 Extension Hardware Architecture
+UID: ETH-HWA
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: architecture.sgra
+
+[TEXT]
+STATEMENT: Circuit blocks of the W5500 Ethernet extension (ETH_W5500.kicad_sch).
+
+[[SECTION]]
+TITLE: Circuit blocks
+
+[BLOCK]
+UID: ETH-HWA-001
+STATUS: Draft
+KIND: Circuit
+TITLE: Host connector
+DESCRIPTION: J1 2x5 socket. SPI, nINT and RSTn (SDA_X) go directly to U3.
+REALIZATION: J1
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-001
+- TYPE: Parent
+  VALUE: ETH-HW-005
+
+[BLOCK]
+UID: ETH-HWA-002
+STATUS: Draft
+KIND: Circuit
+TITLE: Supply
+DESCRIPTION: >>>
+JP4 connects 3V3BUD to +3.3V, JP5 connects 5VBUD to +5V, which feeds U2
+(AP1117-33). L2 ferrite to +3.3VA, GNDA tied to GND through R2. C11/C15 22 uF
+bulk.
+<<<
+REALIZATION: JP4, JP5, U2, L2, R2, C11, C14, C15, C30
+VARIANTS: >>>
+JP4 closed = main board 3.3 V (proposed default). JP5 + U2 = 5 V via LDO.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-002
+- TYPE: Parent
+  VALUE: ETH-HW-003
+- TYPE: Parent
+  VALUE: ETH-HW-004
+
+[BLOCK]
+UID: ETH-HWA-003
+STATUS: Draft
+KIND: Circuit
+TITLE: W5500 and clock
+DESCRIPTION: >>>
+U3 W5500 with decoupling, Y1 25 MHz with C7/C8 and R1/R3, EXRES1 R4 to GNDA,
+PMODE jumpers JP1-JP3.
+<<<
+REALIZATION: U3, Y1, C7, C8, R1, R3, R4, JP1-JP3
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-006
+- TYPE: Parent
+  VALUE: ETH-HW-007
+- TYPE: Parent
+  VALUE: ETH-HW-010
+- TYPE: Parent
+  VALUE: ETH-HW-011
+- TYPE: Parent
+  VALUE: ETH-HW-021
+
+[BLOCK]
+UID: ETH-HWA-004
+STATUS: Draft
+KIND: Circuit
+TITLE: MDI and magnetics
+DESCRIPTION: >>>
+TX: R5/R6 33 Ohm series, R13/R14 49.9 Ohm to 3V3A, centre tap R15/C22. RX:
+R7/R8, R11/R12, R16-R19. TR1 1:1 transformer. Bob Smith R20/R21 and
+C28/C31/C32/C34 to GNDPWR, C33 1 nF 2 kV to GND.
+<<<
+REALIZATION: R5-R21, C20-C22, C28, C31-C34, TR1
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-020
+- TYPE: Parent
+  VALUE: ETH-HW-022
+- TYPE: Parent
+  VALUE: ETH-HW-023
+- TYPE: Parent
+  VALUE: ETH-HW-024
+
+[BLOCK]
+UID: ETH-HWA-005
+STATUS: Draft
+KIND: Circuit
+TITLE: RJ45 and LEDs
+DESCRIPTION: >>>
+J2 with integrated LEDs driven from LED_LNK/LED_ACT via R23/R22 330 Ohm.
+Shield on GNDPWR.
+<<<
+REALIZATION: J2, R22, R23, D9, D10
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-025
+
+[BLOCK]
+UID: ETH-HWA-006
+STATUS: Draft
+KIND: Circuit
+TITLE: PoE connector
+DESCRIPTION: >>>
+J3 passes the spare pairs to an external module and takes back +5V or +3.3V.
+<<<
+REALIZATION: J3
+VARIANTS: DNP proposed.
+COMMENT: >>>
+With PoE feeding +3.3V and JP4 closed, PoE also supplies the main board; check
+for backfeed against the main board buck.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-041
+
+[BLOCK]
+UID: ETH-HWA-007
+STATUS: Draft
+KIND: Module
+TITLE: PCB
+DESCRIPTION: >>>
+Two layers, 59.9 x 34.7 mm, separate GND/GNDA areas joined at R2, GNDPWR under
+the jack.
+<<<
+REALIZATION: ETH_W5500.kicad_pcb
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-HW-030
+- TYPE: Parent
+  VALUE: ETH-HW-031
+- TYPE: Parent
+  VALUE: ETH-HW-032
+
+[[/SECTION]]
