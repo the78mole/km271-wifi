@@ -244,10 +244,11 @@ TYPE: Manufacturing
 PRIORITY: Should
 VERIFICATION: Analysis
 COMPLIANCE: Not met
-TITLE: Cost target
+TITLE: Parts cost target
 STATEMENT: >>>
-The assembly cost per board should not exceed 4 USD at 100 boards (parts plus
-extended part fees).
+The cost of the assembled parts per board should not exceed 4 USD at 100
+boards, including the JLCPCB setup fees for extended parts and excluding the
+PCB itself and the assembly service.
 <<<
 SOURCE: ETH review 2026-11-25
 COMMENT: Current parts 10.02 USD, recommended variant 3.65 USD.
