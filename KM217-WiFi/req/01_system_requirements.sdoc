@@ -376,6 +376,24 @@ The board shall be producible and SMT assembled by JLCPCB with parts available f
 SOURCE: KM217-WiFi/jlc-sourcing.md
 
 [REQUIREMENT]
+UID: KM271-SYS-052
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Should
+VERIFICATION: Analysis
+COMPLIANCE: Not verified
+TITLE: Sales price target
+STATEMENT: >>>
+The KM271-WiFi should be sellable for less than 50 USD per unit, based on a
+production order of 100 boards at JLCPCB (PCB, parts and assembly).
+<<<
+SOURCE: Maulwurf, 2026-11-25
+COMMENT: >>>
+No cost calculation for the v2.0 board at 100 pcs yet. Optional extensions
+(e.g. ETH-W5500, see ETH-SYS-031) are not included.
+<<<
+
+[REQUIREMENT]
 UID: KM271-SYS-051
 STATUS: Draft
 TYPE: Constraint
