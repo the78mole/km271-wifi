@@ -1,0 +1,64 @@
+[GRAMMAR]
+ELEMENTS:
+- TAG: TEXT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: False
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+- TAG: SECTION
+  PROPERTIES:
+    IS_COMPOSITE: True
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: False
+  - TITLE: LEVEL
+    TYPE: String
+    REQUIRED: False
+  - TITLE: PREFIX
+    TYPE: String
+    REQUIRED: False
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+- TAG: REQUIREMENT
+  FIELDS:
+  - TITLE: UID
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATUS
+    TYPE: SingleChoice(Draft, Proposed, Approved, Rejected, Obsolete)
+    REQUIRED: True
+  - TITLE: TYPE
+    TYPE: SingleChoice(Functional, Performance, Interface, Environmental, Protection, EMC, Mechanical, Manufacturing, Usability, Security, Constraint)
+    REQUIRED: True
+  - TITLE: PRIORITY
+    TYPE: SingleChoice(Must, Should, Could)
+    REQUIRED: True
+  - TITLE: VERIFICATION
+    TYPE: MultipleChoice(Inspection, Review, Analysis, Simulation, Test, Demonstration)
+    REQUIRED: False
+  - TITLE: COMPLIANCE
+    HUMAN_TITLE: Design compliance
+    TYPE: SingleChoice(Met, Partially met, Not met, Not verified, Not applicable)
+    REQUIRED: False
+  - TITLE: TITLE
+    TYPE: String
+    REQUIRED: True
+  - TITLE: STATEMENT
+    TYPE: String
+    REQUIRED: True
+  - TITLE: RATIONALE
+    TYPE: String
+    REQUIRED: False
+  - TITLE: SOURCE
+    TYPE: String
+    REQUIRED: False
+  - TITLE: COMMENT
+    TYPE: String
+    REQUIRED: False
+  RELATIONS:
+  - TYPE: Parent

@@ -20,6 +20,7 @@ A [copy of the license](LICENSE.txt) is included here or can be accessed in mult
 For more details, have a look in the:
 
   * [hardware description](DOC/Hardware%20Description.md)
+  * [requirements and architecture](KM217-WiFi/req/README.md) (StrictDoc, rendered on GitHub Pages with every release)
   * [interactive BOM](https://htmlpreview.github.io/?https://github.com/the78mole/km271-wifi/blob/main/KM217-WiFi/bom/ibom_0.1.0.html)
 
 If you bought the board in my tindie store, you could find a how-to to get it running [here](https://the78mole.de/projects/km271-wifi-howto/)

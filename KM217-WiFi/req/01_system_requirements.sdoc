@@ -1,0 +1,391 @@
+[DOCUMENT]
+TITLE: KM271-WiFi System Requirements
+UID: KM271-SYS
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: requirements.sgra
+
+[TEXT]
+STATEMENT: >>>
+This document lists the system level requirements of the KM271-WiFi, a
+WiFi enabled replacement for the Buderus KM271 communication module of
+Logamatic heating controllers. The requirements describe what the complete
+product (board, mechanics and firmware) has to achieve, independent of the
+chosen implementation.
+
+Scope: hardware revision v2.0 (ESP32-S3, step-down converter, USB with
+selectable data path). Optional extensions (e.g. the W5500 Ethernet
+extension) have their own requirement sets that trace to this document.
+
+Conventions: "shall" = mandatory, "should" = recommended, "may" = optional.
+STATUS gives the review state of the requirement, COMPLIANCE the state of
+the current design against it.
+<<<
+
+[[SECTION]]
+TITLE: Purpose and integration
+
+[REQUIREMENT]
+UID: KM271-SYS-001
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection, Demonstration
+COMPLIANCE: Met
+TITLE: Drop-in replacement for the KM271
+STATEMENT: >>>
+The KM271-WiFi shall be insertable into the KM271 slot of a Buderus Logamatic 2107 (and compatible HS 2105) controller in place of the original Buderus KM271 module, without modification of the controller.
+<<<
+SOURCE: README.md, DOC/Hardware Description.md
+
+[REQUIREMENT]
+UID: KM271-SYS-002
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Read heating data
+STATEMENT: >>>
+The system shall read the operating values, states and error messages that the Logamatic provides on its KM271 service interface.
+<<<
+SOURCE: dewenni/ESP_Buderus_KM271, the78mole/ESPhome-KM271-WiFi
+
+[REQUIREMENT]
+UID: KM271-SYS-003
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Change supported parameters
+STATEMENT: >>>
+The system shall allow changing those Logamatic parameters that the KM271 interface supports for writing (e.g. operating modes, set points, hot water settings).
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-004
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Wireless network connectivity
+STATEMENT: >>>
+The system shall connect to an IEEE 802.11 b/g/n network in the 2.4 GHz band.
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-005
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Should
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Optional wired network connectivity
+STATEMENT: >>>
+The system should support wired Ethernet through an optional plug-on extension, for installations without usable WiFi coverage (e.g. concrete basements).
+<<<
+SOURCE: EXTENSIONS/ETH_W5500/README.md
+
+[REQUIREMENT]
+UID: KM271-SYS-006
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Met
+TITLE: Smart home integration
+STATEMENT: >>>
+The system shall make the heating data and the writable parameters available to home automation systems (at least Home Assistant) via a documented network protocol (e.g. MQTT or the ESPHome native API).
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-007
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Partially met
+TITLE: Exchangeable firmware
+STATEMENT: >>>
+The hardware shall support different, independently developed firmware implementations (currently ESPHome-KM271-WiFi and ESP_Buderus_KM271) without hardware modification.
+<<<
+RATIONALE: >>>
+The community uses two firmware projects with different integration concepts. The hardware must not lock users into one of them.
+<<<
+COMMENT: >>>
+Both firmwares need an ESP32-S3 build and a board preset for v2.0, see KM271-SW-060.
+<<<
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Power supply
+
+[REQUIREMENT]
+UID: KM271-SYS-010
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+COMPLIANCE: Met
+TITLE: Supply from the Logamatic
+STATEMENT: >>>
+The system shall be operable from the 5 V supply of the KM271 slot alone, without any external power supply.
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-011
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: Robustness against a weak slot supply
+STATEMENT: >>>
+The system shall operate without brown-out or reset at an effective source resistance of the Logamatic 5 V supply of at least 2 Ohm, including WiFi transmit current peaks.
+<<<
+RATIONALE: >>>
+Several Logamatic controllers have a weak 5 V rail (LM317 on the NM 282 power board); users of older boards reported brown-outs.
+<<<
+SOURCE: >>>
+DOC/Power-Analysis/README.md (Buck regulates up to ~2.25 Ohm at a 460 mA step)
+<<<
+COMMENT: Value of the real source resistance is not measured yet.
+
+[REQUIREMENT]
+UID: KM271-SYS-012
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Should
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: Low load on the slot supply
+STATEMENT: >>>
+The system should draw as little current as possible from the Logamatic. The peak current drawn from the slot shall not exceed 400 mA without extensions.
+<<<
+SOURCE: DOC/Power-Analysis/README.md (386 mA at the ESP32-S3 worst case)
+
+[REQUIREMENT]
+UID: KM271-SYS-013
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Inspection, Test
+COMPLIANCE: Met
+TITLE: Alternative supply via USB
+STATEMENT: >>>
+The system shall be operable from a USB host or USB power supply, alone or in parallel to the Logamatic supply, without feeding current from one source into the other.
+<<<
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Local inputs, outputs and extensions
+
+[REQUIREMENT]
+UID: KM271-SYS-020
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Simulation, Test
+COMPLIANCE: Met
+TITLE: Exhaust gas temperature sensor
+STATEMENT: >>>
+The system shall provide the connection and conditioning for the Buderus exhaust gas temperature sensor (FG, NTC about 100 kOhm at 25 degC) towards the Logamatic, like the original KM271, over the full setting range of the exhaust gas threshold (50 to 250 degC).
+<<<
+SOURCE: DOC/Abgassensor/README.md
+
+[REQUIREMENT]
+UID: KM271-SYS-021
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Should
+VERIFICATION: Inspection, Test
+COMPLIANCE: Met
+TITLE: Additional sensors
+STATEMENT: >>>
+The system should provide inputs for additional local sensors: a OneWire bus, analog inputs for NTC sensors and a pulse input for an oil meter.
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-022
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Extension interface
+STATEMENT: >>>
+The system shall provide an extension interface with power, SPI and I2C for plug-on modules (e.g. Ethernet, display).
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-023
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Status indication
+STATEMENT: >>>
+The system shall indicate its basic operating states (network, activity, communication with the Logamatic, errors) by LEDs visible on the module.
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-024
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Local user controls
+STATEMENT: >>>
+The system shall provide a reset and a boot button and may provide additional user buttons.
+<<<
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Commissioning and maintenance
+
+[REQUIREMENT]
+UID: KM271-SYS-030
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Met
+TITLE: Flashing without external programmer
+STATEMENT: >>>
+Firmware shall be flashable over the on-board USB connector without an external programmer and without pressing buttons.
+<<<
+
+[REQUIREMENT]
+UID: KM271-SYS-031
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Met
+TITLE: Recovery flashing path
+STATEMENT: >>>
+The system shall offer a flashing path that works even if the firmware has disabled or broken the native USB interface of the microcontroller.
+<<<
+COMMENT: Realized as assembly option (CP2102N data path, see KM271-HW-034).
+
+[REQUIREMENT]
+UID: KM271-SYS-032
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Met
+TITLE: Update over the network
+STATEMENT: The firmware shall be updatable over the network (OTA) once installed.
+
+[REQUIREMENT]
+UID: KM271-SYS-033
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+COMPLIANCE: Met
+TITLE: First-time setup without tools
+STATEMENT: >>>
+A user shall be able to configure network access of a fresh device with a smartphone or PC only, without installing software.
+<<<
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Environment, safety and mechanics
+
+[REQUIREMENT]
+UID: KM271-SYS-040
+STATUS: Draft
+TYPE: Mechanical
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Mechanical fit in the slot
+STATEMENT: >>>
+The module shall fit the KM271 slot including its guide rails and the space between neighbouring modules and the housing.
+<<<
+SOURCE: MECH/, project memory (guide rail clearance)
+
+[REQUIREMENT]
+UID: KM271-SYS-041
+STATUS: Draft
+TYPE: Environmental
+PRIORITY: Must
+VERIFICATION: Analysis
+COMPLIANCE: Not verified
+TITLE: Operating environment
+STATEMENT: >>>
+The system shall operate in the ambient conditions inside a Logamatic control housing mounted on a boiler: 0 to 60 degC, non-condensing.
+<<<
+COMMENT: Temperature range is an assumption and needs confirmation.
+
+[REQUIREMENT]
+UID: KM271-SYS-042
+STATUS: Draft
+TYPE: EMC
+PRIORITY: Must
+VERIFICATION: Review, Test
+COMPLIANCE: Partially met
+TITLE: Electromagnetic compatibility
+STATEMENT: >>>
+The system shall not disturb the operation of the Logamatic or of other modules in the controller, and shall withstand electrostatic discharge on user accessible connectors.
+<<<
+SOURCE: EMC layout review 2026-11-24
+COMMENT: Layout reviewed rule based; no EMC measurement yet.
+
+[REQUIREMENT]
+UID: KM271-SYS-043
+STATUS: Draft
+TYPE: Protection
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Safety extra-low voltage only
+STATEMENT: >>>
+The system shall only connect to safety extra-low voltage circuits of the Logamatic and shall not be connected to mains voltage.
+<<<
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Production and licensing
+
+[REQUIREMENT]
+UID: KM271-SYS-050
+STATUS: Draft
+TYPE: Manufacturing
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Assembly by a PCB service
+STATEMENT: >>>
+The board shall be producible and SMT assembled by JLCPCB with parts available from LCSC. Through-hole parts shall be optional and may be fitted by the buyer.
+<<<
+SOURCE: KM217-WiFi/jlc-sourcing.md
+
+[REQUIREMENT]
+UID: KM271-SYS-051
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Inspection
+COMPLIANCE: Met
+TITLE: Open hardware
+STATEMENT: >>>
+Hardware design files and documentation shall be published under the TAPR Open Hardware License v1.0.
+<<<
+SOURCE: LICENSE
+
+[[/SECTION]]

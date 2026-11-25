@@ -1,0 +1,111 @@
+name: Requirements (StrictDoc)
+
+# Validates the StrictDoc requirements on every pull request that touches
+# them and publishes the HTML export to GitHub Pages. The release workflow
+# calls this workflow with deploy=true after a hardware release; it can also
+# be started manually.
+
+on:
+  pull_request:
+    branches: [ main, develop ]
+    paths:
+      - 'KM217-WiFi/req/**'
+      - 'EXTENSIONS/ETH_W5500/req/**'
+      - 'strictdoc_config.py'
+      - '.github/workflows/requirements.yml'
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Publish to GitHub Pages'
+        type: boolean
+        default: true
+  workflow_call:
+    inputs:
+      version:
+        description: 'Release version shown in the project title'
+        type: string
+        required: false
+        default: ''
+      deploy:
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+env:
+  STRICTDOC_VERSION: '0.32.1'
+
+jobs:
+  build:
+    name: 📋 Export requirements
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🐍 Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: 📦 Install StrictDoc
+        run: pip install "strictdoc==${STRICTDOC_VERSION}"
+
+      - name: 🔍 Validate and export
+        run: |
+          TITLE="KM271-WiFi Requirements"
+          if [ -n "${{ inputs.version }}" ]; then
+            TITLE="${TITLE} ${{ inputs.version }}"
+          fi
+          strictdoc export . \
+            --project-title "${TITLE}" \
+            --formats html,html2pdf,reqif-sdoc,json \
+            --chrome-binary "$(command -v google-chrome || command -v chromium)" \
+            --output-dir build/strictdoc
+
+      - name: 🗂️ Assemble Pages site
+        run: |
+          SITE=build/site
+          cp -r build/strictdoc/html "${SITE}"
+          mkdir -p "${SITE}/downloads"
+          # PDFs keep their folder structure (both req folders use the same file names)
+          (cd build/strictdoc/html2pdf/pdf && find . -name '*.pdf' | while read -r f; do
+            n="$(echo "${f#./}" | sed 's#/req/#_#; s#/#_#g; s#\.sdoc\.pdf$#.pdf#')"
+            cp "$f" "../../../site/downloads/${n}"
+          done)
+          cp build/strictdoc/reqif/output.reqif "${SITE}/downloads/km271-wifi-requirements.reqif"
+          cp build/strictdoc/json/index.json "${SITE}/downloads/km271-wifi-requirements.json"
+          ls -R "${SITE}/downloads"
+
+      - name: 📤 Upload export
+        uses: actions/upload-artifact@v4
+        with:
+          name: requirements-html
+          path: build/site
+          retention-days: 30
+
+      - name: 📤 Upload Pages artifact
+        if: ${{ github.event_name != 'pull_request' && inputs.deploy }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/site
+
+  deploy:
+    name: 🚀 Deploy to GitHub Pages
+    if: ${{ github.event_name != 'pull_request' && inputs.deploy }}
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: 🚀 Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

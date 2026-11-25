@@ -1,0 +1,587 @@
+[DOCUMENT]
+TITLE: KM271-WiFi High-Level Software Requirements
+UID: KM271-SW
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: requirements.sgra
+
+[TEXT]
+STATEMENT: >>>
+High-level requirements on the application firmware of the KM271-WiFi.
+They are deliberately independent of a specific implementation: they
+apply to every firmware that targets the board, currently
+the78mole/ESPhome-KM271-WiFi (ESPHome with the km271_wifi component) and
+dewenni/ESP_Buderus_KM271 (Arduino/PlatformIO with WebUI and MQTT).
+How a firmware meets a requirement (YAML option, WebUI setting, compile
+option) is left to the implementation. COMPLIANCE is therefore not filled
+in here; it belongs to the verification of each firmware.
+
+The requirements trace to the system requirements (KM271-SYS-xxx) and to
+the application firmware block and interfaces of the system architecture.
+<<<
+
+[[SECTION]]
+TITLE: Logamatic communication
+
+[REQUIREMENT]
+UID: KM271-SW-001
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: KM271 link protocol
+STATEMENT: >>>
+The firmware shall communicate with the Logamatic over the KM271 serial
+interface at 2400 Bd, 8N1, using the 3964R link protocol including
+acknowledge, retry and timeout handling.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-101
+
+[REQUIREMENT]
+UID: KM271-SW-002
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Inspection
+TITLE: Serial port configuration
+STATEMENT: >>>
+The firmware shall use GPIO17 as TX and GPIO18 as RX for the KM271 line on the
+v2.0 board. The pins should be configurable to support other boards.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-101
+
+[REQUIREMENT]
+UID: KM271-SW-003
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Continuous data reception
+STATEMENT: >>>
+After start-up and after any loss of communication the firmware shall switch
+the Logamatic into log mode so that it reports all values and their changes
+continuously.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-004
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Decoding of values
+STATEMENT: >>>
+The firmware shall decode at least the values of heating circuit 1 and 2, hot
+water, boiler and burner, outdoor temperature, operating modes and error/alarm
+messages into physical units and states.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-005
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Writing parameters
+STATEMENT: >>>
+The firmware shall offer write access to the parameters supported by the KM271
+interface (e.g. operating mode and set points of the heating circuits, hot
+water mode and temperature) and shall reject values outside the range the
+Logamatic accepts.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-003
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-006
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Communication supervision
+STATEMENT: >>>
+The firmware shall detect a missing or faulty KM271 communication within 60 s,
+report it as a status value and retry the connection automatically.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYS-023
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Network
+
+[REQUIREMENT]
+UID: KM271-SW-010
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: WiFi station mode
+STATEMENT: >>>
+The firmware shall connect to a configured WiFi network as station and
+reconnect automatically after a loss of connection.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-004
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-107
+
+[REQUIREMENT]
+UID: KM271-SW-011
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Setup access point
+STATEMENT: >>>
+If no network is configured or the configured network is unreachable, the
+firmware shall open an access point with a configuration page (captive portal)
+for entering the WiFi credentials.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-033
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-012
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: WiFi power saving
+STATEMENT: >>>
+The firmware shall keep the WiFi modem power save mode enabled by default.
+Disabling it shall be an explicit user option with a warning about the higher
+supply load.
+<<<
+RATIONALE: >>>
+Disabling modem sleep raises the average current by about 60-80 mA and caused
+brown-outs with weak Logamatic supplies (dewenni v6.0.0).
+<<<
+SOURCE: brownout-v6-2026-11-20 analysis
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYS-012
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-013
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: Wired Ethernet
+STATEMENT: >>>
+The firmware shall support the W5500 Ethernet extension on the SPI interface
+of J7 as alternative or in addition to WiFi.
+<<<
+COMMENT: Details in the software requirements of the extension (ETH-SW-xxx).
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-005
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-103
+
+[REQUIREMENT]
+UID: KM271-SW-014
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: Network time
+STATEMENT: >>>
+The firmware should synchronise its clock via NTP for time stamps and time
+based functions.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Integration
+
+[REQUIREMENT]
+UID: KM271-SW-020
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Home automation interface
+STATEMENT: >>>
+The firmware shall publish all decoded values and accept commands for all
+writable parameters through at least one of: MQTT, ESPHome native API.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-006
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-003
+
+[REQUIREMENT]
+UID: KM271-SW-021
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Home Assistant discovery
+STATEMENT: >>>
+The firmware shall make its entities discoverable by Home Assistant without
+manual entity configuration.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-006
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-022
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Should
+VERIFICATION: Demonstration
+TITLE: Local web interface
+STATEMENT: >>>
+The firmware should provide a local web interface showing the current values
+and the device status.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-006
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Local inputs and outputs
+
+[REQUIREMENT]
+UID: KM271-SW-030
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: OneWire temperature sensors
+STATEMENT: The firmware should read DS18B20 compatible OneWire sensors on GPIO15.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-104
+
+[REQUIREMENT]
+UID: KM271-SW-031
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: Analog sensor inputs
+STATEMENT: >>>
+The firmware should read the analog inputs of J6 (GPIO6/7/8) and offer a
+conversion to temperature for NTC sensors.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-104
+
+[REQUIREMENT]
+UID: KM271-SW-032
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: Oil meter
+STATEMENT: >>>
+The firmware should count pulses of an oil meter on the oil meter input with
+configurable debounce time and pulses per litre, and store the counter
+persistently.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-033
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Supply voltage monitor
+STATEMENT: >>>
+The firmware shall measure the +5V rail on GPIO4 and publish it with a user
+calibration factor.
+<<<
+RATIONALE: Allows users to diagnose weak Logamatic supplies.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-034
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Status LEDs
+STATEMENT: >>>
+The firmware shall drive the LEDs as: GPIO21 network connected, GPIO38
+heartbeat, GPIO39 Logamatic communication active, GPIO40 error.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-023
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-016
+
+[REQUIREMENT]
+UID: KM271-SW-035
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Could
+VERIFICATION: Demonstration
+TITLE: User buttons
+STATEMENT: The firmware may assign functions to the user buttons on GPIO41/42.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-024
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Installation and updates
+
+[REQUIREMENT]
+UID: KM271-SW-040
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Initial flashing over USB
+STATEMENT: >>>
+The firmware shall be provided as a complete image that can be flashed over
+the native USB of the ESP32-S3 and over the CP2102N path, e.g. with a browser
+based installer.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-041
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Native USB must stay usable
+STATEMENT: >>>
+The firmware shall not reconfigure GPIO19/GPIO20 or disable the USB peripheral
+in a way that prevents re-flashing over the native USB.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYA-203
+
+[REQUIREMENT]
+UID: KM271-SW-042
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Over-the-air update
+STATEMENT: >>>
+The firmware shall support updates over the network. An update shall only be
+installed if it was built for the chip of the device (ESP32-S3 vs. ESP32).
+<<<
+RATIONALE: A generic OTA download could pick an ESP32 image for an S3 board.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-032
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-200
+
+[REQUIREMENT]
+UID: KM271-SW-043
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Should
+VERIFICATION: Inspection
+TITLE: Board preset
+STATEMENT: >>>
+The firmware should offer a preset or default configuration for the KM271-WiFi
+v2.0 pin assignment.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Robustness and security
+
+[REQUIREMENT]
+UID: KM271-SW-050
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Persistent configuration
+STATEMENT: >>>
+The configuration shall survive power cycles and firmware updates and should
+be exportable and restorable.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-051
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Watchdog and recovery
+STATEMENT: >>>
+The firmware shall recover from hangs by a watchdog reset and shall resume
+operation after a power failure without user interaction.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[REQUIREMENT]
+UID: KM271-SW-052
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Diagnostics
+STATEMENT: >>>
+The firmware shall provide log output over USB (serial) and should provide a
+network log for diagnosis.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+- TYPE: Parent
+  VALUE: KM271-SYA-102
+
+[REQUIREMENT]
+UID: KM271-SW-053
+STATUS: Draft
+TYPE: Security
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Access protection
+STATEMENT: >>>
+Write access to heating parameters, configuration and OTA updates shall be
+protectable by a password set by the user.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-003
+- TYPE: Parent
+  VALUE: KM271-SYS-032
+- TYPE: Parent
+  VALUE: KM271-SYA-017
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Firmware alternatives
+
+[REQUIREMENT]
+UID: KM271-SW-060
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Inspection
+TITLE: ESP32-S3 support in all firmwares
+STATEMENT: >>>
+Each supported firmware project shall provide an ESP32-S3 build for the v2.0
+board.
+<<<
+COMMENT: >>>
+dewenni v6.0.x builds for ESP32-S3 without code changes but has no S3 release;
+ESPHome-KM271-WiFi has no S3 configuration yet.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+- TYPE: Parent
+  VALUE: KM271-SYA-200
+
+[[/SECTION]]

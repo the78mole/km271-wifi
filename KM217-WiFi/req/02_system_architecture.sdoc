@@ -1,0 +1,541 @@
+[DOCUMENT]
+TITLE: KM271-WiFi System Architecture
+UID: KM271-SYA
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: architecture.sgra
+
+[TEXT]
+STATEMENT: >>>
+This document decomposes the KM271-WiFi into subsystems, describes the
+external and internal interfaces and records the main architecture
+decisions. Each element traces to the system requirements it implements
+(KM271-SYS-xxx). Hardware and software requirements trace back to these
+elements.
+
+Context: the module sits in the KM271 slot of a Buderus Logamatic 2107.
+It talks to the Logamatic over a 5 V asynchronous serial line (KM271
+protocol, 3964R), is powered from the slot and connects to the home
+network by WiFi or, with the extension, by Ethernet. A home automation
+server (e.g. Home Assistant, MQTT broker) consumes the data.
+<<<
+
+[[SECTION]]
+TITLE: System context
+
+[BLOCK]
+UID: KM271-SYA-001
+STATUS: Draft
+KIND: System
+TITLE: KM271-WiFi module
+DESCRIPTION: >>>
+Plug-in module that replaces the Buderus KM271. It bridges the KM271 service
+interface of the Logamatic to IP networks and adds local sensor inputs and an
+extension interface.
+<<<
+REALIZATION: KM217-WiFi/KM217-WiFi.kicad_sch, KM217-WiFi/KM217-WiFi.kicad_pcb
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-001
+
+[BLOCK]
+UID: KM271-SYA-002
+STATUS: Draft
+KIND: External
+TITLE: Buderus Logamatic controller
+DESCRIPTION: >>>
+Heating controller with KM271 slot (2x6 card edge). Provides 5 V, GND, the
+serial KM271 interface and the exhaust gas sensor circuit.
+<<<
+COMMENT: >>>
+Slot supply comes from the NM 282 power board (LM317). Its source resistance
+and current budget are not documented by Buderus.
+<<<
+
+[BLOCK]
+UID: KM271-SYA-003
+STATUS: Draft
+KIND: External
+TITLE: Home network and automation server
+DESCRIPTION: >>>
+WiFi access point or Ethernet switch, MQTT broker and/or Home Assistant
+instance that receive values and send commands.
+<<<
+
+[BLOCK]
+UID: KM271-SYA-004
+STATUS: Draft
+KIND: External
+TITLE: Service PC
+DESCRIPTION: >>>
+PC or smartphone used for flashing (USB, browser based WebTools or esptool)
+and for first-time configuration.
+<<<
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Subsystems
+
+[BLOCK]
+UID: KM271-SYA-010
+STATUS: Draft
+KIND: Subsystem
+TITLE: Controller
+DESCRIPTION: >>>
+ESP32-S3 module with integrated PCB antenna. Runs the exchangeable application
+firmware, the WiFi stack and all interface drivers.
+<<<
+REALIZATION: U1 ESP32-S3-WROOM-1-N8R2
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYS-004
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+
+[BLOCK]
+UID: KM271-SYA-011
+STATUS: Draft
+KIND: Subsystem
+TITLE: Logamatic interface
+DESCRIPTION: >>>
+Card edge connector to the slot, 5 V tap, level translation of the serial
+lines between 3.3 V (controller) and 5 V (Logamatic) and the exhaust gas
+sensor conditioning circuit.
+<<<
+REALIZATION: J1, U4, U5, R33-R44, exhaust gas circuit with J5
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-001
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYS-003
+- TYPE: Parent
+  VALUE: KM271-SYS-020
+
+[BLOCK]
+UID: KM271-SYA-012
+STATUS: Draft
+KIND: Subsystem
+TITLE: Power supply
+DESCRIPTION: >>>
+Combines the slot 5 V and USB VBUS by Schottky diodes, protects the slot input
+with a TVS diode, buffers the 5 V rail and generates 3.3 V with a step-down
+converter (LDO as assembly alternative). Monitors the 5 V rail.
+<<<
+REALIZATION: D8, D9, D10, C7, U8, L1, C8, (U2), R5/R12
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-010
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYS-012
+- TYPE: Parent
+  VALUE: KM271-SYS-013
+
+[BLOCK]
+UID: KM271-SYA-013
+STATUS: Draft
+KIND: Subsystem
+TITLE: USB and programming
+DESCRIPTION: >>>
+USB Mini-B connector with ESD protection. The data lines go either to the
+native USB of the ESP32-S3 (default) or to a CP2102N USB-UART bridge with
+auto-reset circuit (recovery), selected by solder jumpers.
+<<<
+REALIZATION: J2, R69, R70, U3, JP1, JP2, U10, Q1, Q2
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-013
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+
+[BLOCK]
+UID: KM271-SYA-014
+STATUS: Draft
+KIND: Subsystem
+TITLE: Local sensor inputs
+DESCRIPTION: >>>
+8-pole push-wire terminal with supply outputs, three analog inputs, a OneWire
+bus and an oil meter capable input.
+<<<
+REALIZATION: J6 and surrounding circuitry
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+
+[BLOCK]
+UID: KM271-SYA-015
+STATUS: Draft
+KIND: Subsystem
+TITLE: Extension interface
+DESCRIPTION: >>>
+2x5 pin header carrying +5 V, +3.3 V, SPI, I2C and an interrupt line for
+plug-on modules.
+<<<
+REALIZATION: J7
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-005
+- TYPE: Parent
+  VALUE: KM271-SYS-022
+
+[BLOCK]
+UID: KM271-SYA-016
+STATUS: Draft
+KIND: Subsystem
+TITLE: User interface
+DESCRIPTION: >>>
+Four status LEDs driven by the controller and BOOT, RESET and two optional
+user buttons.
+<<<
+REALIZATION: D1-D4, SW1-SW4
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-023
+- TYPE: Parent
+  VALUE: KM271-SYS-024
+
+[BLOCK]
+UID: KM271-SYA-017
+STATUS: Draft
+KIND: Software
+TITLE: Application firmware
+DESCRIPTION: >>>
+Exchangeable firmware that implements the KM271 protocol, the network services
+and the integration into home automation. Requirements on it are written
+implementation independent in the high-level software requirements.
+<<<
+REALIZATION: the78mole/ESPhome-KM271-WiFi or dewenni/ESP_Buderus_KM271
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYS-003
+- TYPE: Parent
+  VALUE: KM271-SYS-006
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+- TYPE: Parent
+  VALUE: KM271-SYS-032
+- TYPE: Parent
+  VALUE: KM271-SYS-033
+
+[BLOCK]
+UID: KM271-SYA-018
+STATUS: Draft
+KIND: Subsystem
+TITLE: Printed circuit board and mechanics
+DESCRIPTION: >>>
+Two-layer PCB with card edge contacts that runs in the guide rails of the
+slot. Handling edges are broken off before installation.
+<<<
+REALIZATION: KM217-WiFi.kicad_pcb, MECH/
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-040
+- TYPE: Parent
+  VALUE: KM271-SYS-041
+- TYPE: Parent
+  VALUE: KM271-SYS-042
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: External interfaces
+
+[INTERFACE]
+UID: KM271-SYA-100
+STATUS: Draft
+KIND: Electrical
+TITLE: Logamatic slot (J1)
+DESCRIPTION: >>>
+2x6 card edge contact into the KM271 slot. Carries the slot supply, the serial
+interface and the exhaust gas sensor circuit. The Logamatic side of the pin
+assignment is derived from the original KM271 and is not documented by
+Buderus.
+<<<
+SIGNALS: >>>
+- Pin 1: +5 V slot supply (VPP, via R33)
+- Pin 2: GND (via R34)
+- Pin 3: exhaust sensor supply, about 5 V (via R35)
+- Pin 4: exhaust sensor return (via R36)
+- Pin 5: LM_TX, serial data from the Logamatic, 5 V logic (via R37)
+- Pin 6: LM_RX, serial data to the Logamatic, 5 V logic (via R38)
+- Pin 7: exhaust sensor measuring input of the Logamatic (via R39)
+- Pin 8: exhaust sensor detection, 10 kOhm to sensor return (via R40)
+- Pins 9-12: not used (R41-R44 not fitted)
+<<<
+COMMENT: >>>
+Assignment of pins 3, 7 and 8 is an assumption from the circuit, see
+DOC/Abgassensor/README.md.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-001
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYS-010
+- TYPE: Parent
+  VALUE: KM271-SYS-020
+
+[INTERFACE]
+UID: KM271-SYA-101
+STATUS: Draft
+KIND: Data
+TITLE: KM271 serial protocol
+DESCRIPTION: >>>
+Asynchronous serial line, 2400 Bd, 8N1, 3964R link protocol, KM271 telegram
+set (log mode and write commands).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-002
+- TYPE: Parent
+  VALUE: KM271-SYS-003
+
+[INTERFACE]
+UID: KM271-SYA-102
+STATUS: Draft
+KIND: Electrical
+TITLE: USB (J2)
+DESCRIPTION: >>>
+USB 2.0 full speed device on a Mini-B receptacle. Supplies the board from VBUS
+and provides either the ESP32-S3 USB-Serial/JTAG (or TinyUSB) device or a
+CP2102N virtual COM port.
+<<<
+SIGNALS: VBUS, D+, D-, ID (not connected), GND, shield (via R60 to GND)
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-013
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+
+[INTERFACE]
+UID: KM271-SYA-103
+STATUS: Draft
+KIND: Electrical
+TITLE: Extension header (J7)
+DESCRIPTION: >>>
+2x5 pin header, 2.54 mm. All logic signals are 3.3 V. I2C is connected
+directly to the controller (no level shifter, pull-ups on the main board).
+<<<
+SIGNALS: >>>
+- 1: +5V
+- 2: +3V3
+- 3: nCS (GPIO10, via 22 Ohm)
+- 4: SCL (GPIO9)
+- 5: MISO (GPIO13, via 22 Ohm)
+- 6: SDA (GPIO16)
+- 7: MOSI (GPIO11, via 22 Ohm)
+- 8: nINT (GPIO14, 4.7 kOhm pull-up)
+- 9: SCLK (GPIO12, via 22 Ohm)
+- 10: GND
+<<<
+COMMENT: >>>
+The W5500 extension uses pin 6 (SDA) as reset input. I2C devices and the
+Ethernet extension therefore exclude each other.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-005
+- TYPE: Parent
+  VALUE: KM271-SYS-022
+
+[INTERFACE]
+UID: KM271-SYA-104
+STATUS: Draft
+KIND: Electrical
+TITLE: Sensor terminal (J6)
+DESCRIPTION: >>>
+WAGO 2086-1208 push-wire terminal, 8 poles, through-hole, buyer option.
+<<<
+SIGNALS: >>>
+- 1: GND
+- 2: analog/pulse input ADC1_CH7 (GPIO8), oil meter compatible
+- 3: GND
+- 4: analog input ADC1_CH6 (GPIO7)
+- 5: +3V3 (via R65)
+- 6: analog input ADC1_CH5 (GPIO6)
+- 7: +5V (via R64)
+- 8: OneWire (GPIO15)
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-021
+
+[INTERFACE]
+UID: KM271-SYA-105
+STATUS: Draft
+KIND: Electrical
+TITLE: Exhaust gas sensor terminal (J5)
+DESCRIPTION: >>>
+2-pole pluggable terminal, 5.08 mm, for the Buderus FG exhaust gas sensor.
+Buyer option.
+<<<
+SIGNALS: 1: sensor + (ATS+), 2: sensor - (ATS-)
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-020
+
+[INTERFACE]
+UID: KM271-SYA-106
+STATUS: Draft
+KIND: Electrical
+TITLE: Debug header (J4)
+DESCRIPTION: >>>
+1x6 header with UART0, EN, IO0, 3.3 V and GND for an external programmer. Not
+fitted by default.
+<<<
+SIGNALS: 1: +3V3, 2: IO0, 3: EN, 4: TXD0, 5: RXD0, 6: GND
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+
+[INTERFACE]
+UID: KM271-SYA-107
+STATUS: Draft
+KIND: RF
+TITLE: Wireless LAN
+DESCRIPTION: >>>
+IEEE 802.11 b/g/n, 2.4 GHz via the PCB antenna of the ESP32-S3 module. The
+antenna area overhangs the board edge.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-004
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Architecture decisions
+
+[DECISION]
+UID: KM271-SYA-200
+STATUS: Accepted
+TITLE: ESP32-S3 instead of ESP32
+CONTEXT: >>>
+The ESP32-WROOM-32D of v1.x is end of life for new designs and has no native
+USB. A USB-UART bridge was needed for flashing.
+<<<
+DECISION: >>>
+Use the ESP32-S3-WROOM-1-N8R2 (8 MB flash, 2 MB quad PSRAM). Modules with
+octal PSRAM are excluded because they occupy GPIO35-37.
+<<<
+CONSEQUENCES: >>>
+All GPIO assignments changed. Firmware needs an ESP32-S3 build, an S3 specific
+OTA image and a board preset.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-007
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+
+[DECISION]
+UID: KM271-SYA-201
+STATUS: Accepted
+TITLE: Step-down converter instead of LDO
+CONTEXT: >>>
+The slot supply is weak. A linear regulator draws the full 3.3 V load current
+from the slot and drops out at about 1.8 Ohm source resistance.
+<<<
+DECISION: >>>
+Generate 3.3 V with a TPS62162 step-down converter. Keep the AZ1117 LDO
+footprint as not-fitted alternative, selected by 0 Ohm resistors.
+<<<
+CONSEQUENCES: >>>
+Lower slot current (292 mA instead of 365 mA at 360 mA load) and regulation up
+to about 3 Ohm. Switching node needs careful layout (EMC).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SYS-012
+
+[DECISION]
+UID: KM271-SYA-202
+STATUS: Accepted
+TITLE: Diode OR instead of power select jumpers
+CONTEXT: >>>
+v1.x used the power select header J3. Wrong jumper settings caused support
+requests.
+<<<
+DECISION: >>>
+Combine USB VBUS and the slot 5 V with Schottky diodes (D8, D9). Remove J3.
+<<<
+CONSEQUENCES: >>>
++5V is 0.3-0.4 V below the source. The 5 V monitor measures behind the diodes.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-013
+
+[DECISION]
+UID: KM271-SYA-203
+STATUS: Accepted
+TITLE: USB data path selected by solder jumpers
+CONTEXT: >>>
+Native USB of the ESP32-S3 is sufficient for flashing and logging, but can be
+disabled by faulty firmware. The CP2102N adds cost.
+<<<
+DECISION: >>>
+Route D+/D- through the ESD protection to the three-pad solder jumpers
+JP1/JP2. Default (1-2 bridged) is the ESP32-S3 native USB; re-bridging to 2-3
+selects the CP2102N. The CP2102N branch may stay unpopulated.
+<<<
+CONSEQUENCES: Both jumpers must always be set to the same side.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-030
+- TYPE: Parent
+  VALUE: KM271-SYS-031
+
+[DECISION]
+UID: KM271-SYA-204
+STATUS: Accepted
+TITLE: I2C without level shifter
+CONTEXT: >>>
+The PCA9306 level shifter of v1.x separated the external I2C. It gated the
+W5500 reset line and caused confusion about pull-ups.
+<<<
+DECISION: >>>
+Remove the PCA9306 (U6) and connect SDA/SCL directly to J7 at 3.3 V level with
+one pull-up per line on the main board (R4, R30).
+<<<
+CONSEQUENCES: Extensions must use 3.3 V I2C levels. I2C_EXT_EN (GPIO2) is free.
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-022
+
+[DECISION]
+UID: KM271-SYA-205
+STATUS: Accepted
+TITLE: Through-hole parts as buyer options
+CONTEXT: >>>
+Terminals and headers are only needed by some users and raise assembly cost.
+<<<
+DECISION: >>>
+Do not assemble J4, J5, J6 and J8 by default. The user fits them or they are
+supplied loose.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SYS-050
+
+[[/SECTION]]

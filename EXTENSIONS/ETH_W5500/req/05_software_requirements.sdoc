@@ -1,0 +1,179 @@
+[DOCUMENT]
+TITLE: ETH-W5500 Extension High-Level Software Requirements
+UID: ETH-SW
+VERSION: 0.1
+OPTIONS:
+  VIEW_STYLE: Table
+
+[GRAMMAR]
+IMPORT_FROM_FILE: requirements.sgra
+
+[TEXT]
+STATEMENT: >>>
+Implementation independent requirements on any firmware that uses the
+W5500 extension. They refine KM271-SW-013.
+<<<
+
+[[SECTION]]
+TITLE: Driver and start-up
+
+[REQUIREMENT]
+UID: ETH-SW-001
+STATUS: Draft
+TYPE: Interface
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: SPI driver
+STATEMENT: >>>
+The firmware shall drive the W5500 on the SPI pins of J7 (v2.0: SCLK 12, MOSI
+11, MISO 13, CS 10) with configurable pins and a clock of at most the value
+that runs stable on the board (default 20 MHz).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: KM271-SW-013
+- TYPE: Parent
+  VALUE: ETH-SYA-100
+
+[REQUIREMENT]
+UID: ETH-SW-002
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Reset before initialisation
+STATEMENT: >>>
+The firmware shall pulse RSTn (v2.0: GPIO16) low for at least 500 us and wait
+for the W5500 to become ready before initialising it.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-202
+- TYPE: Parent
+  VALUE: ETH-HW-005
+
+[REQUIREMENT]
+UID: ETH-SW-003
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Should
+VERIFICATION: Inspection
+TITLE: Interrupt
+STATEMENT: >>>
+The firmware should use the W5500 interrupt on GPIO14 instead of polling.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-100
+
+[REQUIREMENT]
+UID: ETH-SW-004
+STATUS: Draft
+TYPE: Constraint
+PRIORITY: Must
+VERIFICATION: Inspection
+TITLE: No I2C with the extension
+STATEMENT: >>>
+When the Ethernet extension is enabled, the firmware shall not use I2C on
+SDA/SCL of J7.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYA-202
+
+[[/SECTION]]
+
+[[SECTION]]
+TITLE: Network behaviour
+
+[REQUIREMENT]
+UID: ETH-SW-010
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Address configuration
+STATEMENT: >>>
+The firmware shall support DHCP and a static IPv4 configuration on the
+Ethernet interface.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: KM271-SW-013
+
+[REQUIREMENT]
+UID: ETH-SW-011
+STATUS: Draft
+TYPE: Functional
+PRIORITY: Must
+VERIFICATION: Test
+TITLE: Fallback to WiFi
+STATEMENT: >>>
+If Ethernet has no link or no IP address, the device shall stay reachable over
+WiFi (station or setup access point).
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-001
+- TYPE: Parent
+  VALUE: KM271-SW-011
+
+[REQUIREMENT]
+UID: ETH-SW-012
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: WiFi off while Ethernet is connected
+STATEMENT: >>>
+The firmware should offer an option to switch WiFi off while Ethernet has an
+IP address and to restart WiFi when the Ethernet connection is lost.
+<<<
+RATIONALE: >>>
+W5500 (about 130 mA) plus active WiFi with TX peaks can cause brown-outs on
+weak Logamatic supplies.
+<<<
+SOURCE: eth-wifi-off-2026-11-25 (dewenni feature proposal)
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-011
+- TYPE: Parent
+  VALUE: KM271-SW-012
+
+[REQUIREMENT]
+UID: ETH-SW-013
+STATUS: Draft
+TYPE: Performance
+PRIORITY: Should
+VERIFICATION: Test
+TITLE: PHY power-down when unused
+STATEMENT: >>>
+When Ethernet is disabled in the configuration, the firmware should put the
+W5500 PHY into power-down mode.
+<<<
+RATIONALE: >>>
+Without a cable the W5500 draws about 75 mA during auto-negotiation, about 13
+mA in power-down.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-011
+
+[REQUIREMENT]
+UID: ETH-SW-014
+STATUS: Draft
+TYPE: Usability
+PRIORITY: Must
+VERIFICATION: Demonstration
+TITLE: Link status
+STATEMENT: >>>
+The firmware shall report the Ethernet link state, speed and IP address as
+status values.
+<<<
+RELATIONS:
+- TYPE: Parent
+  VALUE: ETH-SYS-004
+
+[[/SECTION]]

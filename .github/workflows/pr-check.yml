@@ -6,6 +6,8 @@ on:
     paths:
       - 'KM217-WiFi/**'
       - 'EXTENSIONS/ETH_W5500/**'
+      - '!KM217-WiFi/req/**'
+      - '!EXTENSIONS/ETH_W5500/req/**'
       - 'DOC/**'
       - '.github/workflows/pr-check.yml'
 
